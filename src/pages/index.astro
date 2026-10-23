@@ -1,16 +1,1128 @@
 ---
+const entreprise = "Maison & Monde";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="icon" type="image/png" href="/favicon.png" />
+
+    <title>Maison & Monde | Ménage à domicile à Paris</title>
+
+    <meta
+      name="description"
+      content="Maison & Monde vous accompagne pour le ménage à domicile, le repassage et le nettoyage à Paris. Demandez votre devis personnalisé."
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="/" class="logo" aria-label="Maison & Monde, accueil">
+        <img
+  src="/favicon.png"
+  alt=""
+  class="logo-icon"
+  width="50"
+  height="50"
+/>
+        <span>Maison <strong>& Monde</strong></span>
+      </a>
+
+      <nav aria-label="Navigation principale">
+        <a href="#services">Nos services</a>
+        <a href="#avantages">Nos avantages</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#contact" class="header-button">Demander un devis</a>
+    </header>
+
+    <main>
+      <section class="hero">
+		<div class="gold-curve-left" aria-hidden="true"></div>
+        <div class="hero-content">
+          <span class="eyebrow">SERVICES À DOMICILE À PARIS</span>
+
+         <h1>
+  Un intérieur plus propre,<br />
+  une vie <span>plus sereine.</span>
+</h1>
+
+          <p>
+            Confiez votre ménage et votre repassage à Maison & Monde.
+            Des prestations soignées, adaptées à votre quotidien.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#contact" class="button-primary">
+              Demander un devis
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a href="#services" class="button-secondary">
+              Découvrir nos services →
+            </a>
+          </div>
+
+          <div class="hero-benefits">
+            <span>✓ Prestations personnalisées</span>
+            <span>✓ Intervenantes expérimentées</span>
+            <span>✓ Avantage fiscal selon éligibilité</span>
+          </div>
+        </div>
+
+     
+      </section>
+
+      <section id="services" class="services-section">
+
+<svg class="services-blue-curve" viewBox="0 0 1440 235" preserveAspectRatio="none" aria-hidden="true">
+  <!-- Même dégradé CSS que la bande inférieure : aucun raccord de couleur -->
+  <defs><linearGradient id="services-curve-gradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#205e88"/><stop offset="28%" stop-color="#103b5e"/><stop offset="63%" stop-color="#071b30"/><stop offset="100%" stop-color="#174d70"/></linearGradient></defs>
+  <path d="M0 0 C95 102 150 166 350 196 C650 240 1130 224 1440 198 L1440 235 L0 235 Z" fill="url(#services-curve-gradient)"/>
+  <path d="M0 0 C95 102 150 166 350 196 C650 240 1130 224 1440 198" fill="none" stroke="#f0b44f" stroke-width="1.8" vector-effect="non-scaling-stroke"/>
+  <path d="M0 30 C116 151 181 187 375 212 C695 247 1135 233 1440 211" fill="none" stroke="#f8d68d" stroke-opacity=".8" stroke-width="1" vector-effect="non-scaling-stroke"/>
+</svg>
+
+  <div class="services-text">
+    <span class="section-label">NOS PRESTATIONS</span>
+
+    <h2>Un intérieur impeccable pour chaque besoin</h2>
+
+    <p>
+      Du ménage régulier au nettoyage des vitres, en passant
+      par le repassage ou l'entretien de canapés, nos services
+      s'adaptent à votre quotidien.
+    </p>
+
+    <a href="#contact" class="services-link">
+      Découvrir toutes nos prestations →
+    </a>
+  </div>
+
+  <div class="services-image"></div>
+
+  <div class="services-list">
+
+    <a href="#contact" class="service-card">
+      <span class="service-icon">⌂</span>
+      <span class="service-info">
+        <strong>Ménage à domicile</strong>
+        <small>Suivi régulier ou ponctuel</small>
+      </span>
+      <span class="service-arrow">→</span>
+    </a>
+
+    <a href="#contact" class="service-card">
+      <span class="service-icon">♧</span>
+      <span class="service-info">
+        <strong>Repassage à domicile</strong>
+        <small>Votre linge toujours impeccable</small>
+      </span>
+      <span class="service-arrow">→</span>
+    </a>
+
+    <a href="#contact" class="service-card">
+      <span class="service-icon">✧</span>
+      <span class="service-info">
+        <strong>Nettoyage de vitres</strong>
+        <small>Des vitres éclatantes</small>
+      </span>
+      <span class="service-arrow">→</span>
+    </a>
+
+    <a href="#contact" class="service-card">
+      <span class="service-icon">◈</span>
+      <span class="service-info">
+        <strong>Nettoyage de canapés</strong>
+        <small>Soin et hygiène en profondeur</small>
+      </span>
+      <span class="service-arrow">→</span>
+    </a>
+
+    <a href="#contact" class="service-card">
+      <span class="service-icon">⌂</span>
+      <span class="service-info">
+        <strong>Conciergerie</strong>
+        <small>Accueil et assistance personnalisée</small>
+      </span>
+      <span class="service-arrow">→</span>
+    </a>
+
+  </div>
+
+</section>
+
+     <section id="avantages" class="avantages-section">
+  <svg class="avantages-gold-sweep" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 285 C170 279 235 319 500 319" fill="none" stroke="#e9a34c" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+    <path d="M1100 318 C1270 284 1390 220 1440 126" fill="none" stroke="#e9a34c" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+    <path d="M1160 318 C1310 285 1410 224 1440 174" fill="none" stroke="#f2c477" stroke-opacity=".45" stroke-width=".8" vector-effect="non-scaling-stroke"/>
+  </svg>
+  <!-- Carte de France décorative, en filigrane, sans image externe -->
+  <svg class="france-watermark" viewBox="0 0 220 240" aria-hidden="true" focusable="false">
+    <path d="M89 11 L111 24 L137 17 L150 38 L179 42 L172 67 L201 89 L189 111 L203 135 L184 152 L187 177 L164 181 L149 211 L125 199 L105 224 L82 203 L56 211 L44 185 L17 176 L30 149 L12 124 L32 104 L23 79 L48 70 L56 43 L77 45 Z" fill="currentColor"/>
+    <path d="M183 215 l11 5 -3 14 -10 -7 z" fill="currentColor"/>
+  </svg>
+  <div class="avantages-container">
+
+    <div class="avantages-intro">
+      <span class="avantages-label">VOS AVANTAGES</span>
+      <h2>Un service simple,<br />avantageux et sécurisé</h2>
+    </div>
+
+    <div class="avantages-grid">
+
+      <div class="avantage-item">
+        <div class="avantage-icon">50%</div>
+        <h3>Crédit d'impôt</h3>
+        <p>Avec l'avance immédiate</p>
+      </div>
+
+      <div class="avantage-item">
+        <div class="avantage-icon">♢</div>
+        <h3>Personnel</h3>
+        <p>De confiance</p>
+      </div>
+
+      <div class="avantage-item">
+        <div class="avantage-icon">▦</div>
+        <h3>Horaires flexibles</h3>
+        <p>Selon vos besoins</p>
+      </div>
+
+      <div class="avantage-item">
+        <div class="avantage-icon">❧</div>
+        <h3>Produits de qualité</h3>
+        <p>Et respectueux</p>
+      </div>
+
+    </div>
+
+  </div>
+  <svg class="avantages-wave" viewBox="0 0 1440 115" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 18 C310 105 780 116 1120 86 C1270 72 1370 44 1440 18 L1440 115 L0 115 Z" fill="#f9f7f2"/>
+    <path d="M0 18 C310 105 780 116 1120 86 C1270 72 1370 44 1440 18" fill="none" stroke="#dba64c" stroke-width="1.5"/>
+  </svg>
+</section>
+
+      <section id="a-propos" class="about-section">
+        <div class="about-content">
+          <span class="section-label">À PROPOS DE MAISON &amp; MONDE</span>
+          <h2>Un service de proximité<br />à Paris et en Île-de-France</h2>
+          <p>Maison &amp; Monde est une entreprise locale spécialisée dans les services à domicile. Nous mettons la qualité, la confiance et la satisfaction de nos clients au cœur de notre engagement.</p>
+          <a href="#contact" class="about-link">En savoir plus →</a>
+        </div>
+        <div class="about-image" aria-hidden="true"></div>
+        <svg class="about-curve" viewBox="0 0 1440 460" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 0 H890 C740 10 700 155 580 280 C465 388 280 440 80 460 H0 Z" fill="#f9f7f2"/>
+          <path d="M890 0 C740 10 700 155 580 280 C465 388 280 440 80 460" fill="none" stroke="#e9a34c" stroke-width="1.5"/>
+        </svg>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <h2>Parlons de vos besoins.</h2>
+        <p>Nous vous accompagnerons dans votre projet.</p>
+      </section>
+
+      
+    </main>
+
+    <footer>
+      © {new Date().getFullYear()} {entreprise} — Paris
+    </footer>
+  </body>
 </html>
+
+<style is:global>
+  :root {
+    --navy: #102b46;
+    --navy-dark: #071b30;
+    --sky: #dff2fa;
+    --gold: #e9a34c;
+    --white: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--navy);
+    background: var(--white);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .header {
+    min-height: 88px;
+    padding: 20px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background: var(--navy-dark);
+    color: white;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .logo strong {
+    color: var(--gold);
+  }
+
+ .logo-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+  nav {
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+  }
+
+  nav a:hover {
+    color: var(--gold);
+  }
+
+  .header-button {
+    background: var(--gold);
+    color: var(--navy-dark);
+    padding: 14px 22px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 13px;
+	border-radius: 50px;
+  }
+
+  .hero {
+	border-radius: 0 0 90px 90px;
+overflow: hidden;
+    min-height: 690px;
+   display: flex;
+    align-items: center;
+    gap: 6%;
+    padding: 90px 7%;
+    background:
+  linear-gradient(
+    90deg,
+    rgba(5, 25, 45, 0.98) 0%,
+    rgba(5, 25, 45, 0.90) 25%,
+    rgba(5, 25, 45, 0.60) 50%,
+    rgba(5, 25, 45, 0.10) 100%
+  ),
+ url('/images/menage-a-domicile-paris-maison-et-monde.jpg');
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+  }
+/* Décorations dorées de la page d'accueil */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Courbe dorée supérieure */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -230px;
+  left: -12%;
+  width: 65%;
+  height: 300px;
+  border: 1px solid rgba(226, 178, 83, 0.55);
+  border-radius: 50%;
+  transform: rotate(5deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Courbe dorée inférieure */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -190px;
+  right: -8%;
+  width: 75%;
+  height: 230px;
+  border: 1.5px solid rgba(226, 178, 83, 0.8);
+  border-radius: 50%;
+  transform: rotate(-5deg);
+  pointer-events: none;
+  z-index: 1;
+}
+  .eyebrow,
+  .section-label {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+
+  h1 {
+    font-size: clamp(42px, 5vw, 76px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin: 25px 0;
+    max-width: 800px;
+	color: #ffffff !important;
+  }
+
+  h1 span {
+    color: var(--gold);
+  }
+
+  .hero-content {
+  max-width: 850px;
+  position: relative;
+  z-index: 2;
+}
+  .hero-content > p {
+    color: #d5e5f0;
+    line-height: 1.9;
+    font-size: 17px;
+    max-width: 550px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+  }
+
+  .button-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    background: var(--gold);
+    color: var(--navy-dark);
+    padding: 18px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+  }
+ 
+  .button-secondary {
+    font-size: 14px;
+    color: white;
+	border: 1px solid rgba(255, 255, 255, 0.9);
+border-radius: 50px;
+padding: 15px 28px;
+  }
+
+  .hero-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 25px;
+    margin-top: 55px;
+    font-size: 12px;
+    color: #dceaf3;
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+
+  .image-placeholder {
+    height: 470px;
+    border-radius: 180px 180px 16px 16px;
+    border: 1px solid #ffffff40;
+    background: linear-gradient(145deg, #8eb6c9, #315f79 55%, #102b46);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 45px;
+    box-shadow: 0 30px 80px #00000030;
+  }
+
+  .image-placeholder span {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 12px;
+  }
+
+  .image-placeholder p {
+    font-size: 30px;
+    line-height: 1.2;
+    max-width: 300px;
+  }
+
+  .floating-card {
+    position: absolute;
+    bottom: 30px;
+    left: -45px;
+    background: white;
+    color: var(--navy);
+    padding: 22px 28px;
+    border-radius: 50px;
+    box-shadow: 0 15px 40px #00000025;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .floating-card strong {
+    color: #d78a2d;
+    font-size: 35px;
+  }
+
+  .floating-card span {
+    font-size: 12px;
+  }
+
+  .preview-section,
+  .advantages-section,
+  .contact-section {
+    padding: 110px 8%;
+    text-align: center;
+  }
+
+  .preview-section {
+    background: #fff;
+  }
+
+  .advantages-section {
+    background: var(--sky);
+  }
+
+  .contact-section {
+    background: var(--navy);
+    color: white;
+  }
+
+  h2 {
+    font-size: clamp(30px, 4vw, 48px);
+  }
+
+  footer {
+    padding: 30px;
+    text-align: center;
+    background: var(--navy-dark);
+    color: white;
+    font-size: 13px;
+  }
+
+  @media (max-width: 900px) {
+    .header {
+      padding: 20px 6%;
+    }
+
+    nav {
+      display: none;
+    }
+
+    .header-button {
+      padding: 12px;
+      font-size: 11px;
+	  
+    }
+
+    .logo {
+      font-size: 16px;
+    }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 70px 7%;
+      gap: 50px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 9vw, 55px);
+    }
+
+    .hero-visual {
+      max-width: 500px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .image-placeholder {
+      height: 350px;
+      border-radius: 130px 130px 12px 12px;
+    }
+
+    .floating-card {
+      left: 10px;
+      bottom: -20px;
+    }
+
+    .hero-benefits {
+      margin-top: 35px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  @media (max-width: 768px) {
+  .hero::before {
+    top: -245px;
+    left: -35%;
+    width: 120%;
+  }
+
+  .hero::after {
+    bottom: -195px;
+    right: -35%;
+    width: 130%;
+  }
+}
+/* Troisième courbe dorée — coin inférieur gauche */
+.hero {
+  position: relative;
+}
+
+.hero .gold-curve-left {
+  position: absolute;
+ left: -350px;
+bottom: -300px;
+width: 950px;
+
+height: 320px;
+
+transform: rotate(-12deg);
+
+  border: 2px solid rgba(226, 178, 83, 0.85);
+  border-radius: 50%;
+
+
+  pointer-events: none;
+  z-index: 1;
+}
+/* Boutons principaux : mêmes dimensions */
+.hero-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: 50px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+/* SECTION NOS PRESTATIONS */
+
+.services-section {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 0.9fr;
+  align-items: center;
+  gap: 35px;
+  padding: 80px 7%;
+  min-height: 500px;
+  background: #f9f7f2;
+  overflow: hidden;
+}
+
+.services-text {
+  position: relative;
+  z-index: 2;
+}
+
+.services-text h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 3vw, 48px);
+  line-height: 1.12;
+  color: #09233e;
+  margin: 20px 0;
+}
+
+.services-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.services-link {
+  display: inline-block;
+  margin-top: 22px;
+  color: #1765a1;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.services-image {
+  height: 420px;
+  background:
+    linear-gradient(90deg, #f9f7f2 0%, transparent 25%),
+    url('/images/femme-de-menage-professionnelle-paris-maison-et-monde.jpeg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 16px;
+  text-decoration: none;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateX(5px);
+}
+
+.service-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e1efff;
+  color: #125c9a;
+  font-size: 25px;
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.service-info strong {
+  font-size: 14px;
+  color: #09233e;
+}
+
+.service-info small {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.service-arrow {
+  font-size: 20px;
+  color: #1765a1;
+}
+
+@media (max-width: 900px) {
+  .services-section {
+    grid-template-columns: 1fr;
+    padding: 60px 7%;
+  }
+
+  .services-image {
+    height: 300px;
+  }
+}
+/* Courbe bleue et dorée — Nos prestations */
+
+.services-section { isolation: isolate; }
+
+.services-blue-curve {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: min(32vw, 400px);
+  height: 260px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services-section > :not(.services-blue-curve) {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .services-blue-curve { width: 220px; height: 145px; }
+}
+/* ===== SECTION NOS AVANTAGES ===== */
+
+.avantages-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  background: linear-gradient(
+    120deg,
+    #123e61 0%,
+    #071b30 55%,
+    #164c70 100%
+  );
+
+  color: white;
+
+  padding: 75px 7% 90px;
+
+  
+}
+
+.avantages-container {
+  max-width: 1400px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+
+  align-items: center;
+  gap: 55px;
+}
+
+.avantages-label {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 18px;
+}
+
+.avantages-intro h2 {
+  font-family: Georgia, serif;
+
+  font-size: clamp(30px, 3vw, 45px);
+
+  font-weight: 400;
+  line-height: 1.15;
+
+  margin: 0;
+}
+
+.avantages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.avantage-item {
+  text-align: center;
+}
+
+.avantage-icon {
+  width: 78px;
+  height: 78px;
+
+  margin: 0 auto 18px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    145deg,
+    #347eae,
+    #103c63
+  );
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+
+  color: white;
+
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.avantage-item h3 {
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+
+.avantage-item p {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  color: rgba(255,255,255,0.85);
+}
+
+/* ===== VERSION MOBILE ===== */
+
+@media (max-width: 900px) {
+
+  .avantages-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .avantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .avantages-section {
+    padding: 60px 6% 80px;
+    border-radius: 0;
+  }
+
+}
+.avantages-section {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  border: none;
+  padding-bottom: 125px;
+}
+
+.avantages-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 115px;
+  display: block;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Raccord clair sous la vague : section À propos, avant le contact */
+  .about-section {
+    background: #f9f7f2;
+    color: #102b46;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 7%;
+    padding: 50px 8% 90px;
+    min-height: 350px;
+  }
+  .about-content { max-width: 540px; }
+  .about-content h2 { font-family: Georgia, serif; font-weight: 500; font-size: clamp(30px, 3.3vw, 47px); line-height: 1.12; margin: 14px 0; }
+  .about-content p { line-height: 1.7; }
+  .about-link { display: inline-flex; margin-top: 12px; padding: 13px 24px; border-radius: 40px; background: #e9a34c; color: #102b46; font-weight: 700; text-decoration: none; }
+  .about-image { min-height: 270px; border-radius: 24px; background: url('/images/femme-de-menage-professionnelle-paris-maison-et-monde.jpeg') center / cover; }
+  @media (max-width: 768px) { .about-section { grid-template-columns: 1fr; padding: 45px 7% 70px; } .about-image { min-height: 220px; } }
+
+
+/* === Version corrigée d'après le modèle Maison & Monde === */
+.services-section {
+  min-height: 455px;
+  padding: 46px 6.5% 58px;
+  grid-template-columns: minmax(280px, 1.05fr) minmax(300px, 1.28fr) minmax(270px, .96fr);
+  gap: 18px;
+  background: #faf8f3;
+  isolation: isolate;
+}
+.services-section .services-text { z-index: 3; }
+.services-section .services-text h2 { font-weight: 500; }
+.services-section .services-image {
+  align-self: stretch;
+  height: auto;
+  min-height: 350px;
+  border-radius: 0;
+  background-image: linear-gradient(90deg, #faf8f3 0%, rgba(250,248,243,.76) 12%, rgba(250,248,243,0) 35%), url('/images/femme-de-menage-professionnelle-paris-maison-et-monde.jpeg');
+  background-size: cover;
+  background-position: center 40%;
+  z-index: 1;
+}
+.services-section .services-list { z-index: 3; }
+.services-blue-curve {
+  width: 100%; height: 230px;
+  left: 0; bottom: -2px; z-index: 2;
+}
+.services-section .services-text { padding-bottom: 20px; }
+.services-section .services-link { position: relative; z-index: 4; }
+.avantages-section {
+  margin-top: -2px;
+  padding: 48px 7% 80px;
+  background: linear-gradient(115deg,#205e88 0%,#103b5e 26%,#071b30 61%,#174d70 100%);
+}
+.avantages-section::before {
+  content: ''; position: absolute; inset: 0; pointer-events:none;
+  background: radial-gradient(ellipse at 0% 70%,rgba(92,172,213,.18),transparent 43%);
+}
+.avantages-container { position: relative; z-index: 3; }
+.avantages-wave { height: 85px; }
+.about-section {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 390px; display: block;
+  padding: 40px 7% 70px;
+  background: #f9f7f2;
+}
+.about-content { position: relative; z-index: 4; max-width: 465px; }
+.about-image {
+  position: absolute; z-index: 1;
+  inset: 0 0 0 0; min-height: 0; border-radius: 0;
+  background: url('/images/immeuble-paris-maison-et-monde.jpg') center 49% / cover no-repeat;
+}
+.about-curve { position:absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+@media(max-width: 1000px) {
+  .services-section { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .services-section .services-image { min-height: 350px; }
+  .services-section .services-list { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2,1fr); }
+  .about-content { max-width: 42%; }
+}
+@media(max-width: 680px) {
+  .services-section { display:flex; flex-direction:column; padding: 38px 7% 64px; gap: 20px; }
+  .services-section .services-image { width: 100%; min-height: 280px; border-radius: 16px; background-position: center 36%; }
+  .services-section .services-list { display:flex; width:100%; }
+  .services-blue-curve { height: 105px; }
+  .avantages-section { padding: 48px 6% 75px; }
+  .avantages-wave { height: 55px; }
+  .about-section { padding: 38px 7% 240px; min-height: 570px; }
+  .about-content { max-width: 100%; }
+  .about-image { inset: auto 0 0 0; height: 265px; }
+  .about-curve { display: none; }
+  .about-image { border-radius: 45% 0 0 0 / 25% 0 0 0; }
+}
+
+
+/* Finition des raccords bleu / or : lignes décoratives non interactives */
+.avantages-gold-sweep {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+.avantages-section .avantages-container { z-index: 4; }
+@media (max-width: 768px) {
+  .avantages-gold-sweep { opacity: .55; }
+}
+
+/* Filigrane du logo Maison & Monde dans la bande Vos avantages */
+.avantages-section::after {
+  content: "";
+  position: absolute;
+  left: 1.2%;
+  top: 40%;
+  width: clamp(115px, 12vw, 195px);
+  aspect-ratio: 1;
+  transform: translateY(calc(-70% - 30px));
+  background: url('/favicon.png') center / contain no-repeat;
+  opacity: 0.11;
+  filter: grayscale(1) brightness(0) invert(1);
+  pointer-events: none;
+  z-index: 1;
+}
+@media (max-width: 680px) {
+  .avantages-section::after {
+    width: 125px;
+    left: -25px;
+    top: 29%;
+    opacity: 0.075;
+  }
+}
+
+
+/* === Finitions du modèle validé : courbes, dégradé, filigranes === */
+@media (min-width: 901px) {
+  .services-section {
+    min-height: 495px;
+    padding-top: 52px;
+    padding-bottom: 96px; /* le lien reste au-dessus des courbes */
+  }
+  .services-section .services-text { align-self: start; padding-top: 18px; }
+  .services-section .services-link { margin-top: 16px; }
+}
+.services-blue-curve {
+  height: 230px;
+  bottom: -1px;
+}
+.avantages-section {
+  /* Même répartition de couleurs que le SVG du dessus : raccord invisible */
+  background: linear-gradient(90deg, #205e88 0%, #103b5e 28%, #071b30 63%, #174d70 100%);
+}
+/* Une fine deuxième ligne dorée suit la courbe en bas du logo */
+.avantages-gold-sweep { z-index: 3; }
+.france-watermark {
+  position: absolute;
+  width: clamp(85px, 9vw, 145px);
+  height: auto;
+  right: 1.5%;
+  top: 24%;
+  color: #a8c9dc;
+  opacity: .14;
+  z-index: 1;
+  pointer-events: none;
+}
+.avantages-section::after { top: 47%; }
+@media (max-width: 900px) {
+  .services-section { padding-bottom: 95px; }
+  .services-blue-curve { height: 130px; }
+  .france-watermark { width: 82px; top: auto; bottom: 42px; right: -15px; opacity: .09; }
+}
+
+
+/* === Version fidèle au visuel validé (23 octobre) === */
+@media (min-width: 1001px) {
+  .services-section {
+    min-height: 500px;
+    grid-template-columns: minmax(0,1.15fr) minmax(0,1.2fr) minmax(0,.93fr);
+    gap: 18px;
+    padding: 44px 5.8% 95px;
+  }
+  .services-section .services-text { align-self: center; padding-top: 0; padding-bottom: 35px; }
+  .services-section .services-text h2 { font-size: clamp(34px, 3.05vw, 49px); }
+  .services-section .services-image {
+    min-height: 360px;
+    background-position: center 39%;
+    background-image: linear-gradient(90deg,#faf8f3 0%,rgba(250,248,243,.75) 9%,transparent 26%),url('/images/femme-de-menage-professionnelle-paris-maison-et-monde.jpeg');
+  }
+  .services-section .services-list { align-self: center; padding-bottom: 28px; }
+  .about-section { min-height: 430px; padding: 52px 7% 64px; }
+  .about-content { max-width: 455px; }
+  .about-image { background-position: center 51%; }
+}
+/* L'arrière-plan du SVG et de la bande utilise les mêmes couleurs et arrêts. */
+.services-section { background: #faf8f3; }
+.services-blue-curve { width: 100%; height: 235px; bottom: -1px; }
+.avantages-section {
+  margin-top: -2px;
+  background: linear-gradient(90deg,#205e88 0%,#103b5e 28%,#071b30 63%,#174d70 100%);
+  padding-bottom: 100px;
+}
+/* Trait or supplémentaire sous le logo et jusqu'au milieu de la bande */
+.avantages-section .avantages-gold-sweep { z-index: 3; }
+.about-image { background-image: url('/images/immeuble-paris-maison-et-monde.jpg'); }
+.about-curve { z-index: 2; }
+@media (max-width: 1000px) and (min-width: 681px) {
+  .services-blue-curve { height: 150px; }
+  .services-section { padding-bottom: 100px; }
+  .about-section { min-height: 400px; }
+}
+@media (max-width: 680px) {
+  .services-blue-curve { height: 105px; }
+  .avantages-section { padding-bottom: 76px; }
+  .about-curve { display: none; }
+}
+</style>
