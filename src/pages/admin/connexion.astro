@@ -1,0 +1,68 @@
+---
+export const prerender = false;
+
+const erreur = Astro.url.searchParams.get('erreur');
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Connexion administrateur | Maison & Monde</title><meta name="color-scheme" content="light dark"/><script is:inline>(()=>{try{document.documentElement.dataset.theme=localStorage.getItem('mm-admin-theme')||'auto'}catch{document.documentElement.dataset.theme='auto'}})();</script>
+ <link rel="icon" type="image/png" href="/favicon.png" />
+
+</head>
+
+  <body>
+    <main class="page">
+      <section class="connexion">
+        <div class="logo">MAISON <span>&</span> MONDE</div><div class="theme-switch"><label for="theme">Apparence</label><select id="theme"><option value="auto">🖥️ Automatique</option><option value="clair">☀️ Clair</option><option value="sombre">🌙 Sombre</option></select></div>
+
+        <div class="ligne"></div>
+
+        <h1>Espace administrateur</h1>
+        <p class="description">
+          Connectez-vous pour gérer les demandes de devis.
+        </p>
+
+        {erreur && (
+          <div class="erreur">
+            Adresse e-mail ou mot de passe incorrect.
+          </div>
+        )}
+
+        <form action="/api/admin/connexion" method="POST">
+          <label for="email">Adresse e-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Votre adresse e-mail"
+            autocomplete="username"
+            required
+          />
+
+          <label for="password">Mot de passe</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Votre mot de passe"
+            autocomplete="current-password"
+            required
+          />
+
+          <button type="submit">Se connecter</button>
+        </form>
+
+        <p class="retour">
+          <a href="/">← Retour au site Maison & Monde</a>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
+
+<script>const themeSelect=document.querySelector<HTMLSelectElement>('#theme');if(themeSelect){themeSelect.value=document.documentElement.dataset.theme||'auto';themeSelect.addEventListener('change',()=>{document.documentElement.dataset.theme=themeSelect.value;try{localStorage.setItem('mm-admin-theme',themeSelect.value)}catch{}})}</script>
+<style> :global(*){box-sizing:border-box}:global(html){--bg:#edf3fa;--card:#fff;--text:#10294d;--muted:#66788e;--border:#dce5f0;--gold:#c7953e;--field:#f7f9fc;color-scheme:light}@media(prefers-color-scheme:dark){:global(html:not([data-theme="clair"])){--bg:#091321;--card:#14243b;--text:#edf5ff;--muted:#a0b2cc;--border:#2b4360;--gold:#e3b45d;--field:#1c304b;color-scheme:dark}}:global(html[data-theme="sombre"]){--bg:#091321;--card:#14243b;--text:#edf5ff;--muted:#a0b2cc;--border:#2b4360;--gold:#e3b45d;--field:#1c304b;color-scheme:dark}:global(body){margin:0;color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg)}.page{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(ellipse at 15% 15%,rgba(202,153,62,.13),transparent 38%),radial-gradient(ellipse at 85% 85%,rgba(56,122,196,.12),transparent 40%)}.connexion{width:100%;max-width:450px;padding:42px 40px;background:var(--card);border:1px solid var(--border);border-top:3px solid var(--gold);border-radius:18px;box-shadow:0 24px 65px rgba(0,0,0,.13),0 0 30px rgba(211,158,62,.07)}.logo{text-align:center;font-size:22px;font-weight:850;letter-spacing:2px}.logo span{color:var(--gold)}.theme-switch{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0;color:var(--muted);font-size:12px}.theme-switch select{padding:7px 9px;border:1px solid var(--border);border-radius:8px;background:var(--field);color:var(--text)}.ligne{width:65px;height:2px;background:var(--gold);margin:22px auto}h1{text-align:center;font-size:24px;margin:20px 0 10px}.description{text-align:center;color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:30px}form{display:flex;flex-direction:column}label{font-size:12px;font-weight:700;margin:13px 0 7px}input{background:var(--field);border:1px solid var(--border);border-radius:9px;color:var(--text);padding:14px;font-size:14px}input:focus-visible{outline:2px solid var(--gold)}button{margin-top:22px;border:1px solid var(--gold);background:linear-gradient(120deg,#173e6c,#0f294c);border-radius:10px;color:#fff;padding:14px;font-size:14px;font-weight:750;cursor:pointer;box-shadow:0 6px 18px rgba(13,46,83,.17)}button:hover{filter:brightness(1.15)}.erreur{padding:12px;border-radius:8px;background:#ffe8e7;color:#a32929;font-size:13px}.retour{text-align:center;margin:24px 0 0}.retour a{color:var(--muted);font-size:12px;text-decoration:none}.retour a:hover{color:var(--gold)}@media(max-width:480px){.connexion{padding:30px 24px}} </style>

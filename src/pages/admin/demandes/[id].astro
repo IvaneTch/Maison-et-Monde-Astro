@@ -1,0 +1,107 @@
+---
+import mysql from 'mysql2/promise';
+import { createHash } from 'node:crypto';
+export const prerender = false;
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+
+const token = Astro.cookies.get('mm_admin_session')?.value;
+if (!token) return Astro.redirect('/admin/connexion/');
+const id = Number(Astro.params.id);
+if (!Number.isSafeInteger(id) || id < 1) return new Response('Demande introuvable', {status: 404});
+
+let connection: mysql.Connection | undefined;
+let demande: Record<string, unknown> | null = null;
+try {
+  connection = await mysql.createConnection({
+    host: import.meta.env.DB_HOST || '127.0.0.1',
+    port: Number(import.meta.env.DB_PORT || 8889),
+    user: import.meta.env.DB_USER,
+    password: import.meta.env.DB_PASSWORD,
+    database: import.meta.env.DB_NAME
+  });
+  const hash = createHash('sha256').update(token).digest('hex');
+  const [sessions] = await connection.execute<mysql.RowDataPacket[]>(
+    `SELECT s.id FROM sessions_admin s JOIN administrateurs a ON a.id=s.administrateur_id
+     WHERE s.token_hash=? AND s.date_expiration>NOW() AND a.actif=1 LIMIT 1`, [hash]);
+  if (!sessions.length) {
+    Astro.cookies.delete('mm_admin_session', {path:'/'});
+    return Astro.redirect('/admin/connexion/');
+  }
+  const [rows] = await connection.execute<mysql.RowDataPacket[]>(
+    'SELECT * FROM demandes_devis WHERE id=? LIMIT 1', [id]);
+  if (!rows.length) return new Response('Demande introuvable', {status:404});
+  demande = rows[0] as Record<string, unknown>;
+} finally {
+  if (connection) await connection.end();
+}
+
+const d = demande!;
+const labels: Record<string,string> = {
+  reference_devis:'Référence', type_devis:'Type de devis', nom:'Nom', prenom:'Prénom',
+  email:'Adresse e-mail', telephone:'Téléphone', code_postal:'Code postal', ville:'Ville',
+  type_logement:'Type de logement', surface_m2:'Surface (m²)', nombre_pieces:'Nombre de pièces',
+  nombre_salles_bain:'Salles de bain', animaux_presents:'Animaux présents',
+  prestations:'Prestations souhaitées', frequence:'Fréquence souhaitée',
+  duree_souhaitee:'Durée souhaitée', disponibilites:'Disponibilités',
+  commentaires:'Commentaires et précisions', statut:'Statut',
+  date_creation:'Date de réception', date_modification:'Dernière modification'
+};
+const ordre = [
+  'reference_devis','type_devis','date_creation','statut','prenom','nom','email','telephone',
+  'code_postal','ville','type_logement','surface_m2','nombre_pieces','nombre_salles_bain',
+  'animaux_presents','prestations','frequence','duree_souhaitee','disponibilites','commentaires','date_modification'
+];
+const groupes = [
+  {titre:'Demande', champs:['reference_devis','type_devis','date_creation','statut']},
+  {titre:'Coordonnées du client', champs:['prenom','nom','email','telephone','code_postal','ville']},
+  {titre:'Logement', champs:['type_logement','surface_m2','nombre_pieces','nombre_salles_bain','animaux_presents']},
+  {titre:'Prestations demandées', champs:['prestations','frequence','duree_souhaitee','disponibilites','commentaires']}
+];
+const format = (value: unknown): string => {
+  if (value === null || value === undefined || value === '') return 'Non renseigné';
+  if (value instanceof Date) return new Intl.DateTimeFormat('fr-FR',{dateStyle:'long',timeStyle:'short'}).format(value);
+  if (typeof value === 'boolean') return value ? 'Oui' : 'Non';
+  if (typeof value === 'object') return JSON.stringify(value, null, 2);
+  if (typeof value === 'string' && (value.startsWith('[') || value.startsWith('{'))) {
+    try {
+      const parsed = JSON.parse(value);
+      if (Array.isArray(parsed)) return parsed.map(x=>typeof x==='object'?JSON.stringify(x):String(x)).join(' • ') || 'Non renseigné';
+      if (typeof parsed === 'object' && parsed) return Object.entries(parsed).map(([k,v])=>`${k} : ${String(v)}`).join(' • ');
+    } catch {}
+  }
+  if (value === 1 && ['animaux_presents'].length) return 'Oui';
+  if (value === 0) return 'Non';
+  return String(value);
+};
+const statusLabels: Record<string,string> = {nouvelle:'Nouvelle',en_cours:'En cours',devis_envoye:'Devis envoyé',acceptee:'Acceptée'};
+const status = String(d.statut || 'nouvelle');
+const ref = String(d.reference_devis || `#${id}`);
+const autres = Object.keys(d).filter(k => !ordre.includes(k) && k !== 'id');
+---
+<html lang="fr" data-theme="auto">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>{ref} | Maison & Monde</title>
+  <script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem('mm-admin-theme')||'auto'}catch{}</script>
+  <style>
+    :root{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color-scheme:dark;--bg:#061120;--card:#0e223b;--card2:#132b47;--text:#edf4ff;--muted:#a5b6cc;--border:#294361;--gold:#e8b65a;--shadow:0 16px 36px #0005}
+    :root[data-theme="clair"]{color-scheme:light;--bg:#eff5fb;--card:#fff;--card2:#f1f6fb;--text:#173253;--muted:#586d83;--border:#d9e4ef;--gold:#ae7928;--shadow:0 14px 32px #17325312}
+    @media(prefers-color-scheme:light){:root[data-theme="auto"]{color-scheme:light;--bg:#eff5fb;--card:#fff;--card2:#f1f6fb;--text:#173253;--muted:#586d83;--border:#d9e4ef;--gold:#ae7928;--shadow:0 14px 32px #17325312}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);min-height:100vh}a{color:inherit;text-decoration:none}.top{background:var(--card);border-bottom:1px solid var(--border);padding:20px max(20px,calc((100vw - 1160px)/2));display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-weight:850;letter-spacing:1.5px}.brand span{color:var(--gold)}.top a,.back{font-size:13px;color:var(--gold)}main{max-width:1160px;margin:0 auto;padding:35px 20px 70px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--gold)}h1{font-size:clamp(25px,4vw,39px);margin:12px 0 8px;overflow-wrap:anywhere}p{color:var(--muted)}.intro{margin-bottom:30px}.badge{display:inline-block;padding:8px 14px;border-radius:99px;background:#d8eeff;color:#185586;font-size:12px;font-weight:750}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:linear-gradient(145deg,var(--card),var(--card2));border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:15px;padding:25px;box-shadow:var(--shadow);min-width:0}.card h2{font-size:17px;margin:0 0 22px;color:var(--gold)}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}.field{min-width:0}.field dt{color:var(--muted);font-size:12px;margin-bottom:7px}.field dd{margin:0;font-size:14px;line-height:1.6;overflow-wrap:anywhere;white-space:pre-wrap}.field a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}.full{grid-column:1/-1}.back{display:inline-flex;margin-bottom:20px;border:1px solid var(--border);padding:11px 16px;border-radius:9px;background:var(--card)}.extra{margin-top:18px}.footnote{font-size:12px;margin-top:25px}@media(max-width:760px){.cards{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.top{padding:17px 20px}.card{padding:20px}}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="brand">MAISON <span>&amp;</span> MONDE</div><a href="/admin/">← Tableau de bord</a></header>
+  <main>
+    <a class="back" href="/admin/#demandes">← Retour aux demandes de devis</a>
+    <div class="intro"><div class="eyebrow">GESTION DES CLIENTS · FICHE DÉTAILLÉE</div><h1>Demande {ref}</h1><span class="badge">{statusLabels[status] || status}</span><p>Informations transmises par le formulaire de devis Maison &amp; Monde.</p></div>
+    <div class="cards">
+      {groupes.map(g => <section class="card"><h2>{g.titre}</h2><dl class="fields">{g.champs.filter(k=>k in d).map(k=><div class:list={['field', ['prestations','disponibilites','commentaires'].includes(k)&&'full']}><dt>{labels[k]}</dt><dd>{k==='email' && d[k] ? <a href={`mailto:${String(d[k])}`}>{String(d[k])}</a> : k==='telephone' && d[k] ? <a href={`tel:${String(d[k]).replace(/[^+\d]/g,'')}`}>{String(d[k])}</a> : k==='statut' ? (statusLabels[status] || status) : k==='animaux_presents' ? (d[k] ? 'Oui' : 'Non') : format(d[k])}</dd></div>)}</dl></section>)}
+    </div>
+    {autres.length>0 && <section class="card extra"><h2>Informations complémentaires</h2><dl class="fields">{autres.map(k=><div class="field"><dt>{k.replace(/_/g,' ')}</dt><dd>{format(d[k])}</dd></div>)}</dl></section>}
+    <p class="footnote">Consultation privée : les informations de cette fiche ne sont accessibles qu'aux administrateurs connectés.</p>
+  </main>
+</body>
+</html>
