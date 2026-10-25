@@ -13,6 +13,61 @@ export const POST: APIRoute = async ({ request }) => {
   if (Number(request.headers.get('content-length') ?? 0) > 30000) return fail('Demande trop volumineuse.', 413);
   let data: FormData;
   try { data = await request.formData(); } catch { return fail('Formulaire invalide.'); }
+  // Devis simple : mêmes API et table que le devis détaillé.
+  if (str(data, 'type_devis', 20) === 'simple') {
+    const nom = str(data, 'nom', 100);
+    const prenom = str(data, 'prenom', 100);
+    const email = str(data, 'email', 255);
+    const telephone = str(data, 'telephone', 30);
+    const adresse = str(data, 'adresse', 255);
+    const codePostal = str(data, 'code_postal', 10);
+    const frequence = str(data, 'frequence', 30);
+    const prestation = str(data, 'prestation', 100);
+
+    if (!nom || !prenom || !adresse || !/^[0-9]{5}$/.test(codePostal) ||
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+        telephone.replace(/\D/g, '').length < 10) {
+      return fail('Vérifiez vos coordonnées.');
+    }
+    if (!['Reguliere', 'Occasionnelle'].includes(frequence) ||
+        !['Menage a domicile', 'Repassage', 'Nettoyage de vitres', 'Autre prestation'].includes(prestation)) {
+      return fail('Sélectionnez une fréquence et une prestation.');
+    }
+    const reference = `MM-${new Date().toISOString().slice(0, 10).replaceAll('-', '')}-${randomUUID().slice(0, 8).toUpperCase()}`;
+    let connection: mysql.Connection | undefined;
+    try {
+      connection = await mysql.createConnection({
+        host: import.meta.env.DB_HOST || '127.0.0.1',
+        port: Number(import.meta.env.DB_PORT || 8889),
+        user: import.meta.env.DB_USER,
+        password: import.meta.env.DB_PASSWORD,
+        database: import.meta.env.DB_NAME || 'maison_monde',
+        connectTimeout: 5000
+      });
+      await connection.execute(
+        `INSERT INTO demandes_devis
+         (reference_devis, type_devis, nom, prenom, email, telephone,
+          adresse, code_postal, prestations, frequence, commentaires)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [reference, 'simple', nom, prenom, email, telephone, adresse,
+         codePostal, JSON.stringify([prestation]),
+         frequence === 'Reguliere' ? 'Régulière' : 'Occasionnelle',
+         `Adresse de prestation : ${adresse}`]
+      );
+      return new Response(JSON.stringify({ ok: true, reference }), {
+        status: 201,
+        headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' }
+      });
+    } catch (error) {
+      console.error('Échec enregistrement devis simple:', error);
+      return fail('Le serveur ne peut pas enregistrer la demande pour le moment.', 500);
+    } finally {
+      await connection?.end().catch(() => {});
+    }
+  }
+  if (str(data, 'type_devis', 20) && str(data, 'type_devis', 20) !== 'detaille') {
+    return fail('Type de devis inconnu.');
+  }
   const nom = str(data, 'nom', 100), prenom = str(data, 'prenom', 100);
   const email = str(data, 'email', 255), telephone = str(data, 'telephone', 30);
   const adresse = str(data, 'adresse', 255), codePostal = str(data, 'code_postal', 10), ville = str(data, 'ville', 100);

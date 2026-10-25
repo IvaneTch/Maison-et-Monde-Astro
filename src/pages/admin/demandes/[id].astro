@@ -38,7 +38,7 @@ try {
 const d = demande!;
 const labels: Record<string,string> = {
   reference_devis:'Référence', type_devis:'Type de devis', nom:'Nom', prenom:'Prénom',
-  email:'Adresse e-mail', telephone:'Téléphone', code_postal:'Code postal', ville:'Ville',
+  email:'Adresse e-mail', telephone:'Téléphone', adresse:'Adresse de l’intervention', code_postal:'Code postal', ville:'Ville',
   type_logement:'Type de logement', surface_m2:'Surface (m²)', nombre_pieces:'Nombre de pièces',
   nombre_salles_bain:'Salles de bain', animaux_presents:'Animaux présents',
   prestations:'Prestations souhaitées', frequence:'Fréquence souhaitée',
@@ -48,12 +48,12 @@ const labels: Record<string,string> = {
 };
 const ordre = [
   'reference_devis','type_devis','date_creation','statut','prenom','nom','email','telephone',
-  'code_postal','ville','type_logement','surface_m2','nombre_pieces','nombre_salles_bain',
+  'adresse','code_postal','ville','type_logement','surface_m2','nombre_pieces','nombre_salles_bain',
   'animaux_presents','prestations','frequence','duree_souhaitee','disponibilites','commentaires','date_modification'
 ];
 const groupes = [
   {titre:'Demande', champs:['reference_devis','type_devis','date_creation','statut']},
-  {titre:'Coordonnées du client', champs:['prenom','nom','email','telephone','code_postal','ville']},
+  {titre:'Coordonnées du client', champs:['prenom','nom','email','telephone','adresse','code_postal','ville']},
   {titre:'Logement', champs:['type_logement','surface_m2','nombre_pieces','nombre_salles_bain','animaux_presents']},
   {titre:'Prestations demandées', champs:['prestations','frequence','duree_souhaitee','disponibilites','commentaires']}
 ];
@@ -61,7 +61,8 @@ const format = (value: unknown): string => {
   if (value === null || value === undefined || value === '') return 'Non renseigné';
   if (value instanceof Date) return new Intl.DateTimeFormat('fr-FR',{dateStyle:'long',timeStyle:'short'}).format(value);
   if (typeof value === 'boolean') return value ? 'Oui' : 'Non';
-  if (typeof value === 'object') return JSON.stringify(value, null, 2);
+  if (Array.isArray(value)) return value.map(x => typeof x === 'object' && x !== null ? JSON.stringify(x) : String(x)).join(' • ') || 'Non renseigné';
+  if (typeof value === 'object') return Object.entries(value).map(([k,v]) => `${k} : ${String(v)}`).join(' • ') || 'Non renseigné';
   if (typeof value === 'string' && (value.startsWith('[') || value.startsWith('{'))) {
     try {
       const parsed = JSON.parse(value);
@@ -83,6 +84,8 @@ const autres = Object.keys(d).filter(k => !ordre.includes(k) && k !== 'id');
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex,nofollow" />
+  
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <title>{ref} | Maison & Monde</title>
   <script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem('mm-admin-theme')||'auto'}catch{}</script>
   <style>
@@ -90,6 +93,21 @@ const autres = Object.keys(d).filter(k => !ordre.includes(k) && k !== 'id');
     :root[data-theme="clair"]{color-scheme:light;--bg:#eff5fb;--card:#fff;--card2:#f1f6fb;--text:#173253;--muted:#586d83;--border:#d9e4ef;--gold:#ae7928;--shadow:0 14px 32px #17325312}
     @media(prefers-color-scheme:light){:root[data-theme="auto"]{color-scheme:light;--bg:#eff5fb;--card:#fff;--card2:#f1f6fb;--text:#173253;--muted:#586d83;--border:#d9e4ef;--gold:#ae7928;--shadow:0 14px 32px #17325312}}
     *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);min-height:100vh}a{color:inherit;text-decoration:none}.top{background:var(--card);border-bottom:1px solid var(--border);padding:20px max(20px,calc((100vw - 1160px)/2));display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-weight:850;letter-spacing:1.5px}.brand span{color:var(--gold)}.top a,.back{font-size:13px;color:var(--gold)}main{max-width:1160px;margin:0 auto;padding:35px 20px 70px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--gold)}h1{font-size:clamp(25px,4vw,39px);margin:12px 0 8px;overflow-wrap:anywhere}p{color:var(--muted)}.intro{margin-bottom:30px}.badge{display:inline-block;padding:8px 14px;border-radius:99px;background:#d8eeff;color:#185586;font-size:12px;font-weight:750}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:linear-gradient(145deg,var(--card),var(--card2));border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:15px;padding:25px;box-shadow:var(--shadow);min-width:0}.card h2{font-size:17px;margin:0 0 22px;color:var(--gold)}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}.field{min-width:0}.field dt{color:var(--muted);font-size:12px;margin-bottom:7px}.field dd{margin:0;font-size:14px;line-height:1.6;overflow-wrap:anywhere;white-space:pre-wrap}.field a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}.full{grid-column:1/-1}.back{display:inline-flex;margin-bottom:20px;border:1px solid var(--border);padding:11px 16px;border-radius:9px;background:var(--card)}.extra{margin-top:18px}.footnote{font-size:12px;margin-top:25px}@media(max-width:760px){.cards{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.top{padding:17px 20px}.card{padding:20px}}
+    .gestion{margin-bottom:20px}.statut-form{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.statut-form label{font-size:13px;color:var(--muted)}.statut-form select{padding:11px 14px;background:var(--card2);color:var(--text);border:1px solid var(--border);border-radius:9px}.bouton-or,.bouton-danger{border-radius:9px;padding:11px 16px;font:inherit;font-weight:700;cursor:pointer}.bouton-or{background:var(--gold);color:#071426;border:0}.bouton-danger{background:transparent;color:#ff9c9c;border:1px solid #b64d57}.suppression-form{margin-top:18px}.gestion-note{font-size:12px;margin-bottom:0}
+
+    /* Confirmation personnalisée de mise à la corbeille */
+    .dialog-corbeille{border:1px solid var(--gold);border-radius:18px;padding:0;background:var(--card);color:var(--text);width:min(440px,calc(100% - 32px));max-height:calc(100% - 32px);box-shadow:0 25px 80px #0009,0 0 28px #e8b65a20}
+    .dialog-corbeille::backdrop{background:rgba(1,9,21,.78);backdrop-filter:blur(5px)}
+    .dialog-interieur{padding:28px;text-align:center}
+    .dialog-icone{font-size:32px;line-height:1;margin-bottom:12px}
+    .dialog-corbeille h2{font-size:21px;color:var(--gold);margin:0 0 12px}
+    .dialog-corbeille p{font-size:14px;line-height:1.65;margin:0 0 24px}
+    .dialog-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .dialog-actions button{min-height:44px;border-radius:9px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer}
+    .dialog-annuler{background:var(--card2);color:var(--text);border:1px solid var(--border)}
+    .dialog-confirmer{background:#a8323c;color:#fff;border:1px solid #c54d57}
+    .dialog-actions button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    @media(prefers-reduced-motion:no-preference){.dialog-corbeille[open]{animation:dialog-apparition .2s ease-out}@keyframes dialog-apparition{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}}
   </style>
 </head>
 <body>
@@ -97,11 +115,62 @@ const autres = Object.keys(d).filter(k => !ordre.includes(k) && k !== 'id');
   <main>
     <a class="back" href="/admin/#demandes">← Retour aux demandes de devis</a>
     <div class="intro"><div class="eyebrow">GESTION DES CLIENTS · FICHE DÉTAILLÉE</div><h1>Demande {ref}</h1><span class="badge">{statusLabels[status] || status}</span><p>Informations transmises par le formulaire de devis Maison &amp; Monde.</p></div>
+    <section class="card gestion">
+      <h2>Gérer cette demande</h2>
+      <form method="POST" action="/api/admin/gerer-demande" class="statut-form">
+        <input type="hidden" name="id" value={id} />
+        <input type="hidden" name="action" value="statut" />
+        <label for="nouveau-statut">Statut de la demande</label>
+        <select id="nouveau-statut" name="statut">
+          {Object.entries(statusLabels).map(([valeur, nom]) => <option value={valeur} selected={status === valeur}>{nom}</option>)}
+        </select>
+        <button type="submit" class="bouton-or">Enregistrer le statut</button>
+      </form>
+      <form method="POST" action="/api/admin/gerer-demande" class="suppression-form" id="form-corbeille">
+        <input type="hidden" name="id" value={id} />
+        <input type="hidden" name="action" value="supprimer" />
+        <button type="submit" class="bouton-danger">🗑 Placer dans la corbeille</button>
+      </form>
+      <p class="gestion-note">La suppression est réversible depuis la corbeille du tableau de bord.</p>
+    </section>
+    <dialog id="confirmation-corbeille" class="dialog-corbeille" aria-labelledby="titre-confirmation-corbeille" aria-describedby="texte-confirmation-corbeille">
+      <div class="dialog-interieur">
+        <div class="dialog-icone" aria-hidden="true">🗑️</div>
+        <h2 id="titre-confirmation-corbeille">Placer dans la corbeille ?</h2>
+        <p id="texte-confirmation-corbeille">La demande <strong>{ref}</strong> sera retirée du tableau de bord. Vous pourrez la restaurer à tout moment depuis la corbeille.</p>
+        <div class="dialog-actions">
+          <button type="button" class="dialog-annuler" id="annuler-corbeille">Annuler</button>
+          <button type="button" class="dialog-confirmer" id="confirmer-corbeille">Placer dans la corbeille</button>
+        </div>
+      </div>
+    </dialog>
     <div class="cards">
-      {groupes.map(g => <section class="card"><h2>{g.titre}</h2><dl class="fields">{g.champs.filter(k=>k in d).map(k=><div class:list={['field', ['prestations','disponibilites','commentaires'].includes(k)&&'full']}><dt>{labels[k]}</dt><dd>{k==='email' && d[k] ? <a href={`mailto:${String(d[k])}`}>{String(d[k])}</a> : k==='telephone' && d[k] ? <a href={`tel:${String(d[k]).replace(/[^+\d]/g,'')}`}>{String(d[k])}</a> : k==='statut' ? (statusLabels[status] || status) : k==='animaux_presents' ? (d[k] ? 'Oui' : 'Non') : format(d[k])}</dd></div>)}</dl></section>)}
+      {groupes.map(g => <section class="card"><h2>{g.titre}</h2><dl class="fields">{g.champs.filter(k=>k in d).map(k=><div class:list={['field', ['prestations','disponibilites','commentaires'].includes(k)&&'full']}><dt>{labels[k]}</dt><dd>{k==='email' && d[k] ? <a href={`mailto:${String(d[k])}`}>{String(d[k])}</a> : k==='telephone' && d[k] ? <a href={`tel:${String(d[k]).replace(/[^+\d]/g,'')}`}>{String(d[k])}</a> : k==='statut' ? (statusLabels[status] || status) : k==='animaux_presents' ? (d[k] === null || d[k] === undefined ? 'Non renseigné' : d[k] ? 'Oui' : 'Non') : format(d[k])}</dd></div>)}</dl></section>)}
     </div>
     {autres.length>0 && <section class="card extra"><h2>Informations complémentaires</h2><dl class="fields">{autres.map(k=><div class="field"><dt>{k.replace(/_/g,' ')}</dt><dd>{format(d[k])}</dd></div>)}</dl></section>}
     <p class="footnote">Consultation privée : les informations de cette fiche ne sont accessibles qu'aux administrateurs connectés.</p>
   </main>
+    <script>
+      const formulaire = document.querySelector<HTMLFormElement>('#form-corbeille');
+      const dialogue = document.querySelector<HTMLDialogElement>('#confirmation-corbeille');
+      const annuler = document.querySelector<HTMLButtonElement>('#annuler-corbeille');
+      const confirmer = document.querySelector<HTMLButtonElement>('#confirmer-corbeille');
+      let envoiConfirme = false;
+
+      formulaire?.addEventListener('submit', (evenement) => {
+        if (envoiConfirme) return;
+        evenement.preventDefault();
+        if (dialogue?.showModal) dialogue.showModal();
+      });
+      annuler?.addEventListener('click', () => dialogue?.close());
+      confirmer?.addEventListener('click', () => {
+        if (!formulaire || envoiConfirme) return;
+        envoiConfirme = true;
+        confirmer.disabled = true;
+        dialogue?.close();
+        formulaire.requestSubmit();
+      });
+    </script>
+
 </body>
 </html>
