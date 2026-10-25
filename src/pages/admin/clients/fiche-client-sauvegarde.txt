@@ -1,0 +1,639 @@
+---
+import mysql from 'mysql2/promise';
+import { createHash } from 'node:crypto';
+
+export const prerender = false;
+
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+
+// Vérification de la connexion administrateur
+const token = Astro.cookies.get('mm_admin_session')?.value;
+
+if (!token) {
+  return Astro.redirect('/admin/connexion/');
+}
+
+const id = Number(Astro.params.id);
+
+if (!Number.isSafeInteger(id) || id < 1) {
+  return new Response('Client introuvable', { status: 404 });
+}
+
+type Demande = mysql.RowDataPacket & {
+  id: number;
+  reference_devis: string | null;
+  prenom: string | null;
+  nom: string | null;
+  email: string | null;
+  telephone: string | null;
+  adresse: string | null;
+  code_postal: string | null;
+  ville: string | null;
+  statut: string | null;
+  date_creation: Date | string | null;
+  type_devis: string | null;
+};
+
+let fiche: Demande | undefined;
+let historique: Demande[] = [];
+let connection: mysql.Connection | undefined;
+
+try {
+  connection = await mysql.createConnection({
+    host: import.meta.env.DB_HOST || '127.0.0.1',
+    port: Number(import.meta.env.DB_PORT || 8889),
+    user: import.meta.env.DB_USER,
+    password: import.meta.env.DB_PASSWORD,
+    database: import.meta.env.DB_NAME,
+  });
+
+  // Vérification de la session
+  const hash = createHash('sha256')
+    .update(token)
+    .digest('hex');
+
+  const [sessions] = await connection.execute<mysql.RowDataPacket[]>(
+    `SELECT s.id
+     FROM sessions_admin s
+     JOIN administrateurs a
+       ON a.id = s.administrateur_id
+     WHERE s.token_hash = ?
+       AND s.date_expiration > NOW()
+       AND a.actif = 1
+     LIMIT 1`,
+    [hash]
+  );
+
+  if (!sessions.length) {
+    Astro.cookies.delete('mm_admin_session', { path: '/' });
+    return Astro.redirect('/admin/connexion/');
+  }
+
+  // Recherche de la demande utilisée comme fiche client
+  const [sources] = await connection.execute<Demande[]>(
+    `SELECT *
+     FROM demandes_devis
+     WHERE id = ?
+       AND date_suppression IS NULL
+     LIMIT 1`,
+    [id]
+  );
+
+  fiche = sources[0];
+
+  if (!fiche) {
+    return new Response('Client introuvable', { status: 404 });
+  }
+
+  // Regroupement des demandes par adresse e-mail
+  const email = (fiche.email || '').trim();
+  const telephone = (fiche.telephone || '').trim();
+
+  if (email) {
+    const [rows] = await connection.execute<Demande[]>(
+      `SELECT *
+       FROM demandes_devis
+       WHERE date_suppression IS NULL
+         AND LOWER(TRIM(email)) = LOWER(?)
+       ORDER BY date_creation DESC, id DESC`,
+      [email]
+    );
+
+    historique = rows;
+
+  } else if (telephone) {
+    const [rows] = await connection.execute<Demande[]>(
+      `SELECT *
+       FROM demandes_devis
+       WHERE date_suppression IS NULL
+         AND (email IS NULL OR TRIM(email) = '')
+         AND TRIM(telephone) = ?
+       ORDER BY date_creation DESC, id DESC`,
+      [telephone]
+    );
+
+    historique = rows;
+
+  } else {
+    historique = [fiche];
+  }
+
+} finally {
+  if (connection) {
+    await connection.end();
+  }
+}
+
+const client = fiche!;
+
+const nomComplet =
+  [client.prenom, client.nom].filter(Boolean).join(' ')
+  || 'Client sans nom';
+
+const afficher = (valeur: unknown) => {
+  if (
+    valeur === null ||
+    valeur === undefined ||
+    String(valeur).trim() === ''
+  ) {
+    return 'Non renseigné';
+  }
+
+  return String(valeur);
+};
+
+const dateFR = (valeur: Date | string | null) => {
+  if (!valeur) return '—';
+
+  const date = new Date(valeur);
+
+  if (Number.isNaN(date.getTime())) return '—';
+
+  return new Intl.DateTimeFormat('fr-FR', {
+    dateStyle: 'medium'
+  }).format(date);
+};
+
+const statuts: Record<string, string> = {
+  nouvelle: 'Nouvelle',
+  en_cours: 'En cours',
+  devis_envoye: 'Devis envoyé',
+  acceptee: 'Acceptée'
+};
+---
+
+<!doctype html>
+<html lang="fr" data-theme="auto">
+
+<head>
+  <meta charset="utf-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+
+  <meta name="robots" content="noindex,nofollow" />
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="/favicon.png"
+  />
+
+  <title>{nomComplet} | Clients | Maison & Monde</title>
+
+  <script is:inline>
+    try {
+      document.documentElement.dataset.theme =
+        localStorage.getItem('mm-admin-theme') || 'auto';
+    } catch {}
+  </script>
+
+  <style>
+    :root {
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', sans-serif;
+
+      color-scheme: dark;
+
+      --bg: #061120;
+      --card: #0e223b;
+      --card2: #132b47;
+      --text: #edf4ff;
+      --muted: #a5b6cc;
+      --border: #294361;
+      --gold: #e8b65a;
+      --shadow: 0 16px 36px #0005;
+    }
+
+    :root[data-theme="clair"] {
+      color-scheme: light;
+
+      --bg: #eff5fb;
+      --card: #fff;
+      --card2: #f1f6fb;
+      --text: #173253;
+      --muted: #586d83;
+      --border: #d9e4ef;
+      --gold: #ae7928;
+      --shadow: 0 14px 32px #17325312;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root[data-theme="auto"] {
+        color-scheme: light;
+
+        --bg: #eff5fb;
+        --card: #fff;
+        --card2: #f1f6fb;
+        --text: #173253;
+        --muted: #586d83;
+        --border: #d9e4ef;
+        --gold: #ae7928;
+        --shadow: 0 14px 32px #17325312;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 20px max(20px, calc((100vw - 1160px) / 2));
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      font-weight: 850;
+      letter-spacing: 1.5px;
+    }
+
+    .brand span {
+      color: var(--gold);
+    }
+
+    .top a,
+    .back {
+      font-size: 13px;
+      color: var(--gold);
+    }
+
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 35px 20px 70px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    h1 {
+      font-size: clamp(25px, 4vw, 39px);
+      margin: 12px 0 8px;
+      overflow-wrap: anywhere;
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .intro {
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 99px;
+      background: #d8eeff;
+      color: #185586;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(
+        145deg,
+        var(--card),
+        var(--card2)
+      );
+
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--gold);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .card h2 {
+      font-size: 17px;
+      margin: 0 0 22px;
+      color: var(--gold);
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 19px;
+    }
+
+    .field {
+      min-width: 0;
+    }
+
+    .field dt {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    .field dd {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-wrap: anywhere;
+    }
+
+    .field a,
+    .request-link {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .back {
+      display: inline-flex;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      padding: 11px 16px;
+      border-radius: 9px;
+      background: var(--card);
+    }
+
+    .history {
+      margin-top: 18px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    th {
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      background: var(--card2);
+    }
+
+    td,
+    th {
+      padding: 15px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .footnote {
+      font-size: 12px;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 760px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .fields {
+        grid-template-columns: 1fr;
+      }
+
+      .top {
+        padding: 17px 20px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="top">
+    <div class="brand">
+      MAISON <span>&amp;</span> MONDE
+    </div>
+
+    <a href="/admin/">
+      ← Tableau de bord
+    </a>
+  </header>
+
+  <main>
+
+    <a class="back" href="/admin/#clients">
+      ← Retour à la liste des clients
+    </a>
+
+    <div class="intro">
+
+      <div class="eyebrow">
+        GESTION DES CLIENTS · FICHE CLIENT
+      </div>
+
+      <h1>{nomComplet}</h1>
+
+      <span class="badge">
+        {historique.length} demande(s) de devis
+      </span>
+
+      <p>
+        Coordonnées et historique des demandes enregistrées.
+      </p>
+
+    </div>
+
+    <div class="cards">
+
+      <!-- Coordonnées -->
+
+      <section class="card">
+
+        <h2>Coordonnées du client</h2>
+
+        <dl class="fields">
+
+          <div class="field">
+            <dt>Prénom</dt>
+            <dd>{afficher(client.prenom)}</dd>
+          </div>
+
+          <div class="field">
+            <dt>Nom</dt>
+            <dd>{afficher(client.nom)}</dd>
+          </div>
+
+          <div class="field">
+            <dt>Adresse e-mail</dt>
+            <dd>
+              {
+                client.email
+                  ? <a href={`mailto:${client.email}`}>
+                      {client.email}
+                    </a>
+                  : 'Non renseigné'
+              }
+            </dd>
+          </div>
+
+          <div class="field">
+            <dt>Téléphone</dt>
+            <dd>
+              {
+                client.telephone
+                  ? <a href={`tel:${client.telephone.replace(/[^+\d]/g, '')}`}>
+                      {client.telephone}
+                    </a>
+                  : 'Non renseigné'
+              }
+            </dd>
+          </div>
+
+        </dl>
+
+      </section>
+
+      <!-- Adresse -->
+
+      <section class="card">
+
+        <h2>Adresse renseignée</h2>
+
+        <dl class="fields">
+
+          <div class="field full">
+            <dt>Adresse de l'intervention</dt>
+            <dd>{afficher(client.adresse)}</dd>
+          </div>
+
+          <div class="field">
+            <dt>Code postal</dt>
+            <dd>{afficher(client.code_postal)}</dd>
+          </div>
+
+          <div class="field">
+            <dt>Ville</dt>
+            <dd>{afficher(client.ville)}</dd>
+          </div>
+
+        </dl>
+
+        <p class="muted">
+          Adresse issue de la demande sélectionnée,
+          pas nécessairement l'adresse personnelle du client.
+        </p>
+
+      </section>
+
+    </div>
+
+    <!-- Historique des demandes -->
+
+    <section class="card history">
+
+      <h2>Historique des demandes</h2>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Référence</th>
+              <th>Type</th>
+              <th>Statut</th>
+              <th>Consulter</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            {
+              historique.map(d => (
+                <tr>
+
+                  <td>{dateFR(d.date_creation)}</td>
+
+                  <td>
+                    {afficher(d.reference_devis)}
+                  </td>
+
+                  <td>
+                    {afficher(d.type_devis)}
+                  </td>
+
+                  <td>
+                    {statuts[d.statut || ''] || afficher(d.statut)}
+                  </td>
+
+                  <td>
+                    <a
+                      class="request-link"
+                      href={`/admin/demandes/${d.id}/`}
+                    >
+                      Voir →
+                    </a>
+                  </td>
+
+                </tr>
+              ))
+            }
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+    <p class="footnote">
+      Fiche privée, accessible uniquement aux administrateurs connectés.
+      Les demandes placées dans la corbeille ne figurent pas
+      dans l'historique.
+    </p>
+
+  </main>
+
+</body>
+</html>
