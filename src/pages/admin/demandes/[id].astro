@@ -51,11 +51,39 @@ const ordre = [
   'adresse','code_postal','ville','type_logement','surface_m2','nombre_pieces','nombre_salles_bain',
   'animaux_presents','prestations','frequence','duree_souhaitee','disponibilites','commentaires','date_modification'
 ];
+// Les renseignements complémentaires sont actuellement stockés dans commentaires.
+// Les anciennes demandes restent compatibles : toute ligne non reconnue reste visible.
+const notesConnues: Record<string, string> = {
+  'Type de prestation': 'Type de prestation',
+  'Animaux': 'Types d’animaux',
+  'Précisions services': 'Précisions sur les prestations',
+  'Date de début': 'Date de début souhaitée',
+  'Adresse de prestation': 'Adresse de prestation',
+  'Complément adresse': 'Complément d’adresse',
+  'Message': 'Message du client',
+  'Avance immédiate': 'Informations sur l’avance immédiate',
+  'Flexibilité': 'Horaires flexibles',
+  'Horaires': 'Horaires précis',
+};
+const notes: Record<string, string> = {};
+const notesLibres: string[] = [];
+for (const ligne of String(d.commentaires ?? '').split(/\r?\n/)) {
+  const position = ligne.indexOf(' : ');
+  const cle = position >= 0 ? ligne.slice(0, position).trim() : '';
+  if (cle && cle in notesConnues) {
+    const valeur = ligne.slice(position + 3).trim();
+    if (valeur) notes[cle] = valeur;
+  } else if (ligne.trim()) {
+    notesLibres.push(ligne);
+  }
+}
 const groupes = [
   {titre:'Demande', champs:['reference_devis','type_devis','date_creation','statut']},
-  {titre:'Coordonnées du client', champs:['prenom','nom','email','telephone','adresse','code_postal','ville']},
-  {titre:'Logement', champs:['type_logement','surface_m2','nombre_pieces','nombre_salles_bain','animaux_presents']},
-  {titre:'Prestations demandées', champs:['prestations','frequence','duree_souhaitee','disponibilites','commentaires']}
+  {titre:'Coordonnées du client', champs:['prenom','nom','email','telephone','adresse','code_postal','ville'], notes:['Complément adresse']},
+  {titre:'Logement', champs:['type_logement','surface_m2','nombre_pieces','nombre_salles_bain','animaux_presents'], notes:['Animaux']},
+  {titre:'Prestations demandées', champs:['prestations','frequence','duree_souhaitee'], notes:['Type de prestation','Date de début','Précisions services']},
+  {titre:'Disponibilités', champs:['disponibilites'], notes:['Horaires','Flexibilité']},
+  {titre:'Informations complémentaires', champs:[], notes:['Message','Avance immédiate']},
 ];
 const format = (value: unknown): string => {
   if (value === null || value === undefined || value === '') return 'Non renseigné';
@@ -77,7 +105,7 @@ const format = (value: unknown): string => {
 const statusLabels: Record<string,string> = {nouvelle:'Nouvelle',en_cours:'En cours',devis_envoye:'Devis envoyé',acceptee:'Acceptée'};
 const status = String(d.statut || 'nouvelle');
 const ref = String(d.reference_devis || `#${id}`);
-const autres = Object.keys(d).filter(k => !ordre.includes(k) && k !== 'id');
+const autres = Object.keys(d).filter(k => !ordre.includes(k) && k !== 'id' && k !== 'prestation_souhaitee');
 ---
 <html lang="fr" data-theme="auto">
 <head>
@@ -145,9 +173,14 @@ const autres = Object.keys(d).filter(k => !ordre.includes(k) && k !== 'id');
       </div>
     </dialog>
     <div class="cards">
-      {groupes.map(g => <section class="card"><h2>{g.titre}</h2><dl class="fields">{g.champs.filter(k=>k in d).map(k=><div class:list={['field', ['prestations','disponibilites','commentaires'].includes(k)&&'full']}><dt>{labels[k]}</dt><dd>{k==='email' && d[k] ? <a href={`mailto:${String(d[k])}`}>{String(d[k])}</a> : k==='telephone' && d[k] ? <a href={`tel:${String(d[k]).replace(/[^+\d]/g,'')}`}>{String(d[k])}</a> : k==='statut' ? (statusLabels[status] || status) : k==='animaux_presents' ? (d[k] === null || d[k] === undefined ? 'Non renseigné' : d[k] ? 'Oui' : 'Non') : format(d[k])}</dd></div>)}</dl></section>)}
+      {groupes.map(g => <section class="card"><h2>{g.titre}</h2><dl class="fields">
+        {g.champs.filter(k=>k in d).map(k=><div class:list={['field', ['prestations','disponibilites'].includes(k)&&'full']}><dt>{labels[k]}</dt><dd>{k==='email' && d[k] ? <a href={`mailto:${String(d[k])}`}>{String(d[k])}</a> : k==='telephone' && d[k] ? <a href={`tel:${String(d[k]).replace(/[^+\d]/g,'')}`}>{String(d[k])}</a> : k==='statut' ? (statusLabels[status] || status) : k==='animaux_presents' ? (d[k] === null || d[k] === undefined ? 'Non renseigné' : d[k] ? 'Oui' : 'Non') : format(d[k])}</dd></div>)}
+        {g.notes?.filter(k => k in notes).map(k => <div class:list={['field', ['Précisions services','Message'].includes(k) && 'full']}><dt>{notesConnues[k]}</dt><dd>{notes[k]}</dd></div>)}
+        {g.titre === 'Prestations demandées' && d.prestation_souhaitee && <div class="field"><dt>Catégorie sélectionnée</dt><dd>{format(d.prestation_souhaitee)}</dd></div>}
+        {g.titre === 'Informations complémentaires' && notesLibres.length > 0 && <div class="field full"><dt>Autres précisions</dt><dd>{notesLibres.join('\n')}</dd></div>}
+      </dl></section>)}
     </div>
-    {autres.length>0 && <section class="card extra"><h2>Informations complémentaires</h2><dl class="fields">{autres.map(k=><div class="field"><dt>{k.replace(/_/g,' ')}</dt><dd>{format(d[k])}</dd></div>)}</dl></section>}
+    {autres.length>0 && <section class="card extra"><h2>Données techniques complémentaires</h2><dl class="fields">{autres.map(k=><div class="field"><dt>{k.replace(/_/g,' ')}</dt><dd>{format(d[k])}</dd></div>)}</dl></section>}
     <p class="footnote">Consultation privée : les informations de cette fiche ne sont accessibles qu'aux administrateurs connectés.</p>
   </main>
     <script>
