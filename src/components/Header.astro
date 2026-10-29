@@ -11,7 +11,16 @@
       </a>
 
       <nav aria-label="Navigation principale">
-        <a href="/#services">Nos services</a>
+        <details class="services-dropdown">
+          <summary>Nos prestations <span aria-hidden="true">▾</span></summary>
+          <div class="services-dropdown-links">
+            <a href="/menage-regulier-a-domicile/">Services réguliers</a>
+            <a href="/services-occasionnels/">Services occasionnels</a>
+            <a href="/service-de-menage-test/">Services test</a>
+            <a href="/repassage-a-domicile-paris/">Services de repassage</a>
+            <a href="/conciergerie-paris/">Services de conciergerie</a>
+          </div>
+        </details>
         <a href="/#avantages">Nos avantages</a>
         <a href="/#contact">Contact</a>
       </nav>
@@ -23,7 +32,16 @@
         </summary>
         <div class="mobile-menu-links">
           <a href="/">Accueil</a>
-          <a href="/#services">Nos prestations</a>
+          <details class="mobile-services-dropdown">
+            <summary>Nos prestations <span aria-hidden="true">▾</span></summary>
+            <div class="mobile-services-links">
+            <a href="/menage-regulier-a-domicile/">Services réguliers</a>
+            <a href="/services-occasionnels/">Services occasionnels</a>
+            <a href="/service-de-menage-test/">Services test</a>
+            <a href="/repassage-a-domicile-paris/">Services de repassage</a>
+            <a href="/conciergerie-paris/">Services de conciergerie</a>
+            </div>
+          </details>
           <a href="/#avantages">Nos avantages</a>
           <a href="/#a-propos">À propos</a>
           <a href="/#contact">Contact</a>
@@ -32,3 +50,46 @@
 
       <a href="/devis-simple/" data-open-devis-simple class="header-button">Demander un devis</a>
     </header>
+
+<style is:global>
+  .header .services-dropdown { position: relative; }
+  .header .services-dropdown > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: .4rem; }
+  .header .services-dropdown > summary::-webkit-details-marker,
+  .header .mobile-services-dropdown > summary::-webkit-details-marker { display: none; }
+  .header .services-dropdown > summary:focus-visible,
+  .header .mobile-services-dropdown > summary:focus-visible { outline: 2px solid #e9a34c; outline-offset: 4px; }
+  .header .services-dropdown-links { position: absolute; z-index: 1000; top: 100%; left: 0; min-width: 245px; padding: 8px; border: 1px solid rgba(233,163,76,.4); border-radius: 12px; background: #071b30; box-shadow: 0 16px 35px rgba(0,0,0,.25); }
+  .header .services-dropdown-links a { display: block; padding: 11px 13px; color: #fff; white-space: nowrap; border-radius: 7px; text-decoration: none; }
+  .header .services-dropdown-links a:hover,
+  .header .services-dropdown-links a:focus-visible { color: #e9a34c; background: rgba(255,255,255,.08); }
+  .header .mobile-services-dropdown > summary { display: flex; justify-content: space-between; align-items: center; padding: 12px 6px; cursor: pointer; color: #fff; border-bottom: 1px solid rgba(255,255,255,.12); }
+  .header .mobile-services-links { padding-left: 16px; }
+  .header .mobile-services-links a { display: block; padding: 12px 6px; color: #fff; text-decoration: none; }
+  .header .mobile-services-links a:hover,
+  .header .mobile-services-links a:focus-visible { color: #e9a34c; }
+  @media (max-width: 768px) { .header .services-dropdown { display: none; } }
+</style>
+
+<script>
+  // Sur ordinateur : ouverture au survol, fermeture à la sortie.
+  // Le clic reste utilisable au clavier et sur les appareils tactiles.
+  const menu = document.querySelector<HTMLDetailsElement>('.header .services-dropdown');
+  if (menu) {
+    const desktop = window.matchMedia('(min-width: 901px) and (hover: hover)');
+    menu.addEventListener('mouseenter', () => {
+      if (desktop.matches) menu.open = true;
+    });
+    menu.addEventListener('mouseleave', () => {
+      if (desktop.matches && !menu.contains(document.activeElement)) menu.open = false;
+    });
+    menu.addEventListener('focusout', (event) => {
+      if (desktop.matches && !menu.contains(event.relatedTarget as Node | null)) menu.open = false;
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+  }
+</script>

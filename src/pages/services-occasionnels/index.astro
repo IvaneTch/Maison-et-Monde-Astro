@@ -3,22 +3,22 @@ import Layout from '../../layouts/Layout.astro';
 
 const formules = [
   {
-    id: 'ponctuel', nom: 'Ménage ponctuel',
+    id: 'ponctuel', nom: 'Ménage ponctuel', prix: '32,50 €', prixReduit: '16,25 €',
     description: 'Une intervention à la demande pour retrouver un intérieur impeccable.',
     image: '/images/menage-ponctuel.png',
     prestations: ['Nettoyage des sols et surfaces', 'Dépoussiérage des meubles', 'Cuisine, salle de bain et sanitaires', 'Remise en ordre des pièces', 'Intervention adaptée à vos priorités', 'Nettoyage ciblé selon vos besoins']
   },
   {
-    id: 'grand-menage', nom: 'Grand ménage',
+    id: 'grand-menage', nom: 'Grand ménage', prix: '34,50 €', prixReduit: '17,25 €',
     description: 'Un nettoyage approfondi pour les moments où votre logement en a le plus besoin.',
     image: '/images/grand-menage.paris.jpg',
     prestations: ['Nettoyage approfondi des pièces', 'Dégraissage des surfaces de cuisine', 'Détartrage des sanitaires', 'Dépoussiérage des zones accessibles', 'Nettoyage des portes et plinthes', 'Prestations définies selon l’état du logement']
   },
   {
-    id: 'vitres', nom: 'Nettoyage des vitres',
-    description: 'Des vitres propres et lumineuses pour redonner de l’éclat à votre intérieur.',
-    image: '/images/nettoyage-vitres-paris.jpg',
-    prestations: ['Nettoyage des surfaces vitrées accessibles', 'Vitres intérieures et extérieures accessibles', 'Nettoyage des traces et salissures', 'Essuyage des rebords accessibles', 'Intervention ponctuelle ou complémentaire', 'Évaluation selon l’accès et la surface']
+    id: 'repassage', nom: 'Repassage à domicile', prix: '29,00 €', prixReduit: '14,50 €',
+    description: 'Confiez-nous votre linge pour un repassage soigné, directement à votre domicile, selon vos besoins.',
+    image: '/images/service-repassage-domicile-paris.jpg',
+    prestations: ['Repassage des vêtements du quotidien', 'Repassage des chemises et pantalons', 'Repassage du linge de maison', 'Pliage et rangement du linge', 'Intervention ponctuelle ou complémentaire', 'Prestations adaptées à la quantité de linge']
   }
 ];
 ---
@@ -31,7 +31,7 @@ const formules = [
       <div class="hero-copy">
         <span class="sur-titre">MAISON &amp; MONDE</span>
         <h1 id="titre-menage">Ménage occasionnel<br />à domicile</h1>
-        <p>Besoin d’un nettoyage ponctuel, d’un grand ménage ou de vitres impeccables ? Maison & Monde intervient à Paris et en Île-de-France selon vos besoins, sans engagement régulier.</p>
+        <p>Besoin d’un nettoyage ponctuel, d’un grand ménage ou d’un service de repassage ? Maison & Monde intervient à Paris et en Île-de-France selon vos besoins, sans engagement régulier.</p>
         <div class="hero-atouts" aria-label="Nos engagements">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg> Un intérieur<br />plus sain</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 4C10 4 4 9 4 16a4 4 0 0 0 4 4c7 0 12-6 12-16Z"/><path d="M4 21c3-7 7-10 12-13"/></svg> Plus de temps<br />pour vous</span>
@@ -77,13 +77,13 @@ const formules = [
                 </ul>
 
                 <div class="tarif">
-                  <span class="tarif-label">Prestation personnalisée</span>
-                  <strong class="tarif-devis">Sur devis</strong>
+                  <span class="tarif-label">Tarif horaire TTC</span>
+                  <strong class="tarif-devis">{formule.prix} / h</strong>
                 </div>
 
                 <div class="credit-impot">
-                  <span>Crédit d’impôt de 50 %*</span>
-                  <strong class="credit-texte">Selon éligibilité</strong>
+                  <span>Avec le crédit d’impôt de 50 %*</span>
+                  <strong class="credit-texte">{formule.prixReduit}<small> / heure</small></strong>
                 </div>
 
                 <button

@@ -1462,7 +1462,8 @@ transform: rotate(-12deg);
     const correspondances = {
       'ponctuel': ['Ménage ponctuel', 'Ménage à domicile'],
       'grand-menage': ['Grand ménage', 'Grand nettoyage'],
-      'vitres': ['Nettoyage des vitres', 'Nettoyage de vitres']
+      'vitres': ['Nettoyage des vitres', 'Nettoyage de vitres'],
+      'test': ['Formule Test', 'Ménage à domicile']
     };
     const service = new URLSearchParams(window.location.search).get('service');
     if (!service || !Object.prototype.hasOwnProperty.call(correspondances, service)) return;
@@ -1475,17 +1476,71 @@ transform: rotate(-12deg);
     if (input) { input.checked = true; input.dispatchEvent(new Event('change', { bubbles: true })); }
     const ponctuelle = document.querySelector('input[name="type_prestation"][value="Ponctuelle"]');
     if (ponctuelle) { ponctuelle.checked = true; ponctuelle.dispatchEvent(new Event('change', { bubbles: true })); }
+    if(service==='test') {
+      const duree=document.querySelector('select[name="duree"]');
+      if(duree) {
+        const valeurs=['3 h','3 h 30','4 h','5 h','6 h','7 h'];
+        duree.replaceChildren(new Option('Choisir une durée (3 à 7 h)',''),...valeurs.map(v=>new Option(v,v)));
+        duree.value='';
+      }
+    }
   })();
 </script>
 <script is:inline>
 (()=>{const form=document.querySelector('#quote-form');if(!form)return;const sections=[...form.querySelectorAll('[data-step]')],completed=document.querySelector('#completed');let step=1;const names=['Votre logement','Vos prestations','Fréquence et durée','Vos disponibilités','Vos coordonnées'];const checked=(name)=>[...form.querySelectorAll(`[name="${name}"]:checked`)].map(x=>x.value);const val=(name)=>form.elements.namedItem(name)?.value||'';
-function validate(n){const section=sections[n-1];if(n===2&&!checked('services').length){alert('Choisissez au moins une prestation.');return false}if(n===3){if(!checked('type_prestation').length){alert('Choisissez le type de prestation.');return false}if(val('type_prestation')==='Régulière'&&!checked('frequence').length){alert('Choisissez une fréquence.');return false}}if(n===4&&!checked('disponibilites').length){alert('Choisissez au moins un créneau.');return false}for(const input of section.querySelectorAll('input,select,textarea')){if(input.closest('[hidden]'))continue;if(input.type==='radio'){if(input.required&&!checked(input.name).length){alert('Merci de compléter les champs obligatoires.');return false}continue}if(!input.checkValidity()){input.reportValidity();return false}}return true}
+function clearError(){
+  form.querySelectorAll('.mm-field-error').forEach(el=>el.remove());
+  form.querySelectorAll('.mm-invalid').forEach(el=>el.classList.remove('mm-invalid'));
+  form.querySelectorAll('[aria-invalid="true"]').forEach(el=>el.removeAttribute('aria-invalid'));
+}
+function fieldError(input,message){
+  clearError();
+  const group=input.closest('fieldset') || input.closest('label') || input;
+  const anchor=input.type==='radio'||input.type==='checkbox' ? (group.querySelector('.option-grid,.choice-row') || group) : input;
+  const tip=document.createElement('div');tip.className='mm-field-error';tip.setAttribute('role','alert');
+  tip.textContent='⚠ '+message;
+  anchor.insertAdjacentElement('afterend',tip);
+  if(input.type==='radio'||input.type==='checkbox') group.classList.add('mm-invalid');
+  else input.classList.add('mm-invalid');
+  input.setAttribute('aria-invalid','true');
+  anchor.scrollIntoView({behavior:'smooth',block:'center'});
+  if(input.type!=='radio'&&input.type!=='checkbox')input.focus({preventScroll:true});
+  return false;
+}
+function first(name){return form.querySelector(`[name="${name}"]`)}
+function validate(n){
+  clearError();
+  const section=sections[n-1];
+  if(n===2&&!checked('services').length)return fieldError(first('services'),'Choisissez au moins une prestation.');
+  if(n===3){
+    if(!checked('type_prestation').length)return fieldError(first('type_prestation'),'Choisissez le type de prestation.');
+    if(val('type_prestation')==='Régulière'&&!checked('frequence').length)return fieldError(first('frequence'),'Choisissez une fréquence.');
+    if(new URLSearchParams(location.search).get('service')==='test'&&!['3 h','3 h 30','4 h','5 h','6 h','7 h'].includes(val('duree')))return fieldError(first('duree'),'Pour la Formule Test, choisissez une durée de 3 à 7 heures.');
+  }
+  if(n===4&&!checked('disponibilites').length)return fieldError(first('disponibilites'),'Choisissez au moins un créneau.');
+  for(const input of section.querySelectorAll('input,select,textarea')){
+    if(input.closest('[hidden]')||input.type==='hidden')continue;
+    if(input.type==='radio'||input.type==='checkbox'){
+      if(input.required&&!checked(input.name).length)return fieldError(input,'Veuillez sélectionner une option.');
+      continue;
+    }
+    if(!input.checkValidity()){
+      const message=input.validity.valueMissing?'Veuillez compléter ce champ obligatoire.':input.validity.typeMismatch?'Veuillez vérifier le format de cette information.':input.validity.rangeUnderflow||input.validity.rangeOverflow?'Veuillez saisir une valeur autorisée.':'Veuillez vérifier cette information.';
+      return fieldError(input,message);
+    }
+  }
+  return true;
+}
+form.addEventListener('input',e=>{if(e.target.matches('input,select,textarea'))clearError()});
+form.addEventListener('change',e=>{if(e.target.matches('input,select,textarea'))clearError()});
+
 function summary(n){if(n===1)return [val('logement'),val('surface')+' m²',val('pieces')+' pièces',checked('animaux')[0]==='Oui'?'Animaux : '+checked('type_animaux').join(', '):'Sans animaux'].filter(Boolean).join(' · ');if(n===2)return checked('services').join(', ');if(n===3)return [val('type_prestation'),val('type_prestation')==='Régulière'?val('frequence'):'',val('duree')].filter(Boolean).join(' · ');if(n===4)return checked('disponibilites').join(', ');return ''}
 function show(n){step=n;sections.forEach((s,i)=>s.hidden=i!==n-1);completed.innerHTML='';for(let i=1;i<n;i++){const row=document.createElement('div');row.className='completed-row';const strong=document.createElement('strong');strong.textContent='✓ '+names[i-1];const detail=document.createElement('span');detail.textContent=summary(i);const btn=document.createElement('button');btn.type='button';btn.textContent='Modifier';btn.addEventListener('click',()=>show(i));row.append(strong,detail,btn);completed.append(row)}document.querySelector('#progress-fill').style.width=n*20+'%';document.querySelector('#progress-label').textContent='Étape '+n+' sur 5';document.querySelector('#progress-name').textContent=names[n-1];document.querySelector('.quote-wrap').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'})}
 form.querySelectorAll('.next').forEach(b=>b.addEventListener('click',()=>{if(validate(step))show(step+1)}));form.querySelectorAll('.back').forEach(b=>b.addEventListener('click',()=>show(step-1)));form.querySelectorAll('[name="animaux"]').forEach(r=>r.addEventListener('change',()=>document.querySelector('#animal-details').hidden=val('animaux')!=='Oui'));form.querySelectorAll('[name="type_prestation"]').forEach(r=>r.addEventListener('change',()=>document.querySelector('#frequency-field').hidden=val('type_prestation')!=='Régulière'));
 form.addEventListener('submit',async e=>{e.preventDefault();if(!validate(5))return;const button=form.querySelector('button[type=submit]');button.disabled=true;const oldLabel=button.textContent;button.textContent='Enregistrement…';try{const data=new FormData(form);
 const prestation=new URLSearchParams(window.location.search).get('service')||'';
-data.set('prestation_souhaitee',prestation);const response=await fetch('/api/devis',{method:'POST',body:data});const result=await response.json();if(!response.ok||!result.ok)throw new Error(result.error||'Enregistrement impossible.');const labels={'ponctuel':'Ménage ponctuel','grand-menage':'Grand ménage','vitres':'Nettoyage des vitres'};document.querySelector('#success-service').textContent=labels[prestation]||'Devis personnalisé';document.querySelector('#success-reference').textContent=result.reference||'—';form.hidden=true;document.querySelector('#quote-result').hidden=false;document.querySelector('#quote-result').scrollIntoView({behavior:'smooth'});}catch(error){alert(error.message||'Erreur de connexion. Veuillez réessayer.');}finally{button.disabled=false;button.textContent=oldLabel;}});})();
+const champPrestation=form.querySelector('[name="prestation_souhaitee"]');
+data.set('prestation_souhaitee',champPrestation?.value || '');const response=await fetch('/api/devis',{method:'POST',body:data});const result=await response.json();if(!response.ok||!result.ok)throw new Error(result.error||'Enregistrement impossible.');const labels={'ponctuel':'Ménage ponctuel','grand-menage':'Grand ménage','vitres':'Nettoyage des vitres','test':'Formule Test'};document.querySelector('#success-service').textContent=labels[prestation]||'Devis personnalisé';document.querySelector('#success-reference').textContent=result.reference||'—';form.hidden=true;document.querySelector('#quote-result').hidden=false;document.querySelector('#quote-result').scrollIntoView({behavior:'smooth'});}catch(error){const message=error.message||'Erreur de connexion. Veuillez réessayer.';let notice=form.querySelector('.mm-submit-error');if(!notice){notice=document.createElement('p');notice.className='mm-submit-error';notice.setAttribute('role','alert');form.querySelector('[data-step="5"] .actions')?.before(notice)}notice.textContent=message;notice.scrollIntoView({behavior:'smooth',block:'center'});}finally{button.disabled=false;button.textContent=oldLabel;}});})();
 </script>
 <style is:global>
 /* Courbes organiques inspirées du visuel de référence — sans toucher au formulaire */
@@ -1592,4 +1647,12 @@ data.set('prestation_souhaitee',prestation);const response=await fetch('/api/dev
 .mm-success-primary{background:linear-gradient(110deg,#f8bb67,#e9a34c);color:#102b46}
 .mm-success-secondary{background:white;color:#102b46;border:1px solid #cfdbea}
 @media(max-width:600px){.mm-success{padding:35px 18px 40px!important}.mm-success-actions{flex-direction:column}.mm-success-actions a{width:100%}}
+</style>
+
+<style is:global>
+/* Validation intégrée — sans alertes du navigateur */
+.mm-field-error{display:table;max-width:100%;margin:8px 0 12px;padding:9px 12px;background:#fff9ef;border:1px solid #e9a34c;border-radius:8px;color:#7b3e00;font:600 12px/1.45 Arial,sans-serif;box-shadow:0 3px 10px #102b4614}
+.quote-card input.mm-invalid,.quote-card select.mm-invalid,.quote-card textarea.mm-invalid{border:2px solid #d97706!important;background:#fffaf3!important}
+.quote-card fieldset.mm-invalid>.option-grid .option>span,.quote-card fieldset.mm-invalid>.choice-row{border-color:#d97706}
+.mm-submit-error{padding:13px 16px;margin-top:18px;background:#fff2f2;border:1px solid #df6868;border-radius:10px;color:#a32626;font-weight:600}
 </style>

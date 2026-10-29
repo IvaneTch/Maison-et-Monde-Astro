@@ -135,9 +135,19 @@ export const POST: APIRoute = async ({ request }) => {
     duree = str(data, "duree", 100);
   const services = all(data, "services"),
     disponibilites = all(data, "disponibilites");
-  const prestationsAutorisees = ["ponctuel", "grand-menage", "vitres"];
+  const prestationsAutorisees = [
+    "ponctuel", "grand-menage", "vitres", "classique", "confort", "expert", "liberte",
+    "Ménage ponctuel", "Grand ménage", "Nettoyage des vitres",
+    "Formule Classique", "Formule Confort", "Formule Expert", "Formule Liberté",
+    "Formule Test", "test",
+  ];
 
   const prestationSouhaitee = str(data, "prestation_souhaitee", 100);
+  // Durée obligatoire de 3 à 7 heures pour la Formule Test.
+  if (["Formule Test", "test"].includes(prestationSouhaitee) &&
+      !["3 h", "3 h 30", "4 h", "5 h", "6 h", "7 h"].includes(duree)) {
+    return fail("Pour la Formule Test, choisissez une durée de 3 à 7 heures.");
+  }
 
   if (
     prestationSouhaitee &&
