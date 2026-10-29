@@ -153,6 +153,8 @@ Notre objectif : vous faire gagner du temps et vous offrir un environnement prop
 
 </section>
 
+
+
      <section id="avantages" class="avantages-section">
   <svg class="avantages-gold-sweep" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0 285 C170 279 235 319 500 319" fill="none" stroke="#e9a34c" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
@@ -255,7 +257,31 @@ Notre engagement : votre tranquillité d’esprit et votre satisfaction au quoti
         </svg>
       </section>
 
-      <section id="contact" class="contact-section" aria-labelledby="contact-title">
+<!-- Conciergerie : présentation sur la page d’accueil -->
+<section class="home-concierge" aria-labelledby="home-concierge-title">
+  <svg class="home-concierge-divider" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20 L1440 0 L0 0 Z" fill="#f9f7f2"/><path d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20" fill="none" stroke="#e9a34c" stroke-width="2"/></svg>
+  <div class="home-concierge-visual" role="img" aria-label="Vue sur Paris depuis un appartement lumineux">
+    <div class="home-concierge-badge">
+  <a href="/conciergerie/gestion-complete/">Gestion complète</a>
+  <span aria-hidden="true">•</span>
+  <a href="/conciergerie/services-a-la-carte/">Services à la carte</a>
+</div>
+  </div>
+  <div class="home-concierge-copy">
+    <span class="home-concierge-label">CONCIERGERIE · PARIS & ÎLE-DE-FRANCE</span>
+    <h2 id="home-concierge-title">Votre location,<br /><em>notre attention.</em></h2>
+    <p>De la préparation du logement à l’accueil des voyageurs, Maison & Monde vous accompagne dans vos locations de courte durée. Choisissez une conciergerie complète ou uniquement les prestations dont vous avez besoin.</p>
+    <div class="home-concierge-tags" aria-label="Nos services">
+      <span>✓ Ménage et linge</span>
+      <span>✓ Accueil des voyageurs</span>
+      <span>✓ Suivi du logement</span>
+    </div>
+    <a class="home-concierge-cta" href="/conciergerie/">Découvrir notre conciergerie <span aria-hidden="true">→</span></a>
+  </div>
+  <svg class="home-concierge-divider home-concierge-divider-bottom" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20 L1440 90 L0 90 Z" fill="#f9f7f2"/><path d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20" fill="none" stroke="#e9a34c" stroke-width="2"/></svg>
+</section>
+
+            <section id="contact" class="contact-section" aria-labelledby="contact-title">
         <div class="contact-visual">
           <div class="contact-copy">
             <span class="contact-kicker">PARLONS DE VOS BESOINS</span>
@@ -1584,6 +1610,42 @@ transform: rotate(-12deg);
   .hero-slide {
     height: 100%;
   }
+}
+
+/* Conciergerie : alternance photo/texte et vague dorée */
+.home-concierge{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:#f0f6f8;color:#102b46;overflow:hidden;min-height:490px;padding-top:66px;padding-bottom:66px}
+.home-concierge-divider{position:absolute;top:-1px;left:0;width:100%;height:85px;z-index:3;pointer-events:none}
+.home-concierge-divider-bottom{top:auto;bottom:-1px;transform:none}
+.home-concierge-copy{padding:clamp(46px,5vw,80px) clamp(30px,6vw,105px);align-self:center;position:relative;z-index:1}
+.home-concierge-label{font-size:12px;font-weight:800;letter-spacing:.17em;color:#c18a37}
+.home-concierge h2{font-family:Georgia,serif;font-size:clamp(36px,3.8vw,59px);line-height:1.09;letter-spacing:-.025em;margin:17px 0 23px;font-weight:400}
+.home-concierge h2 em{font-style:normal;color:#24739b}
+.home-concierge p{font-size:15px;line-height:1.8;max-width:590px;margin:0 0 25px;color:#415773}
+.home-concierge-tags{display:flex;flex-wrap:wrap;gap:12px 19px;font-size:13px;font-weight:650;margin-bottom:30px}
+.home-concierge-tags span{white-space:nowrap}
+.home-concierge-cta{display:inline-flex;align-items:center;gap:22px;background:#f2b94e;color:#102b46;text-decoration:none;border-radius:40px;padding:15px 23px;font-size:13px;font-weight:750;transition:background .2s,transform .2s}
+.home-concierge-cta:hover{background:#ffd17b;transform:translateY(-2px)}
+.home-concierge-cta:focus-visible{outline:3px solid #24739b;outline-offset:4px}
+.home-concierge-visual{min-height:440px;position:relative;background:url('/images/conciergerie-location-saisonniere-paris-maison-et-monde.jpg') center/cover no-repeat;clip-path:ellipse(100% 95% at 0% 50%)}
+.home-concierge-badge{position:absolute;bottom:34px;left:9%;background:rgba(8,32,54,.92);color:#fff;border:1px solid #e9bd69;border-radius:30px;padding:12px 18px;font-size:13px;font-weight:650}
+.home-concierge-badge span{color:#f2b94e;margin:0 6px}
+@media(max-width:800px){.home-concierge{grid-template-columns:1fr;padding-top:45px;padding-bottom:45px}.home-concierge-divider{height:52px}.home-concierge-visual{min-height:270px;clip-path:none}.home-concierge-copy{padding:44px 7% 52px}.home-concierge-badge{bottom:18px;left:7%}}
+@media(max-width:420px){.home-concierge-tags{gap:10px}.home-concierge-cta{gap:12px;font-size:13px;padding:14px 18px}}
+
+.home-concierge-badge a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.home-concierge-badge a:hover {
+  color: #f4b544;
+}
+
+.home-concierge-badge a:focus-visible {
+  outline: 2px solid #f4b544;
+  outline-offset: 4px;
+  border-radius: 3px;
 }
 </style>
 

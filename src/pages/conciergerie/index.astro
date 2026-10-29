@@ -1,0 +1,256 @@
+---
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const titre = "Conciergerie à Paris | Maison & Monde";
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Maison & Monde vous accompagne dans la préparation de votre logement, l'accueil des voyageurs et les services de conciergerie à Paris et en Île-de-France."
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{titre}</title>
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+      <section class="conciergerie-hero">
+        <div class="hero-image" aria-hidden="true"></div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+          <span class="hero-label">
+            MAISON & MONDE · CONCIERGERIE À PARIS
+          </span>
+
+          <h1>
+            Votre logement,<br />
+            <span>notre attention.</span>
+          </h1>
+
+          <p>
+            De la préparation de votre logement à l'accueil des voyageurs,
+            Maison & Monde vous accompagne dans vos locations de courte durée
+            à Paris et en Île-de-France.
+          </p>
+
+          <p>
+            Choisissez un accompagnement complet ou uniquement les prestations
+            dont vous avez besoin.
+          </p>
+
+          <div class="hero-buttons">
+            <a
+              href="/conciergerie/gestion-complete/"
+              class="btn-primary"
+            >
+              Découvrir la gestion complète
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a
+              href="/conciergerie/services-a-la-carte/"
+              class="btn-secondary"
+            >
+              Services à la carte
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <svg
+          class="hero-wave"
+          viewBox="0 0 1440 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M0 45 C300 110 550 10 850 55 S1250 100 1440 40 L1440 100 L0 100 Z"
+            fill="#ffffff"
+          />
+          <path
+            d="M0 45 C300 110 550 10 850 55 S1250 100 1440 40"
+            fill="none"
+            stroke="#e9a34c"
+            stroke-width="2"
+          />
+        </svg>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #102b46;
+    background: #ffffff;
+  }
+
+  .conciergerie-hero {
+    position: relative;
+    min-height: 720px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #09233c;
+    color: #ffffff;
+  }
+
+  .conciergerie-hero .hero-image {
+    position: absolute;
+    inset: 0;
+    background-image: url("/images/conciergerie-location-saisonniere-paris-maison-et-monde.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .conciergerie-hero .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      rgba(5, 25, 46, 0.94) 0%,
+      rgba(5, 25, 46, 0.78) 43%,
+      rgba(5, 25, 46, 0.08) 100%
+    );
+  }
+
+  .conciergerie-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(650px, 90%);
+    margin-left: max(7%, calc((100vw - 1320px) / 2));
+    padding: 110px 0 160px;
+  }
+
+  .conciergerie-hero .hero-label {
+    display: block;
+    color: #f2b94e;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 25px;
+  }
+
+  .conciergerie-hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(45px, 5.5vw, 78px);
+    line-height: 1.1;
+    font-weight: 500;
+    margin: 0 0 30px;
+  }
+
+  .conciergerie-hero h1 span {
+    color: #f2b94e;
+  }
+
+  .conciergerie-hero p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #e2eaf1;
+    max-width: 560px;
+    margin-bottom: 18px;
+  }
+
+  .conciergerie-hero .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+  }
+
+  .conciergerie-hero .btn-primary,
+  .conciergerie-hero .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 16px 24px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+
+  .conciergerie-hero .btn-primary {
+    background: #f2b94e;
+    color: #102b46;
+  }
+
+  .conciergerie-hero .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+
+  .conciergerie-hero .btn-primary:hover,
+  .conciergerie-hero .btn-secondary:hover {
+    transform: translateY(-3px);
+  }
+
+  .conciergerie-hero .hero-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 95px;
+    z-index: 3;
+  }
+
+  @media (max-width: 768px) {
+    .conciergerie-hero {
+      min-height: 680px;
+    }
+
+    .conciergerie-hero .hero-image {
+      background-position: 65% center;
+    }
+
+    .conciergerie-hero .hero-overlay {
+      background: rgba(5, 25, 46, 0.76);
+    }
+
+    .conciergerie-hero .hero-content {
+      margin: 0 auto;
+      padding: 90px 0 130px;
+    }
+
+    .conciergerie-hero h1 {
+      font-size: clamp(39px, 9vw, 55px);
+    }
+
+    .conciergerie-hero p {
+      font-size: 14px;
+    }
+
+    .conciergerie-hero .hero-buttons {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .conciergerie-hero .hero-wave {
+      height: 55px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .conciergerie-hero .btn-primary,
+    .conciergerie-hero .btn-secondary {
+      transition: none;
+    }
+  }
+</style>
