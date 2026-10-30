@@ -1,6 +1,92 @@
 ---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+
+const modes = [
+  {tag:"UNE PRÉSENCE SUR PLACE", title:"Accueil physique", icon:"person", image:"/images/conciergerie/salon-conciergerie.jpg", alt:"Appartement prêt à accueillir ses voyageurs", text:"Un accueil chaleureux et personnalisé, directement dans votre logement, pour mettre vos voyageurs à l’aise dès leur arrivée.", points:["Remise des clés en main propre", "Présentation du logement et des équipements", "Explication des consignes essentielles", "Organisation du départ selon vos besoins"]},
+  {tag:"LIBERTÉ ET FLEXIBILITÉ", title:"Accueil autonome", icon:"key", image:"/images/conciergerie/menage-preparation.jpg", alt:"Logement accueillant pour une arrivée autonome", text:"Une arrivée simple et flexible grâce à des instructions claires et une organisation adaptée aux équipements de votre logement.", points:["Préparation des instructions d’accès", "Transmission des informations pratiques", "Coordination de la remise ou du dépôt des clés", "Assistance à distance selon les modalités convenues"]},
+];
+const steps = [
+  {n:"01",title:"Échange avec vous",text:"Nous définissons le mode d’accueil, les horaires et les particularités de votre logement."},
+  {n:"02",title:"Préparation",text:"Nous rassemblons les informations utiles et organisons l’accès avant l’arrivée."},
+  {n:"03",title:"Arrivée des voyageurs",text:"Accueil sur place ou transmission des consignes pour une entrée autonome."},
+  {n:"04",title:"Départ organisé",text:"Nous convenons avec vous des modalités de sortie et de gestion des clés."},
+];
+const benefits = [
+  {title:"Accueil sur mesure",text:"Une organisation adaptée à votre logement et à vos préférences.",path:'<path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/>'},
+  {title:"Voyageurs rassurés",text:"Des indications précises pour faciliter leur installation.",path:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>'},
+  {title:"Temps gagné",text:"Nous prenons en charge les étapes convenues avec vous.",path:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'},
+  {title:"Suivi attentif",text:"Une communication claire et un service professionnel.",path:'<path d="M4 5h16v12H8l-4 3V5Z"/><path d="M8 10h8M8 13h5"/>'},
+];
 ---
+<!doctype html>
 <html lang="fr">
-  <head><meta charset="UTF-8" /><title>Conciergerie | Maison & Monde</title></head>
-  <body><h1>Page en préparation</h1></body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Accueil physique ou autonome des voyageurs à Paris et en Île-de-France. Remise des clés, instructions d'arrivée et coordination des départs avec Maison & Monde." />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Accueil des voyageurs à Paris | Conciergerie Maison & Monde</title>
+</head>
+<body>
+<Header />
+<main class="welcome">
+  <section class="hero">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="wrap hero-content">
+      <p class="eyebrow">CONCIERGERIE À PARIS ET EN ÎLE-DE-FRANCE</p>
+      <h1>Accueil des<br /><span>voyageurs</span></h1>
+      <p class="hero-lead">Accueil en personne ou arrivée autonome : nous adaptons notre service à votre logement, à vos voyageurs et à vos préférences.</p>
+      <div class="hero-actions"><a class="btn primary" href="/conciergerie/demande-de-devis/">Demander un devis personnalisé <span aria-hidden="true">→</span></a><a class="btn outline" href="#nos-solutions">Découvrir nos solutions</a></div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 95" preserveAspectRatio="none" aria-hidden="true"><path d="M0 37 C320 120 610 0 900 42 S1250 85 1440 32 L1440 95 H0Z" fill="#fff"/><path d="M0 37 C320 120 610 0 900 42 S1250 85 1440 32" fill="none" stroke="#d7a35c" stroke-width="2"/></svg>
+  </section>
+
+  <section class="section intro decorated" id="nos-solutions">
+    <div class="orb left" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 310 C260 35 530 400 850 160 S1210 30 1500 250"/></svg>
+    <div class="wrap layer"><p class="eyebrow">DEUX FAÇONS D'ACCUEILLIR</p><h2>Votre logement, <em>votre façon d'accueillir</em></h2><p class="section-lead">Certains voyageurs apprécient une rencontre sur place, d'autres préfèrent arriver à leur rythme. Nous proposons les deux, selon les conditions définies ensemble.</p>
+      <div class="mode-grid">
+        {modes.map((mode) => <article class="mode-card">
+          <div class="mode-image"><img src={mode.image} alt={mode.alt} loading="lazy" /><span class="mode-badge">{mode.tag}</span></div>
+          <div class="mode-body"><h3>{mode.title}</h3><p>{mode.text}</p><ul>{mode.points.map(point=><li>{point}</li>)}</ul><a href="/conciergerie/demande-de-devis/" class="text-link">Demander un devis <span aria-hidden="true">→</span></a></div>
+        </article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section process decorated" id="etapes"><div class="orb right" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 100 C280 380 520 25 820 220 S1230 350 1500 95"/></svg>
+    <div class="wrap layer"><p class="eyebrow">UN SERVICE BIEN ORGANISÉ</p><h2>Comment se déroule <em>l'accueil ?</em></h2><div class="steps">{steps.map(step=><article class="step"><span class="step-number">{step.n}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div></div>
+  </section>
+
+  <section class="section advantages decorated"><div class="orb left" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 300 C280 40 540 410 870 160 S1200 45 1500 265"/></svg>
+    <div class="wrap layer"><div class="advantages-heading"><p class="eyebrow">L'ESPRIT MAISON & MONDE</p><h2>Une arrivée sereine, <em>pour tout le monde</em></h2><p>Nous veillons aux détails qui font la différence, tout en respectant votre organisation et vos consignes.</p></div><div class="benefits">{benefits.map(item=><article class="benefit"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={item.path}/></span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div>
+  </section>
+
+  <section class="section complementary decorated"><div class="wrap layer split"><div class="complementary-photo"><img src="/images/conciergerie/attention-details.jpg" alt="Préparation attentive d'un appartement avant l'arrivée des voyageurs" loading="lazy" /></div><div><p class="eyebrow">UN ACCUEIL QUI COMMENCE AVANT L'ARRIVÉE</p><h2>Et si nous préparions aussi <em>votre logement ?</em></h2><p>Pour offrir une expérience cohérente à vos voyageurs, vous pouvez associer l'accueil à notre service de ménage et de préparation du logement entre deux séjours.</p><a class="btn dark" href="/conciergerie/menage-preparation-logement/">Découvrir la préparation du logement <span aria-hidden="true">→</span></a></div></div></section>
+
+  <section class="closing"><svg class="closing-wave" viewBox="0 0 1440 75" preserveAspectRatio="none" aria-hidden="true"><path d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5 L1440 0 H0Z" fill="white"/><path d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5" stroke="#d7a35c" fill="none" stroke-width="2"/></svg><div class="wrap closing-grid"><div><p class="eyebrow">UN SERVICE ADAPTÉ À VOS BESOINS</p><h2>Offrez un bel accueil à <em>vos voyageurs</em></h2><p>Accueil physique, arrivée autonome ou solution mixte : parlons de votre logement et construisons une prestation sur mesure.</p><a class="btn primary" href="/conciergerie/demande-de-devis/">Demander un devis personnalisé <span aria-hidden="true">→</span></a></div><div class="closing-photo"><img src="/images/conciergerie/salon-conciergerie.jpg" alt="Salon confortable prêt pour les voyageurs" loading="lazy" /></div></div></section>
+</main>
+<Footer />
+</body>
 </html>
+
+<style is:global>
+html,body{margin:0;padding:0}body{overflow-x:clip}.welcome{--navy:#092942;--gold:#d19b4e;--muted:#5d7182;color:var(--navy);font-family:Arial,Helvetica,sans-serif;overflow:hidden;background:#fff}.welcome *{box-sizing:border-box}.welcome .wrap{width:min(1180px,calc(100% - 52px));margin-inline:auto}.welcome h1,.welcome h2,.welcome h3{font-family:Georgia,'Times New Roman',serif;font-weight:400}.welcome h2{font-size:clamp(32px,3.8vw,49px);line-height:1.15;margin:0 0 22px}.welcome h2 em,.welcome .closing h2 em{font-style:normal;color:var(--gold)}.welcome p{line-height:1.65}.welcome .eyebrow{font-size:11px;letter-spacing:2.2px;color:#bf873c;font-weight:800;margin:0 0 18px}.welcome .section{position:relative;padding:94px 0}.welcome .decorated{overflow:hidden;isolation:isolate}.welcome .layer{position:relative;z-index:2}.welcome .orb{position:absolute;z-index:0;width:350px;height:350px;border:1.4px solid #d3a15c;border-radius:50%;box-shadow:0 0 0 22px #e1f1fb91,0 0 0 42px #e9f6ff6b;pointer-events:none}.welcome .orb.left{left:-320px;top:22%}.welcome .orb.right{right:-320px;bottom:8%}.welcome .ribbon{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}.welcome .ribbon path{fill:none;stroke:#d4a15d;stroke-width:1.25;vector-effect:non-scaling-stroke;opacity:.5}.welcome .hero{position:relative;min-height:610px;display:flex;align-items:center;background:#102e48;color:#fff}.welcome .hero-photo{position:absolute;inset:0;background:url('/images/conciergerie/salon-conciergerie.jpg') center 50%/cover no-repeat}.welcome .hero:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#061d32f2 0%,#08283ed8 44%,#09283e30 90%);z-index:1}.welcome .hero-content{position:relative;z-index:2;padding:100px 0 120px}.welcome .hero h1{font-size:clamp(52px,6vw,83px);line-height:1.06;margin:0 0 24px}.welcome .hero h1 span{color:#e9b76d}.welcome .hero-lead{max-width:520px;font-size:16px}.welcome .hero .eyebrow,.welcome .closing .eyebrow{color:#e5ae5c}.welcome .hero-actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:30px}.welcome .btn{display:inline-flex;align-items:center;justify-content:center;gap:15px;border-radius:50px;padding:15px 23px;font-size:13px;font-weight:700;text-decoration:none;transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease}.welcome .btn.primary{background:#f7bb53;color:#132c41;box-shadow:0 9px 22px #081c3436}.welcome .btn.outline{color:#fff;border:1px solid #ffffffab}.welcome .btn.dark{background:#0d3b58;color:#fff;margin-top:16px}.welcome .hero-wave{position:absolute;bottom:-2px;left:0;width:100%;height:82px;z-index:2}.welcome .section-lead{max-width:770px;color:var(--muted);margin:0 0 38px}.welcome .mode-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}.welcome .mode-card{background:#fff;border-radius:22px;overflow:hidden;border:1px solid #e5edf3;box-shadow:0 15px 28px #08263e1f,0 28px 58px #08263e1a;transition:transform .75s cubic-bezier(.22,1,.36,1),box-shadow .75s ease}.welcome .mode-image{height:250px;position:relative;overflow:hidden}.welcome .mode-image img{width:100%;height:100%;object-fit:cover;display:block}.welcome .mode-badge{position:absolute;left:20px;bottom:18px;background:#ffffffed;color:#174764;padding:10px 14px;border-radius:30px;font-size:10px;font-weight:800;letter-spacing:1.1px}.welcome .mode-body{padding:28px 30px 32px}.welcome .mode-body h3{font-size:31px;margin:0 0 14px}.welcome .mode-body p{color:var(--muted);font-size:14px}.welcome .mode-body ul{list-style:none;padding:0;margin:20px 0}.welcome .mode-body li{position:relative;padding:9px 0 9px 30px;font-size:13px;line-height:1.45}.welcome .mode-body li:before{content:'✓';position:absolute;left:0;top:7px;width:21px;height:21px;border-radius:50%;display:grid;place-items:center;background:#f3b84f;color:#fff;font-weight:bold}.welcome .text-link{color:#14577a;text-decoration:none;font-size:13px;font-weight:800}.welcome .process{background:#f5f9fc}.welcome .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:38px}.welcome .step{background:#fff;border:1px solid #e1eaf0;border-radius:20px;padding:30px 22px 27px;box-shadow:0 12px 27px #08263e1a,0 22px 44px #08263e0f;transition:transform .75s cubic-bezier(.22,1,.36,1),box-shadow .75s ease}.welcome .step-number{width:52px;height:52px;display:grid;place-items:center;background:#f6e7d0;border:1px solid #d8a65e;border-radius:50%;font-size:15px;color:#a76b24;font-weight:800}.welcome .step h3{font-size:22px;margin:22px 0 10px}.welcome .step p{color:var(--muted);font-size:13px;margin:0}.welcome .advantages-heading{max-width:720px}.welcome .advantages-heading>p:last-child{color:var(--muted)}.welcome .benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:37px}.welcome .benefit{background:#fff;border:1px solid #e1eaf0;border-radius:20px;padding:28px 18px 26px;text-align:center;box-shadow:0 8px 18px #08263e17,0 16px 30px #08263e12;transition:transform .8s cubic-bezier(.22,1,.36,1),box-shadow .8s ease}.welcome .benefit .icon{width:52px;height:52px;margin:0 auto 17px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1.5px solid #d19b4e;background:#f4faff;box-shadow:0 5px 11px #08263e1a;color:#164b73;transition:transform .8s cubic-bezier(.22,1,.36,1)}.welcome .benefit .icon svg{display:block;width:25px;height:25px}.welcome .benefit h3{font-size:21px;margin:0 0 12px}.welcome .benefit p{color:var(--muted);font-size:12px;margin:0}.welcome .complementary{background:#fbfcfe}.welcome .split{display:grid;grid-template-columns:1fr 1fr;gap:75px;align-items:center}.welcome .complementary-photo{position:relative;filter:drop-shadow(0 15px 22px #08263e20)}.welcome .complementary-photo:after{content:'';position:absolute;inset:5% -4% -4% 4%;z-index:-1;background:#eaf4fa;border-radius:42% 58% 55% 45% / 48% 39% 61% 52%}.welcome .complementary-photo img{width:100%;height:350px;object-fit:cover;display:block;border-radius:42% 58% 55% 45% / 48% 39% 61% 52%;box-shadow:0 20px 42px #092d4c22}.welcome .split p:not(.eyebrow){color:var(--muted)}.welcome .closing{position:relative;background:linear-gradient(110deg,#06243b,#125071);color:#fff;overflow:hidden}.welcome .closing-wave{position:absolute;top:-1px;left:0;width:100%;height:75px;z-index:2}.welcome .closing-grid{display:grid;grid-template-columns:1fr 47%;align-items:center;gap:65px;min-height:440px}.welcome .closing-grid>div:first-child{padding:105px 0 75px}.welcome .closing h2{font-size:clamp(32px,3.7vw,48px)}.welcome .closing p:not(.eyebrow){max-width:510px}.welcome .closing .btn{margin-top:15px}.welcome .closing-photo{height:310px;border:2px solid #e0ad62;border-radius:48% 52% 57% 43% / 63% 44% 56% 37%;overflow:hidden;transform:rotate(-4deg);box-shadow:0 22px 45px #00101f7a}.welcome .closing-photo img{width:100%;height:100%;object-fit:cover;transform:rotate(4deg) scale(1.16)}
+@media(min-width:901px) and (hover:hover){.welcome .btn:hover{transform:translateY(-3px);box-shadow:0 14px 28px #081c3445}.welcome .mode-card:hover,.welcome .step:hover,.welcome .benefit:hover{transform:translateY(-4px);box-shadow:0 23px 37px #08263e29,0 36px 68px #08263e1f}.welcome .benefit:hover .icon{transform:translateY(-3px)}.welcome .text-link:hover{text-decoration:underline}}
+@media(min-width:901px) and (prefers-reduced-motion:no-preference){.welcome.mm-reveal-ready .mm-reveal:not(.mm-visible){opacity:0;translate:0 28px}.welcome.mm-reveal-ready .mm-reveal{transition:opacity .75s ease,translate .75s cubic-bezier(.2,.75,.25,1);transition-delay:var(--mm-delay,0ms)}.welcome.mm-reveal-ready .mm-reveal.mm-visible{opacity:1;translate:0 0}}
+@media(max-width:900px){.welcome .steps,.welcome .benefits{grid-template-columns:repeat(2,minmax(0,1fr))}.welcome .split{gap:30px}.welcome .mode-card,.welcome .step,.welcome .benefit,.welcome .btn,.welcome .benefit .icon{transition:none!important;transform:none!important}.welcome .mm-reveal{opacity:1!important;translate:none!important}}
+@media(max-width:650px){.welcome .wrap{width:calc(100% - 36px)}.welcome .section{padding:65px 0}.welcome .hero{min-height:580px}.welcome .hero-content{padding:90px 0 115px}.welcome .hero h1{font-size:48px}.welcome .hero:before{background:linear-gradient(90deg,#061d32ed,#09283eb8)}.welcome .hero-wave{height:48px}.welcome .hero-actions{flex-direction:column;align-items:flex-start}.welcome .mode-grid,.welcome .split,.welcome .closing-grid{grid-template-columns:1fr}.welcome .mode-image{height:205px}.welcome .mode-body{padding:24px}.welcome .steps,.welcome .benefits{gap:14px}.welcome .step{padding:20px 14px}.welcome .step h3,.welcome .benefit h3{font-size:19px}.welcome .benefit{padding:22px 11px}.welcome .complementary-photo img{height:260px}.welcome .closing-grid{gap:0}.welcome .closing-grid>div:first-child{padding:105px 0 25px}.welcome .closing-photo{height:235px;margin:10px 0 45px}.welcome .orb{width:240px;height:240px}.welcome .orb.left{left:-225px}.welcome .orb.right{right:-225px}.welcome .ribbon{opacity:.4}}
+@media(prefers-reduced-motion:reduce){.welcome .btn,.welcome .mode-card,.welcome .step,.welcome .benefit,.welcome .benefit .icon{transition:none!important;transform:none!important}.welcome .mm-reveal{opacity:1!important;translate:none!important}}
+/* Maison & Monde — Hero uniforme Conciergerie */
+@media (min-width: 901px) {
+  main.welcome > section.hero {
+    height: 720px !important;
+    min-height: 720px !important;
+    max-height: 720px !important;
+  }
+}
+
+</style>
+<script is:inline>
+(()=>{const root=document.querySelector('main.welcome');if(!root||!window.matchMedia('(min-width:901px) and (prefers-reduced-motion:no-preference)').matches||!('IntersectionObserver' in window))return;const selectors=['.intro .mode-card','.process .step','.advantages .benefit','.complementary .split > div','.closing-grid > div'];const nodes=[...new Set(selectors.flatMap(s=>[...root.querySelectorAll(s)]))];const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('mm-visible');observer.unobserve(entry.target)}}},{threshold:.08,rootMargin:'0px 0px -25px 0px'});nodes.forEach((node,i)=>{node.classList.add('mm-reveal');node.style.setProperty('--mm-delay',`${(i%4)*85}ms`)});root.classList.add('mm-reveal-ready');nodes.forEach(node=>observer.observe(node))})();
+</script>

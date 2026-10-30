@@ -40,7 +40,46 @@ const questions = [
     <div class="circle left" aria-hidden="true"></div><div class="circle right" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 320 C290 25 510 420 820 165 S1200 40 1500 270" /></svg>
     <div class="wrap split top-layer">
       <div><p class="eyebrow">NOTRE SAVOIR-FAIRE</p><h2>Un logement prêt<br />à accueillir <em>vos voyageurs</em></h2><p>Nous assurons un ménage complet et minutieux entre chaque séjour afin de garantir un logement propre, soigné et parfaitement préparé. Vous gagnez du temps et offrez à vos voyageurs une expérience agréable dès leur arrivée.</p>
-      <div class="benefits"><div><span>✧</span>Propreté<br/>irréprochable</div><div><span>◷</span>Gestion de votre<br/>temps</div><div><span>♡</span>Meilleurs avis<br/>voyageurs</div><div><span>⌂</span>Sérénité au<br/>quotidien</div></div></div>
+      <div class="benefits">
+  <div>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/>
+      </svg>
+    </span>
+    Propreté<br/>irréprochable
+  </div>
+
+  <div>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 7v5l3 2"/>
+      </svg>
+    </span>
+    Gestion de votre<br/>temps
+  </div>
+
+  <div>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
+      </svg>
+    </span>
+    Meilleurs avis<br/>voyageurs
+  </div>
+
+  <div>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 11 9-8 9 8"/>
+        <path d="M5 10v11h14V10"/>
+        <path d="M9 21v-7h6v7"/>
+      </svg>
+    </span>
+    Sérénité au<br/>quotidien
+  </div>
+</div></div>
       <div class="image-frame"><img src="/images/conciergerie/attention-details.jpg" alt="Intervenante préparant soigneusement un appartement" loading="lazy" /></div>
     </div>
   </section>
@@ -155,7 +194,7 @@ main.prep > section.hero .hero-photo { inset: 0 !important; }
 .prep .benefits div { position:relative; }
 .prep .extras-grid article {
   box-shadow:var(--mm-shadow), 0 2px 5px rgba(8,38,62,.06);
-  transition:transform .38s cubic-bezier(.2,.7,.2,1), box-shadow .38s ease;
+  transition:transform .65s cubic-bezier(.22,1,.36,1), box-shadow .65s ease;
 }
 .prep .steps article {
   background:rgba(255,255,255,.87);
@@ -163,18 +202,48 @@ main.prep > section.hero .hero-photo { inset: 0 !important; }
   border-radius:18px;
   padding:0 0 22px;
   box-shadow:0 12px 27px rgba(8,38,62,.10),0 22px 44px rgba(8,38,62,.06);
-  transition:transform .38s cubic-bezier(.2,.7,.2,1),box-shadow .38s ease;
+  transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease;
 }
 .prep .steps article h3,.prep .steps article p{margin-left:16px;margin-right:16px}
 .prep .step-photo img{border-radius:17px 17px 10px 10px;box-shadow:0 12px 25px rgba(8,38,62,.13)}
-.prep .comparison figure {border-radius:18px;box-shadow:var(--mm-shadow);transition:transform .38s ease,box-shadow .38s ease}
+.prep .comparison figure {border-radius:18px;box-shadow:var(--mm-shadow);transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease}
 .prep .comparison figure img{box-shadow:none}
-.prep .image-frame{filter:drop-shadow(0 15px 22px rgba(8,38,62,.13));transition:transform .38s ease,filter .38s ease}
-.prep .benefits div span{box-shadow:0 8px 16px rgba(8,38,62,.12),0 16px 28px rgba(8,38,62,.06)}
+.prep .image-frame{filter:drop-shadow(0 15px 22px rgba(8,38,62,.13));transition:transform .65s cubic-bezier(.22,1,.36,1),filter .65s ease}
+.prep .benefits div{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:15px 8px 13px;border-radius:17px;
+  background:#fff;border:1px solid rgba(225,234,241,.8);
+  box-shadow:0 8px 18px rgba(8,38,62,.09),0 16px 30px rgba(8,38,62,.07);
+  transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease;
+}
+/* Cercles et icônes harmonisés — Notre savoir-faire */
+.prep .benefits div span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  margin: 0 auto 8px;
+  padding: 0;
+
+  border-radius: 50%;
+  background: #f4faff;
+  box-shadow: 0 5px 11px rgba(8,38,62,.10);
+
+  font-family: Arial, sans-serif;
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+
+
 .prep .closing-photo{box-shadow:0 22px 45px rgba(0,16,31,.48),0 35px 65px rgba(0,16,31,.25)!important;transition:box-shadow .38s ease,filter .38s ease}
 @media(min-width:901px) and (hover:hover){
- .prep .extras-grid article:hover,.prep .steps article:hover,.prep .comparison figure:hover{transform:translateY(-9px);box-shadow:0 23px 37px rgba(8,38,62,.16),0 36px 68px rgba(8,38,62,.12)}
- .prep .image-frame:hover{transform:translateY(-6px);filter:drop-shadow(0 22px 28px rgba(8,38,62,.18))}
+ .prep .extras-grid article:hover,.prep .steps article:hover,.prep .comparison figure:hover{transform:translateY(-4px);box-shadow:0 23px 37px rgba(8,38,62,.16),0 36px 68px rgba(8,38,62,.12)}
+ .prep .image-frame:hover{transform:translateY(-3px);filter:drop-shadow(0 22px 28px rgba(8,38,62,.18))}
  .prep .closing-photo:hover{filter:brightness(1.035);box-shadow:0 30px 58px rgba(0,16,31,.5),0 42px 80px rgba(0,16,31,.26)!important}
 }
 /* Les éléments ne sont masqués qu'après initialisation de l'observateur JS. */
@@ -184,8 +253,48 @@ main.prep > section.hero .hero-photo { inset: 0 !important; }
  .prep.mm-reveal-ready .mm-reveal.mm-visible{opacity:1;translate:0 0}
 }
 @media(max-width:900px),(prefers-reduced-motion:reduce){
- .prep .extras-grid article,.prep .steps article,.prep .comparison figure,.prep .image-frame,.prep .closing-photo{transition:none!important}
+ .prep .extras-grid article,.prep .steps article,.prep .comparison figure,.prep .image-frame,.prep .closing-photo,.prep .benefits div{transition:none!important;transform:none!important}
  .prep .mm-reveal{opacity:1!important;translate:none!important}
+}
+
+/* Flottement doux des quatre cartes du savoir-faire — ordinateur uniquement. */
+@media (min-width: 901px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .prep .know-how .benefits > div {
+    transition: transform .8s cubic-bezier(.22,1,.36,1), box-shadow .8s ease;
+    will-change: auto;
+  }
+  .prep .know-how .benefits > div:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 27px rgba(8,38,62,.14), 0 25px 43px rgba(8,38,62,.10);
+  }
+  .prep .know-how .benefits > div > span {
+    transition: box-shadow .8s ease;
+  }
+  .prep .know-how .benefits > div:hover > span {
+    box-shadow: 0 7px 16px rgba(8,38,62,.17);
+  }
+}
+
+/* Dimensions uniformes des quatre SVG */
+.prep .benefits > div > span svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  stroke: #164b73;
+}
+/* Hauteur identique à la page principale Conciergerie */
+@media (min-width: 901px) {
+  main.prep > section.hero {
+    box-sizing: border-box;
+    height: 720px !important;
+    min-height: 720px !important;
+    max-height: 720px !important;
+  }
+  main.prep > section.hero .hero-inner {
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
 }
 </style>
 <script is:inline>

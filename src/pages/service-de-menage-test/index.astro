@@ -263,6 +263,21 @@ const benefices = [
   .page-menage .avantages::after{content:"";position:absolute;left:14%;right:14%;bottom:-13px;height:35px;border-bottom:1.5px solid rgba(231,169,54,.55);border-radius:0 0 50% 50%;pointer-events:none}
   .page-menage .avantages-grille .avantage-icone{color:#147bd0;background:#e6f4ff}
   .page-menage .avantages-grille .avantage-icone svg{width:58px;height:58px;stroke-width:1.65}
+
+  /* Relief harmonisé avec la page Ménage régulier — ordinateur */
+  @media (min-width: 701px) {
+    .page-menage .carte-formule{box-shadow:0 22px 45px rgba(6,38,72,.20),0 8px 16px rgba(6,38,72,.10)}
+    .page-menage .carte-formule[data-formule="grand-menage"]{box-shadow:0 22px 45px rgba(188,132,26,.22),0 8px 16px rgba(6,38,72,.10)}
+    .page-menage .carte-formule:hover{transform:translateY(-8px);box-shadow:0 30px 55px rgba(6,38,72,.25)}
+    .page-menage .avantages{box-shadow:0 20px 42px rgba(9,39,71,.18),0 7px 14px rgba(9,39,71,.07)}
+    .page-menage .avantages-grille .avantage-icone{box-shadow:0 10px 20px rgba(13,70,115,.19),0 3px 7px rgba(13,70,115,.08);transition:transform .25s ease,box-shadow .25s ease}
+    .page-menage .avantages-grille>div:hover .avantage-icone{transform:translateY(-5px);box-shadow:0 16px 25px rgba(13,70,115,.24)}
+  }
+  @media (max-width: 700px), (prefers-reduced-motion: reduce) {
+    .page-menage .avantages-grille .avantage-icone{transition:none}
+    .page-menage .avantages-grille>div:hover .avantage-icone{transform:none}
+  }
+
   .page-menage .bandeau-devis{position:relative;isolation:isolate}
   .page-menage .bandeau-devis::before{content:"";position:absolute;inset:auto -5% -22px -5%;height:100px;border:0;border-top:2px solid rgba(231,169,54,.78);border-radius:50% 50% 0 0;transform:rotate(-2deg);pointer-events:none;z-index:3}
   .page-menage .bandeau-devis::after{border-color:rgba(231,169,54,.75)}
@@ -306,4 +321,30 @@ const benefices = [
   .page-test .etapes-grille p{font-size:13px;line-height:1.65;color:#617990}
   @media(max-width:850px){.page-test .test-layout{grid-template-columns:1fr;gap:35px;max-width:600px}.page-test .etapes-grille{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media(max-width:550px){.page-test .test-explication{padding:25px}.page-test .etapes-grille{grid-template-columns:1fr}.page-test .prix-test{margin-top:15px}}
+</style>
+
+
+<style>
+  /* Hero : pastilles flottantes harmonisées avec Services occasionnels */
+  .page-test .hero-atouts{gap:18px;flex-wrap:wrap}
+  .page-test .hero-atouts span{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:12px 15px;border-radius:15px;
+    background:rgba(255,255,255,.97);
+    box-shadow:0 12px 25px rgba(10,48,82,.12),0 3px 8px rgba(10,48,82,.05);
+    transition:transform .3s ease,box-shadow .3s ease;
+  }
+  @media (hover:hover) and (pointer:fine) and (min-width:701px){
+    .page-test .hero-atouts span:hover{
+      transform:translateY(-5px);
+      box-shadow:0 18px 32px rgba(10,48,82,.17),0 5px 10px rgba(10,48,82,.07);
+    }
+  }
+  @media (max-width:700px){
+    .page-test .hero-atouts{gap:8px;justify-content:space-between}
+    .page-test .hero-atouts span{padding:8px 7px;gap:5px;border-radius:11px;flex:1;min-width:0;box-shadow:0 5px 12px rgba(10,48,82,.08);transition:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .page-test .hero-atouts span{transition:none!important;transform:none!important}
+  }
 </style>
