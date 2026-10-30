@@ -81,15 +81,15 @@
           </fieldset>
 
           <fieldset>
-            <legend><svg class="svg-icone svg-titre" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 17l.7 2.3L22 20l-2.3.7L19 23l-.7-2.3L16 20l2.3-.7z"/></svg> &nbsp; Prestation souhaitée <span>*</span></legend>
+            <legend><svg class="svg-icone svg-titre" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 17l.7 2.3L22 20l-2.3.7L19 23l-.7-2.3L16 20l2.3-.7z"/></svg> &nbsp; Prestations souhaitées <span>*</span></legend>
 
+            <p class="aide-multichoix">Vous pouvez sélectionner plusieurs prestations.</p>
             <div class="choix-grille">
               <label class="carte">
                 <input
-                  type="radio"
-                  name="prestation"
+                  type="checkbox"
+                  name="prestations_selectionnees"
                   value="Menage a domicile"
-                  required
                 />
                 <span class="carte-contenu">
                   <span class="icone"><svg class="svg-icone svg-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/><path d="m18 4 .5 1.5L20 6l-1.5.5L18 8l-.5-1.5L16 6l1.5-.5z"/></svg></span>
@@ -100,10 +100,9 @@
 
               <label class="carte">
                 <input
-                  type="radio"
-                  name="prestation"
+                  type="checkbox"
+                  name="prestations_selectionnees"
                   value="Repassage"
-                  required
                 />
                 <span class="carte-contenu">
                   <span class="icone"><svg class="svg-icone svg-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h16l-3-7c-.5-1.2-1.7-2-3-2H9c-1.4 0-2.7.9-3.2 2.2L4 17z"/><path d="M4 17v3h16v-3M11 8V5h6M9 12h5"/></svg></span>
@@ -114,10 +113,9 @@
 
               <label class="carte">
                 <input
-                  type="radio"
-                  name="prestation"
+                  type="checkbox"
+                  name="prestations_selectionnees"
                   value="Nettoyage de vitres"
-                  required
                 />
                 <span class="carte-contenu">
                   <span class="icone"><svg class="svg-icone svg-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M12 3v18M3 12h18m-12-6-2 3m10 6-2 3"/></svg></span>
@@ -128,10 +126,9 @@
 
               <label class="carte">
                 <input
-                  type="radio"
-                  name="prestation"
+                  type="checkbox"
+                  name="prestations_selectionnees"
                   value="Autre prestation"
-                  required
                 />
                 <span class="carte-contenu">
                   <span class="icone"><svg class="svg-icone svg-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span>
@@ -239,6 +236,17 @@
         </p>
       </footer>
     </form>
+
+    <!-- Confirmation intégrée : remplace l’alerte native du navigateur. -->
+    <section id="devis-simple-confirmation" class="devis-confirmation" role="status" aria-live="polite" aria-labelledby="devis-confirmation-titre" hidden>
+      <div class="devis-confirmation-icone" aria-hidden="true">✓</div>
+      <span class="devis-confirmation-surtitre">MAISON &amp; MONDE · CONFIRMATION</span>
+      <h2 id="devis-confirmation-titre">Votre demande a bien été envoyée !</h2>
+      <p>Merci pour votre confiance. Nous avons bien reçu votre demande de devis.</p>
+      <p>Notre équipe l’étudiera et vous contactera prochainement afin de vous proposer une prestation adaptée à vos besoins.</p>
+      <div class="devis-confirmation-reference">Votre référence : <strong id="devis-confirmation-reference"></strong></div>
+      <button type="button" class="devis-confirmation-terminer" data-close-devis-simple>Terminer →</button>
+    </section>
   </div>
 </dialog>
 
@@ -251,7 +259,7 @@
     border-radius: 28px;
     background: white;
     color: #102d57;
-    box-shadow: 0 25px 90px rgba(0, 20, 50, 0.3);
+    box-shadow: 0 32px 100px rgba(0, 20, 50, 0.36), 0 9px 24px rgba(0, 20, 50, 0.13);
     overflow-y: auto;
   }
 
@@ -383,6 +391,8 @@
     gap: 12px;
   }
 
+  .aide-multichoix { margin: -8px 0 13px; color: #536680; font-size: 12px; }
+
   .carte {
     position: relative;
     display: block;
@@ -405,7 +415,15 @@
     border: 1px solid #dce4ee;
     border-radius: 14px;
     background: #fff;
-    transition: 0.2s ease;
+    box-shadow: 0 8px 18px rgba(10, 40, 78, .09), 0 2px 5px rgba(10, 40, 78, .05);
+    transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease;
+  }
+
+  @media (hover: hover) and (min-width: 769px) {
+    .carte:hover .carte-contenu {
+      transform: translateY(-4px);
+      box-shadow: 0 17px 30px rgba(10, 40, 78, .17), 0 5px 10px rgba(10, 40, 78, .08);
+    }
   }
 
   .carte:hover .carte-contenu {
@@ -416,7 +434,7 @@
   .carte input:checked + .carte-contenu {
     border: 2px solid #1682dd;
     background: linear-gradient(145deg, #e6f4ff, #fff);
-    box-shadow: 0 4px 14px rgba(0, 100, 200, 0.12);
+    box-shadow: 0 12px 25px rgba(0, 100, 200, 0.17), 0 3px 7px rgba(0, 50, 100, .08);
   }
 
   .carte input:focus-visible + .carte-contenu {
@@ -615,12 +633,77 @@
     width: 21px;
     height: 21px;
   }
+  /* Confirmation : même relief et mêmes couleurs que le site. */
+  #devis-simple-modal .devis-confirmation[hidden],
+  #devis-simple-modal #formulaire-devis-simple[hidden],
+  #devis-simple-modal .modal-header[hidden] { display: none !important; }
+  #devis-simple-modal .devis-confirmation {
+    padding: clamp(30px, 5vw, 70px) 24px;
+    text-align: center;
+    max-width: 690px;
+    margin: 0 auto;
+    color: #102d57;
+  }
+  #devis-simple-modal .devis-confirmation-icone {
+    display: grid; place-items: center;
+    width: 74px; height: 74px; margin: 0 auto 20px;
+    border-radius: 50%; background: #e5f7ed; color: #16865a;
+    border: 1px solid #a7e4c3; font-size: 42px; font-weight: 700;
+    box-shadow: 0 10px 25px rgba(13, 84, 60, .11);
+  }
+  #devis-simple-modal .devis-confirmation-surtitre {
+    display: block; margin-bottom: 12px; color: #c38b30;
+    font-size: 11px; font-weight: 800; letter-spacing: .17em;
+  }
+  #devis-simple-modal .devis-confirmation h2 {
+    margin: 0 0 20px; font-family: Georgia, serif;
+    font-size: clamp(26px, 3.4vw, 37px); line-height: 1.2;
+  }
+  #devis-simple-modal .devis-confirmation p {
+    font-size: 15px; line-height: 1.7; margin: 0 auto 13px;
+    max-width: 560px;
+  }
+  #devis-simple-modal .devis-confirmation-reference {
+    margin: 25px auto; padding: 17px 20px; max-width: 450px;
+    background: #fff9f0; border: 1px solid #f0d3a1;
+    border-radius: 14px; overflow-wrap: anywhere;
+  }
+  #devis-simple-modal .devis-confirmation-terminer {
+    border: 0; border-radius: 999px; cursor: pointer;
+    padding: 15px 34px; background: linear-gradient(110deg, #f5a83d, #ffd071);
+    color: #102d57; font-weight: 800;
+    box-shadow: 0 9px 20px rgba(172, 113, 32, .2);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    #devis-simple-modal .devis-confirmation-terminer:hover {
+      transform: translateY(-2px); box-shadow: 0 14px 25px rgba(172, 113, 32, .27);
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
+    #devis-simple-modal .devis-confirmation:not([hidden]) { animation: devisConfirmationEntree .3s ease-out both; }
+    @keyframes devisConfirmationEntree {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
 </style>
 
 <script>
   const modal = document.querySelector<HTMLDialogElement>(
     '#devis-simple-modal'
   );
+
+  const formulaire = document.querySelector<HTMLFormElement>('#formulaire-devis-simple');
+  const confirmation = document.querySelector<HTMLElement>('#devis-simple-confirmation');
+  const entete = modal?.querySelector<HTMLElement>('.modal-header');
+  const referenceConfirmation = document.querySelector<HTMLElement>('#devis-confirmation-reference');
+
+  const revenirAuFormulaire = () => {
+    if (confirmation) confirmation.hidden = true;
+    if (formulaire) formulaire.hidden = false;
+    if (entete) entete.hidden = false;
+  };
+  modal?.addEventListener('close', revenirAuFormulaire);
 
   // Ouvrir la fenêtre depuis n'importe quelle page.
   document.addEventListener('click', (event) => {
@@ -651,10 +734,15 @@
   });
 
   // Envoi asynchrone vers l'API commune aux deux types de devis.
-  const formulaire = document.querySelector<HTMLFormElement>('#formulaire-devis-simple');
   formulaire?.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!formulaire.reportValidity()) return;
+    const prestations = Array.from(formulaire.querySelectorAll<HTMLInputElement>('input[name="prestations_selectionnees"]:checked'));
+    if (prestations.length === 0) {
+      alert('Veuillez sélectionner au moins une prestation.');
+      formulaire.querySelector<HTMLInputElement>('input[name="prestations_selectionnees"]')?.focus();
+      return;
+    }
 
     const bouton = formulaire.querySelector<HTMLButtonElement>('button[type="submit"]');
     if (!bouton || bouton.disabled) return;
@@ -663,17 +751,25 @@
     bouton.textContent = 'Envoi en cours…';
 
     try {
+      // Garder le champ `prestation` attendu par l'API existante,
+      // en regroupant toutes les prestations sélectionnées dans sa valeur.
+      const donnees = new FormData(formulaire);
+      donnees.delete('prestations_selectionnees');
+      donnees.set('prestation', prestations.map((input) => input.value).join(', '));
       const reponse = await fetch('/api/devis', {
         method: 'POST',
-        body: new FormData(formulaire)
+        body: donnees
       });
       const resultat: { ok?: boolean; reference?: string; error?: string } = await reponse.json();
       if (!reponse.ok || !resultat.ok) {
         throw new Error(resultat.error || 'Impossible d’enregistrer votre demande.');
       }
-      alert(`Votre demande a bien été enregistrée !\nRéférence : ${resultat.reference || ''}`);
+      if (referenceConfirmation) referenceConfirmation.textContent = resultat.reference || '—';
       formulaire.reset();
-      modal?.close();
+      formulaire.hidden = true;
+      if (entete) entete.hidden = true;
+      if (confirmation) confirmation.hidden = false;
+      modal?.scrollTo({ top: 0, behavior: 'instant' });
     } catch (erreur) {
       alert(erreur instanceof Error ? erreur.message : 'Erreur de connexion. Veuillez réessayer.');
     } finally {

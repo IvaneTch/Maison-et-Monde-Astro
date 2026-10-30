@@ -1,0 +1,639 @@
+.site-footer {
+  background: #071b30;
+  color: #fff;
+  padding: 25px 5.5% 0;
+  position: relative;
+}
+.footer-main {
+  max-width: 1500px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr 1.1fr 0.9fr;
+  gap: 30px;
+  align-items: start;
+  padding: 5px 0 44px;
+}
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+.footer-logo b {
+  color: #ffb13f;
+}
+.footer-logo img {
+  object-fit: contain;
+}
+.footer-tagline {
+  font-size: 13px;
+  color: #d8e7f3;
+  display: block;
+  margin: 8px 0 0;
+}
+.footer-brand p {
+  font-size: 13px;
+  color: #d5e5ef;
+  line-height: 1.7;
+  margin: 20px 0;
+  max-width: 265px;
+}
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+.footer-social a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #f0aa40;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 19px;
+  text-decoration: none;
+}
+.footer-social a:hover {
+  background: #eaa340;
+  color: #08243b;
+}
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  min-width: 0;
+}
+.footer-column h2 {
+  font:
+    normal 20px Georgia,
+    serif;
+  margin: 13px 0 13px;
+  padding-bottom: 13px;
+  position: relative;
+  color: #fff;
+}
+.footer-column h2:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 39px;
+  height: 2px;
+  background: #f2ad49;
+}
+.footer-column a {
+  font-size: 13px;
+  color: #e7f1f8;
+  text-decoration: none;
+  line-height: 1.4;
+}
+.footer-column a:hover {
+  color: #f5b653;
+}
+.footer-services a {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.footer-services a span {
+  font-size: 21px;
+  line-height: 12px;
+}
+.footer-contact-item {
+  display: flex !important;
+  gap: 11px;
+  align-items: flex-start;
+  margin: 0;
+  color: #e7f1f8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.footer-contact-item small {
+  color: #b9d0e1;
+  font-size: 11px;
+}
+.footer-contact-icon {
+  font-size: 23px;
+  color: #f4aa39;
+  line-height: 1;
+}
+.footer-column .footer-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 14px 17px;
+  border-radius: 40px;
+  background: #ffb43e;
+  color: #08233a;
+  font-weight: 800;
+}
+.footer-column .footer-cta:hover {
+  background: #ffd181;
+  color: #08233a;
+}
+.footer-map-col {
+  border-left: 1px solid #4b7490;
+  padding-left: 20px;
+  text-align: center;
+  align-self: stretch;
+}
+.footer-map-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 210px;
+  object-fit: contain;
+}
+.footer-map-col p {
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: left;
+  margin: 12px auto 0;
+  max-width: 170px;
+}
+.footer-trust {
+  max-width: 1500px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid #4c7892;
+  border-bottom: 1px solid #4c7892;
+  padding: 22px 0;
+}
+.footer-trust > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 0 12px;
+  border-right: 1px solid #47728d;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.footer-trust > div:first-child {
+  padding-left: 0;
+}
+.footer-trust > div:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+.footer-trust small {
+  font-size: 10px;
+  color: #d5e5f0;
+}
+.trust-icon {
+  font-size: 33px;
+  color: #ffb43e;
+  line-height: 1;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.trust-icon svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+.footer-contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-contact-icon svg {
+  width: 21px;
+  height: 21px;
+  display: block;
+}
+.footer-bottom {
+  max-width: 1500px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  color: #d3e1ec;
+  font-size: 11px;
+}
+.footer-bottom > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.footer-bottom a {
+  color: #d3e1ec;
+  text-decoration: none;
+  padding: 0 15px;
+  border-right: 1px solid #7793a8;
+}
+.footer-bottom a:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+.footer-bottom a:hover {
+  color: #ffbd55;
+}
+
+/* Accordéons : le rendu ordinateur conserve les colonnes d'origine. */
+.footer-accordion {
+  min-width: 0;
+}
+.footer-accordion > summary {
+  display: none;
+}
+.footer-accordion > .footer-column {
+  display: flex;
+}
+
+/* Tablettes : éviter les cinq colonnes trop étroites. */
+@media (min-width: 769px) and (max-width: 1150px) {
+  .footer-main {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px 24px;
+  }
+  .footer-brand {
+    grid-column: span 3;
+  }
+  .footer-brand p {
+    max-width: 600px;
+  }
+  .footer-map-col {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .footer-trust {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 22px;
+  }
+  .footer-trust > div:nth-child(3) {
+    border-right: 0;
+  }
+}
+
+/* Version mobile : menus repliables et blocs sans débordement. */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 46px 20px 0;
+  }
+  .footer-main {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 0 28px;
+    width: 100%;
+  }
+  .footer-brand {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-logo {
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+  }
+  .footer-logo img {
+    max-width: 64px;
+    height: auto;
+  }
+  .footer-tagline {
+    text-align: center;
+  }
+  .footer-brand p {
+    max-width: 440px;
+    margin: 14px auto 18px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .footer-social {
+    justify-content: center;
+    gap: 13px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .footer-social a {
+    width: 42px;
+    height: 42px;
+    flex: none;
+  }
+  .footer-social svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-accordion {
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(255, 185, 79, 0.28);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.045);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.13);
+    overflow: hidden;
+  }
+  .footer-accordion > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 16px 18px;
+    font:
+      600 17px Georgia,
+      serif;
+    color: #fff;
+    list-style: none;
+  }
+  .footer-accordion > summary::-webkit-details-marker {
+    display: none;
+  }
+  .footer-accordion-chevron {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid #ffb43e;
+    border-bottom: 2px solid #ffb43e;
+    transform: rotate(45deg);
+    transition: transform 0.15s ease;
+    margin-right: 4px;
+  }
+  .footer-accordion[open] .footer-accordion-chevron {
+    transform: rotate(225deg);
+  }
+  .footer-accordion > .footer-column {
+    display: none;
+  }
+  .footer-accordion[open] > .footer-column {
+    display: flex;
+    padding: 0 18px 18px;
+    gap: 13px;
+  }
+  .footer-column h2 {
+    display: none;
+  }
+  .footer-column a,
+  .footer-contact-item {
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+  }
+  .footer-column .footer-cta {
+    margin-top: 7px;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .footer-contact-item {
+    align-items: center;
+  }
+  .footer-map-col {
+    width: 100%;
+    box-sizing: border-box;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px 0 0;
+    margin-top: 8px;
+    align-self: auto;
+  }
+  .footer-map-col img {
+    max-width: 170px;
+    max-height: 160px;
+    margin: 0 auto;
+  }
+  .footer-map-col p {
+    text-align: center;
+    max-width: none;
+    margin: 8px 0 0;
+    font-size: 12px;
+  }
+  .footer-map-col br {
+    display: none;
+  }
+
+  .footer-trust {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 20px 0;
+  }
+  .footer-trust > div,
+  .footer-trust > div:first-child,
+  .footer-trust > div:last-child {
+    min-width: 0;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 12px 9px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.35;
+    background: rgba(255, 255, 255, 0.035);
+  }
+  .footer-trust .trust-icon {
+    justify-content: center;
+  }
+  .footer-trust .trust-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  .footer-trust small {
+    font-size: 11px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    padding: 22px 0 26px;
+    font-size: 11px;
+  }
+  .footer-bottom > div {
+    justify-content: center;
+    gap: 10px 0;
+  }
+  .footer-bottom a {
+    padding: 0 9px;
+  }
+  .footer-bottom a:first-child {
+    padding-left: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-accordion-chevron {
+    transition: none;
+  }
+}
+
+/* Harmonisation avec le Header : même bleu nuit, et raccord ondulé. */
+.site-footer {
+  background-color: #071b30;
+  isolation: isolate;
+}
+.site-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -34px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0 24 C220 0 390 35 620 21 C870 5 1050 3 1230 20 C1330 28 1390 20 1440 13 L1440 40 L0 40 Z' fill='%23071b30'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.site-footer > * {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .site-footer::before {
+    top: -22px;
+    height: 24px;
+  }
+}
+
+/* Courbes dorées organiques, espacées et non répétitives. */
+.site-footer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201440%20760%22%20preserveAspectRatio%3D%22none%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23e9b65d%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M-85%20135%20C90%2070%20135%20250%20305%20205%20C420%20175%20430%2085%20545%20115%22%20stroke-width%3D%221.5%22%20opacity%3D%22.62%22%2F%3E%3Cpath%20d%3D%22M990%20-65%20C1080%2065%201260%205%201380%20120%20C1455%20190%201400%20260%201530%20320%22%20stroke-width%3D%221%22%20opacity%3D%22.48%22%2F%3E%3Cpath%20d%3D%22M-125%20530%20C110%20430%20190%20650%20410%20570%20S655%20475%20745%20600%22%20stroke-width%3D%221.35%22%20opacity%3D%22.56%22%2F%3E%3Cpath%20d%3D%22M780%20770%20C885%20620%201025%20725%201110%20610%20C1225%20455%201370%20540%201500%20435%22%20stroke-width%3D%221.5%22%20opacity%3D%22.6%22%2F%3E%3Cpath%20d%3D%22M1175%20730%20C1260%20670%201310%20680%201475%20570%22%20stroke-width%3D%22.8%22%20opacity%3D%22.36%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")
+    center / 100% 100% no-repeat;
+}
+@media (max-width: 768px) {
+  .site-footer::after {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%201200%22%20preserveAspectRatio%3D%22none%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23e9b65d%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M-100%20170%20C50%2030%20105%20250%20260%20185%22%20stroke-width%3D%221.2%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M325%20320%20C185%20420%20430%20505%20295%20595%22%20stroke-width%3D%221%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22M-100%20815%20C75%20730%20110%20950%20275%20865%22%20stroke-width%3D%221.2%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M210%201220%20C255%201080%20365%201130%20450%201015%22%20stroke-width%3D%221%22%20opacity%3D%22.4%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  }
+}
+
+/* Maison & Monde — profondeur bleue, identique à l'esprit des sections premium. */
+.site-footer {
+  background-color: #071f37;
+  background-image:
+    radial-gradient(
+      ellipse 70% 65% at 4% 12%,
+      rgba(48, 126, 171, 0.68) 0%,
+      rgba(22, 82, 125, 0.34) 44%,
+      transparent 78%
+    ),
+    radial-gradient(
+      ellipse 54% 70% at 96% 80%,
+      rgba(22, 82, 125, 0.5) 0%,
+      transparent 75%
+    ),
+    radial-gradient(
+      ellipse 45% 40% at 56% 105%,
+      rgba(5, 17, 33, 0.7),
+      transparent 85%
+    ),
+    linear-gradient(113deg, #103c5e 0%, #0a2946 42%, #061b31 78%, #08243d 100%);
+  box-shadow: inset 0 22px 45px -38px rgba(2, 12, 25, 0.85);
+}
+/* La vague suit le bleu profond, sans bord rectangulaire visible. */
+.site-footer::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 40' preserveAspectRatio='none'%3E%3Cpath d='M0 24 C220 0 390 35 620 21 C870 5 1050 3 1230 20 C1330 28 1390 20 1440 13 L1440 40 L0 40 Z' fill='%23103c5e'/%3E%3C/svg%3E");
+}
+/* Quelques courbes asymétriques uniquement : aucun motif répété. */
+.site-footer::after {
+  opacity: 0.75;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 760' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23eab65b' stroke-linecap='round'%3E%3Cpath d='M-95 195 C115 40 140 255 350 172 C430 140 460 100 545 120' stroke-width='1.25' opacity='.48'/%3E%3Cpath d='M1115 -45 C1060 100 1370 38 1450 215' stroke-width='1.1' opacity='.45'/%3E%3Cpath d='M-75 625 C165 460 225 705 490 580 C590 540 625 565 700 625' stroke-width='1.25' opacity='.52'/%3E%3Cpath d='M845 795 C990 590 1125 715 1240 545 C1320 430 1410 470 1510 365' stroke-width='1.4' opacity='.52'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media (max-width: 768px) {
+  .site-footer {
+    background-image:
+      radial-gradient(
+        ellipse 115% 38% at 0% 8%,
+        rgba(44, 113, 159, 0.48),
+        transparent 78%
+      ),
+      radial-gradient(
+        ellipse 100% 45% at 100% 86%,
+        rgba(21, 78, 118, 0.38),
+        transparent 80%
+      ),
+      linear-gradient(150deg, #103c5e, #08233d 58%, #061b31);
+  }
+  .site-footer::after {
+    opacity: 0.42;
+  }
+}
+
+
+/* Vague originale des avis, déplacée dans le composant Footer partagé.
+   La forme reste identique sur toutes les pages, avec son trait doré. */
+.site-footer { z-index: 2; }
+.site-footer::before { display: none !important; }
+.site-footer > .footer-top-wave {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  top: -90px;
+  display: block;
+  width: 100%;
+  height: 125px;
+  pointer-events: none;
+  overflow: visible;
+}
+@media (max-width: 768px) {
+  .site-footer > .footer-top-wave {
+    top: -51px;
+    height: 72px;
+  }
+}
+
+/* Raccord continu : la couleur au sommet du footer correspond exactement
+   au remplissage de la vague, puis se fond progressivement dans le relief bleu. */
+.site-footer {
+  background-image:
+    linear-gradient(to bottom, #103c5e 0px, #103c5e 34px, rgba(16,60,94,0) 120px),
+    radial-gradient(ellipse 70% 65% at 4% 12%, rgba(48,126,171,.68) 0%, rgba(22,82,125,.34) 44%, transparent 78%),
+    radial-gradient(ellipse 54% 70% at 96% 80%, rgba(22,82,125,.5) 0%, transparent 75%),
+    radial-gradient(ellipse 45% 40% at 56% 105%, rgba(5,17,33,.7), transparent 85%),
+    linear-gradient(113deg,#103c5e 0%,#0a2946 42%,#061b31 78%,#08243d 100%);
+  box-shadow: none;
+}
+@media (max-width:768px) {
+  .site-footer {
+    background-image:
+      linear-gradient(to bottom, #103c5e 0px, #103c5e 22px, rgba(16,60,94,0) 95px),
+      radial-gradient(ellipse 115% 38% at 0% 8%,rgba(44,113,159,.48),transparent 78%),
+      radial-gradient(ellipse 100% 45% at 100% 86%,rgba(21,78,118,.38),transparent 80%),
+      linear-gradient(150deg,#103c5e,#08233d 58%,#061b31);
+  }
+}
+
+/* Correction définitive : le SVG s'arrête exactement au début du footer.
+   Le haut du footer a la même teinte uniforme que la vague. */
+.site-footer > .footer-top-wave {
+  top: -90px;
+  height: 90px;
+}
+.site-footer {
+  background-image:
+    linear-gradient(to bottom, #103c5e 0px, #103c5e 45px, rgba(16,60,94,0) 235px),
+    radial-gradient(ellipse 70% 65% at 4% 12%, rgba(48,126,171,.68) 0%, rgba(22,82,125,.34) 44%, transparent 78%),
+    radial-gradient(ellipse 54% 70% at 96% 80%, rgba(22,82,125,.5) 0%, transparent 75%),
+    radial-gradient(ellipse 45% 40% at 56% 105%, rgba(5,17,33,.7), transparent 85%),
+    linear-gradient(113deg,#103c5e 0%,#0a2946 42%,#061b31 78%,#08243d 100%);
+}
+@media (max-width:768px) {
+  .site-footer > .footer-top-wave { top: -51px; height: 51px; }
+  .site-footer {
+    background-image:
+      linear-gradient(to bottom,#103c5e 0px,#103c5e 30px,rgba(16,60,94,0) 180px),
+      radial-gradient(ellipse 115% 38% at 0% 8%,rgba(44,113,159,.48),transparent 78%),
+      radial-gradient(ellipse 100% 45% at 100% 86%,rgba(21,78,118,.38),transparent 80%),
+      linear-gradient(150deg,#103c5e,#08233d 58%,#061b31);
+  }
+}

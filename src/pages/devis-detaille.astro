@@ -1656,3 +1656,99 @@ data.set('prestation_souhaitee',champPrestation?.value || '');const response=awa
 .quote-card fieldset.mm-invalid>.option-grid .option>span,.quote-card fieldset.mm-invalid>.choice-row{border-color:#d97706}
 .mm-submit-error{padding:13px 16px;margin-top:18px;background:#fff2f2;border:1px solid #df6868;border-radius:10px;color:#a32626;font-weight:600}
 </style>
+
+
+<!-- Maison & Monde : profondeur douce et mouvement discret (ordinateur uniquement) -->
+<style is:global>
+  :root { --mm-depth-shadow: 0 18px 42px rgba(8, 35, 59, .13), 0 5px 14px rgba(8, 35, 59, .07); }
+  .quote-hero-visual, .quote-card, .quote-progress, .quote-steps, .option > span {
+    box-shadow: var(--mm-depth-shadow);
+  }
+  .quote-hero-visual { filter: drop-shadow(0 14px 22px rgba(8, 35, 59, .12)); }
+  .quote-card { box-shadow: 0 22px 55px rgba(8, 35, 59, .14), 0 5px 14px rgba(8, 35, 59, .06); }
+  @media (min-width: 900px) and (hover: hover) {
+    .quote-hero-visual, .quote-card, .option > span {
+      transition: transform .38s cubic-bezier(.2,.7,.2,1), box-shadow .38s ease;
+    }
+    .quote-hero-visual:hover { transform: translateY(-5px); filter: drop-shadow(0 20px 28px rgba(8,35,59,.18)); }
+    .quote-card:hover { box-shadow: 0 28px 65px rgba(8,35,59,.17), 0 8px 20px rgba(8,35,59,.07); }
+    .option:hover > span { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(8,35,59,.13); }
+    .mm-depth-reveal { animation: mm-depth-enter .75s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes mm-depth-enter { from { opacity: .5; translate: 0 20px; } to { opacity: 1; translate: 0 0; } }
+  }
+  @media (max-width: 899px), (prefers-reduced-motion: reduce) {
+    .quote-hero-visual, .quote-card, .option > span { transition: none !important; animation: none !important; }
+  }
+</style>
+<script is:inline>
+  // Animation d'entrée uniquement pour les blocs visibles : ne touche pas aux étapes masquées du formulaire.
+  if (window.matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)').matches) {
+    const initDepth = () => {
+      const elements = document.querySelectorAll('.quote-hero-copy, .quote-hero-visual, .quote-progress');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('mm-depth-reveal');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: .12 });
+        elements.forEach((el) => observer.observe(el));
+      }
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initDepth, { once: true });
+    else initDepth();
+  }
+</script>
+
+
+<!-- Maison & Monde : relief cohérent des barres de progression et des récapitulatifs -->
+<style is:global>
+  /* Ces éléments restent en place : seul le relief visuel change. */
+  .quote-wrap .quote-progress {
+    position: relative;
+    z-index: 3;
+    border: 1px solid rgba(198, 213, 228, .9);
+    box-shadow: 0 5px 9px rgba(10, 42, 78, .07),
+                0 15px 28px rgba(10, 42, 78, .13),
+                0 28px 45px rgba(10, 42, 78, .055) !important;
+  }
+  .quote-wrap .quote-steps {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(180deg, #fff 0%, #f7faff 100%);
+    border: 1px solid rgba(217, 228, 239, .92);
+    border-radius: 11px;
+    padding: 10px 12px 12px;
+    box-shadow: 0 5px 10px rgba(10, 42, 78, .065),
+                0 15px 29px rgba(10, 42, 78, .12),
+                0 26px 44px rgba(10, 42, 78, .045) !important;
+  }
+  .quote-wrap .completed-row {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(180deg, #fff 0%, #fcfdff 100%);
+    border: 1px solid #dce6f0;
+    box-shadow: 0 4px 9px rgba(10, 42, 78, .06),
+                0 12px 24px rgba(10, 42, 78, .105),
+                0 22px 38px rgba(10, 42, 78, .035) !important;
+  }
+  @media (min-width: 900px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .quote-wrap .completed-row {
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .quote-wrap .completed-row:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 14px rgba(10, 42, 78, .08),
+                  0 18px 34px rgba(10, 42, 78, .14) !important;
+    }
+  }
+  @media (max-width: 750px) {
+    .quote-wrap .quote-progress,
+    .quote-wrap .quote-steps,
+    .quote-wrap .completed-row {
+      box-shadow: 0 5px 13px rgba(10, 42, 78, .09) !important;
+    }
+  }
+</style>

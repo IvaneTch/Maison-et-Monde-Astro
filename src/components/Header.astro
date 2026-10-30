@@ -1,4 +1,8 @@
-    <header class="header">
+---
+import "../styles/header.css";
+---
+
+<header class="header">
       <a href="/" class="logo" aria-label="Maison & Monde, accueil">
         <img
   src="/favicon.png"
@@ -51,42 +55,7 @@
       <a href="/devis-simple/" data-open-devis-simple class="header-button">Demander un devis</a>
     </header>
 
-<style is:global>
-  /* Menu intelligent : visible lorsque le visiteur remonte la page. */
-  .header.mm-smart-fixed {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    z-index: 9999 !important;
-    transform: translateY(0);
-    transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .header.mm-smart-fixed.mm-smart-hidden {
-    transform: translateY(calc(-100% - 3px));
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .header.mm-smart-fixed { transition: none; }
-  }
 
-  .header .services-dropdown { position: relative; }
-  .header .services-dropdown > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: .4rem; }
-  .header .services-dropdown > summary::-webkit-details-marker,
-  .header .mobile-services-dropdown > summary::-webkit-details-marker { display: none; }
-  .header .services-dropdown > summary:focus-visible,
-  .header .mobile-services-dropdown > summary:focus-visible { outline: 2px solid #e9a34c; outline-offset: 4px; }
-  .header .services-dropdown-links { position: absolute; z-index: 1000; top: 100%; left: 0; min-width: 245px; padding: 8px; border: 1px solid rgba(233,163,76,.4); border-radius: 12px; background: #071b30; box-shadow: 0 16px 35px rgba(0,0,0,.25); }
-  .header .services-dropdown-links a { display: block; padding: 11px 13px; color: #fff; white-space: nowrap; border-radius: 7px; text-decoration: none; }
-  .header .services-dropdown-links a:hover,
-  .header .services-dropdown-links a:focus-visible { color: #e9a34c; background: rgba(255,255,255,.08); }
-  .header .mobile-services-dropdown > summary { display: flex; justify-content: space-between; align-items: center; padding: 12px 6px; cursor: pointer; color: #fff; border-bottom: 1px solid rgba(255,255,255,.12); }
-  .header .mobile-services-links { padding-left: 16px; }
-  .header .mobile-services-links a { display: block; padding: 12px 6px; color: #fff; text-decoration: none; }
-  .header .mobile-services-links a:hover,
-  .header .mobile-services-links a:focus-visible { color: #e9a34c; }
-  @media (max-width: 768px) { .header .services-dropdown { display: none; } }
-</style>
 
 <script>
   // Sur ordinateur : ouverture au survol, fermeture à la sortie.

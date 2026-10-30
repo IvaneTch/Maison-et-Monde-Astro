@@ -42,7 +42,18 @@ export const POST: APIRoute = async ({ request }) => {
     const adresse = str(data, "adresse", 255);
     const codePostal = str(data, "code_postal", 10);
     const frequence = str(data, "frequence", 30);
-    const prestation = str(data, "prestation", 100);
+    // Compatible avec l'ancien formulaire (une prestation) et le nouveau
+    // formulaire multisélection (valeurs séparées par des virgules).
+    const prestations = data.getAll("prestation")
+      .flatMap((value) => String(value).split(","))
+      .map((value) => value.trim())
+      .filter(Boolean);
+    const prestationsAutoriseesSimple = [
+      "Menage a domicile",
+      "Repassage",
+      "Nettoyage de vitres",
+      "Autre prestation",
+    ];
 
     if (
       !nom ||
@@ -56,12 +67,10 @@ export const POST: APIRoute = async ({ request }) => {
     }
     if (
       !["Reguliere", "Occasionnelle"].includes(frequence) ||
-      ![
-        "Menage a domicile",
-        "Repassage",
-        "Nettoyage de vitres",
-        "Autre prestation",
-      ].includes(prestation)
+      prestations.length === 0 ||
+      prestations.length > prestationsAutoriseesSimple.length ||
+      new Set(prestations).size !== prestations.length ||
+      prestations.some((value) => !prestationsAutoriseesSimple.includes(value))
     ) {
       return fail("Sélectionnez une fréquence et une prestation.");
     }
@@ -90,7 +99,7 @@ export const POST: APIRoute = async ({ request }) => {
           telephone,
           adresse,
           codePostal,
-          JSON.stringify([prestation]),
+          JSON.stringify(prestations),
           frequence === "Reguliere" ? "Régulière" : "Occasionnelle",
           `Adresse de prestation : ${adresse}`,
         ],

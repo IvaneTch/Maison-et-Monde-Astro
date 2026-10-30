@@ -1,0 +1,396 @@
+/* Maison & Monde — styles autonomes du Header */
+:root {
+  --navy: #102b46;
+  --navy-dark: #071b30;
+  --gold: #e9a34c;
+}
+.header {
+  min-height: 88px;
+  padding: 20px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: var(--navy-dark);
+  color: #fff;
+}
+.header .logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 21px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  color: inherit;
+}
+.header .logo strong {
+  color: var(--gold);
+}
+.header .logo-icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.header nav {
+  display: flex;
+  gap: 30px;
+  font-size: 14px;
+  align-items: center;
+}
+.header nav a {
+  text-decoration: none;
+  color: inherit;
+}
+.header nav a:hover {
+  color: var(--gold);
+}
+.header .header-button {
+  background: var(--gold);
+  color: var(--navy-dark);
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+}
+.header .mobile-menu {
+  display: none;
+}
+.header .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 900px) {
+  .header {
+    position: relative;
+  }
+  .header nav {
+    display: none;
+  }
+  .header .mobile-menu {
+    display: block;
+    margin-left: auto;
+  }
+  .header .mobile-menu summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    list-style: none;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+  }
+  .header .mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .header .mobile-menu summary:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+  .header .hamburger-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .header .hamburger-lines span {
+    display: block;
+    width: 17px;
+    height: 2px;
+    border-radius: 2px;
+    background: white;
+  }
+  .header .mobile-menu-links {
+    position: absolute;
+    z-index: 50;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 6% 18px;
+    background: #071b30;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  }
+  .header .mobile-menu-links a {
+    display: block;
+    padding: 12px 6px;
+    color: white;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    text-decoration: none;
+  }
+  .header .mobile-menu-links a:hover,
+  .header .mobile-menu-links a:focus-visible {
+    color: var(--gold);
+  }
+  .header .header-button {
+    padding: 12px;
+    font-size: 11px;
+  }
+  .header .logo {
+    font-size: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .header .logo > span {
+    display: none;
+  }
+}
+@media (max-width: 380px) {
+  .header {
+    gap: 8px;
+  }
+  .header .mobile-menu summary {
+    width: 32px;
+    height: 34px;
+  }
+}
+/* Menu intelligent : visible lorsque le visiteur remonte la page. */
+.header.mm-smart-fixed {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+  transform: translateY(0);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.header.mm-smart-fixed.mm-smart-hidden {
+  transform: translateY(calc(-100% - 3px));
+}
+@media (prefers-reduced-motion: reduce) {
+  .header.mm-smart-fixed {
+    transition: none;
+  }
+}
+
+.header .services-dropdown {
+  position: relative;
+}
+.header .services-dropdown > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.header .services-dropdown > summary::-webkit-details-marker,
+.header .mobile-services-dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+.header .services-dropdown > summary:focus-visible,
+.header .mobile-services-dropdown > summary:focus-visible {
+  outline: 2px solid #e9a34c;
+  outline-offset: 4px;
+}
+.header .services-dropdown-links {
+  position: absolute;
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+  min-width: 245px;
+  padding: 8px;
+  border: 1px solid rgba(233, 163, 76, 0.4);
+  border-radius: 12px;
+  background: #071b30;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
+}
+.header .services-dropdown-links a {
+  display: block;
+  padding: 11px 13px;
+  color: #fff;
+  white-space: nowrap;
+  border-radius: 7px;
+  text-decoration: none;
+}
+.header .services-dropdown-links a:hover,
+.header .services-dropdown-links a:focus-visible {
+  color: #e9a34c;
+  background: rgba(255, 255, 255, 0.08);
+}
+.header .mobile-services-dropdown > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 6px;
+  cursor: pointer;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.header .mobile-services-links {
+  padding-left: 16px;
+}
+.header .mobile-services-links a {
+  display: block;
+  padding: 12px 6px;
+  color: #fff;
+  text-decoration: none;
+}
+.header .mobile-services-links a:hover,
+.header .mobile-services-links a:focus-visible {
+  color: #e9a34c;
+}
+@media (max-width: 768px) {
+  .header .services-dropdown {
+    display: none;
+  }
+}
+/* Harmonisation du Header sur toutes les pages */
+@media (min-width: 901px) {
+  .header {
+    height: 72px;
+    min-height: 72px;
+    padding: 10px 6%;
+    box-sizing: border-box;
+  }
+
+  .header .logo {
+    flex-shrink: 0;
+  }
+
+  .header nav {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header .header-button {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+/* Correctifs mobiles : menu compact, sous-menu lisible et sans chevauchement. */
+@media (max-width: 900px) {
+  .header {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 76px;
+    padding: 12px 5%;
+    gap: 12px;
+  }
+  .header .logo { flex: 0 0 auto; min-width: 0; }
+  .header .logo-icon { width: 44px; height: 44px; }
+  .header .mobile-menu { flex: 0 0 auto; margin-left: auto; min-width: 0; }
+  .header .mobile-menu > summary {
+    box-sizing: border-box;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    flex: none;
+  }
+  .header .header-button {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    max-width: calc(100vw - 145px);
+    padding: 12px 15px;
+    text-align: center;
+    line-height: 1.2;
+    white-space: normal;
+  }
+  .header .mobile-menu:not([open]) > .mobile-menu-links { display: none !important; }
+  .header .mobile-menu[open] > .mobile-menu-links {
+    box-sizing: border-box;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-width: 0;
+    max-height: calc(100dvh - 76px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 12px 5% 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: #071b30;
+    border-top: 1px solid rgba(233,163,76,.25);
+    box-shadow: 0 18px 30px rgba(0,0,0,.32);
+    -webkit-overflow-scrolling: touch;
+  }
+  .header .mobile-menu-links > a,
+  .header .mobile-services-dropdown > summary {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 52px;
+    margin: 0;
+    padding: 14px 10px;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 500;
+    text-align: left;
+    white-space: normal;
+    border: 0;
+    border-bottom: 1px solid rgba(255,255,255,.14);
+    border-radius: 0;
+    background: transparent;
+    color: #fff;
+  }
+  .header .mobile-services-dropdown {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .header .mobile-services-dropdown > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .header .mobile-services-dropdown > summary::marker { content: ''; }
+  .header .mobile-services-dropdown > summary::-webkit-details-marker { display: none; }
+  .header .mobile-services-dropdown > summary span {
+    display: inline-block;
+    flex: 0 0 auto;
+    font-size: 16px;
+    transition: transform .15s ease;
+  }
+  .header .mobile-services-dropdown[open] > summary span { transform: rotate(180deg); }
+  .header .mobile-services-dropdown:not([open]) > .mobile-services-links { display: none !important; }
+  .header .mobile-services-links {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 6px 0 9px 14px;
+    border-left: 2px solid #e9a34c;
+    background: rgba(255,255,255,.035);
+  }
+  .header .mobile-services-links a {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 12px 10px;
+    font-size: 14px;
+    line-height: 1.45;
+    white-space: normal;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .header .mobile-services-links a:last-child { border-bottom: 0; }
+}
+@media (max-width: 380px) {
+  .header { gap: 8px; padding-inline: 4%; }
+  .header .logo-icon { width: 40px; height: 40px; }
+  .header .header-button { padding: 10px 11px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header .mobile-services-dropdown > summary span { transition: none; }
+}

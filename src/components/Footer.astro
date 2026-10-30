@@ -1,8 +1,15 @@
 ---
+import "../styles/footer.css";
+
 const entreprise = "Maison & Monde";
 ---
 
     <footer class="site-footer">
+      <!-- Vague commune à toutes les pages : courbe originale de l'accueil et filet doré -->
+      <svg class="footer-top-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0 10 C340 95 1070 95 1440 10 L1440 90 L0 90Z" fill="#103c5e" />
+        <path d="M0 12 C340 97 1070 97 1440 12" fill="none" stroke="#f0aa40" stroke-width="2" />
+      </svg>
       <div class="footer-main">
         <div class="footer-brand">
           <a href="/" class="footer-logo"><img src="/favicon.png" alt="" width="65" height="65" /><span>Maison <b>&amp; Monde</b></span></a>
@@ -23,7 +30,9 @@ const entreprise = "Maison & Monde";
             </a>
           </div>
         </div>
-        <div class="footer-column footer-services">
+        <details open class="footer-accordion footer-accordion-footer-services">
+          <summary>Nos prestations<span class="footer-accordion-chevron" aria-hidden="true"></span></summary>
+          <div class="footer-column footer-services">
           <h2>Nos prestations</h2>
           <a href="/menage-regulier-a-domicile/">Services réguliers <span>›</span></a>
           <a href="/services-occasionnels/">Services occasionnels <span>›</span></a>
@@ -31,7 +40,10 @@ const entreprise = "Maison & Monde";
           <a href="/repassage-a-domicile-paris/">Services de repassage <span>›</span></a>
           <a href="/conciergerie/">Services de conciergerie <span>›</span></a>
         </div>
-        <div class="footer-column">
+        </details>
+        <details open class="footer-accordion footer-accordion-links">
+          <summary>Liens utiles<span class="footer-accordion-chevron" aria-hidden="true"></span></summary>
+          <div class="footer-column">
           <h2>Liens utiles</h2>
           <a href="/#avantages">Nos avantages</a>
           <a href="/#about">À propos de Maison &amp; Monde</a>
@@ -40,7 +52,10 @@ const entreprise = "Maison & Monde";
           <a href="/nos-services/">Zones d’intervention</a>
           <a href="tel:+33745292585">Nous contacter</a>
         </div>
-        <div class="footer-column footer-contact">
+        </details>
+        <details open class="footer-accordion footer-accordion-footer-contact">
+          <summary>Contact<span class="footer-accordion-chevron" aria-hidden="true"></span></summary>
+          <div class="footer-column footer-contact">
           <h2>Contact</h2>
           <a class="footer-contact-item" href="tel:+33980386848"><span class="footer-contact-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.8L7.5 9.8a16 16 0 0 0 6.7 6.7l1.5-1.5a2 2 0 0 1 1.8-.6l2.8.5a2 2 0 0 1 1.7 2Z"/></svg></span><span>09 80 38 68 48</span></a>
           <a class="footer-contact-item" href="tel:+33745292585"><span class="footer-contact-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.8L7.5 9.8a16 16 0 0 0 6.7 6.7l1.5-1.5a2 2 0 0 1 1.8-.6l2.8.5a2 2 0 0 1 1.7 2Z"/></svg></span><span>07 45 29 25 85</span></a>
@@ -48,6 +63,7 @@ const entreprise = "Maison & Monde";
           <p class="footer-contact-item"><span class="footer-contact-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span>Paris et Île-de-France<br /><small>Interventions dans Paris et les communes voisines</small></span></p>
           <a class="footer-cta" href="/devis-simple/" data-open-devis-simple>Demander un devis <span aria-hidden="true">→</span></a>
         </div>
+        </details>
         <div class="footer-map-col"><img src="/images/carte-france-maison-et-monde.png" width="220" height="220" loading="lazy" alt="Carte stylisée de France indiquant la région parisienne"/><p>Nous intervenons<br />à Paris et en<br />Île-de-France.</p></div>
       </div>
       <div class="footer-trust" aria-label="Les engagements Maison et Monde">
@@ -63,3 +79,18 @@ const entreprise = "Maison & Monde";
         <div><a href="/mentions-legales/">Mentions légales</a><a href="/politique-de-confidentialite/">Politique de confidentialité</a><a href="/cgv/">CGV</a><a href="/plan-du-site/">Plan du site</a></div>
       </div>
     </footer>
+
+<script>
+  // Les accordéons sont ouverts sur ordinateur, repliés sur téléphone.
+  const setupFooterAccordions = () => {
+    const mobile = window.matchMedia('(max-width: 768px)');
+    const accordions = document.querySelectorAll<HTMLDetailsElement>('.site-footer .footer-accordion');
+    const sync = () => {
+      accordions.forEach((item) => { item.open = !mobile.matches; });
+    };
+    sync();
+    mobile.addEventListener('change', sync);
+  };
+  setupFooterAccordions();
+  document.addEventListener('astro:page-load', setupFooterAccordions);
+</script>

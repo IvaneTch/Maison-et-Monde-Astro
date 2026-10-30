@@ -1,6 +1,204 @@
 ---
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+const services = [
+  {n:"01", title:"Nettoyage complet", desc:"Cuisine, salle de bain, sanitaires, sols et surfaces : chaque pièce est préparée pour les prochains voyageurs."},
+  {n:"02", title:"Linge et literie", desc:"Retrait du linge utilisé, installation de draps propres et présentation soignée des serviettes."},
+  {n:"03", title:"Mise en place du logement", desc:"Coussins, espaces de vie et équipements sont remis en ordre pour une arrivée accueillante."},
+  {n:"04", title:"Contrôle avant arrivée", desc:"Vérification visuelle du logement et signalement des anomalies constatées lors de notre passage."},
+];
+const questions = [
+  {q:"Intervenez-vous entre deux réservations ?", a:"Oui, nous pouvons organiser le ménage et la préparation du logement entre les départs et les arrivées, selon les créneaux disponibles."},
+  {q:"Puis-je demander uniquement le ménage ?", a:"Oui. Nos prestations peuvent être réservées à la carte, sans obligation de souscrire une gestion complète."},
+  {q:"Fournissez-vous les draps et les serviettes ?", a:"Nous pouvons organiser la mise en place du linge fourni par le propriétaire. Les besoins en blanchisserie ou en fourniture de linge sont étudiés sur devis."},
+  {q:"Comment obtenir un tarif ?", a:"Le devis dépend notamment de la surface, de la configuration du logement, de la fréquence des interventions et des prestations demandées."},
+];
 ---
+<!doctype html>
 <html lang="fr">
-  <head><meta charset="UTF-8" /><title>Conciergerie | Maison & Monde</title></head>
-  <body><h1>Page en préparation</h1></body>
+<head>
+<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Ménage et préparation de logements de location courte durée à Paris : nettoyage, linge, vérification et réassort. Maison & Monde, prestations sur devis." />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<title>Ménage et préparation du logement à Paris | Maison & Monde</title>
+</head>
+<body>
+<Header />
+<main class="prep">
+  <section class="hero">
+    <div class="hero-photo" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">CONCIERGERIE À PARIS ET EN ÎLE-DE-FRANCE</p>
+      <h1>Ménage et<br />préparation<br /><span>du logement</span></h1>
+      <p>Un logement toujours impeccable entre deux voyageurs, pour des séjours réussis et des avis positifs.</p>
+      <div class="actions"><a class="button gold" href="/devis-detaille/">Demander un devis personnalisé <span>→</span></a><a class="button ghost" href="/conciergerie/">Nos autres services</a></div>
+    </div>
+    <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 35 C290 115 610 5 880 42 S1250 90 1440 32 L1440 90 H0Z" fill="white"/><path d="M0 35 C290 115 610 5 880 42 S1250 90 1440 32" fill="none" stroke="#d7a35c" stroke-width="2"/></svg>
+  </section>
+
+  <section class="section know-how decorated" id="savoir-faire">
+    <div class="circle left" aria-hidden="true"></div><div class="circle right" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 320 C290 25 510 420 820 165 S1200 40 1500 270" /></svg>
+    <div class="wrap split top-layer">
+      <div><p class="eyebrow">NOTRE SAVOIR-FAIRE</p><h2>Un logement prêt<br />à accueillir <em>vos voyageurs</em></h2><p>Nous assurons un ménage complet et minutieux entre chaque séjour afin de garantir un logement propre, soigné et parfaitement préparé. Vous gagnez du temps et offrez à vos voyageurs une expérience agréable dès leur arrivée.</p>
+      <div class="benefits"><div><span>✧</span>Propreté<br/>irréprochable</div><div><span>◷</span>Gestion de votre<br/>temps</div><div><span>♡</span>Meilleurs avis<br/>voyageurs</div><div><span>⌂</span>Sérénité au<br/>quotidien</div></div></div>
+      <div class="image-frame"><img src="/images/conciergerie/attention-details.jpg" alt="Intervenante préparant soigneusement un appartement" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <section class="section process decorated" id="etapes">
+    <div class="circle right" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 130 C280 380 470 20 800 220 S1230 330 1500 95" /></svg>
+    <div class="wrap top-layer"><p class="eyebrow">LES ÉTAPES DE NOTRE INTERVENTION</p><h2>Un processus <em>simple et efficace</em></h2>
+      <div class="steps">
+        <article><div class="step-photo"><img src="/images/conciergerie/menage-preparation.jpg" alt="Chambre propre préparée" loading="lazy" /><b>01</b></div><h3>Ménage complet</h3><p>Nettoyage de toutes les pièces : sanitaires, cuisine, sols et surfaces.</p></article>
+        <article><div class="step-photo"><img src="/images/conciergerie/services-complementaires.jpg" alt="Linge propre et serviettes" loading="lazy" /><b>02</b></div><h3>Changement du linge</h3><p>Installation des draps propres et préparation des serviettes.</p></article>
+        <article><div class="step-photo"><img src="/images/conciergerie/salon-conciergerie.jpg" alt="Salon prêt à accueillir les voyageurs" loading="lazy" /><b>03</b></div><h3>Réassort et vérification</h3><p>Produits d'accueil, consommables et contrôle des équipements.</p></article>
+        <article><div class="step-photo"><img src="/images/conciergerie/suivi-maintenance.jpg" alt="Vérification finale du logement" loading="lazy" /><b>04</b></div><h3>Contrôle final</h3><p>Vérification de chaque détail et signalement si nécessaire.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section results decorated">
+    <div class="circle left" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 300 C250 45 550 410 900 150 S1200 40 1500 245" /></svg>
+    <div class="wrap top-layer"><p class="eyebrow">DES RÉSULTATS CONCRETS</p><h2>Avant / Après <em>chaque séjour</em></h2><p class="subtext">Une remise en état attentive pour retrouver un logement accueillant après chaque départ.</p>
+      <div class="comparison"><figure><img src="/images/conciergerie/chambre-avant.jpg" alt="Chambre avant la préparation, lit défait" loading="lazy" /><figcaption>Avant la préparation</figcaption></figure><div class="comparison-arrow" aria-hidden="true">→</div><figure><img src="/images/conciergerie/chambre-apres.jpg" alt="Même chambre après la préparation, lit parfaitement fait" loading="lazy" /><figcaption>Après la préparation</figcaption></figure></div>
+    </div>
+  </section>
+
+  <section class="section linen decorated"><div class="circle right" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 85 C320 360 510 30 830 190 S1170 355 1500 120" /></svg>
+    <div class="wrap split top-layer"><div class="image-frame"><img src="/images/conciergerie/services-complementaires.jpg" alt="Serviettes et produits d'accueil" loading="lazy" /></div><div><p class="eyebrow">UN LOGEMENT TOUJOURS BIEN ÉQUIPÉ</p><h2>Linge et <em>consommables</em></h2><p>Nous pouvons assurer la mise en place du linge et le réassort des produits essentiels, selon vos consignes et les équipements disponibles dans le logement.</p><ul class="checks"><li>Draps et taies d'oreiller propres</li><li>Serviettes de bain et tapis de sol</li><li>Produits d'accueil (savon, shampoing…)</li><li>Papier toilette, sacs-poubelle, liquide vaisselle</li><li>Vérification des équipements et consommables</li></ul></div></div>
+  </section>
+
+  <section class="section extras decorated" id="options"><div class="circle left" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 330 C330 50 530 390 830 170 S1210 35 1500 280" /></svg>
+    <div class="wrap top-layer"><p class="eyebrow">DES SERVICES COMPLÉMENTAIRES</p><h2>À la carte <em>selon vos besoins</em></h2>
+      <div class="extras-grid"><article><img src="/images/conciergerie/reassort-courses.jpg" alt="Appartement et produits de bienvenue" loading="lazy" /><div><h3>Réassort de courses</h3><p>Préparation des produits d'accueil et achats selon votre liste.</p><a href="/conciergerie/services-a-la-carte/">En savoir plus →</a></div></article><article><img src="/images/conciergerie/lavage-repassage.jpg" alt="Linge et blanchisserie" loading="lazy" /><div><h3>Lavage et repassage</h3><p>Entretien du linge de maison et de vos textiles.</p><a href="/conciergerie/services-a-la-carte/">En savoir plus →</a></div></article><article><img src="/images/conciergerie/prestations-specifiques.jpg" alt="Entretien soigné du logement" loading="lazy" /><div><h3>Prestations spécifiques</h3><p>Nettoyage complémentaire et demandes particulières sur devis.</p><a href="/conciergerie/services-a-la-carte/">En savoir plus →</a></div></article></div>
+    </div>
+  </section>
+
+  <section class="closing"><svg class="closing-wave" viewBox="0 0 1440 75" preserveAspectRatio="none" aria-hidden="true"><path d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5 L1440 0 H0Z" fill="white"/><path d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5" stroke="#d7a35c" fill="none" stroke-width="2"/></svg><div class="wrap closing-grid"><div><p class="eyebrow">UN LOGEMENT PRÊT POUR CHAQUE ARRIVÉE</p><h2>Confiez-nous la préparation<br/>de <em>votre logement</em></h2><p>Demandez un devis personnalisé et profitez d'un service professionnel pour vos locations courte durée.</p><a class="button gold" href="/devis-detaille/">Demander un devis personnalisé <span>→</span></a></div><div class="closing-photo"><img src="/images/conciergerie/salon-conciergerie.jpg" alt="Appartement parisien prêt à accueillir les voyageurs" loading="lazy" /></div></div></section>
+</main>
+<Footer />
+</body>
 </html>
+
+<style is:global>
+.prep{--navy:#092942;--gold:#d19b4e;--muted:#5d7182;color:var(--navy);font-family:Arial,Helvetica,sans-serif;overflow:hidden;background:#fff}.prep *{box-sizing:border-box}.prep .wrap{width:min(1180px,calc(100% - 52px));margin-inline:auto}.prep h1,.prep h2,.prep h3{font-family:Georgia,'Times New Roman',serif;font-weight:400}.prep h2{font-size:clamp(32px,3.8vw,49px);line-height:1.13;margin:0 0 22px}.prep h2 em,.prep h1 span{font-style:normal;color:var(--gold)}.prep p{line-height:1.65}.prep .eyebrow{font-size:11px;letter-spacing:2.2px;color:#bf873c;font-weight:800;margin:0 0 18px}.prep .section{position:relative;padding:94px 0}.prep .decorated{overflow:hidden;isolation:isolate}.prep .top-layer{position:relative;z-index:2}.prep .circle{position:absolute;z-index:0;border:1.4px solid #d3a15c;border-radius:50%;width:350px;height:350px;box-shadow:0 0 0 22px #e1f1fb91,0 0 0 42px #e9f6ff6b;pointer-events:none}.prep .circle.left{left:-320px;top:25%}.prep .circle.right{right:-320px;bottom:10%}.prep .ribbon{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}.prep .ribbon path{fill:none;stroke:#d4a15d;stroke-width:1.25;vector-effect:non-scaling-stroke;opacity:.5}.prep .hero{position:relative;min-height:620px;display:flex;align-items:center;background:#102e48;color:#fff}.prep .hero-photo{position:absolute;inset:0;background:url('/images/conciergerie/menage-preparation.jpg') center 52%/cover no-repeat}.prep .hero:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#061d32f2 0%,#08283ecb 43%,#09283e1f 83%);z-index:1}.prep .hero-inner{position:relative;z-index:2;padding:90px 0 115px}.prep .hero h1{font-size:clamp(49px,5.7vw,78px);line-height:1.06;margin:0 0 23px}.prep .hero-inner>p:not(.eyebrow){max-width:445px;font-size:16px}.prep .hero .eyebrow{color:#e5ae5c}.prep .actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:32px}.prep .button{display:inline-flex;align-items:center;justify-content:center;gap:17px;border-radius:50px;padding:15px 23px;font-size:13px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}.prep .button:hover{transform:translateY(-3px);box-shadow:0 12px 24px #081c3450}.prep .button.gold{background:#f7bb53;color:#132c41;box-shadow:0 9px 22px #081c3436}.prep .button.ghost{color:#fff;border:1px solid #ffffffab}.prep .hero-wave{position:absolute;bottom:-1px;left:0;width:100%;height:82px;z-index:2}.prep .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.prep .split p:not(.eyebrow){color:var(--muted);max-width:540px}.prep .image-frame img{display:block;width:100%;height:355px;object-fit:cover;border-radius:22px;box-shadow:0 25px 43px #0b2b4a37}.prep .benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}.prep .benefits div{font-size:11px;text-align:center;font-weight:700;line-height:1.4}.prep .benefits span{display:grid;place-items:center;margin:0 auto 9px;width:48px;height:48px;border:1.4px solid var(--gold);border-radius:50%;color:#0c456b;font-size:27px;font-weight:400;background:#fff;box-shadow:0 5px 13px #0a2d4518}.prep .process{background:#f5f9fc}.prep .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:42px}.prep .steps article{position:relative}.prep .steps article:not(:last-child):after{content:'→';position:absolute;right:-23px;top:78px;font-size:25px;color:#bd904f}.prep .step-photo{position:relative}.prep .step-photo img{width:100%;height:170px;object-fit:cover;border-radius:15px;display:block;box-shadow:0 14px 28px #092f4b29}.prep .step-photo b{position:absolute;left:12px;bottom:-15px;background:#f3b84f;color:white;border:3px solid #fff;width:45px;height:45px;display:grid;place-items:center;border-radius:50%;font-size:12px}.prep .steps h3{font-size:23px;margin:30px 0 8px}.prep .steps p{font-size:13px;color:var(--muted);margin:0}.prep .results{background:#fff}.prep .subtext{color:var(--muted);margin:-7px 0 28px}.prep .comparison{display:grid;grid-template-columns:1fr 1fr;gap:22px;position:relative}.prep .comparison figure{position:relative;margin:0;min-width:0}.prep .comparison img{width:100%;height:290px;object-fit:cover;border-radius:18px;display:block;box-shadow:0 19px 34px #092d4c32}.prep .comparison figcaption{position:absolute;top:16px;left:16px;background:#fff;padding:10px 18px;border-radius:22px;font-size:13px;font-weight:700}.prep .comparison figure:last-child figcaption{background:#f5b84f}.prep .comparison-arrow{position:absolute;z-index:3;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border:3px solid #f1b95c;border-radius:50%;width:55px;height:55px;display:grid;place-items:center;font-size:26px;box-shadow:0 8px 20px #082b4733}.prep .note{font-size:11px;color:#72818e;margin-top:16px}.prep .linen{background:#fbfcfe}.prep .checks{padding:0;list-style:none;margin:22px 0 0}.prep .checks li{position:relative;padding:9px 0 9px 39px;font-size:14px}.prep .checks li:before{content:'✓';position:absolute;left:0;top:6px;background:#e9ac4d;color:#fff;border-radius:50%;width:26px;height:26px;display:grid;place-items:center;font-weight:800}.prep .extras{background:#f8fbfd}.prep .extras-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:37px}.prep .extras-grid article{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 19px 33px #0a2c4930;border:1px solid #e6ebef}.prep .extras-grid img{display:block;width:100%;height:170px;object-fit:cover}.prep .extras-grid article>div{padding:22px}.prep .extras-grid h3{font-size:23px;margin:0 0 10px}.prep .extras-grid p{font-size:13px;color:var(--muted);min-height:62px}.prep .extras-grid a{font-size:13px;color:#15587c;text-decoration:none;font-weight:700}.prep .closing{position:relative;background:linear-gradient(110deg,#06243b,#125071);color:white;overflow:hidden}.prep .closing-wave{position:absolute;top:-1px;left:0;width:100%;height:75px;z-index:2}.prep .closing-grid{display:grid;grid-template-columns:1fr 44%;align-items:center;gap:55px;min-height:425px}.prep .closing-grid>div{padding:110px 0 75px}.prep .closing h2{font-size:clamp(32px,3.7vw,48px)}.prep .closing p:not(.eyebrow){max-width:540px}.prep .closing .button{margin-top:20px}.prep .closing-photo{position:relative;align-self:stretch;min-height:425px;overflow:hidden;clip-path:ellipse(90% 78% at 88% 52%)}.prep .closing-photo:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-left:2px solid #d5a65d}.prep .closing-photo img{height:100%;width:100%;object-fit:cover;display:block;filter:saturate(1.04)}
+@media(max-width:900px){.prep .split{gap:32px}.prep .steps{gap:16px}.prep .steps article:not(:last-child):after{right:-17px}.prep .step-photo img{height:130px}.prep .benefits{grid-template-columns:repeat(2,1fr)}.prep .extras-grid{gap:14px}}
+@media(max-width:650px){.prep .wrap{width:calc(100% - 36px)}.prep .section{padding:66px 0}.prep .hero{min-height:600px}.prep .hero-inner{padding:90px 0 115px}.prep .hero h1{font-size:46px}.prep .hero:before{background:linear-gradient(90deg,#061d32e8,#09283eb8)}.prep .hero-wave{height:47px}.prep .split,.prep .comparison,.prep .closing-grid{grid-template-columns:1fr}.prep .split{gap:30px}.prep .steps{grid-template-columns:repeat(2,1fr);gap:30px 17px}.prep .steps article:after{display:none}.prep .step-photo img{height:135px}.prep .steps h3{font-size:20px}.prep .comparison img{height:220px}.prep .comparison-arrow{top:50%;width:45px;height:45px}.prep .extras-grid{grid-template-columns:1fr}.prep .extras-grid img{height:200px}.prep .extras-grid p{min-height:0}.prep .image-frame img{height:265px}.prep .circle{width:240px;height:240px}.prep .circle.left{left:-225px}.prep .circle.right{right:-225px}.prep .ribbon{opacity:.4}.prep .closing-grid{gap:0}.prep .closing-grid>div{padding:100px 0 35px}.prep .closing-photo{min-height:230px;clip-path:ellipse(95% 90% at 52% 100%)}.prep .closing-photo img{height:230px}.prep .actions{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.prep .button{transition:none}.prep .button:hover{transform:none}}
+</style>
+
+<style is:global>
+/* Hero pleine largeur : aucune bordure ni cadre autour de la photographie. */
+.prep .hero,.prep .hero-photo{border:0!important;border-radius:0!important;box-shadow:none!important;outline:0!important}
+/* Courbes dorées et volume discret, sans recouvrir les contenus. */
+.prep .know-how .image-frame img{border-radius:43% 57% 52% 48% / 50% 43% 57% 50%;box-shadow:22px 23px 0 #e7f3fb,0 30px 48px #092d4c29}
+.prep .closing-grid{width:min(1280px,calc(100% - 52px))}
+@media(max-width:650px){.prep .closing-grid{width:calc(100% - 36px)}.prep .know-how .image-frame img{box-shadow:12px 14px 0 #e7f3fb,0 19px 30px #092d4c24}}
+</style>
+
+<style is:global>
+/* Visuel validé : hero bord à bord, sans liseré blanc. */
+.prep .hero{width:100%;margin:0!important;border:none!important;overflow:hidden}
+.prep .hero-photo{inset:0!important;border:none!important;border-radius:0!important}
+.prep .hero-wave{bottom:-2px}
+/* Photographie savoir-faire : découpe organique asymétrique. */
+.prep .know-how .image-frame{position:relative;isolation:isolate}
+.prep .know-how .image-frame::after{content:"";position:absolute;inset:4% -4% -4% 4%;background:#eaf4fa;border-radius:42% 58% 55% 45% / 48% 39% 61% 52%;z-index:-1}
+.prep .know-how .image-frame img{border-radius:42% 58% 55% 45% / 48% 39% 61% 52%!important;box-shadow:0 20px 42px #092d4c22!important}
+/* Bande finale : image en forme de galet, entièrement visible et filet doré. */
+.prep .closing-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:55px}
+.prep .closing-photo{align-self:center;min-height:0;height:295px;overflow:visible;clip-path:none!important;border:1.5px solid #d5a65d;border-radius:46% 54% 58% 42% / 59% 42% 58% 41%;padding:5px;transform:rotate(-2deg);box-shadow:0 24px 42px #001a2b44}
+.prep .closing-photo:before{display:none!important}
+.prep .closing-photo img{width:100%;height:100%;object-fit:cover;border-radius:inherit;transform:rotate(2deg);clip-path:ellipse(74% 67% at 50% 50%)}
+@media(max-width:650px){.prep .closing-grid{grid-template-columns:1fr;gap:12px}.prep .closing-photo{height:235px;margin-bottom:45px;transform:none}.prep .closing-photo img{transform:none}.prep .know-how .image-frame::after{inset:3% -2% -3% 2%}}
+</style>
+
+<style is:global>
+/* Corrections ciblées : seulement les deux éléments indiqués. */
+/* Hero bord à bord même si un conteneur parent ajoute une marge. */
+.prep .hero{width:100vw!important;max-width:none!important;position:relative;left:50%;margin-left:-50vw!important;margin-right:0!important;border:0!important;outline:0!important;box-shadow:none!important}
+.prep .hero-photo{inset:0!important}
+/* Image de fin : remplissage intégral de la forme organique, sans fente horizontale. */
+.prep .closing-photo{position:relative!important;overflow:hidden!important;padding:0!important;transform:none!important;border:2px solid #d5a65d!important;border-radius:48% 52% 58% 42% / 58% 48% 52% 42%!important;clip-path:none!important;box-shadow:0 22px 42px #001a2b44!important}
+.prep .closing-photo img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;transform:none!important;clip-path:none!important;border-radius:inherit!important}
+@media(max-width:650px){.prep .closing-photo{height:235px!important}}
+</style>
+
+<style is:global>
+/* Suppression du cadre blanc provenant des marges globales du navigateur. */
+html, body { margin: 0 !important; padding: 0 !important; width: 100%; }
+body { overflow-x: clip; }
+body > main.prep, main.prep { margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: none !important; }
+main.prep > section.hero { width: 100% !important; left: auto !important; margin: 0 !important; border: 0 !important; border-radius: 0 !important; }
+main.prep > section.hero .hero-photo { inset: 0 !important; }
+</style>
+
+<style is:global>
+/* Nouvelle forme organique panoramique et arabesques dorées — section finale uniquement. */
+.prep .closing-grid{position:relative;isolation:isolate}
+.prep .closing-grid::after{content:"";position:absolute;z-index:0;pointer-events:none;right:-9%;top:15%;width:61%;height:78%;border:1.5px solid rgba(227,174,92,.8);border-radius:54% 46% 58% 42% / 48% 58% 42% 52%;transform:rotate(-10deg)}
+.prep .closing-grid>div{position:relative;z-index:1}
+.prep .closing-photo{z-index:2!important;width:100%!important;height:325px!important;min-height:0!important;border:2px solid #e0ad62!important;border-radius:48% 52% 57% 43% / 63% 44% 56% 37%!important;transform:rotate(-5deg)!important;overflow:hidden!important;box-shadow:0 22px 40px #00182766!important}
+.prep .closing-photo img{border-radius:0!important;transform:rotate(5deg) scale(1.16)!important;object-fit:cover!important}
+.prep .closing::after{content:"";position:absolute;right:-15%;bottom:-55%;width:55%;height:90%;border:1px solid rgba(221,165,81,.45);border-radius:50%;transform:rotate(-18deg);pointer-events:none}
+@media(max-width:650px){.prep .closing-photo{height:235px!important;transform:rotate(-3deg)!important}.prep .closing-photo img{transform:rotate(3deg) scale(1.18)!important}.prep .closing-grid::after{width:105%;right:-10%;top:55%;height:38%}}
+</style>
+
+
+<style is:global>
+/* Maison & Monde — profondeur douce, cartes flottantes et apparitions desktop. */
+.prep { --mm-shadow: 0 15px 28px rgba(8,38,62,.12), 0 28px 58px rgba(8,38,62,.10); }
+.prep .extras-grid article,
+.prep .steps article,
+.prep .comparison figure,
+.prep .image-frame,
+.prep .benefits div { position:relative; }
+.prep .extras-grid article {
+  box-shadow:var(--mm-shadow), 0 2px 5px rgba(8,38,62,.06);
+  transition:transform .38s cubic-bezier(.2,.7,.2,1), box-shadow .38s ease;
+}
+.prep .steps article {
+  background:rgba(255,255,255,.87);
+  border:1px solid rgba(221,231,239,.82);
+  border-radius:18px;
+  padding:0 0 22px;
+  box-shadow:0 12px 27px rgba(8,38,62,.10),0 22px 44px rgba(8,38,62,.06);
+  transition:transform .38s cubic-bezier(.2,.7,.2,1),box-shadow .38s ease;
+}
+.prep .steps article h3,.prep .steps article p{margin-left:16px;margin-right:16px}
+.prep .step-photo img{border-radius:17px 17px 10px 10px;box-shadow:0 12px 25px rgba(8,38,62,.13)}
+.prep .comparison figure {border-radius:18px;box-shadow:var(--mm-shadow);transition:transform .38s ease,box-shadow .38s ease}
+.prep .comparison figure img{box-shadow:none}
+.prep .image-frame{filter:drop-shadow(0 15px 22px rgba(8,38,62,.13));transition:transform .38s ease,filter .38s ease}
+.prep .benefits div span{box-shadow:0 8px 16px rgba(8,38,62,.12),0 16px 28px rgba(8,38,62,.06)}
+.prep .closing-photo{box-shadow:0 22px 45px rgba(0,16,31,.48),0 35px 65px rgba(0,16,31,.25)!important;transition:box-shadow .38s ease,filter .38s ease}
+@media(min-width:901px) and (hover:hover){
+ .prep .extras-grid article:hover,.prep .steps article:hover,.prep .comparison figure:hover{transform:translateY(-9px);box-shadow:0 23px 37px rgba(8,38,62,.16),0 36px 68px rgba(8,38,62,.12)}
+ .prep .image-frame:hover{transform:translateY(-6px);filter:drop-shadow(0 22px 28px rgba(8,38,62,.18))}
+ .prep .closing-photo:hover{filter:brightness(1.035);box-shadow:0 30px 58px rgba(0,16,31,.5),0 42px 80px rgba(0,16,31,.26)!important}
+}
+/* Les éléments ne sont masqués qu'après initialisation de l'observateur JS. */
+@media(min-width:901px) and (prefers-reduced-motion:no-preference){
+ .prep.mm-reveal-ready .mm-reveal:not(.mm-visible){opacity:0;translate:0 28px}
+ .prep.mm-reveal-ready .mm-reveal{transition:opacity .75s ease,translate .75s cubic-bezier(.2,.75,.25,1);transition-delay:var(--mm-delay,0ms)}
+ .prep.mm-reveal-ready .mm-reveal.mm-visible{opacity:1;translate:0 0}
+}
+@media(max-width:900px),(prefers-reduced-motion:reduce){
+ .prep .extras-grid article,.prep .steps article,.prep .comparison figure,.prep .image-frame,.prep .closing-photo{transition:none!important}
+ .prep .mm-reveal{opacity:1!important;translate:none!important}
+}
+</style>
+<script is:inline>
+(()=>{
+ const root=document.querySelector('main.prep');
+ if(!root || !window.matchMedia('(min-width:901px) and (prefers-reduced-motion:no-preference)').matches || !('IntersectionObserver' in window))return;
+ const selectors=['.know-how .split > div','.process .steps article','.results .comparison figure','.linen .split > div','.extras .extras-grid article','.closing-grid > div'];
+ const nodes=[...new Set(selectors.flatMap(sel=>[...root.querySelectorAll(sel)]))];
+ const observer=new IntersectionObserver((entries)=>{
+   for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('mm-visible');observer.unobserve(entry.target)}}
+ },{threshold:.08,rootMargin:'0px 0px -25px 0px'});
+ nodes.forEach((node,i)=>{node.classList.add('mm-reveal');node.style.setProperty('--mm-delay',`${(i%4)*85}ms`)});
+ root.classList.add('mm-reveal-ready');
+ nodes.forEach(node=>observer.observe(node));
+})();
+</script>
