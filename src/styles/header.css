@@ -280,9 +280,19 @@
     padding: 12px 5%;
     gap: 12px;
   }
-  .header .logo { flex: 0 0 auto; min-width: 0; }
-  .header .logo-icon { width: 44px; height: 44px; }
-  .header .mobile-menu { flex: 0 0 auto; margin-left: auto; min-width: 0; }
+  .header .logo {
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+  .header .logo-icon {
+    width: 44px;
+    height: 44px;
+  }
+  .header .mobile-menu {
+    flex: 0 0 auto;
+    margin-left: auto;
+    min-width: 0;
+  }
   .header .mobile-menu > summary {
     box-sizing: border-box;
     width: 44px;
@@ -299,7 +309,9 @@
     line-height: 1.2;
     white-space: normal;
   }
-  .header .mobile-menu:not([open]) > .mobile-menu-links { display: none !important; }
+  .header .mobile-menu:not([open]) > .mobile-menu-links {
+    display: none !important;
+  }
   .header .mobile-menu[open] > .mobile-menu-links {
     box-sizing: border-box;
     position: absolute;
@@ -316,8 +328,8 @@
     flex-direction: column;
     gap: 0;
     background: #071b30;
-    border-top: 1px solid rgba(233,163,76,.25);
-    box-shadow: 0 18px 30px rgba(0,0,0,.32);
+    border-top: 1px solid rgba(233, 163, 76, 0.25);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.32);
     -webkit-overflow-scrolling: touch;
   }
   .header .mobile-menu-links > a,
@@ -334,7 +346,7 @@
     text-align: left;
     white-space: normal;
     border: 0;
-    border-bottom: 1px solid rgba(255,255,255,.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 0;
     background: transparent;
     color: #fff;
@@ -356,23 +368,31 @@
     cursor: pointer;
     list-style: none;
   }
-  .header .mobile-services-dropdown > summary::marker { content: ''; }
-  .header .mobile-services-dropdown > summary::-webkit-details-marker { display: none; }
+  .header .mobile-services-dropdown > summary::marker {
+    content: "";
+  }
+  .header .mobile-services-dropdown > summary::-webkit-details-marker {
+    display: none;
+  }
   .header .mobile-services-dropdown > summary span {
     display: inline-block;
     flex: 0 0 auto;
     font-size: 16px;
-    transition: transform .15s ease;
+    transition: transform 0.15s ease;
   }
-  .header .mobile-services-dropdown[open] > summary span { transform: rotate(180deg); }
-  .header .mobile-services-dropdown:not([open]) > .mobile-services-links { display: none !important; }
+  .header .mobile-services-dropdown[open] > summary span {
+    transform: rotate(180deg);
+  }
+  .header .mobile-services-dropdown:not([open]) > .mobile-services-links {
+    display: none !important;
+  }
   .header .mobile-services-links {
     box-sizing: border-box;
     width: 100%;
     min-width: 0;
     padding: 6px 0 9px 14px;
     border-left: 2px solid #e9a34c;
-    background: rgba(255,255,255,.035);
+    background: rgba(255, 255, 255, 0.035);
   }
   .header .mobile-services-links a {
     box-sizing: border-box;
@@ -382,15 +402,129 @@
     font-size: 14px;
     line-height: 1.45;
     white-space: normal;
-    border-bottom: 1px solid rgba(255,255,255,.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
-  .header .mobile-services-links a:last-child { border-bottom: 0; }
+  .header .mobile-services-links a:last-child {
+    border-bottom: 0;
+  }
 }
 @media (max-width: 380px) {
-  .header { gap: 8px; padding-inline: 4%; }
-  .header .logo-icon { width: 40px; height: 40px; }
-  .header .header-button { padding: 10px 11px; font-size: 11px; }
+  .header {
+    gap: 8px;
+    padding-inline: 4%;
+  }
+  .header .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .header .header-button {
+    padding: 10px 11px;
+    font-size: 11px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .header .mobile-services-dropdown > summary span { transition: none; }
+  .header .mobile-services-dropdown > summary span {
+    transition: none;
+  }
+}
+
+/* Navigation mobile de relais — quatre icônes */
+.mm-bottom-nav {
+  display: none;
+}
+@media (max-width: 700px) {
+  .mm-bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    box-sizing: border-box;
+    padding: 9px 8px calc(8px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 2px solid #e9a34c;
+    box-shadow: 0 -6px 22px rgba(7, 27, 48, 0.12);
+    transform: translateY(110%);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      transform 0.22s ease,
+      opacity 0.22s ease,
+      visibility 0.22s;
+  }
+  .mm-bottom-nav.mm-bottom-visible {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+  .mm-bottom-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-width: 0;
+    min-height: 49px;
+    padding: 3px;
+    border: 0;
+    background: transparent;
+    color: #123b60;
+    font:
+      600 11px/1.2 Arial,
+      sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .mm-bottom-item svg {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  /* Les quatre pictogrammes ont le même gabarit et le même tracé. */
+  .mm-bottom-call svg {
+    background: none;
+    color: inherit;
+    border-radius: 0;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+  }
+  .mm-bottom-item:focus-visible {
+    outline: 2px solid #e9a34c;
+    outline-offset: -2px;
+    border-radius: 7px;
+  }
+  /* Empêche la barre de recouvrir les derniers éléments du document. */
+  body {
+    padding-bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mm-bottom-nav {
+    transition: none;
+  }
+}
+
+/* Navigation réorganisée — crédit d'impôt en attente de sa page */
+.header .header-pending-link {
+  color: rgba(255,255,255,.78);
+  cursor: default;
+  white-space: nowrap;
+}
+.header .mobile-pending-link {
+  display: block;
+  padding: 14px 10px;
+  border-bottom: 1px solid rgba(255,255,255,.14);
+  white-space: normal;
+}
+.header .mobile-pending-link small { color: var(--gold); font-size: 12px; }
+@media (min-width: 901px) {
+  .header nav { gap: clamp(10px, 1.35vw, 22px); font-size: clamp(11px, .92vw, 14px); }
 }

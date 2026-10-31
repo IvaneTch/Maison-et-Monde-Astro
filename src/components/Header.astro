@@ -16,16 +16,25 @@ import "../styles/header.css";
 
       <nav aria-label="Navigation principale">
         <details class="services-dropdown">
-          <summary>Nos prestations <span aria-hidden="true">▾</span></summary>
+          <summary>Nos services <span aria-hidden="true">▾</span></summary>
           <div class="services-dropdown-links">
             <a href="/menage-regulier-a-domicile/">Services réguliers</a>
             <a href="/services-occasionnels/">Services occasionnels</a>
             <a href="/service-de-menage-test/">Services test</a>
             <a href="/repassage-a-domicile-paris/">Services de repassage</a>
-            <a href="/conciergerie/">Services de conciergerie</a>
+
           </div>
         </details>
-        <a href="/#avantages">Nos avantages</a>
+        <details class="services-dropdown">
+          <summary>Services pour les pros <span aria-hidden="true">▾</span></summary>
+          <div class="services-dropdown-links">
+            <a href="/#contact">Nettoyage de bureaux et locaux</a>
+            <a href="/#contact">Cabinets et commerces</a>
+            <a href="/#contact">Demander un devis professionnel</a>
+          </div>
+        </details>
+        <a href="/conciergerie/">Conciergerie</a>
+        <span class="header-pending-link" title="Page en préparation">Crédit d’impôt 50 %</span>
         <a href="/#contact">Contact</a>
       </nav>
 
@@ -37,17 +46,25 @@ import "../styles/header.css";
         <div class="mobile-menu-links">
           <a href="/">Accueil</a>
           <details class="mobile-services-dropdown">
-            <summary>Nos prestations <span aria-hidden="true">▾</span></summary>
+            <summary>Nos services <span aria-hidden="true">▾</span></summary>
             <div class="mobile-services-links">
             <a href="/menage-regulier-a-domicile/">Services réguliers</a>
             <a href="/services-occasionnels/">Services occasionnels</a>
             <a href="/service-de-menage-test/">Services test</a>
             <a href="/repassage-a-domicile-paris/">Services de repassage</a>
-            <a href="/conciergerie/">Services de conciergerie</a>
+
             </div>
           </details>
-          <a href="/#avantages">Nos avantages</a>
-          <a href="/#a-propos">À propos</a>
+          <details class="mobile-services-dropdown">
+            <summary>Services pour les pros <span aria-hidden="true">▾</span></summary>
+            <div class="mobile-services-links">
+              <a href="/#contact">Nettoyage de bureaux et locaux</a>
+              <a href="/#contact">Cabinets et commerces</a>
+              <a href="/#contact">Demander un devis professionnel</a>
+            </div>
+          </details>
+          <a href="/conciergerie/">Conciergerie</a>
+          <span class="header-pending-link mobile-pending-link" aria-label="Crédit d’impôt 50 %, page en préparation">Crédit d’impôt 50 % <small>(bientôt)</small></span>
           <a href="/#contact">Contact</a>
         </div>
       </details>
@@ -56,15 +73,25 @@ import "../styles/header.css";
     </header>
 
 
+<!-- Navigation mobile secondaire : visible uniquement lorsque le Header est masqué -->
+<nav class="mm-bottom-nav" aria-label="Navigation rapide mobile" inert>
+  <a href="/" class="mm-bottom-item" aria-label="Accueil"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-6H9v6H3z"/></svg><span>Accueil</span></a>
+  <a href="tel:+33745292585" class="mm-bottom-item mm-bottom-call" aria-label="Appeler Maison et Monde"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg><span>Appeler</span></a>
+  <button type="button" class="mm-bottom-item" id="mm-bottom-callback"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2.3 6M4 4v7h7"/><path d="M12 7v5l3 2"/></svg><span>Rappel</span></button>
+  <button type="button" class="mm-bottom-item" id="mm-bottom-menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>Menu</span></button>
+</nav>
 
 <script>
   // Sur ordinateur : ouverture au survol, fermeture à la sortie.
   // Le clic reste utilisable au clavier et sur les appareils tactiles.
-  const menu = document.querySelector<HTMLDetailsElement>('.header .services-dropdown');
-  if (menu) {
-    const desktop = window.matchMedia('(min-width: 901px) and (hover: hover)');
+  const menus = document.querySelectorAll<HTMLDetailsElement>('.header nav .services-dropdown');
+  const desktop = window.matchMedia('(min-width: 901px) and (hover: hover)');
+  menus.forEach((menu) => {
     menu.addEventListener('mouseenter', () => {
-      if (desktop.matches) menu.open = true;
+      if (desktop.matches) {
+        menus.forEach((other) => { if (other !== menu) other.open = false; });
+        menu.open = true;
+      }
     });
     menu.addEventListener('mouseleave', () => {
       if (desktop.matches && !menu.contains(document.activeElement)) menu.open = false;
@@ -72,13 +99,19 @@ import "../styles/header.css";
     menu.addEventListener('focusout', (event) => {
       if (desktop.matches && !menu.contains(event.relatedTarget as Node | null)) menu.open = false;
     });
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && menu.open) {
+    menu.addEventListener('toggle', () => {
+      if (menu.open) menus.forEach((other) => { if (other !== menu) other.open = false; });
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    menus.forEach((menu) => {
+      if (menu.open) {
         menu.open = false;
         menu.querySelector('summary')?.focus();
       }
     });
-  }
+  });
 </script>
 
 <script>
@@ -156,4 +189,38 @@ import "../styles/header.css";
       header.classList.add('mm-smart-hidden');
     }
   }
+</script>
+
+<script>
+  // La barre inférieure prend le relais uniquement quand le Header est caché.
+  const smartHeader = document.querySelector<HTMLElement>('header.header');
+  const bottomNav = document.querySelector<HTMLElement>('.mm-bottom-nav');
+  const bottomMenuButton = document.querySelector<HTMLButtonElement>('#mm-bottom-menu');
+  const headerMobileMenu = smartHeader?.querySelector<HTMLDetailsElement>('.mobile-menu');
+  const bottomCallback = document.querySelector<HTMLButtonElement>('#mm-bottom-callback');
+
+  function syncBottomNavigation() {
+    if (!smartHeader || !bottomNav) return;
+    const show = window.matchMedia('(max-width: 700px)').matches && smartHeader.classList.contains('mm-smart-hidden');
+    bottomNav.classList.toggle('mm-bottom-visible', show);
+    bottomNav.inert = !show;
+    bottomNav.setAttribute('aria-hidden', String(!show));
+    bottomMenuButton?.setAttribute('aria-expanded', String(Boolean(headerMobileMenu?.open)));
+  }
+  if (smartHeader && bottomNav) {
+    new MutationObserver(syncBottomNavigation).observe(smartHeader, {attributes: true, attributeFilter: ['class']});
+    headerMobileMenu?.addEventListener('toggle', syncBottomNavigation);
+    window.addEventListener('resize', syncBottomNavigation, {passive: true});
+    syncBottomNavigation();
+  }
+  bottomCallback?.addEventListener('click', () => {
+    document.querySelector<HTMLButtonElement>('#mm-open-callback')?.click();
+  });
+  bottomMenuButton?.addEventListener('click', () => {
+    if (!smartHeader || !headerMobileMenu) return;
+    headerMobileMenu.open = true;
+    smartHeader.classList.remove('mm-smart-hidden');
+    syncBottomNavigation();
+    headerMobileMenu.querySelector<HTMLElement>('summary')?.focus();
+  });
 </script>

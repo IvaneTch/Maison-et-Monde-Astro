@@ -1285,3 +1285,65 @@ transform: rotate(-12deg);
   outline-offset: 4px;
   border-radius: 3px;
 }
+
+
+/* Maison & Monde — trois engagements alignés sur mobile */
+@media (max-width: 540px) {
+  .contact-assurances {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 8px;
+    padding: 22px 4% 26px;
+  }
+  .contact-assurances > div {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 9px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+  .contact-assurances .contact-badge {
+    width: 49px;
+    height: 49px;
+    font-size: 16px;
+    margin: 0;
+  }
+  .contact-assurances > div > span:last-child {
+    overflow-wrap: break-word;
+  }
+}
+
+/* Correctif final : trois engagements sur UNE ligne sur iPhone */
+@media screen and (max-width: 700px) {
+  .contact-section .contact-assurances {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    padding: 20px 10px 24px !important;
+    align-items: start !important;
+    justify-content: stretch !important;
+  }
+  .contact-section .contact-assurances > div {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-width: 0 !important;
+    width: auto !important;
+    gap: 9px !important;
+    text-align: center !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+  .contact-section .contact-assurances .contact-badge {
+    width: 49px !important;
+    height: 49px !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+  }
+}

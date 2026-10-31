@@ -1,31 +1,13 @@
 ---
 import "../styles/accueil.css";
-import DevisSimpleModal from "../components/DevisSimpleModal.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
 const entreprise = "Maison & Monde";
 ---
 
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-	<link rel="icon" type="image/png" href="/favicon.png" />
-
-    <title>Maison & Monde | Ménage à domicile à Paris</title>
-
-    <meta
-      name="description"
-      content="Maison & Monde vous accompagne pour le ménage à domicile, le repassage et le nettoyage à Paris. Demandez votre devis personnalisé."
-    />
-  </head>
-
-  <body>
-    <Header />
-
-    <main>
+<Layout
+  title="Maison & Monde | Ménage à domicile à Paris"
+  description="Maison & Monde vous accompagne pour le ménage à domicile, le repassage et le nettoyage à Paris. Demandez votre devis personnalisé."
+>
       <section class="hero" aria-label="Présentation de nos services" aria-roledescription="carrousel">
         <!-- Déposer les cinq photos indépendantes dans public/images/ avec les noms indiqués ci-dessous. -->
         <div class="hero-slides" aria-hidden="true">
@@ -334,12 +316,6 @@ Notre engagement : votre tranquillité d’esprit et votre satisfaction au quoti
         </div>
         <svg class="reviews-wave" viewBox="0 0 1440 125" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10 C340 95 1070 95 1440 10 L1440 125 L0 125Z" fill="#062744"/><path d="M0 12 C340 97 1070 97 1440 12" fill="none" stroke="#f0aa40" stroke-width="2"/></svg>
       </section>
-    </main>
-
-    <Footer />
-  
-    <DevisSimpleModal />
-
 <script is:inline>
 (() => {
  const hero=document.querySelector('.hero'); if(!hero)return;
@@ -434,8 +410,7 @@ Notre engagement : votre tranquillité d’esprit et votre satisfaction au quoti
   }, { once: true });
 })();
 </script>
-</body>
-</html>
+
 
 
 
@@ -481,3 +456,5 @@ let reviewTimer: number | undefined;
   document.addEventListener('visibilitychange', restartReviews);
   if (cards.length) { showReview(0); startReviews(); }
 </script>
+
+</Layout>
