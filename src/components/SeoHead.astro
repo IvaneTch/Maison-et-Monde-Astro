@@ -13,6 +13,8 @@ const canonical = new URL(path, origin);
 const socialImages: Record<string, [string, string]> = {
   ...Object.fromEntries(articles.map((a) => [`/conseils/${a.slug}/`, [a.image, a.alt]])),
   '/conseils/': ['/images/secteurs/menage-paris-5-v1.webp', 'Conseils et guides Maison & Monde'],
+  '/a-propos/': ['/images/secteurs/menage-paris-20-v1.webp', 'Maison & Monde, entretien à domicile'],
+  '/nos-services/': ['/images/secteurs/menage-paris-14-v1.webp', 'Les prestations Maison & Monde'],
   '/': ['/images/hero-menage-domicile.webp', 'Ménage à domicile Maison & Monde à Paris'],
   '/menage-regulier-a-domicile/': [
     '/images/menage-a-domicile-paris-maison-et-monde.webp',

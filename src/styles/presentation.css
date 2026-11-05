@@ -1,0 +1,212 @@
+.mm-presentation {
+  color: #102b46;
+  background: linear-gradient(130deg, #fff, #f2f8fb);
+  padding-bottom: 60px;
+  overflow: hidden;
+}
+.mm-presentation-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 490px;
+  display: flex;
+  align-items: center;
+  padding: 70px 0 95px;
+  background: #102b46;
+}
+.mm-presentation-hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+.mm-presentation-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #071b30f2, #071b30b8 45%, #071b3030);
+  z-index: -1;
+}
+.mm-presentation-wrap {
+  width: min(1180px, calc(100% - 40px));
+  margin: auto;
+}
+.mm-presentation-hero h1 {
+  font:
+    700 clamp(36px, 4.8vw, 64px)/1.13 Georgia,
+    serif;
+  color: white;
+  max-width: 700px;
+  margin: 20px 0;
+}
+.mm-presentation-hero h1 em {
+  color: #ffd077;
+  font-style: normal;
+}
+.mm-presentation-hero p:not(.mm-presentation-label) {
+  color: #edf4fa;
+  max-width: 620px;
+  line-height: 1.85;
+}
+.mm-presentation-label {
+  color: #98631e;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.7;
+}
+.mm-presentation-hero .mm-presentation-label {
+  color: #ffd077;
+}
+.mm-presentation-wave {
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 50px;
+  pointer-events: none;
+}
+.mm-presentation-breadcrumb {
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 25px 0;
+  color: #526b80;
+}
+.mm-presentation-breadcrumb a {
+  color: #174d70;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.mm-presentation-section {
+  margin: 60px 0;
+}
+.mm-presentation-section > h2 {
+  font:
+    700 clamp(29px, 3.5vw, 43px)/1.15 Georgia,
+    serif;
+  max-width: 900px;
+  margin: 15px 0 25px;
+}
+.mm-presentation-section > p {
+  max-width: 850px;
+  color: #526b80;
+  line-height: 1.85;
+}
+.mm-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 35px;
+}
+.mm-photo-card {
+  border: 1px solid #e5e9ed;
+  border-radius: 20px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 18px 35px -15px #102b4640;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.mm-photo-card > img {
+  width: 100%;
+  height: 185px;
+  object-fit: cover;
+  display: block;
+}
+.mm-photo-card-copy {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.mm-photo-card h3 {
+  font:
+    400 26px/1.15 Georgia,
+    serif;
+  margin: 8px 0 16px;
+  color: #102b46;
+}
+.mm-photo-card-copy > p:not(.mm-presentation-label) {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #526b80;
+  margin: 0 0 24px;
+}
+.mm-photo-card a {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: auto;
+  color: #175c7c;
+  font-size: 13px;
+  font-weight: 700;
+}
+.mm-photo-card a:hover {
+  text-decoration: underline;
+}
+.mm-presentation-panel {
+  padding: 32px;
+  border: 1px solid #dfbd80;
+  border-radius: 24px;
+  background: white;
+  margin: 40px 0;
+}
+.mm-presentation-panel h2 {
+  font:
+    700 30px/1.2 Georgia,
+    serif;
+  margin-top: 0;
+}
+.mm-presentation-panel p,
+.mm-presentation-panel li {
+  line-height: 1.85;
+  color: #344f67;
+}
+.mm-office-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 25px 0;
+}
+.mm-office-grid address {
+  padding: 24px;
+  background: #f0f6f9;
+  border-radius: 16px;
+  font-style: normal;
+  line-height: 1.9;
+}
+.mm-office-grid a,
+.mm-presentation-panel > p > a {
+  color: #175c7c;
+  text-decoration: underline;
+}
+@media (max-width: 1000px) {
+  .mm-photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .mm-photo-grid,
+  .mm-office-grid {
+    grid-template-columns: 1fr;
+  }
+  .mm-presentation-hero {
+    min-height: 500px;
+    padding: 45px 0 75px;
+  }
+  .mm-presentation-hero::before {
+    background: #071b30ba;
+  }
+  .mm-presentation-panel {
+    padding: 24px;
+  }
+  .mm-presentation-section {
+    margin: 40px 0;
+  }
+  .mm-photo-card > img {
+    height: 220px;
+  }
+}

@@ -1,5 +1,6 @@
 export const pagesPubliques = [
   ['/', 'Accueil'],
+  ['/a-propos/', 'À propos de Maison & Monde'],
   ['/conseils/', 'Conseils & guides'],
   [
     '/conseils/combien-heures-menage-appartement/',

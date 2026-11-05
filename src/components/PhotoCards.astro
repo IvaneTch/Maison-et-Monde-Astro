@@ -1,0 +1,45 @@
+---
+import images from '../data/images.json';
+import '../styles/presentation.css';
+interface Card {
+  title: string;
+  description: string;
+  href: string;
+  image: string;
+  alt: string;
+  label: string;
+}
+interface Props {
+  cards: Card[];
+}
+const { cards } = Astro.props;
+---
+
+<div class="mm-photo-grid">
+  {cards.map((card) => {
+    const photo = images[card.image as keyof typeof images];
+    return (
+      <article class="mm-photo-card">
+        <img
+          src={card.image}
+          srcset={photo?.srcset}
+          sizes="(max-width:600px) 90vw, (max-width:1000px) 45vw, 280px"
+          width={photo?.width}
+          height={photo?.height}
+          alt={card.alt}
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="mm-photo-card-copy">
+          <p class="mm-presentation-label">{card.label}</p>
+          <h3>{card.title}</h3>
+          <p>{card.description}</p>
+          <a href={card.href}>
+            Découvrir <span class="sr-only">{card.title}</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+    );
+  })}
+</div>

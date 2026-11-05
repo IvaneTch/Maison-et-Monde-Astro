@@ -1,36 +1,126 @@
 ---
+import Layout from '../../layouts/Layout.astro';
+import PhotoCards from '../../components/PhotoCards.astro';
 import InterventionAreas from '../../components/InterventionAreas.astro';
-import '../../styles/nos-services.css';
-import InfoPage from '../../components/InfoPage.astro';
-const services = [
-  ['Ménage régulier', 'Un entretien suivi, adapté à votre quotidien.', '/menage-regulier-a-domicile/'],
-  ['Services occasionnels', 'Ménage ponctuel et interventions selon vos besoins.', '/services-occasionnels/'],
-  ['Grand ménage', 'Un nettoyage approfondi du logement.', '/grand-menage-paris/'],
-  ['Repassage à domicile', 'Du linge soigné et du temps retrouvé.', '/repassage-a-domicile-paris/'],
-  ['Formule Test', 'Découvrir notre service lors d’une première intervention.', '/service-de-menage-test/'],
-  [
-    'Bureaux et locaux professionnels',
-    'Des espaces de travail entretenus selon votre organisation.',
-    '/nettoyage-bureaux-paris/',
-  ],
-  ['Conciergerie', 'Préparation du logement, voyageurs et accompagnement locatif.', '/conciergerie/'],
+import images from '../../data/images.json';
+import '../../styles/presentation.css';
+const cards = [
+  {
+    title: 'Ménage régulier',
+    description: 'Un entretien suivi avec les formules Classique, Confort et Expert.',
+    href: '/menage-regulier-a-domicile/',
+    image: '/images/secteurs/menage-paris-2-v1.webp',
+    alt: 'Entretien d’une cuisine lumineuse',
+    label: '01 / VOTRE QUOTIDIEN',
+  },
+  {
+    title: 'Services occasionnels',
+    description: 'Un passage ponctuel, organisé selon l’état de votre logement et vos priorités.',
+    href: '/services-occasionnels/',
+    image: '/images/secteurs/menage-paris-5-v1.webp',
+    alt: 'Nettoyage d’un bureau à domicile',
+    label: '02 / VOTRE QUOTIDIEN',
+  },
+  {
+    title: 'Grand ménage',
+    description: 'Un entretien approfondi des pièces et des surfaces accessibles.',
+    href: '/grand-menage-paris/',
+    image: '/images/secteurs/menage-paris-19-v1.webp',
+    alt: 'Nettoyage approfondi d’une cuisine',
+    label: '03 / VOTRE QUOTIDIEN',
+  },
+  {
+    title: 'Repassage à domicile',
+    description: 'Le soin du linge, avec le matériel et les consignes convenus ensemble.',
+    href: '/repassage-a-domicile-paris/',
+    image: '/images/secteurs/menage-paris-6-v1.webp',
+    alt: 'Repassage d’une chemise',
+    label: '04 / VOTRE QUOTIDIEN',
+  },
+  {
+    title: 'Formule Test',
+    description: 'Une première intervention pour découvrir le service et préciser vos attentes.',
+    href: '/service-de-menage-test/',
+    image: '/images/secteurs/menage-paris-4-v1.webp',
+    alt: 'Préparation d’un intérieur soigné',
+    label: '05 / VOTRE QUOTIDIEN',
+  },
+  {
+    title: 'Bureaux et locaux professionnels',
+    description: 'Un programme d’entretien adapté à vos espaces, à leur usage et à vos accès.',
+    href: '/nettoyage-bureaux-paris/',
+    image: '/images/secteurs/menage-paris-8-v1.webp',
+    alt: 'Entretien d’un espace de travail',
+    label: '06 / VOTRE QUOTIDIEN',
+  },
+  {
+    title: 'Conciergerie',
+    description: 'Préparation du logement, linge, accueil des voyageurs et suivi selon vos besoins.',
+    href: '/conciergerie/',
+    image: '/images/conciergerie/menage-preparation.webp',
+    alt: 'Préparation d’une chambre pour un séjour',
+    label: '07 / VOTRE QUOTIDIEN',
+  },
 ];
+const hero = '/images/secteurs/menage-paris-14-v1.webp';
 ---
 
-<InfoPage
+<Layout
   title="Nos services à Paris et en Île-de-France | Maison & Monde"
-  heading="Des services pour votre quotidien"
-  description="Découvrez les prestations de ménage, repassage, nettoyage de bureaux et conciergerie de Maison & Monde."
+  description="Découvrez les prestations Maison & Monde : ménage régulier, grand ménage, repassage, bureaux et conciergerie à Paris et en Île-de-France."
 >
-  <div class="service-directory">
-    {services.map(([title, desc, href]) => (
-      <section>
-        <h2>{title}</h2>
-        <p>{desc}</p>
-        <a href={href}>Découvrir ce service →</a>
+  <div class="mm-presentation">
+    <header class="mm-presentation-hero">
+      <img
+        src={hero}
+        srcset={images[hero].srcset}
+        sizes="100vw"
+        width="1536"
+        height="1024"
+        alt="Entretien du parquet dans un appartement lumineux"
+        fetchpriority="high"
+      />
+      <div class="mm-presentation-wrap">
+        <p class="mm-presentation-label">MAISON &amp; MONDE · À VOTRE SERVICE</p>
+        <h1>
+          Des services pour <em>votre quotidien.</em>
+        </h1>
+        <p>
+          Votre logement, votre linge, vos espaces de travail : choisissez les prestations qui vous
+          correspondent à Paris et en Île-de-France.
+        </p>
+      </div>
+      <svg class="mm-presentation-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+        <path
+          d="M0 30 C280 80 440 8 720 32 S1120 92 1440 28 L1440 80 L0 80 Z"
+          fill="#fff"
+          stroke="#e9a34c"
+          stroke-width="1.5"
+        />
+      </svg>
+    </header>
+    <div class="mm-presentation-wrap">
+      <nav class="mm-presentation-breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a> / <span aria-current="page">Nos services</span>
+      </nav>
+      <section class="mm-presentation-section">
+        <p class="mm-presentation-label">DES PRESTATIONS ADAPTÉES À VOS BESOINS</p>
+        <h2>Comment pouvons-nous vous accompagner ?</h2>
+        <p>
+          Découvrez le contenu de chaque prestation, puis préparez votre demande. Le devis permet de préciser
+          les tâches, la durée prévue, le matériel et les conditions d’intervention.
+        </p>
+        <PhotoCards cards={cards} />
       </section>
-    ))}
+      <aside class="mm-presentation-panel">
+        <h2>Et les vitres ?</h2>
+        <p>
+          Les vitres simples accessibles peuvent être nettoyées en complément du ménage, avec le matériel
+          convenu. Nous ne proposons pas de prestation autonome de vitrerie professionnelle, de travail en
+          hauteur ni de nettoyage nécessitant un matériel spécialisé.
+        </p>
+      </aside>
+      <InterventionAreas />
+    </div>
   </div>
-  <InterventionAreas />
-</InfoPage>
-
+</Layout>

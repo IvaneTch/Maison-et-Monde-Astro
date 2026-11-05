@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PhotoCards from '../../components/PhotoCards.astro';
+import { bureaux, entreprise } from '../../data/entreprise';
+import images from '../../data/images.json';
+import '../../styles/presentation.css';
+const cards = [
+  {
+    title: 'Votre quotidien',
+    description:
+      'Ménage régulier ou ponctuel et soin du linge : des tâches définies selon votre logement et vos priorités.',
+    href: '/nos-services/',
+    image: '/images/secteurs/menage-paris-15-v1.webp',
+    alt: 'Préparation de linge propre dans une chambre',
+    label: '01 / NOS PRESTATIONS',
+  },
+  {
+    title: 'Une demande à votre mesure',
+    description:
+      'Un échange pour préciser les pièces, les tâches, les disponibilités et les conditions du passage.',
+    href: '/devis-detaille/',
+    image: '/images/secteurs/menage-paris-5-v1.webp',
+    alt: 'Entretien d’un espace de vie',
+    label: '02 / NOTRE APPROCHE',
+  },
+  {
+    title: 'Paris et l’Île-de-France',
+    description:
+      'Deux bureaux à Paris et des interventions dans les arrondissements parisiens et les communes desservies.',
+    href: '/zones-intervention/',
+    image: '/images/secteurs/menage-paris-4-v1.webp',
+    alt: 'Intérieur aux tons chauds',
+    label: '03 / LA PROXIMITÉ',
+  },
+  {
+    title: 'Vos projets locatifs',
+    description:
+      'Un accompagnement pour préparer votre logement et organiser les prestations de conciergerie utiles.',
+    href: '/conciergerie/',
+    image: '/images/conciergerie/menage-preparation.webp',
+    alt: 'Chambre préparée pour un séjour',
+    label: '04 / LA CONCIERGERIE',
+  },
+];
+const hero = '/images/secteurs/menage-paris-20-v1.webp';
+---
+
+<Layout
+  title="À propos de Maison & Monde | Ménage à Paris et en Île-de-France"
+  description="Découvrez Maison & Monde, notre approche du ménage et de la conciergerie, et nos deux bureaux à Paris 14 et Paris 12."
+>
+  <article class="mm-presentation">
+    <header class="mm-presentation-hero">
+      <img
+        src={hero}
+        srcset={images[hero].srcset}
+        sizes="100vw"
+        width="1536"
+        height="1024"
+        alt="Entretien d’une salle à manger aux couleurs chaleureuses"
+        fetchpriority="high"
+      />
+      <div class="mm-presentation-wrap">
+        <p class="mm-presentation-label">À PROPOS DE MAISON &amp; MONDE</p>
+        <h1>
+          Proches de vous,
+          <br />
+          <em>attentifs à votre intérieur.</em>
+        </h1>
+        <p>
+          Maison &amp; Monde accompagne les particuliers et les professionnels dans l’entretien de leurs
+          espaces à Paris et en Île-de-France. Notre approche : comprendre vos besoins et définir une
+          prestation adaptée.
+        </p>
+      </div>
+      <svg class="mm-presentation-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+        <path
+          d="M0 30 C280 80 440 8 720 32 S1120 92 1440 28 L1440 80 L0 80 Z"
+          fill="#fff"
+          stroke="#e9a34c"
+          stroke-width="1.5"
+        />
+      </svg>
+    </header>
+    <div class="mm-presentation-wrap">
+      <nav class="mm-presentation-breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a> / <span aria-current="page">À propos de Maison &amp; Monde</span>
+      </nav>
+      <section class="mm-presentation-section">
+        <p class="mm-presentation-label">FAISONS CONNAISSANCE</p>
+        <h2>Un service de proximité pour vos espaces de vie et de travail.</h2>
+        <p>
+          Chaque logement et chaque organisation ont leurs habitudes. Du ménage régulier au grand ménage, du
+          repassage à la conciergerie, nous préparons les interventions autour des tâches que vous souhaitez
+          nous confier. Pour les professionnels, l’entretien est étudié selon l’usage des locaux et les
+          conditions d’accès.
+        </p>
+        <PhotoCards cards={cards} />
+      </section>
+      <section class="mm-presentation-panel">
+        <h2>Une prestation claire, dès le premier échange</h2>
+        <ol>
+          <li>
+            <strong>Vous nous décrivez votre besoin.</strong> Adresse, pièces, fréquence et priorités nous
+            aident à préparer la demande.
+          </li>
+          <li>
+            <strong>Nous précisons le périmètre.</strong> Tâches, durée prévue, matériel, produits et
+            conditions sont convenus avant le passage.
+          </li>
+          <li>
+            <strong>Nous faisons le point.</strong> Vos consignes et retours permettent d’ajuster
+            l’organisation des interventions suivantes.
+          </li>
+        </ol>
+        <p>
+          La demande de devis est gratuite et sans engagement. Elle ne constitue pas une réservation
+          confirmée. Pour découvrir le service, vous pouvez aussi consulter notre{' '}
+          <a href="/service-de-menage-test/">Formule Test</a>.
+        </p>
+        <a class="mm-button" href="/devis-detaille/">
+          Préparer mon devis personnalisé →
+        </a>
+      </section>
+      <section class="mm-presentation-panel">
+        <h2>Nos deux bureaux à Paris</h2>
+        <p>
+          Nous intervenons dans tout Paris et en Île-de-France, selon la faisabilité confirmée à votre
+          adresse. Pour organiser un échange avec nos bureaux, contactez-nous au préalable.
+        </p>
+        <div class="mm-office-grid">
+          {bureaux.map((b) => (
+            <address>
+              <strong>{b.nom}</strong>
+              <br />
+              {b.adresse}
+              <br />
+              {b.codePostal} {b.ville}
+              <br />
+              <a href="/contactez-nous/">Contacter nos bureaux →</a>
+            </address>
+          ))}
+        </div>
+        <p>
+          {entreprise.horaires} · <a href="tel:+33980386848">{entreprise.telephone}</a>
+        </p>
+        <p>
+          Les coordonnées juridiques de l’entreprise sont disponibles dans les{' '}
+          <a href="/mentions-legales/">mentions légales</a>.
+        </p>
+      </section>
+    </div>
+  </article>
+</Layout>
