@@ -1,4 +1,8 @@
 ---
+import { secteurs } from '../data/secteurs';
+const villesParCodePostal = Object.fromEntries(
+  secteurs.map((s) => [s.postal, s.postal.startsWith('750') ? 'Paris' : s.nom]),
+);
 import SectionBand from '../components/SectionBand.astro';
 import '../styles/devis-menage.css';
 import Layout from '../layouts/Layout.astro';
@@ -974,7 +978,7 @@ const entreprise = 'Maison & Monde';
     </div>
   </div>
 
-  <script is:inline>
+  <script define:vars={{ villesParCodePostal }}>
     (() => {
       const correspondances = {
         ponctuel: ['Ménage ponctuel', 'Ménage à domicile'],
@@ -985,9 +989,9 @@ const entreprise = 'Maison & Monde';
       };
       const params = new URLSearchParams(window.location.search);
       const secteurPostal = params.get('code_postal');
-      if (/^(?:750(?:0[1-9]|1[0-9]|20)|92160)$/.test(secteurPostal || '')) {
+      if (secteurPostal && Object.prototype.hasOwnProperty.call(villesParCodePostal, secteurPostal)) {
         document.querySelector('[name=code_postal]').value = secteurPostal;
-        document.querySelector('[name=ville]').value = secteurPostal === '92160' ? 'Antony' : 'Paris';
+        document.querySelector('[name=ville]').value = villesParCodePostal[secteurPostal];
       }
       const formule = params.get('formule');
       const formules = {

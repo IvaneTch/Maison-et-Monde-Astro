@@ -1,3 +1,4 @@
+import villes from './villes.json';
 const secteursPrioritaires = [
   {
     slug: 'menage-paris-14',
@@ -718,4 +719,4 @@ const autresSecteurs = [
   },
 ];
 
-export const secteurs = [...secteursPrioritaires, ...autresSecteurs];
+export const secteurs = [...secteursPrioritaires, ...autresSecteurs, ...villes];

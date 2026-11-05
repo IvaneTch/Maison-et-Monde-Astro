@@ -1,0 +1,7 @@
+---
+import LocalServicePage from '../../components/LocalServicePage.astro';
+import villes from '../../data/villes.json';
+const secteur = villes.find((v) => v.slug === 'menage-saint-mande')!;
+---
+
+<LocalServicePage secteur={secteur} />
