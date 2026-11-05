@@ -236,7 +236,8 @@
   .mm-section-band[data-variant='compact'] {
     padding: 30px 0 32px;
     margin: 0;
-    background: transparent;
+    /* Cette variante masque le SVG : son fond doit donc être porté par la section. */
+    background: var(--mm-band-background, linear-gradient(90deg, #205e88, #071b30 63%, #174d70));
   }
   .mm-section-band[data-variant='compact'] .mm-band-inner {
     grid-template-columns: 1.1fr 1.6fr;

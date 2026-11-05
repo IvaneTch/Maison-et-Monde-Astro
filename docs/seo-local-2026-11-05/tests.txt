@@ -1,0 +1,48 @@
+
+> maison-et-monde-astro@0.0.1 test
+> node --test tests/*.test.mjs
+
+(node:47991) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Administration : statut Refusée accepté pour une session valide (41.146542ms)
+✔ Administration : origine extérieure refusée avant accès MySQL (1.678583ms)
+✔ Administration : session invalide ne permet aucune modification (2.867416ms)
+✔ identité : e-mail et nom/prénom, sans fusion sur le seul téléphone (1.72875ms)
+✔ une fiche existante est réutilisée sans écraser ses coordonnées (1.413959ms)
+✔ une nouvelle demande professionnelle crée un client professionnel avec son entreprise (39.539791ms)
+✔ les fiches ambiguës sont signalées avant toute écriture (0.780042ms)
+✔ plan de réparation : devis orphelins, mauvais lien, regroupement et relance idempotente (0.565125ms)
+✔ échec de rattachement : annulation de la transaction et libération du verrou (1.102041ms)
+(node:47993) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ ménage seul : plateformes facultatives, studio sans chambre accepté (34.36275ms)
+✔ services complémentaires : texte obligatoire, multiligne et limite (1.057416ms)
+✔ rejeter coordonnées, dates, nombres, services et consentement invalides (1.132666ms)
+✔ API : enregistrement complet, catégorie et fermeture de connexion (15.020084ms)
+✔ API : un devis professionnel a sa référence, son client pro et sa catégorie de notification (4.29975ms)
+✔ API : données invalides rejetées avant connexion (4.040791ms)
+✔ API : panne MySQL signalée sans confirmation trompeuse (2.518375ms)
+✔ régression : les devis ménage simple et détaillé conservent leur enregistrement (4.24475ms)
+✔ références ménage : préfixe MM conservé (2.013333ms)
+✔ devis détaillé : une valeur de consentement fausse est refusée avant MySQL (1.8025ms)
+✔ vitres simples : complément au ménage accepté, demande autonome refusée (6.555583ms)
+(node:47994) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Contact : message et rappel ont leurs champs adaptés (32.206083ms)
+✔ Contact : consentement, coordonnées, taille et piège antispam sont vérifiés (0.74875ms)
+✔ Contact API : message, notification et confirmation dans une seule transaction (15.199542ms)
+✔ Contact API : panne MySQL annule la demande et permet de réessayer (3.405375ms)
+✔ Contact API : demande invalide refusée avant connexion (1.62825ms)
+✔ Protection : limite des tentatives et nouvelle fenêtre après expiration (1.131166ms)
+✔ les anciens devis Conciergerie MM restent classés en Conciergerie (1.262667ms)
+✔ les listes ne se recouvrent pas et couvrent les deux activités (0.261459ms)
+✔ l’accompagnement se lit sans casser les anciennes demandes (0.338959ms)
+✔ les devis Professionnel ont une catégorie distincte et gardent les détails du site (1.234917ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 280.094167

@@ -252,3 +252,54 @@ test('références ménage : préfixe MM conservé', async () => {
   const r = await post({ request: new Request('http://localhost/api/devis', { method: 'POST', body: d }) });
   assert.match((await r.json()).reference, /^MM-/);
 });
+
+test('devis détaillé : une valeur de consentement fausse est refusée avant MySQL', async () => {
+  const post = api({ createConnection: () => assert.fail('Aucune écriture sans consentement') });
+  const d = payload();
+  d.set('type_devis', 'detaille');
+  d.set('logement', 'Appartement');
+  d.set('animaux', 'Non');
+  d.set('pieces', '2');
+  d.set('type_prestation', 'Ponctuelle');
+  d.set('duree', '3 h');
+  d.append('disponibilites', 'Lundi matin');
+  d.set('confidentialite', 'false');
+  const response = await post({
+    request: new Request('http://localhost/api/devis', { method: 'POST', body: d }),
+  });
+  assert.equal(response.status, 400);
+});
+
+test('vitres simples : complément au ménage accepté, demande autonome refusée', async () => {
+  for (const type of ['simple', 'detaille']) {
+    for (const avecMenage of [false, true]) {
+      let connected = false;
+      const post = api({
+        createConnection: async () => {
+          connected = true;
+          return { execute: async () => {}, end: async () => {} };
+        },
+      });
+      const d = payload();
+      d.set('type_devis', type);
+      if (type === 'simple') {
+        d.set('prestation', avecMenage ? 'Menage a domicile, Nettoyage de vitres' : 'Nettoyage de vitres');
+        d.set('frequence', 'Occasionnelle');
+      } else {
+        d.set('logement', 'Appartement');
+        d.set('animaux', 'Non');
+        d.set('pieces', '2');
+        d.set('type_prestation', 'Ponctuelle');
+        d.set('duree', '3 h');
+        d.set('services', 'Nettoyage de vitres');
+        if (avecMenage) d.append('services', 'Ménage à domicile');
+        d.append('disponibilites', 'Lundi matin');
+      }
+      const response = await post({
+        request: new Request('http://localhost/api/devis', { method: 'POST', body: d }),
+      });
+      assert.equal(response.status, avecMenage ? 201 : 400, `${type} / ${avecMenage}`);
+      assert.equal(connected, avecMenage);
+    }
+  }
+});

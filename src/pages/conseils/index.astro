@@ -1,0 +1,45 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GuideCards from '../../components/GuideCards.astro';
+import articles from '../../data/articles.json';
+import '../../styles/conseils.css';
+---
+
+<Layout
+  title="Conseils ménage, organisation et conciergerie | Maison & Monde"
+  description="Les guides Maison & Monde pour organiser votre ménage, choisir une formule et préparer votre logement à Paris et en Île-de-France."
+>
+  <div class="guides-page">
+    <header class="guides-hero">
+      <p class="guide-category">LE BLOG MAISON &amp; MONDE</p>
+      <h1>
+        Des conseils pour un quotidien <em>plus serein.</em>
+      </h1>
+      <p>
+        Ménage, organisation et conciergerie : nos guides pour préparer vos prestations et prendre soin de
+        votre intérieur à Paris et en Île-de-France.
+      </p>
+    </header>
+    <div class="guides-container">
+      <nav class="guide-breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a> / <span aria-current="page">Conseils &amp; guides</span>
+      </nav>
+      <nav class="guide-categories" aria-label="Catégories des guides">
+        {['Ménage & entretien', 'Budget & organisation', 'Conciergerie & linge'].map((c) => (
+          <a href={'#' + ['Ménage & entretien', 'Budget & organisation', 'Conciergerie & linge'].indexOf(c)}>
+            {c}
+          </a>
+        ))}
+      </nav>
+      {['Ménage & entretien', 'Budget & organisation', 'Conciergerie & linge'].map((c, i) => (
+        <section class="guide-group" aria-labelledby={'categorie-' + i}>
+          <h2 id={'categorie-' + i}>
+            <span id={String(i)}></span>
+            {c}
+          </h2>
+          <GuideCards articles={articles.filter((a) => a.category === c)} />
+        </section>
+      ))}
+    </div>
+  </div>
+</Layout>

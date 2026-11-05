@@ -298,14 +298,14 @@ const autres = Object.keys(d).filter(
               </option>
             ))}
           </select>
-          <button type="submit" class="bouton-or">
+          <button type="submit" class="bouton-or mm-button">
             Enregistrer le statut
           </button>
         </form>
         <form method="POST" action="/api/admin/gerer-demande" class="suppression-form" id="form-corbeille">
           <input type="hidden" name="id" value={id} />
           <input type="hidden" name="action" value="supprimer" />
-          <button type="submit" class="bouton-danger">
+          <button type="submit" class="bouton-danger mm-button mm-button--danger">
             🗑 Placer dans la corbeille
           </button>
         </form>
@@ -327,10 +327,10 @@ const autres = Object.keys(d).filter(
             tout moment depuis la corbeille.
           </p>
           <div class="dialog-actions">
-            <button type="button" class="dialog-annuler" id="annuler-corbeille">
+            <button type="button" class="dialog-annuler mm-button mm-button--navy" id="annuler-corbeille">
               Annuler
             </button>
-            <button type="button" class="dialog-confirmer" id="confirmer-corbeille">
+            <button type="button" class="dialog-confirmer mm-button mm-button--danger" id="confirmer-corbeille">
               Placer dans la corbeille
             </button>
           </div>

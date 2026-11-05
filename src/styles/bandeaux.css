@@ -24,3 +24,23 @@
 .mm-section-band .mm-band-fill {
   fill: url(#mm-home-band-gradient) var(--mm-band-blue-start) !important;
 }
+
+/* Le fond du bandeau professionnel garde les mêmes bleus que les autres.
+   L’opacité de l’ancienne variante éclaircissait le dégradé sur le fond blanc. */
+body .mm-section-band[data-variant='diagonal'] .mm-band-lines {
+  opacity: 1;
+}
+
+/* Flottement déclenché au survol du groupe, sans déplacer le texte.
+   La propriété translate conserve les rotations propres à chaque variante. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .mm-band-points > div:hover .mm-band-icon,
+  .home-page .avantage-item:hover .avantage-icon,
+  .avantages-grille > div:hover .avantage-icone {
+    animation: mm-band-icon-float 1.8s ease-in-out infinite;
+  }
+  @keyframes mm-band-icon-float {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -7px; }
+  }
+}

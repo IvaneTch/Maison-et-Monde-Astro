@@ -3,14 +3,14 @@ import '../styles/floating-contact.css';
 ---
 
 <div class="mm-floating-contact">
-  <a href="tel:+33745292585" class="mm-float-btn mm-call" aria-label="Nous appeler">
+  <a href="tel:+33745292585" class="mm-float-btn mm-call mm-button-icon mm-button--navy" aria-label="Nous appeler">
     <span class="mm-icon" aria-hidden="true">
       ☎
     </span>
     <span class="mm-label">Nous appeler</span>
   </a>
 
-  <button type="button" class="mm-float-btn mm-callback" id="mm-open-callback">
+  <button type="button" class="mm-float-btn mm-callback mm-button-icon" id="mm-open-callback">
     <span class="mm-icon" aria-hidden="true">
       ↩
     </span>
@@ -21,7 +21,7 @@ import '../styles/floating-contact.css';
 <dialog aria-labelledby="mm-callback-title" id="mm-callback-dialog" class="mm-callback-dialog">
   <div class="mm-dialog-head">
     <h2 id="mm-callback-title">Être rappelé</h2>
-    <button type="button" id="mm-close-callback" aria-label="Fermer">
+    <button class="mm-button" type="button" id="mm-close-callback" aria-label="Fermer">
       ×
     </button>
   </div>
@@ -57,7 +57,7 @@ import '../styles/floating-contact.css';
     <p>
       <a href="/politique-de-confidentialite/">Politique de confidentialité</a>
     </p>
-    <button type="submit" class="mm-submit">
+    <button type="submit" class="mm-submit mm-button">
       Demander un rappel
     </button>
     <p data-contact-status id="mm-callback-status" role="status" aria-live="polite"></p>

@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import GuideCards from './GuideCards.astro';
+import articles from '../data/articles.json';
+import images from '../data/images.json';
+import '../styles/conseils.css';
+interface Props {
+  article: (typeof articles)[number];
+}
+const { article: a } = Astro.props;
+const image = images[a.image as keyof typeof images];
+const origin = import.meta.env.PUBLIC_SITE_URL || 'https://maisonetmonde.fr';
+const url = new URL(`/conseils/${a.slug}/`, origin).href;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: a.title,
+  description: a.description,
+  image: new URL(a.image, origin).href,
+  inLanguage: 'fr-FR',
+  mainEntityOfPage: url,
+  author: { '@type': 'Organization', name: 'Maison & Monde', url: origin },
+  publisher: { '@id': new URL('/#entreprise', origin).href },
+};
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { name: 'Accueil', item: origin },
+    { name: 'Conseils & guides', item: new URL('/conseils/', origin).href },
+    { name: a.title, item: url },
+  ].map((v, i) => ({ '@type': 'ListItem', position: i + 1, ...v })),
+};
+---
+
+<Layout title={`${a.title} | Maison & Monde`} description={a.description}>
+  <article class="guides-page">
+    <header class="guides-hero guide-article-heading">
+      <p class="guide-category">{a.category}</p>
+      <h1>{a.title}</h1>
+      <p>{a.intro}</p>
+      <p class="guide-byline">Par Maison &amp; Monde · Conseils pratiques</p>
+    </header>
+    <div class="guides-container">
+      <nav class="guide-breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a> / <a href="/conseils/">Conseils &amp; guides</a> /{' '}
+        <span aria-current="page">{a.title}</span>
+      </nav>
+      <figure class="guide-cover">
+        <img
+          src={a.image}
+          srcset={image?.srcset}
+          sizes="(max-width: 1000px) 95vw, 1100px"
+          width={image?.width}
+          height={image?.height}
+          alt={a.alt}
+          fetchpriority="high"
+          decoding="async"
+        />
+        <figcaption>Visuel d’illustration des prestations Maison &amp; Monde.</figcaption>
+      </figure>
+      <div class="guide-article-layout">
+        <aside class="guide-summary">
+          <p class="guide-category">DANS CE GUIDE</p>
+          <nav aria-label="Sommaire">
+            {a.sections.map((s, i) => (
+              <a href={'#etape-' + i}>{s[0]}</a>
+            ))}
+          </nav>
+          <a class="guide-read" href={a.service}>
+            Voir la prestation →
+          </a>
+        </aside>
+        <div class="guide-prose">
+          {a.sections.map((s, i) => (
+            <section aria-labelledby={'etape-' + i}>
+              <h2 id={'etape-' + i}>{s[0]}</h2>
+              {s.slice(1).map((p) => (
+                <p>{p}</p>
+              ))}
+            </section>
+          ))}
+          <section class="guide-checklist">
+            <p class="guide-category">À GARDER SOUS LA MAIN</p>
+            <h2>Votre liste pratique</h2>
+            <ul>
+              {a.checklist.map((c) => (
+                <li>{c}</li>
+              ))}
+            </ul>
+          </section>
+          <section class="guide-cta">
+            <h2>Parlons de votre besoin</h2>
+            <p>
+              Nous intervenons à Paris et en Île-de-France. Décrivez votre logement et vos priorités pour
+              définir ensemble le contenu de la prestation.
+            </p>
+            <a class="mm-button" href={a.service}>
+              {a.cta} →
+            </a>
+          </section>
+        </div>
+      </div>
+      <section class="guide-related">
+        <h2>Pour continuer votre lecture</h2>
+        <GuideCards articles={articles.filter((v) => v.slug !== a.slug).slice(0, 2)} />
+      </section>
+    </div>
+  </article>
+  <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb).replace(/</g, '\\u003c')} />
+</Layout>

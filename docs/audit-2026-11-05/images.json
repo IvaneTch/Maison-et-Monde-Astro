@@ -1,0 +1,235 @@
+{
+  "count": 38,
+  "totalBytes": 5516108,
+  "errors": [],
+  "rows": [
+    {
+      "url": "/images/immeuble-paris-maison-et-monde.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 248452
+    },
+    {
+      "url": "/images/menage-a-domicile-paris-maison-et-monde.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 213338
+    },
+    {
+      "url": "/images/conciergerie/appartement-paris.webp",
+      "width": 1600,
+      "height": 595,
+      "bytes": 210008
+    },
+    {
+      "url": "/images/conciergerie/reassort-courses.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 200970
+    },
+    {
+      "url": "/images/entreprise-nettoyage-appartement-paris.webp",
+      "width": 1600,
+      "height": 897,
+      "bytes": 198974
+    },
+    {
+      "url": "/images/menage-appartement-paris-salon.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 190766
+    },
+    {
+      "url": "/images/nettoyage-vitres-paris.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 182782
+    },
+    {
+      "url": "/images/conciergerie-location-saisonniere-paris-maison-et-monde.webp",
+      "width": 1600,
+      "height": 901,
+      "bytes": 177678
+    },
+    {
+      "url": "/images/conciergerie/lavage-repassage.webp",
+      "width": 1474,
+      "height": 1067,
+      "bytes": 173046
+    },
+    {
+      "url": "/images/hero-tour-eiffel-paris.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 172002
+    },
+    {
+      "url": "/images/hero-nettoyage-bureaux.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 170326
+    },
+    {
+      "url": "/images/conciergerie/services-complementaires.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 168714
+    },
+    {
+      "url": "/images/conciergerie/attention-details.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 168232
+    },
+    {
+      "url": "/images/conciergerie/salon-conciergerie.webp",
+      "width": 1600,
+      "height": 595,
+      "bytes": 164646
+    },
+    {
+      "url": "/images/conciergerie/chambre-apres.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 160452
+    },
+    {
+      "url": "/images/hero-credit-impot.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 160126
+    },
+    {
+      "url": "/images/hero-repassage.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 156158
+    },
+    {
+      "url": "/images/conciergerie/chambre-avant.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 154558
+    },
+    {
+      "url": "/images/conciergerie/prestations-specifiques.webp",
+      "width": 1475,
+      "height": 1067,
+      "bytes": 145700
+    },
+    {
+      "url": "/images/conciergerie/menage-preparation.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 145084
+    },
+    {
+      "url": "/images/service-repassage-domicile-paris.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 142004
+    },
+    {
+      "url": "/images/grand-menage-salle-de-bain-paris.webp",
+      "width": 1600,
+      "height": 895,
+      "bytes": 141634
+    },
+    {
+      "url": "/images/hero-menage-domicile.webp",
+      "width": 1600,
+      "height": 900,
+      "bytes": 133190
+    },
+    {
+      "url": "/images/conciergerie/controle-equipements-logement.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 132932
+    },
+    {
+      "url": "/images/conciergerie/entretien-bureaux-equipe.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 126878
+    },
+    {
+      "url": "/images/conciergerie/inspection-logement.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 125442
+    },
+    {
+      "url": "/images/femme-de-menage-professionnelle-paris-maison-et-monde.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 124702
+    },
+    {
+      "url": "/images/femme-de-menage-domicile-paris.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 123836
+    },
+    {
+      "url": "/images/conciergerie/suivi-maintenance.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 118926
+    },
+    {
+      "url": "/images/conciergerie/accueil-voyageurs.webp",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 114310
+    },
+    {
+      "url": "/images/hero-devis-detaille.webp",
+      "width": 1586,
+      "height": 992,
+      "bytes": 113866
+    },
+    {
+      "url": "/images/nettoyage-salle-de-bain-paris.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 108988
+    },
+    {
+      "url": "/images/nettoyage-chambre-domicile-paris.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 108942
+    },
+    {
+      "url": "/images/grand-menage.paris.webp",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 107378
+    },
+    {
+      "url": "/images/femme-de-menage-professionnelle-paris-ile-de-france-maison-et-monde.webp",
+      "width": 1309,
+      "height": 1201,
+      "bytes": 95230
+    },
+    {
+      "url": "/images/menage-ponctuel-salon-paris.webp",
+      "width": 996,
+      "height": 514,
+      "bytes": 54182
+    },
+    {
+      "url": "/images/couple-avis-maison-monde.webp",
+      "width": 605,
+      "height": 555,
+      "bytes": 45760
+    },
+    {
+      "url": "/images/menage-ponctuel.webp",
+      "width": 527,
+      "height": 526,
+      "bytes": 35896
+    }
+  ]
+}

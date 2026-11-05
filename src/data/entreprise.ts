@@ -17,3 +17,9 @@ export const entreprise = {
   zone: 'Paris et Île-de-France',
 };
 export const tarifs = { grandMenage: '34,50 €', repassage: '29,00 €' };
+
+// Deux bureaux confirmés par le propriétaire le 05/11/2026.
+export const bureaux = [
+  { nom: 'Bureau Paris 14', adresse: '53 rue Boulard', codePostal: '75014', ville: 'Paris' },
+  { nom: 'Bureau Paris 12', adresse: '19 rue Lamblardie', codePostal: '75012', ville: 'Paris' },
+];

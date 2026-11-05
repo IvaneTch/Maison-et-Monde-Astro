@@ -1,4 +1,5 @@
 ---
+import InterventionAreas from '../../components/InterventionAreas.astro';
 import '../../styles/services-occasionnels.css';
 import SectionBand from '../../components/SectionBand.astro';
 import Layout from '../../layouts/Layout.astro';
@@ -56,7 +57,10 @@ const formules = [
 ];
 ---
 
-<Layout title="Services de ménage occasionnels à Paris | Maison & Monde">
+<Layout
+  title="Services de ménage occasionnels à Paris | Maison & Monde"
+  description="Ménage ponctuel, grand ménage et repassage à Paris et en Île-de-France. Découvrez nos prestations occasionnelles et demandez votre devis gratuit."
+>
   <div class="page-menage">
     <section class="introduction" aria-labelledby="titre-menage">
       <div class="hero-copy">
@@ -125,8 +129,8 @@ const formules = [
         <img
           src="/images/menage-ponctuel-salon-paris.webp"
           alt="Intervenante Maison & Monde effectuant un ménage occasionnel dans un appartement parisien"
-          width="1000"
-          height="700"
+          width="996"
+          height="514"
           fetchpriority="high"
           srcset="/images/menage-ponctuel-salon-paris-480.webp 480w, /images/menage-ponctuel-salon-paris-960.webp 960w, /images/menage-ponctuel-salon-paris.webp 996w"
           sizes="(max-width: 780px) 100vw, 50vw"
@@ -185,7 +189,7 @@ const formules = [
 
                 <button
                   type="button"
-                  class="bouton-decouvrir"
+                  class="bouton-decouvrir mm-button"
                   aria-expanded="false"
                   aria-controls={`prestations-${formule.id}`}
                 >
@@ -210,12 +214,12 @@ const formules = [
                   ))}
                 </ul>
 
-                <a class="bouton-choisir" href={`/devis-detaille/?service=${formule.id}`}>
+                <a class="bouton-choisir mm-button" href={`/devis-detaille/?service=${formule.id}`}>
                   Demander un devis
                   <span aria-hidden="true">→</span>
                 </a>
 
-                <button type="button" class="bouton-retour">
+                <button type="button" class="bouton-retour mm-button mm-button--navy">
                   ← Retour
                 </button>
               </div>
@@ -322,8 +326,8 @@ const formules = [
           src="/images/grand-menage-salle-de-bain-paris.webp"
           alt="Salle de bain haut de gamme impeccablement nettoyée à Paris"
           loading="lazy"
-          width="1000"
-          height="650"
+          width="1600"
+          height="895"
           srcset="/images/grand-menage-salle-de-bain-paris-480.webp 480w, /images/grand-menage-salle-de-bain-paris-960.webp 960w, /images/grand-menage-salle-de-bain-paris.webp 1600w"
           sizes="(max-width: 780px) 100vw, 50vw"
         />
@@ -335,13 +339,14 @@ const formules = [
           un intérieur impeccable
         </h2>
         <p>Une intervention adaptée à vos besoins, avec un devis gratuit et sans engagement.</p>
-        <a href="/demande-de-devis/">
+        <a class="mm-button" href="/demande-de-devis/">
           Demander un devis <span aria-hidden="true">→</span>
         </a>
       </div>
       <div class="ornement-devis" aria-hidden="true"></div>
     </section>
   </div>
+  <InterventionAreas />
 </Layout>
 
 <script>

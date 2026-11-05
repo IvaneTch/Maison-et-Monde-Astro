@@ -173,5 +173,125 @@
     "width": 1254,
     "height": 1254,
     "srcset": "/images/service-repassage-domicile-paris-480.webp 480w, /images/service-repassage-domicile-paris-960.webp 960w, /images/service-repassage-domicile-paris.webp 1254w"
+  },
+  "/images/conciergerie/entretien-bureaux-equipe.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/conciergerie/entretien-bureaux-equipe-480.webp 480w, /images/conciergerie/entretien-bureaux-equipe-960.webp 960w, /images/conciergerie/entretien-bureaux-equipe.webp 1536w"
+  },
+  "/images/conciergerie/inspection-logement.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/conciergerie/inspection-logement-480.webp 480w, /images/conciergerie/inspection-logement-960.webp 960w, /images/conciergerie/inspection-logement.webp 1536w"
+  },
+  "/images/conciergerie/controle-equipements-logement.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/conciergerie/controle-equipements-logement-480.webp 480w, /images/conciergerie/controle-equipements-logement-960.webp 960w, /images/conciergerie/controle-equipements-logement.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-1-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-1-v1-480.webp 480w, /images/secteurs/menage-paris-1-v1-960.webp 960w, /images/secteurs/menage-paris-1-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-2-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-2-v1-480.webp 480w, /images/secteurs/menage-paris-2-v1-960.webp 960w, /images/secteurs/menage-paris-2-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-3-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-3-v1-480.webp 480w, /images/secteurs/menage-paris-3-v1-960.webp 960w, /images/secteurs/menage-paris-3-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-4-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-4-v1-480.webp 480w, /images/secteurs/menage-paris-4-v1-960.webp 960w, /images/secteurs/menage-paris-4-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-5-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-5-v1-480.webp 480w, /images/secteurs/menage-paris-5-v1-960.webp 960w, /images/secteurs/menage-paris-5-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-6-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-6-v1-480.webp 480w, /images/secteurs/menage-paris-6-v1-960.webp 960w, /images/secteurs/menage-paris-6-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-7-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-7-v1-480.webp 480w, /images/secteurs/menage-paris-7-v1-960.webp 960w, /images/secteurs/menage-paris-7-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-8-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-8-v1-480.webp 480w, /images/secteurs/menage-paris-8-v1-960.webp 960w, /images/secteurs/menage-paris-8-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-9-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-9-v1-480.webp 480w, /images/secteurs/menage-paris-9-v1-960.webp 960w, /images/secteurs/menage-paris-9-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-10-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-10-v1-480.webp 480w, /images/secteurs/menage-paris-10-v1-960.webp 960w, /images/secteurs/menage-paris-10-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-11-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-11-v1-480.webp 480w, /images/secteurs/menage-paris-11-v1-960.webp 960w, /images/secteurs/menage-paris-11-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-12-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-12-v1-480.webp 480w, /images/secteurs/menage-paris-12-v1-960.webp 960w, /images/secteurs/menage-paris-12-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-13-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-13-v1-480.webp 480w, /images/secteurs/menage-paris-13-v1-960.webp 960w, /images/secteurs/menage-paris-13-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-14-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-14-v1-480.webp 480w, /images/secteurs/menage-paris-14-v1-960.webp 960w, /images/secteurs/menage-paris-14-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-15-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-15-v1-480.webp 480w, /images/secteurs/menage-paris-15-v1-960.webp 960w, /images/secteurs/menage-paris-15-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-16-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-16-v1-480.webp 480w, /images/secteurs/menage-paris-16-v1-960.webp 960w, /images/secteurs/menage-paris-16-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-17-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-17-v1-480.webp 480w, /images/secteurs/menage-paris-17-v1-960.webp 960w, /images/secteurs/menage-paris-17-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-18-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-18-v1-480.webp 480w, /images/secteurs/menage-paris-18-v1-960.webp 960w, /images/secteurs/menage-paris-18-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-19-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-19-v1-480.webp 480w, /images/secteurs/menage-paris-19-v1-960.webp 960w, /images/secteurs/menage-paris-19-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-paris-20-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-paris-20-v1-480.webp 480w, /images/secteurs/menage-paris-20-v1-960.webp 960w, /images/secteurs/menage-paris-20-v1.webp 1536w"
+  },
+  "/images/secteurs/menage-antony-v1.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/secteurs/menage-antony-v1-480.webp 480w, /images/secteurs/menage-antony-v1-960.webp 960w, /images/secteurs/menage-antony-v1.webp 1536w"
   }
 }

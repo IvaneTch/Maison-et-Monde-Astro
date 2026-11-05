@@ -1,0 +1,526 @@
+[
+  {
+    "path": "/menage-paris-1/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-2/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-3/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-4/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-5/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-6/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-7/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-8/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-9/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-10/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-11/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-12/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-13/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-14/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-15/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-16/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-17/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-18/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-19/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-20/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-antony/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/zones-intervention/",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-paris-1/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-2/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-3/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-4/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-5/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-6/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-7/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-8/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-9/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-10/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-11/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-12/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-13/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-14/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-15/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-16/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-17/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-18/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-19/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-20/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-antony/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/zones-intervention/",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-paris-1/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-2/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-3/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-4/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-5/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-6/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-7/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-8/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-9/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-10/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-11/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-12/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-13/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-14/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-15/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-16/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-17/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-18/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-19/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-20/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-antony/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/zones-intervention/",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-paris-1/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-2/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-3/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-4/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-5/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-6/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-7/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-8/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-9/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-10/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-11/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-12/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-13/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-14/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-15/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-16/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-17/",
+    "photo": "/images/menage-ponctuel-salon-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-18/",
+    "photo": "/images/nettoyage-chambre-domicile-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-19/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-paris-20/",
+    "photo": "/images/hero-menage-domicile.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/menage-antony/",
+    "photo": "/images/service-repassage-domicile-paris.webp",
+    "scroll": 1440,
+    "width": 1440
+  },
+  {
+    "path": "/zones-intervention/",
+    "scroll": 1440,
+    "width": 1440
+  }
+]

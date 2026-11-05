@@ -1,0 +1,10 @@
+
+> maison-et-monde-astro@0.0.1 audit
+> python3 scripts/auditer-site.py http://127.0.0.1:4327
+
+{
+  "pagesVerifiees": 26,
+  "destinationsVerifiees": 27,
+  "imagesVerifiees": 82,
+  "erreurs": []
+}

@@ -4,7 +4,7 @@ import SectionBand from '../../components/SectionBand.astro';
 import Layout from '../../layouts/Layout.astro';
 import ContactForm from '../../components/ContactForm.astro';
 import Icon from '../../components/ConciergerieIcon.astro';
-import { entreprise } from '../../data/entreprise';
+import { entreprise, bureaux } from '../../data/entreprise';
 import '../../styles/services.css';
 ---
 
@@ -39,8 +39,8 @@ import '../../styles/services.css';
         <img
           src="/images/hero-devis-detaille.webp"
           alt="Préparation d’une demande de service dans un appartement parisien"
-          width="1200"
-          height="900"
+          width="1586"
+          height="992"
           fetchpriority="high"
           srcset="/images/hero-devis-detaille-480.webp 480w, /images/hero-devis-detaille-960.webp 960w, /images/hero-devis-detaille.webp 1586w"
           sizes="(max-width: 780px) 100vw, 50vw"
@@ -66,22 +66,25 @@ import '../../styles/services.css';
             <a href="tel:+33745292585">{entreprise.mobile}</a>
             <p>{entreprise.horaires}</p>
           </div>
-          <div>
-            <Icon name="pin" />
-            <h3>Notre adresse</h3>
-            <p>
-              {entreprise.adresse}
-              <br />
-              {entreprise.codePostal} {entreprise.ville}
-            </p>
-            <a
-              href="https://www.google.com/maps/search/?api=1&amp;query=53+rue+Boulard+75014+Paris"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Voir l’itinéraire ↗
-            </a>
-          </div>
+          {bureaux.map((bureau) => (
+            <div>
+              <Icon name="pin" />
+              <h3>{bureau.nom}</h3>
+              <p>
+                {bureau.adresse}
+                <br />
+                {bureau.codePostal} {bureau.ville}
+              </p>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${bureau.adresse} ${bureau.codePostal} ${bureau.ville}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Voir l’itinéraire ↗
+              </a>
+            </div>
+          ))}
+          <p>Contactez-nous pour convenir d’un échange avant de vous déplacer dans nos bureaux.</p>
           <div>
             <h3>Écrivez-nous</h3>
             <a href={`mailto:${entreprise.email}`}>{entreprise.email}</a>

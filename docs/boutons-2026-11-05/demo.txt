@@ -1,0 +1,95 @@
+
+> maison-et-monde-astro@0.0.1 build:demo
+> node scripts/build-demo.mjs
+
+16:51:04 [vite] Re-optimizing dependencies because vite config has changed
+16:51:04 [types] Generated 68ms
+16:51:04 [build] output: "static"
+16:51:04 [build] mode: "static"
+16:51:04 [build] directory: /Users/ivanetchikviladze/Documents/ChatGPT/SIte Maison & Monde/maison-et-monde-demo/dist-demo/
+16:51:04 [build] Collecting build info...
+16:51:04 [build] ✓ Completed in 100ms.
+16:51:04 [build] Building static entrypoints...
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/conciergerie/salon-conciergerie.webp referenced in /Maison-et-Monde-Astro/images/conciergerie/salon-conciergerie.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/conciergerie-location-saisonniere-paris-maison-et-monde.webp referenced in /Maison-et-Monde-Astro/images/conciergerie-location-saisonniere-paris-maison-et-monde.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/conciergerie/appartement-paris.webp referenced in /Maison-et-Monde-Astro/images/conciergerie/appartement-paris.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/conciergerie/attention-details.webp referenced in /Maison-et-Monde-Astro/images/conciergerie/attention-details.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/conciergerie/menage-preparation.webp referenced in /Maison-et-Monde-Astro/images/conciergerie/menage-preparation.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/conciergerie/services-complementaires.webp referenced in /Maison-et-Monde-Astro/images/conciergerie/services-complementaires.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/conciergerie/entretien-bureaux-equipe.webp referenced in /Maison-et-Monde-Astro/images/conciergerie/entretien-bureaux-equipe.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/immeuble-paris-maison-et-monde.webp referenced in /Maison-et-Monde-Astro/images/immeuble-paris-maison-et-monde.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/conciergerie/suivi-maintenance.webp referenced in /Maison-et-Monde-Astro/images/conciergerie/suivi-maintenance.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/menage-a-domicile-paris-maison-et-monde.webp referenced in /Maison-et-Monde-Astro/images/menage-a-domicile-paris-maison-et-monde.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/femme-de-menage-professionnelle-paris-maison-et-monde.webp referenced in /Maison-et-Monde-Astro/images/femme-de-menage-professionnelle-paris-maison-et-monde.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/femme-de-menage-professionnelle-paris-ile-de-france-maison-et-monde.webp referenced in /Maison-et-Monde-Astro/images/femme-de-menage-professionnelle-paris-ile-de-france-maison-et-monde.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/favicon.png referenced in /Maison-et-Monde-Astro/favicon.png didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/couple-avis-maison-monde.webp referenced in /Maison-et-Monde-Astro/images/couple-avis-maison-monde.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/hero-tour-eiffel-paris.webp referenced in /Maison-et-Monde-Astro/images/hero-tour-eiffel-paris.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/hero-menage-domicile.webp referenced in /Maison-et-Monde-Astro/images/hero-menage-domicile.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/hero-repassage.webp referenced in /Maison-et-Monde-Astro/images/hero-repassage.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/hero-nettoyage-bureaux.webp referenced in /Maison-et-Monde-Astro/images/hero-nettoyage-bureaux.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [WARN] [vite] 
+/Maison-et-Monde-Astro/images/hero-credit-impot.webp referenced in /Maison-et-Monde-Astro/images/hero-credit-impot.webp didn't resolve at build time, it will remain unchanged to be resolved at runtime
+16:51:04 [vite] ✓ built in 221ms
+16:51:04 [vite] ✓ built in 54ms
+16:51:04 [build] Rearranging server assets...
+
+ generating static routes 
+16:51:04   ├─ /404.html (+9ms) 
+16:51:04   ├─ /cgv/index.html (+2ms) 
+16:51:04   ├─ /conciergerie/accueil-voyageurs/index.html (+3ms) 
+16:51:04   ├─ /conciergerie/demande-de-devis/index.html (+3ms) 
+16:51:04   ├─ /conciergerie/gestion-complete/index.html (+3ms) 
+16:51:04   ├─ /conciergerie/menage-preparation-logement/index.html (+2ms) 
+16:51:04   ├─ /conciergerie/questions-frequentes/index.html (+2ms) 
+16:51:04   ├─ /conciergerie/services-a-la-carte/index.html (+2ms) 
+16:51:04   ├─ /conciergerie/suivi-maintenance/index.html (+2ms) 
+16:51:04   ├─ /conciergerie/tarifs-formules/index.html (+2ms) 
+16:51:04   ├─ /conciergerie/index.html (+2ms) 
+16:51:04   ├─ /contactez-nous/index.html (+2ms) 
+16:51:04   ├─ /credit-impot/index.html (+2ms) 
+16:51:04   ├─ /demande-de-devis/index.html (+1ms) 
+16:51:04   ├─ /demande-de-devis-menage-et-nettoyage-a-domicile/index.html (+1ms) 
+16:51:04   ├─ /devis-detaille/index.html (+3ms) 
+16:51:04   ├─ /devis-professionnel/index.html (+2ms) 
+16:51:04   ├─ /devis-simple/index.html (+1ms) 
+16:51:04   ├─ /grand-menage-paris/index.html (+2ms) 
+16:51:04   ├─ /menage-regulier-a-domicile/index.html (+2ms) 
+16:51:04   ├─ /mentions-legales/index.html (+1ms) 
+16:51:04   ├─ /nettoyage-bureaux-paris/index.html (+1ms) 
+16:51:04   ├─ /nos-services/index.html (+2ms) 
+16:51:04   ├─ /plan-du-site/index.html (+1ms) 
+16:51:04   ├─ /politique-de-confidentialite/index.html (+2ms) 
+16:51:04   ├─ /repassage-a-domicile-paris/index.html (+1ms) 
+16:51:04   ├─ /robots.txt (+1ms) 
+16:51:04   ├─ /service-de-menage-test/index.html (+2ms) 
+16:51:04   ├─ /services-occasionnels/index.html (+2ms) 
+16:51:04   ├─ /index.html (+2ms) 
+16:51:04 ✓ Completed in 74ms.
+
+16:51:04 [build] ✓ Completed in 376ms.
+16:51:04 [build] 29 page(s) built in 477ms
+16:51:04 [build] Complete!
+
+> maison-et-monde-astro@0.0.1 check:demo
+> node scripts/check-demo.mjs
+
+Démo vérifiée : 29 pages HTML, liens et images présents, formulaires désactivés, aucun serveur publié.

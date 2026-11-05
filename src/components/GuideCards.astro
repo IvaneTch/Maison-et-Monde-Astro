@@ -1,0 +1,40 @@
+---
+import images from '../data/images.json';
+import '../styles/conseils.css';
+interface Props {
+  articles: typeof import('../data/articles.json');
+}
+const { articles } = Astro.props;
+---
+
+<div class="guide-grid">
+  {articles.map((a) => {
+    const image = images[a.image as keyof typeof images];
+    return (
+      <article class="guide-card">
+        <a href={`/conseils/${a.slug}/`} tabindex="-1" aria-hidden="true">
+          <img
+            src={a.image}
+            srcset={image?.srcset}
+            sizes="(max-width: 650px) 90vw, 550px"
+            width={image?.width}
+            height={image?.height}
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+        <div class="guide-card-copy">
+          <p class="guide-category">{a.category}</p>
+          <h2>
+            <a href={`/conseils/${a.slug}/`}>{a.title}</a>
+          </h2>
+          <p>{a.description}</p>
+          <a class="guide-read" href={`/conseils/${a.slug}/`} aria-label={`Lire le guide : ${a.title}`}>
+            Lire le guide <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+    );
+  })}
+</div>

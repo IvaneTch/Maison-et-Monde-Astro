@@ -212,3 +212,8 @@
       gap: 12px 17px;
     }
   }
+
+/* Contient l’ornement circulaire sans créer de défilement horizontal. */
+.pro-form-section {
+  overflow-x: clip;
+}

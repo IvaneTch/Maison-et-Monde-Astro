@@ -1,0 +1,32 @@
+[
+  {
+    "path": "/menage-regulier-a-domicile/",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/services-occasionnels/",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-regulier-a-domicile/",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/services-occasionnels/",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-regulier-a-domicile/",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/services-occasionnels/",
+    "scroll": 768,
+    "width": 768
+  }
+]

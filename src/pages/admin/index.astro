@@ -403,7 +403,7 @@ const nouvellesProfessionnel = demandes.filter(
             </div>
           </div>
           <form action="/api/admin/deconnexion" method="POST">
-            <button type="submit" class="logout">
+            <button type="submit" class="logout mm-button">
               ↪ &nbsp; Se déconnecter
             </button>
           </form>
@@ -1060,7 +1060,7 @@ const nouvellesProfessionnel = demandes.filter(
                 </div>
               </div>
               {corbeille.length > 0 && (
-                <button type="button" id="ouvrir-vidage" class="vider-corbeille">
+                <button type="button" id="ouvrir-vidage" class="vider-corbeille mm-button mm-button--danger">
                   🗑 Vider la corbeille
                 </button>
               )}
@@ -1085,7 +1085,7 @@ const nouvellesProfessionnel = demandes.filter(
                         <form method="POST" action="/api/admin/gerer-demande">
                           <input type="hidden" name="id" value={d.id} />
                           <input type="hidden" name="action" value="restaurer" />
-                          <button type="submit" class="restaurer">
+                          <button type="submit" class="restaurer mm-button">
                             ↩ Restaurer
                           </button>
                         </form>
@@ -1113,12 +1113,12 @@ const nouvellesProfessionnel = demandes.filter(
                 définitivement. Cette action est irréversible.
               </p>
               <div class="dialog-actions">
-                <button type="button" id="annuler-vidage" class="annuler-vidage">
+                <button type="button" id="annuler-vidage" class="annuler-vidage mm-button mm-button--navy">
                   Annuler
                 </button>
                 <form action="/api/admin/gerer-demande" method="POST">
                   <input type="hidden" name="action" value="vider_corbeille" />
-                  <button type="submit" class="confirmer-vidage">
+                  <button type="submit" class="confirmer-vidage mm-button mm-button--danger">
                     Supprimer définitivement
                   </button>
                 </form>

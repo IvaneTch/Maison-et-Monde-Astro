@@ -1,0 +1,21 @@
+
+> maison-et-monde-astro@0.0.1 build
+> astro build
+
+18:40:55 [@astrojs/node] Enabling sessions with filesystem storage
+18:40:55 [vite] Re-optimizing dependencies because vite config has changed
+18:40:55 [types] Generated 100ms
+18:40:55 [build] output: "server"
+18:40:55 [build] mode: "server"
+18:40:55 [build] directory: /Users/ivanetchikviladze/Documents/ChatGPT/SIte Maison & Monde/maison-et-monde-demo/dist/
+18:40:55 [build] adapter: @astrojs/node
+18:40:55 [build] Collecting build info...
+18:40:55 [build] ✓ Completed in 154ms.
+18:40:55 [build] Building server entrypoints...
+18:40:55 [vite] ✓ built in 88ms
+18:40:56 [vite] ✓ built in 688ms
+18:40:56 [vite] ✓ built in 284ms
+18:40:56 [build] Rearranging server assets...
+18:40:56 [build] ✓ Completed in 1.13s.
+18:40:56 [build] Server built in 1.31s
+18:40:56 [build] Complete!

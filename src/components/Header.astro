@@ -77,7 +77,7 @@ const conciergerie = Astro.url.pathname.startsWith('/conciergerie/');
   <a
     href={conciergerie ? '/conciergerie/demande-de-devis/' : '/devis-simple/'}
     data-open-devis-simple={conciergerie ? undefined : true}
-    class="header-button"
+    class="header-button mm-button"
   >
     Demander un devis
   </a>
@@ -97,14 +97,14 @@ const conciergerie = Astro.url.pathname.startsWith('/conciergerie/');
     </svg>
     <span>Appeler</span>
   </a>
-  <button type="button" class="mm-bottom-item" id="mm-bottom-callback">
+  <button type="button" class="mm-bottom-item mm-button-icon" id="mm-bottom-callback">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M4 11a8 8 0 1 1 2.3 6M4 4v7h7" />
       <path d="M12 7v5l3 2" />
     </svg>
     <span>Rappel</span>
   </button>
-  <button type="button" class="mm-bottom-item" id="mm-bottom-menu" aria-expanded="false">
+  <button type="button" class="mm-bottom-item mm-button-icon" id="mm-bottom-menu" aria-expanded="false">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M4 6h16M4 12h16M4 18h16" />
     </svg>

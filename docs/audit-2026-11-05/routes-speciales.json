@@ -1,0 +1,39 @@
+{
+  "/menage-regulier-a-domicile": {
+    "status": 200,
+    "canonical": [
+      "https://maisonetmonde.fr/menage-regulier-a-domicile/"
+    ],
+    "robots": [
+      "noindex,nofollow"
+    ]
+  },
+  "/devis-detaille/?formule=confort": {
+    "status": 200,
+    "canonical": [
+      "https://maisonetmonde.fr/devis-detaille/"
+    ],
+    "robots": [
+      "noindex,nofollow"
+    ]
+  },
+  "/page-audit-inexistante/": {
+    "status": 404,
+    "canonical": [
+      "https://maisonetmonde.fr/page-audit-inexistante/"
+    ],
+    "robots": [
+      "noindex,nofollow"
+    ]
+  },
+  "/sitemap.xml": {
+    "status": 200,
+    "canonical": [],
+    "robots": []
+  },
+  "/robots.txt": {
+    "status": 200,
+    "canonical": [],
+    "robots": []
+  }
+}

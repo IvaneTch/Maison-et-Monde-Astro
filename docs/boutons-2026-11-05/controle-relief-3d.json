@@ -1,0 +1,525 @@
+{
+  "checks": [
+    {
+      "path": "/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/nos-services/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/menage-regulier-a-domicile/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/services-occasionnels/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/grand-menage-paris/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/repassage-a-domicile-paris/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/service-de-menage-test/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/nettoyage-bureaux-paris/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/conciergerie/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/conciergerie/gestion-complete/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/conciergerie/menage-preparation-logement/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/conciergerie/accueil-voyageurs/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/conciergerie/suivi-maintenance/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/conciergerie/services-a-la-carte/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/conciergerie/tarifs-formules/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/conciergerie/questions-frequentes/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/devis-simple/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/devis-detaille/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/devis-professionnel/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/conciergerie/demande-de-devis/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/contactez-nous/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/credit-impot/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/mentions-legales/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/politique-de-confidentialite/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/cgv/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/plan-du-site/",
+      "scroll": 320,
+      "w": 320
+    },
+    {
+      "path": "/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/nos-services/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/menage-regulier-a-domicile/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/services-occasionnels/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/grand-menage-paris/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/repassage-a-domicile-paris/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/service-de-menage-test/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/nettoyage-bureaux-paris/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/conciergerie/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/conciergerie/gestion-complete/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/conciergerie/menage-preparation-logement/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/conciergerie/accueil-voyageurs/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/conciergerie/suivi-maintenance/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/conciergerie/services-a-la-carte/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/conciergerie/tarifs-formules/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/conciergerie/questions-frequentes/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/devis-simple/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/devis-detaille/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/devis-professionnel/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/conciergerie/demande-de-devis/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/contactez-nous/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/credit-impot/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/mentions-legales/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/politique-de-confidentialite/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/cgv/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/plan-du-site/",
+      "scroll": 375,
+      "w": 375
+    },
+    {
+      "path": "/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/nos-services/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/menage-regulier-a-domicile/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/services-occasionnels/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/grand-menage-paris/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/repassage-a-domicile-paris/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/service-de-menage-test/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/nettoyage-bureaux-paris/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/conciergerie/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/conciergerie/gestion-complete/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/conciergerie/menage-preparation-logement/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/conciergerie/accueil-voyageurs/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/conciergerie/suivi-maintenance/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/conciergerie/services-a-la-carte/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/conciergerie/tarifs-formules/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/conciergerie/questions-frequentes/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/devis-simple/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/devis-detaille/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/devis-professionnel/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/conciergerie/demande-de-devis/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/contactez-nous/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/credit-impot/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/mentions-legales/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/politique-de-confidentialite/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/cgv/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/plan-du-site/",
+      "scroll": 768,
+      "w": 768
+    },
+    {
+      "path": "/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/nos-services/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/menage-regulier-a-domicile/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/services-occasionnels/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/grand-menage-paris/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/repassage-a-domicile-paris/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/service-de-menage-test/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/nettoyage-bureaux-paris/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/conciergerie/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/conciergerie/gestion-complete/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/conciergerie/menage-preparation-logement/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/conciergerie/accueil-voyageurs/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/conciergerie/suivi-maintenance/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/conciergerie/services-a-la-carte/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/conciergerie/tarifs-formules/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/conciergerie/questions-frequentes/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/devis-simple/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/devis-detaille/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/devis-professionnel/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/conciergerie/demande-de-devis/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/contactez-nous/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/credit-impot/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/mentions-legales/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/politique-de-confidentialite/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/cgv/",
+      "scroll": 1440,
+      "w": 1440
+    },
+    {
+      "path": "/plan-du-site/",
+      "scroll": 1440,
+      "w": 1440
+    }
+  ],
+  "remaining": []
+}

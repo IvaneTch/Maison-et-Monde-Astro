@@ -7,7 +7,7 @@ import Layout from '../../layouts/Layout.astro';
   title="Crédit d’impôt et Avance immédiate | Maison & Monde"
   description="Comprendre le crédit d’impôt de 50 % pour les services à la personne, les plafonds et l’Avance immédiate de l’Urssaf."
 >
-  <main class="credit-page">
+  <div class="credit-page">
     <section class="credit-hero">
       <div class="credit-hero-copy">
         <p class="eyebrow">VOTRE AVANTAGE FISCAL</p>
@@ -18,7 +18,7 @@ import Layout from '../../layouts/Layout.astro';
           Pour certaines prestations de services à la personne, vous pouvez récupérer la moitié des dépenses
           éligibles, sous réserve des conditions et plafonds en vigueur.
         </p>
-        <a class="credit-button" href="/contactez-nous/">
+        <a class="credit-button mm-button" href="/contactez-nous/">
           Parlons de votre besoin <span aria-hidden="true">→</span>
         </a>
       </div>
@@ -28,7 +28,7 @@ import Layout from '../../layouts/Layout.astro';
           srcset="/images/hero-credit-impot-480.webp 480w, /images/hero-credit-impot-960.webp 960w, /images/hero-credit-impot.webp 1600w"
           sizes="(max-width: 780px) 100vw, 48vw"
           width="1600"
-          height="1067"
+          height="900"
           alt="Intérieur lumineux entretenu avec soin"
           fetchpriority="high"
         />
@@ -174,28 +174,28 @@ import Layout from '../../layouts/Layout.astro';
       <p class="eyebrow">SOURCES OFFICIELLES</p>
       <h2>Pour vérifier votre situation</h2>
       <div>
-        <a
+        <a class="mm-button mm-button--navy mm-button--compact"
           href="https://www.impots.gouv.fr/particulier/emploi-domicile"
           target="_blank"
           rel="noopener noreferrer"
         >
           Impôts.gouv.fr · emploi à domicile ↗
         </a>
-        <a
+        <a class="mm-button mm-button--navy mm-button--compact"
           href="https://www.servicesalapersonne.gouv.fr/toutes-les-actualites/le-service-avance-immediate-de-lurssaf-pour-beneficier-du-credit-dimpot-en"
           target="_blank"
           rel="noopener noreferrer"
         >
           Services à la personne · Avance immédiate ↗
         </a>
-        <a
+        <a class="mm-button mm-button--navy mm-button--compact"
           href="https://www.servicesalapersonne.gouv.fr/je-suis-un-organisme-de-sap/les-avantages-fiscaux-et-sociaux-pour-les-organismes-de-services-la"
           target="_blank"
           rel="noopener noreferrer"
         >
           Règles applicables aux organismes SAP ↗
         </a>
-        <a href="https://adherent.acces-sap.com/" target="_blank" rel="noopener noreferrer">
+        <a class="mm-button mm-button--navy mm-button--compact" href="https://adherent.acces-sap.com/" target="_blank" rel="noopener noreferrer">
           Accès SAP ↗
         </a>
       </div>
@@ -203,10 +203,9 @@ import Layout from '../../layouts/Layout.astro';
         La disponibilité effective de l’Avance immédiate pour les prestations Maison & Monde doit être
         confirmée avant d’en faire une promesse commerciale.
       </p>
-      <a class="credit-button" href="/contactez-nous/">
+      <a class="credit-button mm-button" href="/contactez-nous/">
         Nous contacter <span aria-hidden="true">→</span>
       </a>
     </section>
-  </main>
+  </div>
 </Layout>
-

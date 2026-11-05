@@ -1,0 +1,843 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "title": "Maison & Monde | Ménage à domicile à Paris",
+      "description": "Maison & Monde vous accompagne pour le ménage à domicile, le repassage et le nettoyage à Paris. Demandez votre devis personnalisé.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/nos-services/",
+      "title": "Nos services à Paris et en Île-de-France | Maison & Monde",
+      "description": "Découvrez les prestations de ménage, repassage, nettoyage de bureaux et conciergerie de Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/nos-services/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/zones-intervention/",
+      "title": "Ménage dans les 20 arrondissements de Paris et à Antony | Maison & Monde",
+      "description": "Ménage à domicile dans les 20 arrondissements de Paris et à Antony. Deux bureaux à Paris 14 et Paris 12, prestations régulières et ponctuelles sur devis.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/zones-intervention/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-14/",
+      "title": "Ménage à domicile Paris 14e (75014) | Maison & Monde",
+      "description": "Ménage régulier ou ponctuel à Paris 14e, repassage et grand ménage. Bureau rue Boulard, formules détaillées et devis gratuit avec Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-14/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-12/",
+      "title": "Ménage à domicile Paris 12e (75012) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 12e : entretien régulier, ménage ponctuel et repassage. Bureau au 19 rue Lamblardie. Demandez votre devis Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-12/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-13/",
+      "title": "Ménage à domicile Paris 13e (75013) | Maison & Monde",
+      "description": "Ménage régulier, grand ménage et repassage à domicile à Paris 13e. Décrivez votre logement et vos disponibilités pour un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-13/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-antony/",
+      "title": "Ménage à domicile à Antony (92160) | Maison & Monde",
+      "description": "Maison & Monde accompagne déjà plusieurs clients à Antony : ménage régulier, ménage ponctuel et repassage à domicile. Demandez votre devis personnalisé.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-antony/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-1/",
+      "title": "Ménage à domicile Paris 1er (75001) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 1er : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-1/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-2/",
+      "title": "Ménage à domicile Paris 2e (75002) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 2e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-2/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-3/",
+      "title": "Ménage à domicile Paris 3e (75003) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 3e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-3/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-4/",
+      "title": "Ménage à domicile Paris 4e (75004) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 4e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-4/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-5/",
+      "title": "Ménage à domicile Paris 5e (75005) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 5e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-5/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-6/",
+      "title": "Ménage à domicile Paris 6e (75006) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 6e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-6/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-7/",
+      "title": "Ménage à domicile Paris 7e (75007) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 7e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-7/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-8/",
+      "title": "Ménage à domicile Paris 8e (75008) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 8e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-8/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-9/",
+      "title": "Ménage à domicile Paris 9e (75009) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 9e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-9/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-10/",
+      "title": "Ménage à domicile Paris 10e (75010) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 10e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-10/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-11/",
+      "title": "Ménage à domicile Paris 11e (75011) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 11e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-11/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-15/",
+      "title": "Ménage à domicile Paris 15e (75015) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 15e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-15/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-16/",
+      "title": "Ménage à domicile Paris 16e (75016) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 16e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-16/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-17/",
+      "title": "Ménage à domicile Paris 17e (75017) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 17e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-17/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-18/",
+      "title": "Ménage à domicile Paris 18e (75018) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 18e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-18/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-19/",
+      "title": "Ménage à domicile Paris 19e (75019) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 19e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-19/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-paris-20/",
+      "title": "Ménage à domicile Paris 20e (75020) | Maison & Monde",
+      "description": "Ménage à domicile à Paris 20e : entretien régulier, ménage ponctuel et repassage. Préparez vos priorités et demandez un devis gratuit Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-paris-20/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/menage-regulier-a-domicile/",
+      "title": "Ménage régulier à domicile | Maison & Monde",
+      "description": "Ménage régulier à Paris et en Île-de-France : comparez les formules Classique, Confort et Expert, leurs prestations et tarifs. Devis gratuit.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/menage-regulier-a-domicile/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/services-occasionnels/",
+      "title": "Services de ménage occasionnels à Paris | Maison & Monde",
+      "description": "Ménage ponctuel, grand ménage et repassage à Paris et en Île-de-France. Découvrez nos prestations occasionnelles et demandez votre devis gratuit.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/services-occasionnels/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/grand-menage-paris/",
+      "title": "Grand ménage à Paris | Maison & Monde",
+      "description": "Grand ménage à Paris et en Île-de-France : nettoyage approfondi du logement, intervention ponctuelle et devis personnalisé.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/grand-menage-paris/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {
+        "/images/grand-menage.paris.webp": 2
+      },
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/repassage-a-domicile-paris/",
+      "title": "Repassage à domicile à Paris | Maison & Monde",
+      "description": "Repassage à domicile à Paris et en Île-de-France : vêtements, chemises et linge de maison, avec une organisation adaptée à votre quotidien.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/repassage-a-domicile-paris/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {
+        "/images/service-repassage-domicile-paris.webp": 2
+      },
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/service-de-menage-test/",
+      "title": "Formule Test de ménage à domicile à Paris | Maison & Monde",
+      "description": "Découvrez notre Formule Test de ménage à domicile à Paris et en Île-de-France : une intervention de 3 à 7 heures, sans engagement de renouvellement.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/service-de-menage-test/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/nettoyage-bureaux-paris/",
+      "title": "Nettoyage de bureaux à Paris | Maison & Monde",
+      "description": "Nettoyage de bureaux, commerces et locaux professionnels à Paris et en Île-de-France. Prestations régulières ou ponctuelles sur devis.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/nettoyage-bureaux-paris/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/conciergerie/",
+      "title": "Conciergerie à Paris | Maison & Monde",
+      "description": "Maison & Monde vous accompagne dans la préparation de votre logement, l'accueil des voyageurs et les services de conciergerie à Paris et en Île-de-France.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/conciergerie/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/conciergerie/gestion-complete/",
+      "title": "Gestion complète de location courte durée à Paris | Maison & Monde",
+      "description": "Gestion complète de locations courte durée à Paris : ménage, accueil des voyageurs, suivi du logement et services à la carte avec Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/conciergerie/gestion-complete/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {
+        "/images/conciergerie/salon-conciergerie.webp": 2
+      },
+      "cssPhotoOverlap": [
+        "/images/conciergerie/menage-preparation.webp",
+        "/images/conciergerie/salon-conciergerie.webp"
+      ],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/conciergerie/menage-preparation-logement/",
+      "title": "Ménage et préparation du logement à Paris | Maison & Monde",
+      "description": "Ménage et préparation de logements de location courte durée à Paris : nettoyage, linge, vérification et réassort. Maison & Monde, prestations sur devis.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/conciergerie/menage-preparation-logement/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {
+        "/images/conciergerie/services-complementaires.webp": 2,
+        "/images/conciergerie/salon-conciergerie.webp": 2
+      },
+      "cssPhotoOverlap": [
+        "/images/conciergerie/menage-preparation.webp"
+      ],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/conciergerie/accueil-voyageurs/",
+      "title": "Accueil des voyageurs à Paris | Conciergerie Maison & Monde",
+      "description": "Accueil physique ou autonome des voyageurs à Paris et en Île-de-France. Remise des clés, instructions d'arrivée et coordination des départs avec Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/conciergerie/accueil-voyageurs/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [
+        "/images/conciergerie/salon-conciergerie.webp"
+      ],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/conciergerie/suivi-maintenance/",
+      "title": "Suivi et maintenance de logement à Paris | Maison & Monde",
+      "description": "Suivi et maintenance de logements en location courte durée à Paris : contrôles, signalement des anomalies et coordination d'interventions avec Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/conciergerie/suivi-maintenance/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/conciergerie/services-a-la-carte/",
+      "title": "Services complémentaires de conciergerie à Paris | Maison & Monde",
+      "description": "Services complémentaires de conciergerie à Paris : réassort de courses, lavage, repassage et prestations spécifiques pour locations courte durée. Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/conciergerie/services-a-la-carte/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {
+        "/images/conciergerie/reassort-courses.webp": 2
+      },
+      "cssPhotoOverlap": [
+        "/images/conciergerie/services-complementaires.webp"
+      ],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/conciergerie/tarifs-formules/",
+      "title": "Tarifs et formules de conciergerie à Paris | Maison & Monde",
+      "description": "Découvrez nos formules de conciergerie à Paris et en Île-de-France : gestion complète ou prestations à la carte, avec prix de départ indicatifs et devis personnalisé.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/conciergerie/tarifs-formules/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/conciergerie/questions-frequentes/",
+      "title": "Questions fréquentes | Conciergerie Maison & Monde",
+      "description": "Réponses à vos questions sur la conciergerie Maison & Monde à Paris : gestion complète, prestations à la carte, tarifs, ménage et accueil des voyageurs.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/conciergerie/questions-frequentes/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/devis-simple/",
+      "title": "Demande de devis | Maison & Monde",
+      "description": "Choisissez une demande rapide, un devis ménage détaillé ou un devis conciergerie personnalisé.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/devis-simple/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/devis-detaille/",
+      "title": "Devis ménage détaillé | Maison & Monde",
+      "description": "Décrivez votre logement, vos prestations et vos disponibilités pour un devis ménage personnalisé à Paris.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/devis-detaille/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/devis-professionnel/",
+      "title": "Devis professionnel | Maison & Monde",
+      "description": "Décrivez vos locaux et vos besoins de nettoyage professionnel à Paris et en Île-de-France. Recevez une proposition adaptée, sans engagement.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/devis-professionnel/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/conciergerie/demande-de-devis/",
+      "title": "Devis Conciergerie | Maison & Monde",
+      "description": "Décrivez votre logement et vos besoins en cinq étapes pour recevoir une proposition de conciergerie personnalisée.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/conciergerie/demande-de-devis/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/contactez-nous/",
+      "title": "Contactez Maison & Monde | Paris et Île-de-France",
+      "description": "Contactez Maison & Monde pour votre ménage, repassage, nettoyage professionnel ou projet de conciergerie. Téléphone, e-mail et demande de rappel.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/contactez-nous/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/credit-impot/",
+      "title": "Crédit d’impôt et Avance immédiate | Maison & Monde",
+      "description": "Comprendre le crédit d’impôt de 50 % pour les services à la personne, les plafonds et l’Avance immédiate de l’Urssaf.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/credit-impot/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/mentions-legales/",
+      "title": "Mentions légales | Maison & Monde",
+      "description": "Informations sur l’éditeur du site Maison & Monde, ses coordonnées et le responsable de publication.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/mentions-legales/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/politique-de-confidentialite/",
+      "title": "Politique de confidentialité | Maison & Monde",
+      "description": "Utilisation des coordonnées et informations transmises à Maison & Monde pour une demande de devis, un message ou un rappel.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/politique-de-confidentialite/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/cgv/",
+      "title": "Conditions de demande et de service | Maison & Monde",
+      "description": "Comment demander un devis Maison & Monde, définir les prestations et préparer une intervention.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/cgv/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    },
+    {
+      "path": "/plan-du-site/",
+      "title": "Plan du site | Maison & Monde",
+      "description": "Retrouvez les services, devis, informations de contact et pages utiles de Maison & Monde.",
+      "h1": 1,
+      "main": 1,
+      "canonical": [
+        "https://maisonetmonde.fr/plan-du-site/"
+      ],
+      "robots": "noindex,nofollow",
+      "schemasValid": true,
+      "missingImages": [],
+      "duplicates": {},
+      "cssPhotoOverlap": [],
+      "externalPhotos": [],
+      "missingAlt": []
+    }
+  ],
+  "linkErrors": [],
+  "duplicateTitles": [],
+  "duplicateDescriptions": []
+}

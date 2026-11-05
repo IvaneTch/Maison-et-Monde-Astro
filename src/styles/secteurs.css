@@ -1,0 +1,275 @@
+.local-areas {
+  width: min(1100px, calc(100% - 40px));
+  margin: 42px auto;
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid #e6c68e;
+  background: #f5f9fc;
+  color: #102b46;
+}
+.local-areas h2 {
+  font:
+    700 clamp(26px, 3vw, 36px)/1.2 Georgia,
+    serif;
+  margin: 8px 0 16px;
+}
+.local-areas p {
+  line-height: 1.7;
+}
+.local-eyebrow {
+  color: #95631e;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.local-areas nav,
+.local-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.local-areas nav a {
+  padding: 14px 16px;
+  background: #fff;
+  border-radius: 12px;
+  color: #174d70;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.local-areas nav a:hover,
+.local-all:hover {
+  text-decoration: underline;
+}
+.local-all {
+  display: inline-block;
+  margin-top: 18px;
+  color: #174d70;
+}
+.local-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 24px 0;
+}
+.local-actions a {
+  overflow-wrap: anywhere;
+}
+.local-breadcrumb {
+  color: #526b80;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.local-service-grid > div {
+  padding: 18px;
+  border: 1px solid #dce6ed;
+  border-radius: 12px;
+  min-width: 0;
+}
+.local-office {
+  font-style: normal;
+  line-height: 1.8;
+  padding: 18px;
+  background: #f3f8fc;
+  border-left: 3px solid #dca13c;
+}
+.local-faq {
+  border-bottom: 1px solid #dce6ed;
+  padding: 16px 0;
+}
+.local-faq summary {
+  cursor: pointer;
+  color: #102b46;
+  font-weight: 700;
+  line-height: 1.6;
+}
+.info-content .local-areas {
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .local-areas {
+    padding: 20px;
+  }
+  .local-areas nav,
+  .local-service-grid {
+    grid-template-columns: 1fr;
+  }
+  .local-actions a {
+    width: 100%;
+  }
+}
+
+/* Grandes images de couverture, comme la rubrique Conciergerie. */
+.local-page .local-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 660px;
+  display: flex;
+  align-items: center;
+  padding: 75px 0 105px;
+  overflow: hidden;
+  background: #102b46;
+}
+.local-hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+.local-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, #071b30ed 0%, #071b30bf 35%, #071b3066 65%, #071b3014 100%);
+}
+.local-hero-content {
+  width: min(1160px, calc(100% - 48px));
+  margin: auto;
+}
+.local-hero-eyebrow {
+  color: #ffd077;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.7;
+}
+.local-page .local-hero h1 {
+  font:
+    700 clamp(38px, 5.2vw, 70px)/1.12 Georgia,
+    serif;
+  color: #fff !important;
+  letter-spacing: -0.025em;
+  margin: 25px 0;
+  max-width: 680px;
+}
+.local-hero h1 em {
+  color: #f6be59;
+  font-style: normal;
+}
+.local-hero-intro {
+  color: #fff;
+  max-width: 600px;
+  font-size: 16px;
+  line-height: 1.85;
+}
+.local-hero .local-actions {
+  max-width: 680px;
+  margin-top: 30px;
+}
+.local-hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  pointer-events: none;
+}
+.local-illustration-note {
+  color: #526b80;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+@media (max-width: 600px) {
+  .local-page .local-hero {
+    min-height: 640px;
+    padding: 50px 0 85px;
+  }
+  .local-hero-content {
+    width: calc(100% - 40px);
+  }
+  .local-hero::before {
+    background: linear-gradient(90deg, #071b30e6, #071b309c);
+  }
+  .local-hero-intro {
+    font-size: 15px;
+  }
+  .local-hero .local-actions {
+    gap: 14px;
+  }
+  .local-hero-wave {
+    height: 38px;
+  }
+}
+
+/* Cartes de prestations illustrées, dans l’esprit de la Conciergerie. */
+.local-page .info-content {
+  width: min(1180px, calc(100% - 40px));
+}
+.local-page .info-content .local-prestations {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 30px 0;
+}
+.local-prestations > h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  margin-bottom: 28px;
+}
+.local-prestations .local-service-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+.local-service-grid > .local-service-card {
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e5e9ed;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 18px 30px -12px #102b4640;
+  display: flex;
+  flex-direction: column;
+}
+.local-service-card > img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.local-card-copy {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.local-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #a46b20;
+}
+.local-card-copy h3 {
+  font:
+    400 25px/1.15 Georgia,
+    serif;
+  margin: 14px 0;
+}
+.local-card-copy p {
+  color: #526b80;
+  margin-top: 0;
+}
+.local-card-copy a {
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 15px;
+}
+.local-card-copy a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 1050px) {
+  .local-prestations .local-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .local-prestations .local-service-grid {
+    grid-template-columns: 1fr;
+  }
+  .local-hero-photo {
+    object-position: 65% center;
+  }
+}

@@ -1,0 +1,27 @@
+---
+import { secteurs } from '../data/secteurs';
+import '../styles/secteurs.css';
+interface Props {
+  all?: boolean;
+}
+const { all = false } = Astro.props;
+const affiches = all ? secteurs : secteurs.slice(0, 4);
+---
+
+<section class="local-areas" aria-label="Nos secteurs d’intervention">
+  <p class="local-eyebrow">PRÈS DE CHEZ VOUS</p>
+  <h2>Ménage à Paris et en Île-de-France</h2>
+  <p>
+    Découvrez nos prestations et les informations utiles pour préparer une intervention dans votre secteur.
+  </p>
+  <nav aria-label="Secteurs de ménage à domicile">
+    {affiches.map((s) => (
+      <a href={s.path}>
+        Ménage à {s.nom} <span aria-hidden="true">→</span>
+      </a>
+    ))}
+  </nav>
+  <a class="local-all" href="/zones-intervention/">
+    Toutes nos zones d’intervention →
+  </a>
+</section>

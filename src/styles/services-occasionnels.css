@@ -1,1462 +1,1490 @@
 /* Externalisé depuis src/pages/services-occasionnels/index.astro (page/component). */
 .page-menage {
-    --navy: #092747;
-    --gold: #efa91f;
-    --blue: #e8f5ff;
-    color: var(--navy);
-    background: linear-gradient(180deg, #fff 0%, #f0f9ff 70%, #fff 100%);
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .introduction {
-    max-width: 1600px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 47% 53%;
-    align-items: stretch;
-    min-height: 510px;
-    position: relative;
-    background: #fff;
-  }
+  --navy: #092747;
+  --gold: #efa91f;
+  --blue: #e8f5ff;
+  color: var(--navy);
+  background: linear-gradient(180deg, #fff 0%, #f0f9ff 70%, #fff 100%);
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.introduction {
+  max-width: 1600px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 47% 53%;
+  align-items: stretch;
+  min-height: 510px;
+  position: relative;
+  background: #fff;
+}
+.hero-copy {
+  padding: 92px 20px 70px clamp(30px, 7vw, 125px);
+  position: relative;
+  z-index: 2;
+}
+.hero-copy:before {
+  content: '';
+  position: absolute;
+  left: -170px;
+  top: -120px;
+  width: 430px;
+  height: 550px;
+  border: 60px solid rgba(184, 223, 250, 0.22);
+  border-radius: 48%;
+  pointer-events: none;
+  z-index: -1;
+  transform: rotate(-22deg);
+}
+.hero-copy:after {
+  content: '';
+  position: absolute;
+  left: -70px;
+  bottom: 6px;
+  width: 190px;
+  height: 190px;
+  border-radius: 100% 0 100% 0;
+  border: 2px solid rgba(115, 177, 224, 0.35);
+  transform: rotate(-20deg);
+  pointer-events: none;
+}
+.sur-titre {
+  display: block;
+  color: #db9419;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+.hero-copy h1 {
+  font-size: clamp(39px, 4.3vw, 65px);
+  line-height: 1.06;
+  letter-spacing: -1.9px;
+  margin: 0 0 22px;
+  font-weight: 850;
+  color: var(--navy);
+}
+.hero-copy > p {
+  font-size: 16px;
+  color: #526c88;
+  line-height: 1.7;
+  max-width: 530px;
+  margin: 0;
+}
+.hero-atouts {
+  display: flex;
+  gap: 25px;
+  margin-top: 34px;
+  justify-content: flex-start;
+}
+.hero-atouts span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 750;
+}
+.hero-atouts b {
+  font-size: 31px;
+  font-weight: 400;
+  color: var(--gold);
+}
+.hero-visual {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 44% 0 0 35% / 65% 0 0 40%;
+  border-left: 3px solid var(--gold);
+  position: relative;
+}
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 54% center;
+}
+.vague-hero {
+  height: 36px;
+  position: relative;
+  margin-top: -13px;
+  z-index: 3;
+  pointer-events: none;
+  background: #fff;
+  border-bottom: 2px solid var(--gold);
+  border-radius: 0 0 50% 40% / 0 0 85% 100%;
+}
+.section-formules {
+  padding: 65px 28px 65px;
+  background:
+    radial-gradient(ellipse at 0% 12%, rgba(188, 223, 247, 0.4), transparent 32%),
+    linear-gradient(180deg, #fff 0%, #edf8ff 100%);
+  position: relative;
+}
+.section-formules:before {
+  content: '';
+  position: absolute;
+  left: -80px;
+  top: 140px;
+  width: 200px;
+  height: 280px;
+  border-radius: 50%;
+  border: 35px solid rgba(163, 208, 243, 0.18);
+  transform: rotate(35deg);
+  pointer-events: none;
+}
+.section-titre {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+.section-titre .sur-titre {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+.section-titre h2 {
+  font-size: clamp(33px, 3.5vw, 48px);
+  margin: 0 0 14px;
+  letter-spacing: -1px;
+  color: var(--navy);
+}
+.section-titre p {
+  font-size: 15px;
+  color: #5d7690;
+  margin: 0;
+}
+.grille-formules {
+  max-width: 1260px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+  align-items: stretch;
+  position: relative;
+}
+.carte-formule {
+  background: #fff;
+  border: 1px solid #e0eaf3;
+  border-radius: 24px;
+  box-shadow:
+    0 18px 35px rgba(8, 37, 66, 0.15),
+    0 5px 10px rgba(8, 37, 66, 0.06);
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
+  position: relative;
+  min-width: 0;
+}
+.carte-formule[data-formule='grand-menage'] {
+  border: 2px solid var(--gold);
+  box-shadow:
+    0 20px 38px rgba(190, 137, 35, 0.17),
+    0 5px 12px rgba(8, 37, 66, 0.08);
+}
+.carte-formule:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 25px 50px rgba(8, 37, 66, 0.22);
+}
+.carte-contenu {
+  height: 100%;
+}
+.carte-face,
+.carte-details {
+  padding: 0 25px 27px;
+  box-sizing: border-box;
+  height: 100%;
+}
+.carte-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.photo-formule {
+  width: 205px;
+  height: 205px;
+  max-width: 80%;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: -28px;
+  border: 5px solid #fff;
+  box-shadow: 0 6px 22px rgba(4, 36, 69, 0.15);
+}
+.badge-choix {
+  position: absolute;
+  top: -17px;
+  right: -12px;
+  background: linear-gradient(100deg, #ffcc5d, #efa513);
+  color: #fff;
+  border-radius: 22px;
+  padding: 10px 18px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(171, 109, 11, 0.22);
+}
+.carte-face h3 {
+  font-size: 27px;
+  letter-spacing: -0.5px;
+  margin: 20px 0 10px;
+  color: var(--navy);
+}
+.description {
+  font-size: 14px;
+  color: #627993;
+  line-height: 1.5;
+  min-height: 44px;
+  margin: 0 0 20px;
+}
+.prestations-apercu {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+  margin: 0 0 23px;
+  width: 100%;
+  flex: 1;
+}
+.prestations-apercu li {
+  font-size: 13px;
+  color: #45617d;
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  line-height: 1.5;
+  margin: 11px 0;
+}
+.prestations-apercu li span {
+  background: var(--gold);
+  color: white;
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 800;
+}
+.tarif {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 9px 0 15px;
+}
+.tarif-label {
+  font-size: 13px;
+  color: #627993;
+}
+.tarif strong {
+  font-size: 33px;
+  color: var(--navy);
+}
+.tarif small,
+.credit-impot small {
+  font-size: 12px;
+  font-weight: 500;
+}
+.credit-impot {
+  background: #e2f2ff;
+  border-radius: 13px;
+  padding: 15px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.credit-impot span {
+  display: block;
+  color: #207cc5;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.credit-impot strong {
+  font-size: 29px;
+  color: #0878c9;
+  display: block;
+}
+.bouton-decouvrir {
+  width: 100%;
+  margin-top: 15px;
+  background: #07294c;
+  color: white;
+  border: 0;
+  border-radius: 30px;
+  padding: 15px 10px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  box-shadow: 0 4px 9px rgba(8, 37, 66, 0.1);
+}
+.carte-formule[data-formule='grand-menage'] .bouton-decouvrir {
+  background: linear-gradient(90deg, #efac25, #ffca57);
+  color: #17314d;
+}
+.bouton-decouvrir span {
+  margin-left: 5px;
+}
+.carte-details {
+  display: none;
+  padding: 33px 25px;
+  text-align: left;
+}
+.carte-details h3 {
+  font-size: 26px;
+  margin: 0 0 9px;
+}
+.carte-details > p {
+  color: #66778b;
+  font-size: 14px;
+}
+.carte-details ul {
+  padding: 0;
+  list-style: none;
+  margin: 23px 0;
+}
+.carte-details li {
+  display: flex;
+  gap: 11px;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 12px 0;
+  color: #536b80;
+}
+.check {
+  color: #d69a32;
+  font-weight: 900;
+}
+.bouton-choisir {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background: #f3b747;
+  color: #092b4d;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 26px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.bouton-retour {
+  display: block;
+  margin: 20px auto 0;
+  background: none;
+  border: 0;
+  color: #56728e;
+  cursor: pointer;
+}
+.carte-formule.ouverte .carte-face {
+  display: none;
+}
+.carte-formule.ouverte .carte-details {
+  display: block;
+}
+.mention-fiscale {
+  text-align: center;
+  color: #708298;
+  font-size: 12px;
+  margin: 29px auto 0;
+}
+.avantages {
+  max-width: 1300px;
+  margin: 15px auto 55px;
+  background: #fff;
+  border-radius: 90px;
+  padding: 45px 60px 55px;
+  box-shadow: 0 12px 45px rgba(10, 48, 78, 0.06);
+}
+.avantages h2 {
+  text-align: center;
+  font-size: 28px;
+  margin: 0 0 40px;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+}
+.avantages h2:before,
+.avantages h2:after {
+  content: '';
+  display: block;
+  width: 52px;
+  height: 2px;
+  background: var(--gold);
+}
+.avantages-grille {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+.avantages-grille > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 0 16px;
+  border-right: 1px solid #e4eef7;
+}
+.avantages-grille > div:last-child {
+  border-right: 0;
+}
+.avantages-grille > div > span {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: #e8f5ff;
+  border-radius: 50%;
+  color: #2682d1;
+  font-size: 40px;
+}
+.avantages-grille p {
+  margin: 3px 0;
+}
+.avantages-grille strong {
+  font-size: 16px;
+  line-height: 1.35;
+  display: block;
+}
+.avantages-grille small {
+  display: block;
+  color: #74849a;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+.bandeau-devis {
+  max-width: 1440px;
+  margin: 0 auto 55px;
+  display: grid;
+  grid-template-columns: 54% 46%;
+  align-items: center;
+  min-height: 330px;
+  background: #fff;
+  position: relative;
+  border-radius: 70px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(12, 54, 87, 0.05);
+}
+.bandeau-photo {
+  height: 330px;
+  overflow: hidden;
+  position: relative;
+}
+.bandeau-photo:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 58%, white);
+}
+.bandeau-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bandeau-texte {
+  padding: 35px 70px 35px 10px;
+  position: relative;
+  z-index: 2;
+}
+.bandeau-texte h2 {
+  font-size: clamp(28px, 3vw, 41px);
+  line-height: 1.15;
+  margin: 0 0 15px;
+}
+.bandeau-texte p {
+  font-size: 16px;
+  color: #61748b;
+  max-width: 430px;
+  line-height: 1.5;
+}
+.bandeau-texte a {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  background: linear-gradient(90deg, #efaa1c, #ffca51);
+  border-radius: 30px;
+  padding: 16px 32px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+  color: #092b4d;
+  margin-top: 12px;
+}
+.ornement-devis {
+  position: absolute;
+  right: -90px;
+  bottom: -105px;
+  width: 260px;
+  height: 280px;
+  border: 38px solid rgba(150, 207, 247, 0.3);
+  border-radius: 50%;
+  transform: rotate(-25deg);
+  pointer-events: none;
+}
+.bandeau-devis:after {
+  content: '';
+  position: absolute;
+  inset: auto -2% 0 -2%;
+  height: 22px;
+  border-bottom: 2px solid var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+}
+@media (max-width: 1050px) {
   .hero-copy {
-    padding: 92px 20px 70px clamp(30px, 7vw, 125px);
-    position: relative;
-    z-index: 2;
-  }
-  .hero-copy:before {
-    content: '';
-    position: absolute;
-    left: -170px;
-    top: -120px;
-    width: 430px;
-    height: 550px;
-    border: 60px solid rgba(184, 223, 250, 0.22);
-    border-radius: 48%;
-    pointer-events: none;
-    z-index: -1;
-    transform: rotate(-22deg);
-  }
-  .hero-copy:after {
-    content: '';
-    position: absolute;
-    left: -70px;
-    bottom: 6px;
-    width: 190px;
-    height: 190px;
-    border-radius: 100% 0 100% 0;
-    border: 2px solid rgba(115, 177, 224, 0.35);
-    transform: rotate(-20deg);
-    pointer-events: none;
-  }
-  .sur-titre {
-    display: block;
-    color: #db9419;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-  }
-  .hero-copy h1 {
-    font-size: clamp(39px, 4.3vw, 65px);
-    line-height: 1.06;
-    letter-spacing: -1.9px;
-    margin: 0 0 22px;
-    font-weight: 850;
-    color: var(--navy);
-  }
-  .hero-copy > p {
-    font-size: 16px;
-    color: #526c88;
-    line-height: 1.7;
-    max-width: 530px;
-    margin: 0;
+    padding: 70px 20px 50px 35px;
   }
   .hero-atouts {
-    display: flex;
-    gap: 25px;
-    margin-top: 34px;
-    justify-content: flex-start;
-  }
-  .hero-atouts span {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    font-size: 12px;
-    line-height: 1.4;
-    font-weight: 750;
-  }
-  .hero-atouts b {
-    font-size: 31px;
-    font-weight: 400;
-    color: var(--gold);
-  }
-  .hero-visual {
-    min-width: 0;
-    overflow: hidden;
-    border-radius: 44% 0 0 35% / 65% 0 0 40%;
-    border-left: 3px solid var(--gold);
-    position: relative;
-  }
-  .hero-visual img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 54% center;
-  }
-  .vague-hero {
-    height: 36px;
-    position: relative;
-    margin-top: -13px;
-    z-index: 3;
-    pointer-events: none;
-    background: #fff;
-    border-bottom: 2px solid var(--gold);
-    border-radius: 0 0 50% 40% / 0 0 85% 100%;
-  }
-  .section-formules {
-    padding: 65px 28px 65px;
-    background:
-      radial-gradient(ellipse at 0% 12%, rgba(188, 223, 247, 0.4), transparent 32%),
-      linear-gradient(180deg, #fff 0%, #edf8ff 100%);
-    position: relative;
-  }
-  .section-formules:before {
-    content: '';
-    position: absolute;
-    left: -80px;
-    top: 140px;
-    width: 200px;
-    height: 280px;
-    border-radius: 50%;
-    border: 35px solid rgba(163, 208, 243, 0.18);
-    transform: rotate(35deg);
-    pointer-events: none;
-  }
-  .section-titre {
-    text-align: center;
-    margin-bottom: 60px;
-    position: relative;
-  }
-  .section-titre .sur-titre {
-    font-size: 12px;
-    margin-bottom: 12px;
-  }
-  .section-titre h2 {
-    font-size: clamp(33px, 3.5vw, 48px);
-    margin: 0 0 14px;
-    letter-spacing: -1px;
-    color: var(--navy);
-  }
-  .section-titre p {
-    font-size: 15px;
-    color: #5d7690;
-    margin: 0;
+    gap: 12px;
+    flex-wrap: wrap;
   }
   .grille-formules {
-    max-width: 1260px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 30px;
-    align-items: stretch;
-    position: relative;
-  }
-  .carte-formule {
-    background: #fff;
-    border: 1px solid #e0eaf3;
-    border-radius: 24px;
-    box-shadow:
-      0 18px 35px rgba(8, 37, 66, 0.15),
-      0 5px 10px rgba(8, 37, 66, 0.06);
-    transition:
-      transform 0.25s,
-      box-shadow 0.25s;
-    position: relative;
-    min-width: 0;
-  }
-  .carte-formule[data-formule='grand-menage'] {
-    border: 2px solid var(--gold);
-    box-shadow:
-      0 20px 38px rgba(190, 137, 35, 0.17),
-      0 5px 12px rgba(8, 37, 66, 0.08);
-  }
-  .carte-formule:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 25px 50px rgba(8, 37, 66, 0.22);
-  }
-  .carte-contenu {
-    height: 100%;
-  }
-  .carte-face,
-  .carte-details {
-    padding: 0 25px 27px;
-    box-sizing: border-box;
-    height: 100%;
+    gap: 18px;
   }
   .carte-face {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding: 0 16px 22px;
   }
   .photo-formule {
-    width: 205px;
-    height: 205px;
-    max-width: 80%;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-top: -28px;
-    border: 5px solid #fff;
-    box-shadow: 0 6px 22px rgba(4, 36, 69, 0.15);
-  }
-  .badge-choix {
-    position: absolute;
-    top: -17px;
-    right: -12px;
-    background: linear-gradient(100deg, #ffcc5d, #efa513);
-    color: #fff;
-    border-radius: 22px;
-    padding: 10px 18px;
-    font-size: 12px;
-    font-weight: 800;
-    white-space: nowrap;
-    z-index: 2;
-    box-shadow: 0 4px 10px rgba(171, 109, 11, 0.22);
+    width: 170px;
+    height: 170px;
   }
   .carte-face h3 {
-    font-size: 27px;
-    letter-spacing: -0.5px;
-    margin: 20px 0 10px;
-    color: var(--navy);
-  }
-  .description {
-    font-size: 14px;
-    color: #627993;
-    line-height: 1.5;
-    min-height: 44px;
-    margin: 0 0 20px;
-  }
-  .prestations-apercu {
-    list-style: none;
-    text-align: left;
-    padding: 0;
-    margin: 0 0 23px;
-    width: 100%;
-    flex: 1;
-  }
-  .prestations-apercu li {
-    font-size: 13px;
-    color: #45617d;
-    display: flex;
-    align-items: flex-start;
-    gap: 11px;
-    line-height: 1.5;
-    margin: 11px 0;
-  }
-  .prestations-apercu li span {
-    background: var(--gold);
-    color: white;
-    display: inline-grid;
-    place-items: center;
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    font-size: 11px;
-    font-weight: 800;
-  }
-  .tarif {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    margin: 9px 0 15px;
-  }
-  .tarif-label {
-    font-size: 13px;
-    color: #627993;
-  }
-  .tarif strong {
-    font-size: 33px;
-    color: var(--navy);
-  }
-  .tarif small,
-  .credit-impot small {
-    font-size: 12px;
-    font-weight: 500;
-  }
-  .credit-impot {
-    background: #e2f2ff;
-    border-radius: 13px;
-    padding: 15px 10px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .credit-impot span {
-    display: block;
-    color: #207cc5;
-    font-size: 12px;
-    margin-bottom: 6px;
-  }
-  .credit-impot strong {
-    font-size: 29px;
-    color: #0878c9;
-    display: block;
-  }
-  .bouton-decouvrir {
-    width: 100%;
-    margin-top: 15px;
-    background: #07294c;
-    color: white;
-    border: 0;
-    border-radius: 30px;
-    padding: 15px 10px;
-    font-weight: 800;
-    font-size: 13px;
-    cursor: pointer;
-    box-shadow: 0 4px 9px rgba(8, 37, 66, 0.1);
-  }
-  .carte-formule[data-formule='grand-menage'] .bouton-decouvrir {
-    background: linear-gradient(90deg, #efac25, #ffca57);
-    color: #17314d;
-  }
-  .bouton-decouvrir span {
-    margin-left: 5px;
-  }
-  .carte-details {
-    display: none;
-    padding: 33px 25px;
-    text-align: left;
-  }
-  .carte-details h3 {
-    font-size: 26px;
-    margin: 0 0 9px;
-  }
-  .carte-details > p {
-    color: #66778b;
-    font-size: 14px;
-  }
-  .carte-details ul {
-    padding: 0;
-    list-style: none;
-    margin: 23px 0;
-  }
-  .carte-details li {
-    display: flex;
-    gap: 11px;
-    font-size: 14px;
-    line-height: 1.5;
-    margin: 12px 0;
-    color: #536b80;
-  }
-  .check {
-    color: #d69a32;
-    font-weight: 900;
-  }
-  .bouton-choisir {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    background: #f3b747;
-    color: #092b4d;
-    text-decoration: none;
-    padding: 14px;
-    border-radius: 26px;
-    font-size: 13px;
-    font-weight: 800;
-  }
-  .bouton-retour {
-    display: block;
-    margin: 20px auto 0;
-    background: none;
-    border: 0;
-    color: #56728e;
-    cursor: pointer;
-  }
-  .carte-formule.ouverte .carte-face {
-    display: none;
-  }
-  .carte-formule.ouverte .carte-details {
-    display: block;
-  }
-  .mention-fiscale {
-    text-align: center;
-    color: #708298;
-    font-size: 12px;
-    margin: 29px auto 0;
+    font-size: 23px;
   }
   .avantages {
-    max-width: 1300px;
-    margin: 15px auto 55px;
-    background: #fff;
-    border-radius: 90px;
-    padding: 45px 60px 55px;
-    box-shadow: 0 12px 45px rgba(10, 48, 78, 0.06);
+    border-radius: 40px;
+    padding: 30px;
+  }
+  .avantages-grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .avantages-grille > div:nth-child(2) {
+    border-right: 0;
+  }
+}
+@media (max-width: 700px) {
+  .introduction {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .hero-visual {
+    height: 290px;
+    border-radius: 0 0 35% 12% / 0 0 20% 8%;
+    border-left: 0;
+    border-bottom: 3px solid var(--gold);
+  }
+  .hero-copy {
+    padding: 30px 22px 44px;
+  }
+  .hero-copy h1 {
+    font-size: 39px;
+  }
+  .hero-copy > p {
+    font-size: 14px;
+  }
+  .hero-atouts {
+    margin-top: 23px;
+    justify-content: space-between;
+  }
+  .hero-atouts span {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .hero-atouts b {
+    font-size: 23px;
+  }
+  .vague-hero {
+    height: 15px;
+  }
+  .section-formules {
+    padding: 45px 18px 48px;
+  }
+  .section-titre {
+    margin-bottom: 58px;
+  }
+  .section-titre h2 {
+    font-size: 32px;
+  }
+  .section-titre p {
+    font-size: 13px;
+  }
+  .grille-formules {
+    grid-template-columns: 1fr;
+    gap: 55px;
+    max-width: 440px;
+  }
+  .carte-face {
+    padding: 0 24px 25px;
+  }
+  .photo-formule {
+    width: 195px;
+    height: 195px;
+  }
+  .badge-choix {
+    right: -8px;
+  }
+  .avantages {
+    margin: 0 14px 35px;
+    border-radius: 30px;
+    padding: 30px 16px;
   }
   .avantages h2 {
-    text-align: center;
-    font-size: 28px;
-    margin: 0 0 40px;
-    display: flex;
-    gap: 22px;
-    align-items: center;
-    justify-content: center;
-    color: var(--navy);
+    font-size: 20px;
+    gap: 10px;
   }
   .avantages h2:before,
   .avantages h2:after {
-    content: '';
-    display: block;
-    width: 52px;
-    height: 2px;
-    background: var(--gold);
+    width: 25px;
   }
   .avantages-grille {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
+    gap: 22px;
   }
   .avantages-grille > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-    padding: 0 16px;
-    border-right: 1px solid #e4eef7;
-  }
-  .avantages-grille > div:last-child {
-    border-right: 0;
+    gap: 7px;
+    padding: 0 4px;
   }
   .avantages-grille > div > span {
-    width: 72px;
-    height: 72px;
-    display: grid;
-    place-items: center;
-    flex-shrink: 0;
-    background: #e8f5ff;
-    border-radius: 50%;
-    color: #2682d1;
-    font-size: 40px;
-  }
-  .avantages-grille p {
-    margin: 3px 0;
+    width: 53px;
+    height: 53px;
+    font-size: 28px;
   }
   .avantages-grille strong {
-    font-size: 16px;
-    line-height: 1.35;
-    display: block;
+    font-size: 12px;
   }
   .avantages-grille small {
-    display: block;
-    color: #74849a;
-    font-size: 13px;
-    line-height: 1.5;
-    margin-top: 10px;
+    font-size: 11px;
   }
   .bandeau-devis {
-    max-width: 1440px;
-    margin: 0 auto 55px;
-    display: grid;
-    grid-template-columns: 54% 46%;
-    align-items: center;
-    min-height: 330px;
-    background: #fff;
-    position: relative;
-    border-radius: 70px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(12, 54, 87, 0.05);
+    display: block;
+    margin: 0 12px 35px;
+    border-radius: 28px;
   }
   .bandeau-photo {
-    height: 330px;
-    overflow: hidden;
-    position: relative;
-  }
-  .bandeau-photo:after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent 58%, white);
-  }
-  .bandeau-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .bandeau-texte {
-    padding: 35px 70px 35px 10px;
-    position: relative;
-    z-index: 2;
-  }
-  .bandeau-texte h2 {
-    font-size: clamp(28px, 3vw, 41px);
-    line-height: 1.15;
-    margin: 0 0 15px;
-  }
-  .bandeau-texte p {
-    font-size: 16px;
-    color: #61748b;
-    max-width: 430px;
-    line-height: 1.5;
-  }
-  .bandeau-texte a {
-    display: inline-flex;
-    gap: 16px;
-    align-items: center;
-    background: linear-gradient(90deg, #efaa1c, #ffca51);
-    border-radius: 30px;
-    padding: 16px 32px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 800;
-    color: #092b4d;
-    margin-top: 12px;
-  }
-  .ornement-devis {
-    position: absolute;
-    right: -90px;
-    bottom: -105px;
-    width: 260px;
-    height: 280px;
-    border: 38px solid rgba(150, 207, 247, 0.3);
-    border-radius: 50%;
-    transform: rotate(-25deg);
-    pointer-events: none;
-  }
-  .bandeau-devis:after {
-    content: '';
-    position: absolute;
-    inset: auto -2% 0 -2%;
-    height: 22px;
-    border-bottom: 2px solid var(--gold);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-  @media (max-width: 1050px) {
-    .hero-copy {
-      padding: 70px 20px 50px 35px;
-    }
-    .hero-atouts {
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .grille-formules {
-      gap: 18px;
-    }
-    .carte-face {
-      padding: 0 16px 22px;
-    }
-    .photo-formule {
-      width: 170px;
-      height: 170px;
-    }
-    .carte-face h3 {
-      font-size: 23px;
-    }
-    .avantages {
-      border-radius: 40px;
-      padding: 30px;
-    }
-    .avantages-grille {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .avantages-grille > div:nth-child(2) {
-      border-right: 0;
-    }
-  }
-  @media (max-width: 700px) {
-    .introduction {
-      display: flex;
-      flex-direction: column-reverse;
-    }
-    .hero-visual {
-      height: 290px;
-      border-radius: 0 0 35% 12% / 0 0 20% 8%;
-      border-left: 0;
-      border-bottom: 3px solid var(--gold);
-    }
-    .hero-copy {
-      padding: 30px 22px 44px;
-    }
-    .hero-copy h1 {
-      font-size: 39px;
-    }
-    .hero-copy > p {
-      font-size: 14px;
-    }
-    .hero-atouts {
-      margin-top: 23px;
-      justify-content: space-between;
-    }
-    .hero-atouts span {
-      font-size: 10px;
-      gap: 5px;
-    }
-    .hero-atouts b {
-      font-size: 23px;
-    }
-    .vague-hero {
-      height: 15px;
-    }
-    .section-formules {
-      padding: 45px 18px 48px;
-    }
-    .section-titre {
-      margin-bottom: 58px;
-    }
-    .section-titre h2 {
-      font-size: 32px;
-    }
-    .section-titre p {
-      font-size: 13px;
-    }
-    .grille-formules {
-      grid-template-columns: 1fr;
-      gap: 55px;
-      max-width: 440px;
-    }
-    .carte-face {
-      padding: 0 24px 25px;
-    }
-    .photo-formule {
-      width: 195px;
-      height: 195px;
-    }
-    .badge-choix {
-      right: -8px;
-    }
-    .avantages {
-      margin: 0 14px 35px;
-      border-radius: 30px;
-      padding: 30px 16px;
-    }
-    .avantages h2 {
-      font-size: 20px;
-      gap: 10px;
-    }
-    .avantages h2:before,
-    .avantages h2:after {
-      width: 25px;
-    }
-    .avantages-grille {
-      gap: 22px;
-    }
-    .avantages-grille > div {
-      gap: 7px;
-      padding: 0 4px;
-    }
-    .avantages-grille > div > span {
-      width: 53px;
-      height: 53px;
-      font-size: 28px;
-    }
-    .avantages-grille strong {
-      font-size: 12px;
-    }
-    .avantages-grille small {
-      font-size: 11px;
-    }
-    .bandeau-devis {
-      display: block;
-      margin: 0 12px 35px;
-      border-radius: 28px;
-    }
-    .bandeau-photo {
-      height: 225px;
-    }
-    .bandeau-photo:after {
-      background: linear-gradient(0deg, #fff, transparent 50%);
-    }
-    .bandeau-texte {
-      padding: 15px 26px 40px;
-    }
-    .bandeau-texte h2 {
-      font-size: 28px;
-    }
-    .bandeau-texte p {
-      font-size: 14px;
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .carte-formule {
-      transition: none;
-    }
-  }
-
-  /* Ajustements fidèles à la maquette validée */
-  .page-menage .hero-copy h1 {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    color: #092747 !important;
-    font-size: clamp(42px, 4.4vw, 68px) !important;
-    line-height: 1.07 !important;
-    font-weight: 850 !important;
-    letter-spacing: -1.8px !important;
-    max-width: 620px;
-  }
-  .page-menage .hero-copy {
-    isolation: isolate;
-  }
-  .page-menage .hero-copy:before {
-    z-index: -1;
-  }
-  .page-menage .hero-atouts b {
-    font-size: 43px;
-    min-width: 43px;
-    text-align: center;
-    line-height: 1;
-  }
-  .page-menage .hero-atouts span {
-    font-size: 14px;
-    gap: 12px;
-  }
-  .page-menage .avantages-grille > div > span {
-    width: 86px;
-    height: 86px;
-    font-size: 49px;
-  }
-  .page-menage .bouton-decouvrir {
-    min-height: 55px;
-    padding: 17px 16px;
-    font-size: 15px;
-    border-radius: 32px;
-  }
-  .page-menage .bouton-choisir {
-    min-height: 52px;
-    align-items: center;
-    font-size: 15px;
-    padding: 16px 20px;
-  }
-  .page-menage .bandeau-texte a {
-    font-size: 16px;
-    min-height: 54px;
-    padding: 17px 36px;
-  }
-  .page-menage .badge-choix {
-    right: -7px;
-    top: -14px;
-  }
-  .page-menage .carte-formule {
-    box-shadow:
-      0 20px 45px rgba(8, 37, 66, 0.19),
-      0 5px 14px rgba(8, 37, 66, 0.07);
-  }
-  .page-menage .grille-formules {
-    gap: 34px;
-  }
-  .page-menage .photo-formule {
-    width: 225px;
     height: 225px;
   }
-  .page-menage .bandeau-devis {
-    max-width: none;
-    width: 100%;
-    margin: 0 0 0;
-    min-height: 390px;
-    border-radius: 65px 65px 0 0;
-    box-shadow: none;
+  .bandeau-photo:after {
+    background: linear-gradient(0deg, #fff, transparent 50%);
   }
-  .page-menage .bandeau-photo {
-    height: 390px;
+  .bandeau-texte {
+    padding: 15px 26px 40px;
   }
-  .page-menage .bandeau-texte {
-    padding: 40px clamp(36px, 7vw, 125px) 40px 12px;
+  .bandeau-texte h2 {
+    font-size: 28px;
   }
-  .page-menage .bandeau-devis:before {
-    content: '';
-    position: absolute;
-    z-index: 4;
-    inset: 0;
-    pointer-events: none;
-    border-top: 2px solid #efa91f;
-    border-radius: 65px 65px 0 0;
-    clip-path: polygon(65% 0, 100% 0, 100% 100%, 0 100%, 0 98%, 85% 98%);
-  }
-  .page-menage .ornement-devis {
-    right: -95px;
-    bottom: -90px;
-    width: 290px;
-    height: 320px;
-    border-color: rgba(145, 200, 242, 0.25);
-  }
-  .page-menage .section-formules:after {
-    content: '';
-    position: absolute;
-    right: -90px;
-    bottom: 45px;
-    width: 190px;
-    height: 270px;
-    border: 2px solid rgba(234, 167, 38, 0.65);
-    border-radius: 65% 0 65% 0;
-    transform: rotate(28deg);
-    pointer-events: none;
-  }
-  @media (max-width: 1050px) {
-    .page-menage .grille-formules {
-      gap: 20px;
-    }
-    .page-menage .photo-formule {
-      width: 180px;
-      height: 180px;
-    }
-    .page-menage .hero-atouts b {
-      font-size: 35px;
-      min-width: 35px;
-    }
-  }
-  @media (max-width: 700px) {
-    .page-menage .hero-copy h1 {
-      font-size: 40px !important;
-    }
-    .page-menage .hero-atouts b {
-      font-size: 30px;
-      min-width: 30px;
-    }
-    .page-menage .hero-atouts span {
-      font-size: 11px;
-      gap: 6px;
-    }
-    .page-menage .grille-formules {
-      gap: 58px;
-    }
-    .page-menage .photo-formule {
-      width: 205px;
-      height: 205px;
-    }
-    .page-menage .avantages-grille > div > span {
-      width: 60px;
-      height: 60px;
-      font-size: 34px;
-    }
-    .page-menage .bandeau-devis {
-      border-radius: 36px 36px 0 0;
-      min-height: 0;
-    }
-    .page-menage .bandeau-photo {
-      height: 250px;
-    }
-    .page-menage .bandeau-texte {
-      padding: 18px 24px 45px;
-    }
-    .page-menage .bandeau-devis:before {
-      border-radius: 36px 36px 0 0;
-    }
-    .page-menage .bandeau-texte a {
-      width: 100%;
-      box-sizing: border-box;
-      justify-content: center;
-    }
-  }
-
-  /* Finitions de la maquette Maison & Monde — 28 octobre */
-  .page-menage .introduction {
-    max-width: none;
-    min-height: 560px;
-    grid-template-columns: 48% 52%;
-    isolation: isolate;
-  }
-  .page-menage .hero-copy {
-    padding: 100px 28px 85px clamp(35px, 8vw, 150px);
-  }
-  .page-menage .hero-copy h1 {
-    font-size: clamp(46px, 4.65vw, 76px) !important;
-    line-height: 1.06 !important;
-    max-width: 660px;
-  }
-  .page-menage .hero-copy > p {
-    font-size: 17px;
-    max-width: 555px;
-  }
-  .page-menage .hero-atouts {
-    gap: 25px;
-    margin-top: 40px;
-  }
-  .page-menage .hero-atouts svg {
-    height: 44px;
-    width: 44px;
-    flex: none;
-    color: #eda91f;
-  }
-  .page-menage .hero-visual {
-    border-radius: 44% 0 0 33% / 66% 0 0 36%;
-    border-left: 2px solid #e9ae3a;
-  }
-  .page-menage .hero-visual:after {
-    content: '';
-    position: absolute;
-    inset: auto -10% -31px -6%;
-    height: 100px;
-    border-bottom: 2px solid #e9ae3a;
-    border-radius: 0 0 55% 55%;
-    transform: rotate(-3deg);
-    pointer-events: none;
-  }
-  .page-menage .vague-hero {
-    height: 30px;
-    border-bottom: 2px solid #e9ae3a;
-  }
-  .page-menage .section-formules {
-    padding-top: 78px;
-    padding-bottom: 76px;
-  }
-  .page-menage .section-titre {
-    margin-bottom: 70px;
-  }
-  .page-menage .grille-formules {
-    max-width: 1320px;
-    gap: 36px;
-  }
-  .page-menage .carte-formule {
-    border-radius: 24px;
-    box-shadow:
-      0 18px 34px rgba(6, 38, 72, 0.18),
-      0 6px 14px rgba(6, 38, 72, 0.09);
-  }
-  .page-menage .carte-formule[data-formule='grand-menage'] {
-    box-shadow:
-      0 18px 38px rgba(188, 132, 26, 0.22),
-      0 5px 14px rgba(6, 38, 72, 0.08);
-  }
-  .page-menage .photo-formule {
-    width: 235px;
-    height: 235px;
-    max-width: 85%;
-    margin-top: -35px;
-    border: 6px solid #fff;
-    box-shadow: 0 7px 19px rgba(6, 38, 72, 0.19);
-  }
-  .page-menage .badge-choix {
-    right: -12px;
-    top: -19px;
-    font-size: 13px;
-    padding: 11px 19px;
-  }
-  .page-menage .carte-face {
-    padding-bottom: 30px;
-  }
-  .page-menage .carte-face h3 {
-    margin-top: 20px;
-  }
-  .page-menage .credit-impot {
-    background: #dff1ff;
-    padding: 18px 12px;
-  }
-  .page-menage .bouton-decouvrir {
-    min-height: 59px;
-    font-size: 15px;
-  }
-  .page-menage .avantages {
-    max-width: 1360px;
-    margin: 12px auto 65px;
-    border-radius: 85px;
-    padding: 46px 54px 52px;
-  }
-  .page-menage .avantages-grille > div {
-    gap: 14px;
-  }
-  .page-menage .avantages-grille .avantage-icone {
-    width: 94px;
-    height: 94px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    background: #e8f5ff;
-    color: #2082cf;
-  }
-  .page-menage .avantages-grille .avantage-icone svg {
-    width: 54px;
-    height: 54px;
-  }
-  .page-menage .avantages-grille strong {
-    font-size: 18px;
-  }
-  .page-menage .avantages-grille small {
+  .bandeau-texte p {
     font-size: 14px;
   }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carte-formule {
+    transition: none;
+  }
+}
+
+/* Ajustements fidèles à la maquette validée */
+.page-menage .hero-copy h1 {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #092747 !important;
+  font-size: clamp(42px, 4.4vw, 68px) !important;
+  line-height: 1.07 !important;
+  font-weight: 850 !important;
+  letter-spacing: -1.8px !important;
+  max-width: 620px;
+}
+.page-menage .hero-copy {
+  isolation: isolate;
+}
+.page-menage .hero-copy:before {
+  z-index: -1;
+}
+.page-menage .hero-atouts b {
+  font-size: 43px;
+  min-width: 43px;
+  text-align: center;
+  line-height: 1;
+}
+.page-menage .hero-atouts span {
+  font-size: 14px;
+  gap: 12px;
+}
+.page-menage .avantages-grille > div > span {
+  width: 86px;
+  height: 86px;
+  font-size: 49px;
+}
+.page-menage .bouton-decouvrir {
+  min-height: 55px;
+  padding: 17px 16px;
+  font-size: 15px;
+  border-radius: 32px;
+}
+.page-menage .bouton-choisir {
+  min-height: 52px;
+  align-items: center;
+  font-size: 15px;
+  padding: 16px 20px;
+}
+.page-menage .bandeau-texte a {
+  font-size: 16px;
+  min-height: 54px;
+  padding: 17px 36px;
+}
+.page-menage .badge-choix {
+  right: -7px;
+  top: -14px;
+}
+.page-menage .carte-formule {
+  box-shadow:
+    0 20px 45px rgba(8, 37, 66, 0.19),
+    0 5px 14px rgba(8, 37, 66, 0.07);
+}
+.page-menage .grille-formules {
+  gap: 34px;
+}
+.page-menage .photo-formule {
+  width: 225px;
+  height: 225px;
+}
+.page-menage .bandeau-devis {
+  max-width: none;
+  width: 100%;
+  margin: 0 0 0;
+  min-height: 390px;
+  border-radius: 65px 65px 0 0;
+  box-shadow: none;
+}
+.page-menage .bandeau-photo {
+  height: 390px;
+}
+.page-menage .bandeau-texte {
+  padding: 40px clamp(36px, 7vw, 125px) 40px 12px;
+}
+.page-menage .bandeau-devis:before {
+  content: '';
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  pointer-events: none;
+  border-top: 2px solid #efa91f;
+  border-radius: 65px 65px 0 0;
+  clip-path: polygon(65% 0, 100% 0, 100% 100%, 0 100%, 0 98%, 85% 98%);
+}
+.page-menage .ornement-devis {
+  right: -95px;
+  bottom: -90px;
+  width: 290px;
+  height: 320px;
+  border-color: rgba(145, 200, 242, 0.25);
+}
+.page-menage .section-formules:after {
+  content: '';
+  position: absolute;
+  right: -90px;
+  bottom: 45px;
+  width: 190px;
+  height: 270px;
+  border: 2px solid rgba(234, 167, 38, 0.65);
+  border-radius: 65% 0 65% 0;
+  transform: rotate(28deg);
+  pointer-events: none;
+}
+@media (max-width: 1050px) {
+  .page-menage .grille-formules {
+    gap: 20px;
+  }
+  .page-menage .photo-formule {
+    width: 180px;
+    height: 180px;
+  }
+  .page-menage .hero-atouts b {
+    font-size: 35px;
+    min-width: 35px;
+  }
+}
+@media (max-width: 700px) {
+  .page-menage .hero-copy h1 {
+    font-size: 40px !important;
+  }
+  .page-menage .hero-atouts b {
+    font-size: 30px;
+    min-width: 30px;
+  }
+  .page-menage .hero-atouts span {
+    font-size: 11px;
+    gap: 6px;
+  }
+  .page-menage .grille-formules {
+    gap: 58px;
+  }
+  .page-menage .photo-formule {
+    width: 205px;
+    height: 205px;
+  }
+  .page-menage .avantages-grille > div > span {
+    width: 60px;
+    height: 60px;
+    font-size: 34px;
+  }
   .page-menage .bandeau-devis {
-    width: 100%;
-    max-width: none;
-    min-height: 430px;
-    margin: 0;
-    border-radius: 0;
-    grid-template-columns: 55% 45%;
-    box-shadow: none;
-    background: linear-gradient(105deg, #fff 0%, #fff 75%, #f2faff 100%);
+    border-radius: 36px 36px 0 0;
+    min-height: 0;
   }
   .page-menage .bandeau-photo {
-    height: 430px;
-  }
-  .page-menage .bandeau-photo:after {
-    background: linear-gradient(90deg, transparent 64%, #fff 99%);
+    height: 250px;
   }
   .page-menage .bandeau-texte {
-    padding: 35px clamp(35px, 7vw, 120px) 35px 0;
-  }
-  .page-menage .bandeau-texte h2 {
-    font-size: clamp(32px, 3.4vw, 52px);
-  }
-  .page-menage .bandeau-texte a {
-    font-size: 17px;
-    padding: 19px 38px;
-    border-radius: 35px;
+    padding: 18px 24px 45px;
   }
   .page-menage .bandeau-devis:before {
-    border-radius: 0;
-    clip-path: none;
-    border-top: 0;
-    border-bottom: 2px solid rgba(232, 171, 50, 0.8);
-    transform: translateY(-9px);
-    pointer-events: none;
+    border-radius: 36px 36px 0 0;
   }
-  .page-menage .ornement-devis {
-    right: -95px;
-    bottom: -155px;
-    width: 310px;
-    height: 370px;
-    border: 42px solid rgba(150, 207, 247, 0.24);
+  .page-menage .bandeau-texte a {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
   }
-  @media (max-width: 1050px) {
-    .page-menage .hero-copy {
-      padding: 70px 22px 65px 35px;
-    }
-    .page-menage .hero-copy h1 {
-      font-size: clamp(38px, 4.7vw, 57px) !important;
-    }
-    .page-menage .grille-formules {
-      gap: 20px;
-    }
-    .page-menage .photo-formule {
-      width: 185px;
-      height: 185px;
-    }
-    .page-menage .avantages {
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-  }
-  @media (max-width: 700px) {
-    .page-menage .introduction {
-      display: flex;
-      min-height: 0;
-      flex-direction: column-reverse;
-    }
-    .page-menage .hero-copy {
-      padding: 34px 22px 50px;
-    }
-    .page-menage .hero-copy h1 {
-      font-size: 40px !important;
-    }
-    .page-menage .hero-copy > p {
-      font-size: 14px;
-    }
-    .page-menage .hero-atouts {
-      gap: 10px;
-      margin-top: 24px;
-    }
-    .page-menage .hero-atouts svg {
-      width: 28px;
-      height: 28px;
-    }
-    .page-menage .hero-visual {
-      height: 290px;
-      border-radius: 0 0 25% 8% / 0 0 15% 7%;
-      border-left: 0;
-    }
-    .page-menage .section-formules {
-      padding-top: 48px;
-      padding-bottom: 52px;
-    }
-    .page-menage .grille-formules {
-      gap: 62px;
-    }
-    .page-menage .photo-formule {
-      width: 205px;
-      height: 205px;
-    }
-    .page-menage .avantages {
-      margin: 0 14px 35px;
-      padding: 30px 14px;
-      border-radius: 30px;
-    }
-    .page-menage .avantages-grille .avantage-icone {
-      width: 62px;
-      height: 62px;
-    }
-    .page-menage .avantages-grille .avantage-icone svg {
-      width: 36px;
-      height: 36px;
-    }
-    .page-menage .avantages-grille strong {
-      font-size: 12px;
-    }
-    .page-menage .avantages-grille small {
-      font-size: 11px;
-    }
-    .page-menage .bandeau-devis {
-      display: block;
-      min-height: 0;
-      border-radius: 0;
-    }
-    .page-menage .bandeau-photo {
-      height: 250px;
-    }
-    .page-menage .bandeau-photo:after {
-      background: linear-gradient(0deg, #fff, transparent 55%);
-    }
-    .page-menage .bandeau-texte {
-      padding: 20px 25px 48px;
-    }
-    .page-menage .bandeau-texte h2 {
-      font-size: 29px;
-    }
-    .page-menage .bandeau-texte a {
-      font-size: 15px;
-    }
-  }
+}
 
-  /* Courbes dorées décoratives — finition Maison & Monde */
+/* Finitions de la maquette Maison & Monde — 28 octobre */
+.page-menage .introduction {
+  max-width: none;
+  min-height: 560px;
+  grid-template-columns: 48% 52%;
+  isolation: isolate;
+}
+.page-menage .hero-copy {
+  padding: 100px 28px 85px clamp(35px, 8vw, 150px);
+}
+.page-menage .hero-copy h1 {
+  font-size: clamp(46px, 4.65vw, 76px) !important;
+  line-height: 1.06 !important;
+  max-width: 660px;
+}
+.page-menage .hero-copy > p {
+  font-size: 17px;
+  max-width: 555px;
+}
+.page-menage .hero-atouts {
+  gap: 25px;
+  margin-top: 40px;
+}
+.page-menage .hero-atouts svg {
+  height: 44px;
+  width: 44px;
+  flex: none;
+  color: #eda91f;
+}
+.page-menage .hero-visual {
+  border-radius: 44% 0 0 33% / 66% 0 0 36%;
+  border-left: 2px solid #e9ae3a;
+}
+.page-menage .hero-visual:after {
+  content: '';
+  position: absolute;
+  inset: auto -10% -31px -6%;
+  height: 100px;
+  border-bottom: 2px solid #e9ae3a;
+  border-radius: 0 0 55% 55%;
+  transform: rotate(-3deg);
+  pointer-events: none;
+}
+.page-menage .vague-hero {
+  height: 30px;
+  border-bottom: 2px solid #e9ae3a;
+}
+.page-menage .section-formules {
+  padding-top: 78px;
+  padding-bottom: 76px;
+}
+.page-menage .section-titre {
+  margin-bottom: 70px;
+}
+.page-menage .grille-formules {
+  max-width: 1320px;
+  gap: 36px;
+}
+.page-menage .carte-formule {
+  border-radius: 24px;
+  box-shadow:
+    0 18px 34px rgba(6, 38, 72, 0.18),
+    0 6px 14px rgba(6, 38, 72, 0.09);
+}
+.page-menage .carte-formule[data-formule='grand-menage'] {
+  box-shadow:
+    0 18px 38px rgba(188, 132, 26, 0.22),
+    0 5px 14px rgba(6, 38, 72, 0.08);
+}
+.page-menage .photo-formule {
+  width: 235px;
+  height: 235px;
+  max-width: 85%;
+  margin-top: -35px;
+  border: 6px solid #fff;
+  box-shadow: 0 7px 19px rgba(6, 38, 72, 0.19);
+}
+.page-menage .badge-choix {
+  right: -12px;
+  top: -19px;
+  font-size: 13px;
+  padding: 11px 19px;
+}
+.page-menage .carte-face {
+  padding-bottom: 30px;
+}
+.page-menage .carte-face h3 {
+  margin-top: 20px;
+}
+.page-menage .credit-impot {
+  background: #dff1ff;
+  padding: 18px 12px;
+}
+.page-menage .bouton-decouvrir {
+  min-height: 59px;
+  font-size: 15px;
+}
+.page-menage .avantages {
+  max-width: 1360px;
+  margin: 12px auto 65px;
+  border-radius: 85px;
+  padding: 46px 54px 52px;
+}
+.page-menage .avantages-grille > div {
+  gap: 14px;
+}
+.page-menage .avantages-grille .avantage-icone {
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #e8f5ff;
+  color: #2082cf;
+}
+.page-menage .avantages-grille .avantage-icone svg {
+  width: 54px;
+  height: 54px;
+}
+.page-menage .avantages-grille strong {
+  font-size: 18px;
+}
+.page-menage .avantages-grille small {
+  font-size: 14px;
+}
+.page-menage .bandeau-devis {
+  width: 100%;
+  max-width: none;
+  min-height: 430px;
+  margin: 0;
+  border-radius: 0;
+  grid-template-columns: 55% 45%;
+  box-shadow: none;
+  background: linear-gradient(105deg, #fff 0%, #fff 75%, #f2faff 100%);
+}
+.page-menage .bandeau-photo {
+  height: 430px;
+}
+.page-menage .bandeau-photo:after {
+  background: linear-gradient(90deg, transparent 64%, #fff 99%);
+}
+.page-menage .bandeau-texte {
+  padding: 35px clamp(35px, 7vw, 120px) 35px 0;
+}
+.page-menage .bandeau-texte h2 {
+  font-size: clamp(32px, 3.4vw, 52px);
+}
+.page-menage .bandeau-texte a {
+  font-size: 17px;
+  padding: 19px 38px;
+  border-radius: 35px;
+}
+.page-menage .bandeau-devis:before {
+  border-radius: 0;
+  clip-path: none;
+  border-top: 0;
+  border-bottom: 2px solid rgba(232, 171, 50, 0.8);
+  transform: translateY(-9px);
+  pointer-events: none;
+}
+.page-menage .ornement-devis {
+  right: -95px;
+  bottom: -155px;
+  width: 310px;
+  height: 370px;
+  border: 42px solid rgba(150, 207, 247, 0.24);
+}
+@media (max-width: 1050px) {
+  .page-menage .hero-copy {
+    padding: 70px 22px 65px 35px;
+  }
+  .page-menage .hero-copy h1 {
+    font-size: clamp(38px, 4.7vw, 57px) !important;
+  }
+  .page-menage .grille-formules {
+    gap: 20px;
+  }
+  .page-menage .photo-formule {
+    width: 185px;
+    height: 185px;
+  }
+  .page-menage .avantages {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+@media (max-width: 700px) {
   .page-menage .introduction {
-    position: relative;
+    display: flex;
+    min-height: 0;
+    flex-direction: column-reverse;
   }
-  .page-menage .introduction::after {
-    content: '';
-    position: absolute;
-    left: -7%;
-    right: -5%;
-    bottom: -28px;
-    height: 105px;
-    border-bottom: 2px solid rgba(225, 160, 34, 0.8);
-    border-radius: 0 0 55% 45% / 0 0 100% 100%;
-    transform: rotate(-1.5deg);
-    pointer-events: none;
-    z-index: 4;
+  .page-menage .hero-copy {
+    padding: 34px 22px 50px;
   }
-  .page-menage .hero-visual::before {
-    content: '';
-    position: absolute;
-    inset: 0 auto auto -35px;
-    width: 165px;
-    height: 100%;
-    border-left: 2px solid rgba(238, 178, 58, 0.85);
-    border-radius: 50%;
-    transform: rotate(13deg);
-    pointer-events: none;
-    z-index: 3;
+  .page-menage .hero-copy h1 {
+    font-size: 40px !important;
   }
-  .page-menage .section-formules {
-    isolation: isolate;
+  .page-menage .hero-copy > p {
+    font-size: 14px;
   }
-  .page-menage .section-formules::after {
-    content: '';
-    position: absolute;
-    right: -125px;
-    bottom: 95px;
-    width: 270px;
-    height: 350px;
-    border: 2px solid rgba(229, 169, 56, 0.5);
-    border-radius: 65% 30% 60% 40%;
-    transform: rotate(30deg);
-    pointer-events: none;
-    z-index: -1;
+  .page-menage .hero-atouts {
+    gap: 10px;
+    margin-top: 24px;
   }
-  .page-menage .bandeau-devis {
-    isolation: isolate;
-  }
-  .page-menage .bandeau-devis::before {
-    content: '';
-    position: absolute;
-    inset: auto -8% -45px -8%;
-    height: 135px;
-    border-top: 2px solid rgba(233, 169, 47, 0.85);
-    border-radius: 50% 50% 0 0;
-    transform: rotate(-2deg);
-    pointer-events: none;
-    z-index: 3;
-  }
-  .page-menage .bandeau-devis::after {
-    content: '';
-    position: absolute;
-    right: -65px;
-    top: -95px;
-    width: 240px;
-    height: 350px;
-    border: 2px solid rgba(233, 169, 47, 0.7);
-    border-radius: 50%;
-    transform: rotate(35deg);
-    pointer-events: none;
-    z-index: 3;
-  }
-  @media (max-width: 700px) {
-    .page-menage .introduction::after {
-      height: 45px;
-      bottom: -12px;
-    }
-    .page-menage .hero-visual::before {
-      display: none;
-    }
-    .page-menage .section-formules::after {
-      width: 140px;
-      height: 210px;
-      right: -90px;
-    }
-    .page-menage .bandeau-devis::before {
-      height: 70px;
-      bottom: -25px;
-    }
-    .page-menage .bandeau-devis::after {
-      width: 120px;
-      height: 200px;
-      right: -80px;
-    }
-  }
-
-  /* Finition : filets dorés fins et fluides sur toute la page */
-  .page-menage .introduction::after {
-    border-bottom: 2px solid rgba(224, 158, 42, 0.85);
+  .page-menage .hero-atouts svg {
+    width: 28px;
+    height: 28px;
   }
   .page-menage .hero-visual {
-    border-left-color: #e7a93d;
+    height: 290px;
+    border-radius: 0 0 25% 8% / 0 0 15% 7%;
+    border-left: 0;
   }
   .page-menage .section-formules {
-    position: relative;
-    isolation: isolate;
+    padding-top: 48px;
+    padding-bottom: 52px;
   }
-  .page-menage .section-formules::before {
-    border-color: rgba(156, 208, 244, 0.18);
-    box-shadow: 18px 16px 0 -16px rgba(229, 169, 56, 0.55);
+  .page-menage .grille-formules {
+    gap: 62px;
   }
-  .page-menage .section-formules::after {
-    border-color: rgba(226, 162, 48, 0.72);
-  }
-  .page-menage .section-titre::before,
-  .page-menage .section-titre::after {
-    content: '';
-    position: absolute;
-    top: 54%;
-    height: 1px;
-    width: min(13vw, 165px);
-    background: linear-gradient(90deg, transparent, #e6aa44);
-    pointer-events: none;
-  }
-  .page-menage .section-titre::before {
-    left: max(0px, calc(50% - 460px));
-  }
-  .page-menage .section-titre::after {
-    right: max(0px, calc(50% - 460px));
-    transform: rotate(180deg);
-  }
-  .page-menage .carte-formule[data-formule='grand-menage'] {
-    border-color: #e5ac4a;
+  .page-menage .photo-formule {
+    width: 205px;
+    height: 205px;
   }
   .page-menage .avantages {
-    position: relative;
-    isolation: isolate;
-    border: 1px solid rgba(231, 175, 75, 0.25);
-    box-shadow: 0 14px 40px rgba(9, 39, 71, 0.08);
-  }
-  .page-menage .avantages::before {
-    content: '';
-    position: absolute;
-    left: 5%;
-    right: 5%;
-    top: -12px;
-    height: 36px;
-    border-top: 1.5px solid rgba(231, 169, 54, 0.72);
-    border-radius: 50% 50% 0 0;
-    pointer-events: none;
-  }
-  .page-menage .avantages::after {
-    content: '';
-    position: absolute;
-    left: 14%;
-    right: 14%;
-    bottom: -13px;
-    height: 35px;
-    border-bottom: 1.5px solid rgba(231, 169, 54, 0.55);
-    border-radius: 0 0 50% 50%;
-    pointer-events: none;
+    margin: 0 14px 35px;
+    padding: 30px 14px;
+    border-radius: 30px;
   }
   .page-menage .avantages-grille .avantage-icone {
-    color: #147bd0;
-    background: #e6f4ff;
+    width: 62px;
+    height: 62px;
   }
   .page-menage .avantages-grille .avantage-icone svg {
-    width: 58px;
-    height: 58px;
-    stroke-width: 1.65;
+    width: 36px;
+    height: 36px;
+  }
+  .page-menage .avantages-grille strong {
+    font-size: 12px;
+  }
+  .page-menage .avantages-grille small {
+    font-size: 11px;
   }
   .page-menage .bandeau-devis {
-    position: relative;
-    isolation: isolate;
+    display: block;
+    min-height: 0;
+    border-radius: 0;
+  }
+  .page-menage .bandeau-photo {
+    height: 250px;
+  }
+  .page-menage .bandeau-photo:after {
+    background: linear-gradient(0deg, #fff, transparent 55%);
+  }
+  .page-menage .bandeau-texte {
+    padding: 20px 25px 48px;
+  }
+  .page-menage .bandeau-texte h2 {
+    font-size: 29px;
+  }
+  .page-menage .bandeau-texte a {
+    font-size: 15px;
+  }
+}
+
+/* Courbes dorées décoratives — finition Maison & Monde */
+.page-menage .introduction {
+  position: relative;
+}
+.page-menage .introduction::after {
+  content: '';
+  position: absolute;
+  left: -7%;
+  right: -5%;
+  bottom: -28px;
+  height: 105px;
+  border-bottom: 2px solid rgba(225, 160, 34, 0.8);
+  border-radius: 0 0 55% 45% / 0 0 100% 100%;
+  transform: rotate(-1.5deg);
+  pointer-events: none;
+  z-index: 4;
+}
+.page-menage .hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto -35px;
+  width: 165px;
+  height: 100%;
+  border-left: 2px solid rgba(238, 178, 58, 0.85);
+  border-radius: 50%;
+  transform: rotate(13deg);
+  pointer-events: none;
+  z-index: 3;
+}
+.page-menage .section-formules {
+  isolation: isolate;
+}
+.page-menage .section-formules::after {
+  content: '';
+  position: absolute;
+  right: -125px;
+  bottom: 95px;
+  width: 270px;
+  height: 350px;
+  border: 2px solid rgba(229, 169, 56, 0.5);
+  border-radius: 65% 30% 60% 40%;
+  transform: rotate(30deg);
+  pointer-events: none;
+  z-index: -1;
+}
+.page-menage .bandeau-devis {
+  isolation: isolate;
+}
+.page-menage .bandeau-devis::before {
+  content: '';
+  position: absolute;
+  inset: auto -8% -45px -8%;
+  height: 135px;
+  border-top: 2px solid rgba(233, 169, 47, 0.85);
+  border-radius: 50% 50% 0 0;
+  transform: rotate(-2deg);
+  pointer-events: none;
+  z-index: 3;
+}
+.page-menage .bandeau-devis::after {
+  content: '';
+  position: absolute;
+  right: -65px;
+  top: -95px;
+  width: 240px;
+  height: 350px;
+  border: 2px solid rgba(233, 169, 47, 0.7);
+  border-radius: 50%;
+  transform: rotate(35deg);
+  pointer-events: none;
+  z-index: 3;
+}
+@media (max-width: 700px) {
+  .page-menage .introduction::after {
+    height: 45px;
+    bottom: -12px;
+  }
+  .page-menage .hero-visual::before {
+    display: none;
+  }
+  .page-menage .section-formules::after {
+    width: 140px;
+    height: 210px;
+    right: -90px;
   }
   .page-menage .bandeau-devis::before {
-    content: '';
-    position: absolute;
-    inset: auto -5% -22px -5%;
-    height: 100px;
-    border: 0;
-    border-top: 2px solid rgba(231, 169, 54, 0.78);
-    border-radius: 50% 50% 0 0;
-    transform: rotate(-2deg);
-    pointer-events: none;
-    z-index: 3;
+    height: 70px;
+    bottom: -25px;
   }
   .page-menage .bandeau-devis::after {
-    border-color: rgba(231, 169, 54, 0.75);
+    width: 120px;
+    height: 200px;
+    right: -80px;
   }
-  @media (max-width: 700px) {
-    .page-menage .section-titre::before,
-    .page-menage .section-titre::after {
-      display: none;
-    }
-    .page-menage .avantages::before,
-    .page-menage .avantages::after {
-      left: 10%;
-      right: 10%;
-    }
-    .page-menage .avantages-grille .avantage-icone svg {
-      width: 37px;
-      height: 37px;
-    }
-    .page-menage .bandeau-devis::before {
-      height: 55px;
-      bottom: -12px;
-    }
-  }
+}
 
-  /* Profondeur identique à la page Ménage régulier : avantages et icônes */
-  .page-menage .avantages {
-    box-shadow:
-      0 30px 58px -22px rgba(8, 39, 75, 0.25),
-      0 12px 24px -12px rgba(8, 39, 75, 0.16),
-      0 2px 6px rgba(8, 39, 75, 0.035);
+/* Finition : filets dorés fins et fluides sur toute la page */
+.page-menage .introduction::after {
+  border-bottom: 2px solid rgba(224, 158, 42, 0.85);
+}
+.page-menage .hero-visual {
+  border-left-color: #e7a93d;
+}
+.page-menage .section-formules {
+  position: relative;
+  isolation: isolate;
+}
+.page-menage .section-formules::before {
+  border-color: rgba(156, 208, 244, 0.18);
+  box-shadow: 18px 16px 0 -16px rgba(229, 169, 56, 0.55);
+}
+.page-menage .section-formules::after {
+  border-color: rgba(226, 162, 48, 0.72);
+}
+.page-menage .section-titre::before,
+.page-menage .section-titre::after {
+  content: '';
+  position: absolute;
+  top: 54%;
+  height: 1px;
+  width: min(13vw, 165px);
+  background: linear-gradient(90deg, transparent, #e6aa44);
+  pointer-events: none;
+}
+.page-menage .section-titre::before {
+  left: max(0px, calc(50% - 460px));
+}
+.page-menage .section-titre::after {
+  right: max(0px, calc(50% - 460px));
+  transform: rotate(180deg);
+}
+.page-menage .carte-formule[data-formule='grand-menage'] {
+  border-color: #e5ac4a;
+}
+.page-menage .avantages {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid rgba(231, 175, 75, 0.25);
+  box-shadow: 0 14px 40px rgba(9, 39, 71, 0.08);
+}
+.page-menage .avantages::before {
+  content: '';
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: -12px;
+  height: 36px;
+  border-top: 1.5px solid rgba(231, 169, 54, 0.72);
+  border-radius: 50% 50% 0 0;
+  pointer-events: none;
+}
+.page-menage .avantages::after {
+  content: '';
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: -13px;
+  height: 35px;
+  border-bottom: 1.5px solid rgba(231, 169, 54, 0.55);
+  border-radius: 0 0 50% 50%;
+  pointer-events: none;
+}
+.page-menage .avantages-grille .avantage-icone {
+  color: #147bd0;
+  background: #e6f4ff;
+}
+.page-menage .avantages-grille .avantage-icone svg {
+  width: 58px;
+  height: 58px;
+  stroke-width: 1.65;
+}
+.page-menage .bandeau-devis {
+  position: relative;
+  isolation: isolate;
+}
+.page-menage .bandeau-devis::before {
+  content: '';
+  position: absolute;
+  inset: auto -5% -22px -5%;
+  height: 100px;
+  border: 0;
+  border-top: 2px solid rgba(231, 169, 54, 0.78);
+  border-radius: 50% 50% 0 0;
+  transform: rotate(-2deg);
+  pointer-events: none;
+  z-index: 3;
+}
+.page-menage .bandeau-devis::after {
+  border-color: rgba(231, 169, 54, 0.75);
+}
+@media (max-width: 700px) {
+  .page-menage .section-titre::before,
+  .page-menage .section-titre::after {
+    display: none;
   }
+  .page-menage .avantages::before,
+  .page-menage .avantages::after {
+    left: 10%;
+    right: 10%;
+  }
+  .page-menage .avantages-grille .avantage-icone svg {
+    width: 37px;
+    height: 37px;
+  }
+  .page-menage .bandeau-devis::before {
+    height: 55px;
+    bottom: -12px;
+  }
+}
+
+/* Profondeur identique à la page Ménage régulier : avantages et icônes */
+.page-menage .avantages {
+  box-shadow:
+    0 30px 58px -22px rgba(8, 39, 75, 0.25),
+    0 12px 24px -12px rgba(8, 39, 75, 0.16),
+    0 2px 6px rgba(8, 39, 75, 0.035);
+}
+.page-menage .avantages-grille .avantage-icone {
+  box-shadow:
+    0 13px 22px -9px rgba(15, 88, 154, 0.26),
+    0 4px 9px rgba(9, 53, 101, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+@media (hover: hover) and (pointer: fine) and (min-width: 701px) {
   .page-menage .avantages-grille .avantage-icone {
+    transition:
+      transform 0.32s ease,
+      box-shadow 0.32s ease;
+    will-change: transform;
+  }
+  .page-menage .avantages-grille > div:hover .avantage-icone {
+    transform: translateY(-8px);
     box-shadow:
-      0 13px 22px -9px rgba(15, 88, 154, 0.26),
-      0 4px 9px rgba(9, 53, 101, 0.1),
+      0 22px 28px -11px rgba(15, 88, 154, 0.3),
+      0 9px 14px rgba(9, 53, 101, 0.12);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-menage .avantages-grille .avantage-icone {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Tarification sur devis pour les prestations occasionnelles */
+.page-menage .tarif-devis {
+  font-size: clamp(22px, 2.2vw, 31px);
+  line-height: 1.2;
+}
+.page-menage .credit-texte {
+  font-size: clamp(14px, 1.4vw, 19px);
+  line-height: 1.3;
+}
+
+/* Maison & Monde — première passe 3D : Hero et cartes des formules. */
+@media (min-width: 769px) {
+  .page-menage .hero-copy {
+    filter: drop-shadow(0 12px 18px rgba(13, 53, 89, 0.045));
+  }
+  .page-menage .hero-visual {
+    box-shadow:
+      -18px 20px 36px rgba(8, 39, 71, 0.19),
+      -5px 7px 13px rgba(8, 39, 71, 0.1);
+    transform: translateZ(0);
+  }
+  .page-menage .hero-atouts span {
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow:
+      0 12px 25px rgba(10, 48, 82, 0.1),
+      0 3px 8px rgba(10, 48, 82, 0.06);
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+  .page-menage .hero-atouts span:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 32px rgba(10, 48, 82, 0.15);
+  }
+  .page-menage .carte-formule {
+    box-shadow:
+      0 25px 42px -17px rgba(8, 37, 66, 0.27),
+      0 10px 18px rgba(8, 37, 66, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition:
+      transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.4s ease;
   }
-  @media (hover: hover) and (pointer: fine) and (min-width: 701px) {
-    .page-menage .avantages-grille .avantage-icone {
-      transition:
-        transform 0.32s ease,
-        box-shadow 0.32s ease;
-      will-change: transform;
-    }
-    .page-menage .avantages-grille > div:hover .avantage-icone {
-      transform: translateY(-8px);
-      box-shadow:
-        0 22px 28px -11px rgba(15, 88, 154, 0.3),
-        0 9px 14px rgba(9, 53, 101, 0.12);
-    }
+  .page-menage .carte-formule:hover {
+    transform: translateY(-11px);
+    box-shadow:
+      0 36px 55px -17px rgba(8, 37, 66, 0.32),
+      0 13px 25px rgba(8, 37, 66, 0.12);
   }
-  @media (prefers-reduced-motion: reduce) {
-    .page-menage .avantages-grille .avantage-icone {
-      transition: none !important;
-      transform: none !important;
-    }
+  .page-menage .photo-formule {
+    box-shadow:
+      0 18px 28px rgba(8, 37, 66, 0.2),
+      0 5px 9px rgba(8, 37, 66, 0.08);
+    transition:
+      transform 0.45s ease,
+      box-shadow 0.45s ease;
   }
+  .page-menage .carte-formule:hover .photo-formule {
+    transform: translateY(-5px) scale(1.025);
+    box-shadow: 0 24px 36px rgba(8, 37, 66, 0.23);
+  }
+  .page-menage .credit-impot {
+    box-shadow:
+      inset 0 2px 6px rgba(18, 87, 135, 0.06),
+      0 8px 16px rgba(18, 87, 135, 0.09);
+  }
+  .page-menage .carte-formule[data-formule='grand-menage'] {
+    box-shadow:
+      0 29px 48px -17px rgba(167, 114, 25, 0.27),
+      0 10px 20px rgba(8, 37, 66, 0.09);
+  }
+  .page-menage .carte-formule[data-formule='grand-menage']:hover {
+    box-shadow:
+      0 38px 56px -15px rgba(167, 114, 25, 0.31),
+      0 14px 25px rgba(8, 37, 66, 0.13);
+  }
+}
+/* Mobile : relief léger et statique, sans animation au survol. */
+@media (max-width: 768px) {
+  .page-menage .carte-formule {
+    box-shadow:
+      0 15px 27px rgba(8, 37, 66, 0.13),
+      0 4px 10px rgba(8, 37, 66, 0.06);
+    transition: none;
+  }
+  .page-menage .carte-formule:hover {
+    transform: none;
+  }
+  .page-menage .photo-formule {
+    transition: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-menage .hero-atouts span,
+  .page-menage .carte-formule,
+  .page-menage .photo-formule {
+    transition: none !important;
+  }
+}
 
-  /* Tarification sur devis pour les prestations occasionnelles */
-  .page-menage .tarif-devis {
-    font-size: clamp(22px, 2.2vw, 31px);
-    line-height: 1.2;
-  }
-  .page-menage .credit-texte {
-    font-size: clamp(14px, 1.4vw, 19px);
-    line-height: 1.3;
-  }
+/* Cadre vedette continu : le fond intérieur suit les coins du cadre.
+   Le trait est dessiné au-dessus du fond, sous le badge et sans rogner la photo. */
+.page-menage .carte-formule[data-formule='grand-menage'] {
+  border: 2px solid #dca13c;
+}
+.page-menage .carte-formule[data-formule='grand-menage'] > .carte-contenu {
+  border-radius: 22px;
+  border-color: transparent;
+}
+.page-menage .carte-formule[data-formule='grand-menage']::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border: 2px solid #dca13c;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
 
-  /* Maison & Monde — première passe 3D : Hero et cartes des formules. */
-  @media (min-width: 769px) {
-    .page-menage .hero-copy {
-      filter: drop-shadow(0 12px 18px rgba(13, 53, 89, 0.045));
-    }
-    .page-menage .hero-visual {
-      box-shadow:
-        -18px 20px 36px rgba(8, 39, 71, 0.19),
-        -5px 7px 13px rgba(8, 39, 71, 0.1);
-      transform: translateZ(0);
-    }
-    .page-menage .hero-atouts span {
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow:
-        0 12px 25px rgba(10, 48, 82, 0.1),
-        0 3px 8px rgba(10, 48, 82, 0.06);
-      transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-    }
-    .page-menage .hero-atouts span:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 32px rgba(10, 48, 82, 0.15);
-    }
-    .page-menage .carte-formule {
-      box-shadow:
-        0 25px 42px -17px rgba(8, 37, 66, 0.27),
-        0 10px 18px rgba(8, 37, 66, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-      transition:
-        transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-        box-shadow 0.4s ease;
-    }
-    .page-menage .carte-formule:hover {
-      transform: translateY(-11px);
-      box-shadow:
-        0 36px 55px -17px rgba(8, 37, 66, 0.32),
-        0 13px 25px rgba(8, 37, 66, 0.12);
-    }
-    .page-menage .photo-formule {
-      box-shadow:
-        0 18px 28px rgba(8, 37, 66, 0.2),
-        0 5px 9px rgba(8, 37, 66, 0.08);
-      transition:
-        transform 0.45s ease,
-        box-shadow 0.45s ease;
-    }
-    .page-menage .carte-formule:hover .photo-formule {
-      transform: translateY(-5px) scale(1.025);
-      box-shadow: 0 24px 36px rgba(8, 37, 66, 0.23);
-    }
-    .page-menage .credit-impot {
-      box-shadow:
-        inset 0 2px 6px rgba(18, 87, 135, 0.06),
-        0 8px 16px rgba(18, 87, 135, 0.09);
-    }
-    .page-menage .carte-formule[data-formule='grand-menage'] {
-      box-shadow:
-        0 29px 48px -17px rgba(167, 114, 25, 0.27),
-        0 10px 20px rgba(8, 37, 66, 0.09);
-    }
-    .page-menage .carte-formule[data-formule='grand-menage']:hover {
-      box-shadow:
-        0 38px 56px -15px rgba(167, 114, 25, 0.31),
-        0 14px 25px rgba(8, 37, 66, 0.13);
-    }
-  }
-  /* Mobile : relief léger et statique, sans animation au survol. */
-  @media (max-width: 768px) {
-    .page-menage .carte-formule {
-      box-shadow:
-        0 15px 27px rgba(8, 37, 66, 0.13),
-        0 4px 10px rgba(8, 37, 66, 0.06);
-      transition: none;
-    }
-    .page-menage .carte-formule:hover {
-      transform: none;
-    }
-    .page-menage .photo-formule {
-      transition: none;
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .page-menage .hero-atouts span,
-    .page-menage .carte-formule,
-    .page-menage .photo-formule {
-      transition: none !important;
-    }
-  }
+/* La photo ronde masque le cadre vedette, sans couper ses coins. */
+.page-menage .photo-formule {
+  position: relative;
+  z-index: 2;
+}
+.page-menage .badge-choix {
+  z-index: 3;
+}

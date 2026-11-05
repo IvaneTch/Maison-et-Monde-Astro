@@ -1,4 +1,5 @@
 ---
+import InterventionAreas from './InterventionAreas.astro';
 import SectionBand from './SectionBand.astro';
 import images from '../data/images.json';
 import Layout from '../layouts/Layout.astro';
@@ -45,6 +46,7 @@ const {
   bandClass,
 } = Astro.props;
 const photo = images[image as keyof typeof images];
+const secondaryPhoto = images[secondaryImage as keyof typeof images];
 ---
 
 <Layout title={title} description={description}>
@@ -59,7 +61,7 @@ const photo = images[image as keyof typeof images];
         </h1>
         <p>{intro}</p>
         <div class="sp-actions">
-          <a class="sp-button" href={quote}>
+          <a class="sp-button mm-button" href={quote}>
             Demander mon devis <span aria-hidden="true">→</span>
           </a>
           <a class="sp-text-link" href="tel:+33745292585">
@@ -87,8 +89,8 @@ const photo = images[image as keyof typeof images];
           srcset={photo?.srcset}
           sizes="(max-width: 780px) 100vw, 50vw"
           alt={imageAlt}
-          width="1200"
-          height="900"
+          width={photo?.width || 1200}
+          height={photo?.height || 900}
           fetchpriority="high"
         />
         <span class="sp-orbit" aria-hidden="true"></span>
@@ -123,12 +125,12 @@ const photo = images[image as keyof typeof images];
         <div class="sp-secondary-photo">
           <img
             src={secondaryImage}
-            srcset={secondaryImage === image ? photo?.srcset : undefined}
+            srcset={secondaryPhoto?.srcset}
             sizes="(max-width: 780px) 100vw, 50vw"
             alt={secondaryImageAlt}
             loading="lazy"
-            width="800"
-            height="650"
+            width={secondaryPhoto?.width || 800}
+            height={secondaryPhoto?.height || 650}
           />
         </div>
         <div>
@@ -153,7 +155,7 @@ const photo = images[image as keyof typeof images];
               <p>{priceNote || 'Le devis précise le temps prévu et le montant de votre prestation.'}</p>
             </div>
           )}
-          <a class="sp-button" href={quote}>
+          <a class="sp-button mm-button" href={quote}>
             Décrire mes besoins →
           </a>
         </div>
@@ -209,10 +211,11 @@ const photo = images[image as keyof typeof images];
           Confiez-nous <em>vos priorités.</em>
         </h2>
         <p>Un besoin ponctuel ou un projet régulier ? Décrivez-nous vos attentes.</p>
-        <a class="sp-button" href={quote}>
+        <a class="sp-button mm-button" href={quote}>
           Recevoir ma proposition →
         </a>
       </div>
     </section>
   </div>
+  <InterventionAreas />
 </Layout>

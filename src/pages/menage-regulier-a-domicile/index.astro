@@ -1,4 +1,5 @@
 ---
+import InterventionAreas from '../../components/InterventionAreas.astro';
 import '../../styles/menage-regulier-a-domicile.css';
 import SectionBand from '../../components/SectionBand.astro';
 import Layout from '../../layouts/Layout.astro';
@@ -33,7 +34,7 @@ const formules = [
       'Toutes les prestations de la formule Classique',
       'Entretien des appareils électroménagers',
       'Rangement des objets et des livres',
-      'Nettoyage des vitres et encadrements',
+      'Vitres simples accessibles et encadrements',
       'Chargement et mise en route du lave-vaisselle',
       'Arrosage des plantes',
       'Repassage soigné',
@@ -61,7 +62,10 @@ const formules = [
 ];
 ---
 
-<Layout title="Ménage régulier à domicile | Maison & Monde">
+<Layout
+  title="Ménage régulier à domicile | Maison & Monde"
+  description="Ménage régulier à Paris et en Île-de-France : comparez les formules Classique, Confort et Expert, leurs prestations et tarifs. Devis gratuit."
+>
   <div class="page-menage">
     <section class="introduction" aria-labelledby="titre-menage">
       <div class="hero-copy">
@@ -130,8 +134,8 @@ const formules = [
         <img
           src="/images/femme-de-menage-domicile-paris.webp"
           alt="Intervenante Maison & Monde réalisant un ménage régulier dans un appartement parisien"
-          width="1000"
-          height="700"
+          width="1600"
+          height="800"
           fetchpriority="high"
           srcset="/images/femme-de-menage-domicile-paris-480.webp 480w, /images/femme-de-menage-domicile-paris-960.webp 960w, /images/femme-de-menage-domicile-paris.webp 1600w"
           sizes="(max-width: 780px) 100vw, 50vw"
@@ -193,7 +197,7 @@ const formules = [
 
                 <button
                   type="button"
-                  class="bouton-decouvrir"
+                  class="bouton-decouvrir mm-button"
                   aria-expanded="false"
                   aria-controls={`prestations-${formule.id}`}
                 >
@@ -218,12 +222,12 @@ const formules = [
                   ))}
                 </ul>
 
-                <a class="bouton-choisir" href={`/devis-detaille/?formule=${formule.id}`}>
+                <a class="bouton-choisir mm-button" href={`/devis-detaille/?formule=${formule.id}`}>
                   Choisir cette formule
                   <span aria-hidden="true">→</span>
                 </a>
 
-                <button type="button" class="bouton-retour">
+                <button type="button" class="bouton-retour mm-button mm-button--navy">
                   ← Retour
                 </button>
               </div>
@@ -330,8 +334,8 @@ const formules = [
           src="/images/entreprise-nettoyage-appartement-paris.webp"
           alt="Salon lumineux et soigneusement entretenu à Paris"
           loading="lazy"
-          width="1000"
-          height="650"
+          width="1600"
+          height="897"
           srcset="/images/entreprise-nettoyage-appartement-paris-480.webp 480w, /images/entreprise-nettoyage-appartement-paris-960.webp 960w, /images/entreprise-nettoyage-appartement-paris.webp 1600w"
           sizes="(max-width: 780px) 100vw, 50vw"
         />
@@ -343,13 +347,14 @@ const formules = [
           du temps pour l’essentiel
         </h2>
         <p>Demandez dès maintenant votre devis gratuit et sans engagement.</p>
-        <a href="/demande-de-devis/">
+        <a class="mm-button" href="/demande-de-devis/">
           Demander un devis <span aria-hidden="true">→</span>
         </a>
       </div>
       <div class="ornement-devis" aria-hidden="true"></div>
     </section>
   </div>
+  <InterventionAreas />
 </Layout>
 
 <script>

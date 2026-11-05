@@ -1,0 +1,47 @@
+[
+  {
+    "path": "/devis-professionnel/",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/menage-regulier-a-domicile/",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/",
+    "scroll": 320,
+    "width": 320
+  },
+  {
+    "path": "/devis-professionnel/",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/menage-regulier-a-domicile/",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/",
+    "scroll": 375,
+    "width": 375
+  },
+  {
+    "path": "/devis-professionnel/",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/menage-regulier-a-domicile/",
+    "scroll": 768,
+    "width": 768
+  },
+  {
+    "path": "/",
+    "scroll": 768,
+    "width": 768
+  }
+]

@@ -1,17 +1,74 @@
 ---
-import { entreprise } from '../data/entreprise';
+import articles from '../data/articles.json';
+import { secteurs } from '../data/secteurs';
+import { entreprise, bureaux } from '../data/entreprise';
 interface Props {
   title: string;
   description: string;
 }
 const { title, description } = Astro.props;
 const origin = import.meta.env.PUBLIC_SITE_URL || 'https://maisonetmonde.fr';
-const canonical = new URL(Astro.url.pathname, origin);
-const image = new URL('/images/conciergerie/salon-conciergerie.webp', origin);
+const path = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/+$/, '') + '/';
+const canonical = new URL(path, origin);
+const socialImages: Record<string, [string, string]> = {
+  ...Object.fromEntries(articles.map((a) => [`/conseils/${a.slug}/`, [a.image, a.alt]])),
+  '/conseils/': ['/images/secteurs/menage-paris-5-v1.webp', 'Conseils et guides Maison & Monde'],
+  '/': ['/images/hero-menage-domicile.webp', 'Ménage à domicile Maison & Monde à Paris'],
+  '/menage-regulier-a-domicile/': [
+    '/images/menage-a-domicile-paris-maison-et-monde.webp',
+    'Ménage régulier à domicile à Paris',
+  ],
+  '/services-occasionnels/': ['/images/menage-ponctuel-salon-paris.webp', 'Ménage ponctuel à Paris'],
+  '/grand-menage-paris/': ['/images/grand-menage.paris.webp', 'Grand ménage à Paris'],
+  '/repassage-a-domicile-paris/': [
+    '/images/service-repassage-domicile-paris.webp',
+    'Repassage à domicile à Paris',
+  ],
+  '/service-de-menage-test/': [
+    '/images/femme-de-menage-domicile-paris.webp',
+    'Formule Test de ménage à domicile',
+  ],
+  '/nettoyage-bureaux-paris/': ['/images/hero-nettoyage-bureaux.webp', 'Nettoyage de bureaux à Paris'],
+  '/devis-professionnel/': ['/images/hero-nettoyage-bureaux.webp', 'Devis de nettoyage professionnel'],
+  '/devis-detaille/': ['/images/hero-devis-detaille.webp', 'Devis personnalisé de ménage à domicile'],
+  '/credit-impot/': [
+    '/images/hero-credit-impot.webp',
+    'Services à domicile et crédit d’impôt selon éligibilité',
+  ],
+  '/conciergerie/accueil-voyageurs/': [
+    '/images/conciergerie/accueil-voyageurs.webp',
+    'Accueil des voyageurs à Paris',
+  ],
+  '/conciergerie/menage-preparation-logement/': [
+    '/images/conciergerie/menage-preparation.webp',
+    'Ménage et préparation des locations',
+  ],
+  '/conciergerie/suivi-maintenance/': [
+    '/images/conciergerie/suivi-maintenance.webp',
+    'Suivi et maintenance des logements',
+  ],
+  '/conciergerie/services-a-la-carte/': [
+    '/images/conciergerie/services-complementaires.webp',
+    'Services de conciergerie à la carte',
+  ],
+};
+const secteurLocal = secteurs.find((s) => s.path === path);
+const imageLocale: [string, string] | undefined = secteurLocal
+  ? [secteurLocal.photo, secteurLocal.photoAlt]
+  : undefined;
+const [imagePath, imageAlt] =
+  socialImages[path] ||
+  imageLocale ||
+  (path.startsWith('/conciergerie/')
+    ? ['/images/conciergerie/salon-conciergerie.webp', 'Conciergerie Maison & Monde à Paris']
+    : ['/images/hero-menage-domicile.webp', 'Maison & Monde, services à Paris et en Île-de-France']);
+const image = new URL(imagePath, origin);
 const indexable = import.meta.env.PUBLIC_INDEXABLE === 'true';
+const allowIndex = indexable && Astro.response.status !== 404;
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': new URL('/#entreprise', origin).href,
   name: entreprise.nom,
   url: origin,
   telephone: '+33980386848',
@@ -23,6 +80,17 @@ const schema = {
     addressLocality: entreprise.ville,
     addressCountry: 'FR',
   },
+  location: bureaux.map((bureau) => ({
+    '@type': 'Place',
+    name: bureau.nom,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: bureau.adresse,
+      postalCode: bureau.codePostal,
+      addressLocality: bureau.ville,
+      addressCountry: 'FR',
+    },
+  })),
   areaServed: entreprise.zone,
   openingHours: ['Mo-Sa 09:00-20:00'],
   image: image.href,
@@ -31,7 +99,7 @@ const schema = {
 
 <title>{title}</title>
 <meta name="description" content={description} />
-<meta name="robots" content={indexable ? 'index,follow' : 'noindex,nofollow'} />
+<meta name="robots" content={allowIndex ? 'index,follow' : 'noindex,nofollow'} />
 <link rel="canonical" href={canonical.href} />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="fr_FR" />
@@ -40,5 +108,10 @@ const schema = {
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical.href} />
 <meta property="og:image" content={image.href} />
+<meta property="og:image:alt" content={imageAlt} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image.href} />
+<meta name="twitter:image:alt" content={imageAlt} />
 <meta name="twitter:card" content="summary_large_image" />
-<script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+<script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\u003c')} />

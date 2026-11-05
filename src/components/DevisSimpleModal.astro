@@ -10,7 +10,12 @@ import '../styles/devis-simple-modal.css';
 
 <dialog id="devis-simple-modal" aria-labelledby="devis-simple-titre">
   <div class="modal-contenu">
-    <button type="button" class="fermer" data-close-devis-simple aria-label="Fermer le formulaire">
+    <button
+      type="button"
+      class="fermer mm-button-icon"
+      data-close-devis-simple
+      aria-label="Fermer le formulaire"
+    >
       ✕
     </button>
 
@@ -188,8 +193,8 @@ import '../styles/devis-simple-modal.css';
                       <path d="M12 3v18M3 12h18m-12-6-2 3m10 6-2 3" />
                     </svg>
                   </span>
-                  <strong>Nettoyage de vitres</strong>
-                  <small>Intérieur et extérieur</small>
+                  <strong>Vitres simples avec le ménage</strong>
+                  <small>Vitres accessibles, sans matériel spécialisé</small>
                 </span>
               </label>
 
@@ -301,7 +306,7 @@ import '../styles/devis-simple-modal.css';
       </div>
 
       <footer class="modal-footer">
-        <button type="submit" class="envoyer">
+        <button type="submit" class="envoyer mm-button">
           ➤ &nbsp; Demander mon devis gratuit &nbsp; →
         </button>
 
@@ -349,7 +354,7 @@ import '../styles/devis-simple-modal.css';
       <div class="devis-confirmation-reference">
         Votre référence : <strong id="devis-confirmation-reference"></strong>
       </div>
-      <button type="button" class="devis-confirmation-terminer" data-close-devis-simple>
+      <button type="button" class="devis-confirmation-terminer mm-button" data-close-devis-simple>
         Terminer →
       </button>
     </section>
@@ -420,6 +425,15 @@ import '../styles/devis-simple-modal.css';
       return;
     }
 
+    if (
+      prestations.some((p) => p.value === 'Nettoyage de vitres') &&
+      !prestations.some((p) => p.value === 'Menage a domicile')
+    ) {
+      afficherErreur(
+        'Le nettoyage des vitres simples est proposé en complément du ménage. Sélectionnez aussi le ménage à domicile.',
+      );
+      return;
+    }
     const bouton = formulaire.querySelector<HTMLButtonElement>('button[type="submit"]');
     if (!bouton || bouton.disabled) return;
     const texteInitial = bouton.innerHTML;

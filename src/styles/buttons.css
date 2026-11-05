@@ -1,0 +1,113 @@
+/* Maison & Monde — dégradé mobile au survol, relief et pression au clic.
+   Inspiration : https://codepen.io/JavaScriptJunkie/pen/pPRooV
+   Réalisation locale : aucune dépendance au CodePen. */
+:root {
+  --mm-button-gold: linear-gradient(to right, #efb447, #ffe8a3, #ed9c27, #d78b20);
+  --mm-button-navy: linear-gradient(to right, #071b30, #24758c, #123753, #0d4f70);
+}
+body :is(.mm-button, .mm-button-icon, :where(.completed-row) button, :where(#cq-summary) button) {
+  --mm-button-fill: var(--mm-button-gold);
+  --mm-button-ink: #102b46;
+  background-image: radial-gradient(ellipse at 50% 0%, #ffffffb3 0%, #ffffff40 58%, #ffffff00 72%), radial-gradient(ellipse, #071b3030 30%, #071b3000 72%), var(--mm-button-fill) !important;
+  background-size: 86% 48%, 84% 14%, 300% 100% !important;
+  background-repeat: no-repeat !important;
+  background-position: 50% 3px, 50% calc(100% - 3px), 0% 0% !important;
+  color: var(--mm-button-ink) !important;
+  border: 0 !important;
+  box-shadow: inset 0 2px 2px #ffffff80, inset 0 -4px 5px #071b3040, inset 2px 0 4px #071b301a, inset -2px 0 4px #071b301a !important;
+  text-shadow: none !important;
+  text-decoration: none !important;
+  transform: translateY(0) !important;
+  filter: none !important;
+  animation: none !important;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-position .4s ease-in-out, transform .22s ease, box-shadow .22s ease, opacity .2s ease !important;
+}
+body :is(.mm-button, :where(.completed-row) button, :where(#cq-summary) button) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65em;
+  max-width: 100%;
+  min-height: 55px !important;
+  padding: 12px 23px;
+  border-radius: 999px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1.35;
+  text-align: center;
+}
+body :is(.mm-button--navy, :where(.completed-row) button, :where(#cq-summary) button) {
+  --mm-button-fill: var(--mm-button-navy);
+  --mm-button-ink: #fff;
+}
+/* La couleur d’alerte reste identifiable pour les actions destructives. */
+body .mm-button--danger {
+  --mm-button-fill: linear-gradient(110deg, #8e2936, #b73b47, #922d3c, #b73b47);
+  --mm-button-ink: #fff;
+}
+body :is(.mm-button, .mm-button-icon, :where(.completed-row) button, :where(#cq-summary) button):focus-visible {
+  outline: 3px solid #c58d37 !important;
+  outline-offset: 5px !important;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  body :is(.mm-button, .mm-button-icon, :where(.completed-row) button, :where(#cq-summary) button):not(:disabled):not([aria-disabled='true']):hover {
+    background-position: 50% 3px, 50% calc(100% - 3px), 100% 0% !important;
+    transform: translateY(-1px) !important;
+    box-shadow: inset 0 2px 2px #ffffffa6, inset 0 -4px 5px #071b3040, inset 2px 0 4px #071b301a, inset -2px 0 4px #071b301a !important;
+  }
+}
+body :is(.mm-button, .mm-button-icon, :where(.completed-row) button, :where(#cq-summary) button):not(:disabled):not([aria-disabled='true']):active {
+  background-position: 50% 3px, 50% calc(100% - 3px), 65% 0% !important;
+  transform: translateY(1px) !important;
+  box-shadow: inset 0 3px 6px #071b3059, inset 0 -1px 1px #ffffff40 !important;
+  transition-duration: .08s !important;
+}
+body :is(.mm-button, .mm-button-icon):is(:disabled, [aria-disabled='true']) {
+  opacity: .5 !important;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: inset 0 1px 2px #ffffff40, inset 0 -2px 3px #071b3026 !important;
+}
+/* Les contrôles compacts gardent leur gabarit : flèches, fermeture, appel, menu. */
+body .mm-button-icon { border-radius: 50% !important; }
+body .mm-bottom-item.mm-button-icon {
+  background: transparent !important;
+  color: #123b60 !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+}
+body .mm-bottom-item.mm-button-icon:active { background: #f5e4c6 !important; }
+body .mm-button-text { color: inherit; }
+body .mm-button-text:focus-visible, body .mm-button-dot:focus-visible {
+  outline: 3px solid #e8b45b !important;
+  outline-offset: 4px;
+}
+@media (max-width: 600px) {
+  body .mm-button { padding: 11px 18px; }
+  body .header .header-button { min-height: 44px !important; padding: 11px 14px; font-size: 11px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body :is(.mm-button, .mm-button-icon, :where(.completed-row) button, :where(#cq-summary) button) {
+    transition: none !important;
+  }
+  body :is(.mm-button, .mm-button-icon, :where(.completed-row) button, :where(#cq-summary) button):active {
+    transform: none !important;
+  }
+}
+
+/* Le gabarit du menu reste compact, même avec le nouveau style de boutons. */
+@media (min-width: 601px) {
+  body .header .header-button { min-height: 46px !important; font-size: 13px !important; }
+}
+
+/* Actions de navigation et de documentation : même finition, format compact. */
+body .mm-button.mm-button--compact { min-height: 44px !important; font-size: 13px !important; padding: 10px 16px; }
+
+/* Les contacts s’élargissent au survol : conserver des extrémités en demi-cercle,
+   plutôt qu’un rayon de 50 % qui transforme le bouton entier en ellipse. */
+body .mm-float-btn.mm-button-icon {
+  border-radius: 999px !important;
+}

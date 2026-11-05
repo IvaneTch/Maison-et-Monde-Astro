@@ -118,11 +118,7 @@ const entreprise = 'Maison & Monde';
       </div>
       <form id="quote-form" novalidate>
         <input type="hidden" name="prestation_souhaitee" id="prestation-souhaitee" value="" />
-        <p
-          id="prestation-selectionnee"
-          hidden
-          class="selected-service-message"
-        ></p>
+        <p id="prestation-selectionnee" hidden class="selected-service-message"></p>
         <div id="completed" aria-live="polite"></div>
         <section class="quote-card" data-step="1">
           <div class="card-heading">
@@ -342,7 +338,7 @@ const entreprise = 'Maison & Monde';
             </div>
           </aside>
           <div class="actions">
-            <button type="button" class="next">
+            <button type="button" class="next mm-button">
               Continuer <span>→</span>
             </button>
           </div>
@@ -410,7 +406,7 @@ const entreprise = 'Maison & Monde';
                     <rect x="4" y="3" width="16" height="18" rx="1" />
                     <path d="M12 3v18M4 12h16" />
                   </svg>
-                  <small>Nettoyage de vitres</small>
+                  <small>Vitres simples avec le ménage</small>
                 </span>
               </label>
               <label class="option">
@@ -517,10 +513,10 @@ const entreprise = 'Maison & Monde';
             ></textarea>
           </label>
           <div class="actions">
-            <button type="button" class="back">
+            <button type="button" class="back mm-button mm-button--navy">
               ← Retour
             </button>
-            <button type="button" class="next">
+            <button type="button" class="next mm-button">
               Continuer →
             </button>
           </div>
@@ -628,10 +624,10 @@ const entreprise = 'Maison & Monde';
             </label>
           </div>
           <div class="actions">
-            <button type="button" class="back">
+            <button type="button" class="back mm-button mm-button--navy">
               ← Retour
             </button>
-            <button type="button" class="next">
+            <button type="button" class="next mm-button">
               Continuer →
             </button>
           </div>
@@ -863,10 +859,10 @@ const entreprise = 'Maison & Monde';
           </div>
           <p class="hint">Sélectionnez au moins un créneau pour nous aider à organiser votre prestation.</p>
           <div class="actions">
-            <button type="button" class="back">
+            <button type="button" class="back mm-button mm-button--navy">
               ← Retour
             </button>
-            <button type="button" class="next">
+            <button type="button" class="next mm-button">
               Continuer →
             </button>
           </div>
@@ -937,10 +933,10 @@ const entreprise = 'Maison & Monde';
             automatiquement à ce stade.
           </p>
           <div class="actions">
-            <button type="button" class="back">
+            <button type="button" class="back mm-button mm-button--navy">
               ← Retour
             </button>
-            <button type="submit" class="submit">
+            <button type="submit" class="submit mm-button">
               Envoyer ma demande →
             </button>
           </div>
@@ -967,10 +963,10 @@ const entreprise = 'Maison & Monde';
           Votre référence : <strong id="success-reference"></strong>
         </p>
         <div class="mm-success-actions">
-          <a href="/" class="mm-success-primary">
+          <a href="/" class="mm-success-primary mm-button">
             Retour à l’accueil →
           </a>
-          <a href="/devis-detaille/" class="mm-success-secondary">
+          <a href="/devis-detaille/" class="mm-success-secondary mm-button mm-button--navy">
             Faire une nouvelle demande
           </a>
         </div>
@@ -987,14 +983,37 @@ const entreprise = 'Maison & Monde';
         test: ['Formule Test', 'Ménage à domicile'],
         repassage: ['Repassage à domicile', 'Repassage'],
       };
-      const service = new URLSearchParams(window.location.search).get('service');
+      const params = new URLSearchParams(window.location.search);
+      const secteurPostal = params.get('code_postal');
+      if (/^(?:750(?:0[1-9]|1[0-9]|20)|92160)$/.test(secteurPostal || '')) {
+        document.querySelector('[name=code_postal]').value = secteurPostal;
+        document.querySelector('[name=ville]').value = secteurPostal === '92160' ? 'Antony' : 'Paris';
+      }
+      const formule = params.get('formule');
+      const formules = {
+        classique: 'Formule Classique',
+        confort: 'Formule Confort',
+        expert: 'Formule Expert',
+      };
+      if (formule && Object.prototype.hasOwnProperty.call(formules, formule)) {
+        document.querySelector('#prestation-souhaitee').value = formules[formule];
+        const message = document.querySelector('#prestation-selectionnee');
+        message.textContent = 'Prestation sélectionnée : ' + formules[formule];
+        message.hidden = false;
+        document.querySelector('[name="services"][value="Ménage à domicile"]').checked = true;
+        const reguliere = document.querySelector('[name="type_prestation"][value="Régulière"]');
+        reguliere.checked = true;
+        document.querySelector('#frequency-field').hidden = false;
+      }
+      const service = params.get('service');
       if (!service || !Object.prototype.hasOwnProperty.call(correspondances, service)) return;
       const [nom, caseACocher] = correspondances[service];
       const champ = document.getElementById('prestation-souhaitee');
       const message = document.getElementById('prestation-selectionnee');
       if (champ) champ.value = nom;
       if (message) {
-        message.textContent = 'Prestation sélectionnée : ' + nom;
+        message.textContent =
+          'Prestation sélectionnée : ' + (service === 'vitres' ? 'Ménage avec vitres simples' : nom);
         message.hidden = false;
       }
       const input = [...document.querySelectorAll('input[name="services"]')].find(
@@ -1004,6 +1023,8 @@ const entreprise = 'Maison & Monde';
         input.checked = true;
         input.dispatchEvent(new Event('change', { bubbles: true }));
       }
+      if (service === 'vitres')
+        document.querySelector('[name=services][value="Ménage à domicile"]').checked = true;
       const ponctuelle = document.querySelector('input[name="type_prestation"][value="Ponctuelle"]');
       if (ponctuelle) {
         ponctuelle.checked = true;
@@ -1070,6 +1091,15 @@ const entreprise = 'Maison & Monde';
         const section = sections[n - 1];
         if (n === 2 && !checked('services').length)
           return fieldError(first('services'), 'Choisissez au moins une prestation.');
+        if (
+          n === 2 &&
+          checked('services').includes('Nettoyage de vitres') &&
+          !checked('services').some((s) => ['Ménage à domicile', 'Grand nettoyage'].includes(s))
+        )
+          return fieldError(
+            first('services'),
+            'Les vitres simples sont proposées avec le ménage. Sélectionnez aussi Ménage à domicile ou Grand nettoyage.',
+          );
         if (n === 3) {
           if (!checked('type_prestation').length)
             return fieldError(first('type_prestation'), 'Choisissez le type de prestation.');
@@ -1084,7 +1114,8 @@ const entreprise = 'Maison & Monde';
         if (n === 4 && !checked('disponibilites').length)
           return fieldError(first('disponibilites'), 'Choisissez au moins un créneau.');
         for (const input of section.querySelectorAll('input,select,textarea')) {
-          if (input.closest('[hidden]') || input.type === 'hidden') continue;
+          const hiddenGroup = input.closest('[hidden]');
+          if (input.type === 'hidden' || (hiddenGroup && hiddenGroup !== section)) continue;
           if (input.type === 'radio' || input.type === 'checkbox') {
             if (input.required && !checked(input.name).length)
               return fieldError(input, 'Veuillez sélectionner une option.');
@@ -1185,7 +1216,17 @@ const entreprise = 'Maison & Monde';
         );
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        if (!validate(5)) return;
+        if (step < 5) {
+          if (validate(step)) show(step + 1);
+          return;
+        }
+        for (let n = 1; n <= 5; n++) {
+          if (!validate(n)) {
+            show(n);
+            validate(n);
+            return;
+          }
+        }
         const button = form.querySelector('button[type=submit]');
         button.disabled = true;
         const oldLabel = button.textContent;
@@ -1201,7 +1242,7 @@ const entreprise = 'Maison & Monde';
           const labels = {
             ponctuel: 'Ménage ponctuel',
             'grand-menage': 'Grand ménage',
-            vitres: 'Nettoyage des vitres',
+            vitres: 'Ménage avec vitres simples',
             test: 'Formule Test',
             repassage: 'Repassage à domicile',
           };

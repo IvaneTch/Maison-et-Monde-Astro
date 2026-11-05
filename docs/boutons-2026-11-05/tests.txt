@@ -1,0 +1,47 @@
+
+> maison-et-monde-astro@0.0.1 test
+> node --test tests/*.test.mjs
+
+(node:32301) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Administration : statut Refusée accepté pour une session valide (16.897625ms)
+✔ Administration : origine extérieure refusée avant accès MySQL (0.604084ms)
+✔ Administration : session invalide ne permet aucune modification (0.619875ms)
+✔ identité : e-mail et nom/prénom, sans fusion sur le seul téléphone (1.53725ms)
+✔ une fiche existante est réutilisée sans écraser ses coordonnées (0.56925ms)
+✔ une nouvelle demande professionnelle crée un client professionnel avec son entreprise (14.662459ms)
+✔ les fiches ambiguës sont signalées avant toute écriture (0.289583ms)
+✔ plan de réparation : devis orphelins, mauvais lien, regroupement et relance idempotente (0.206167ms)
+✔ échec de rattachement : annulation de la transaction et libération du verrou (0.308291ms)
+(node:32303) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ ménage seul : plateformes facultatives, studio sans chambre accepté (12.409042ms)
+✔ services complémentaires : texte obligatoire, multiligne et limite (0.405625ms)
+✔ rejeter coordonnées, dates, nombres, services et consentement invalides (0.447625ms)
+✔ API : enregistrement complet, catégorie et fermeture de connexion (5.576291ms)
+✔ API : un devis professionnel a sa référence, son client pro et sa catégorie de notification (1.5985ms)
+✔ API : données invalides rejetées avant connexion (1.464834ms)
+✔ API : panne MySQL signalée sans confirmation trompeuse (0.8195ms)
+✔ régression : les devis ménage simple et détaillé conservent leur enregistrement (1.710833ms)
+✔ références ménage : préfixe MM conservé (0.804458ms)
+✔ devis détaillé : une valeur de consentement fausse est refusée avant MySQL (0.7225ms)
+(node:32304) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ Contact : message et rappel ont leurs champs adaptés (11.705416ms)
+✔ Contact : consentement, coordonnées, taille et piège antispam sont vérifiés (0.256625ms)
+✔ Contact API : message, notification et confirmation dans une seule transaction (5.802167ms)
+✔ Contact API : panne MySQL annule la demande et permet de réessayer (1.161041ms)
+✔ Contact API : demande invalide refusée avant connexion (0.624ms)
+✔ Protection : limite des tentatives et nouvelle fenêtre après expiration (0.330708ms)
+✔ les anciens devis Conciergerie MM restent classés en Conciergerie (0.469417ms)
+✔ les listes ne se recouvrent pas et couvrent les deux activités (0.103709ms)
+✔ l’accompagnement se lit sans casser les anciennes demandes (0.138084ms)
+✔ les devis Professionnel ont une catégorie distincte et gardent les détails du site (0.783792ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 123.493333

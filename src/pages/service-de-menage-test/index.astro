@@ -1,4 +1,5 @@
 ---
+import InterventionAreas from '../../components/InterventionAreas.astro';
 import '../../styles/service-de-menage-test.css';
 import SectionBand from '../../components/SectionBand.astro';
 import Layout from '../../layouts/Layout.astro';
@@ -25,7 +26,10 @@ const benefices = [
 ];
 ---
 
-<Layout title="Formule Test de ménage à domicile à Paris | Maison & Monde">
+<Layout
+  title="Formule Test de ménage à domicile à Paris | Maison & Monde"
+  description="Découvrez notre Formule Test de ménage à domicile à Paris et en Île-de-France : une intervention de 3 à 7 heures, sans engagement de renouvellement."
+>
   <div class="page-menage page-test">
     <section class="introduction" aria-labelledby="titre-menage">
       <div class="hero-copy">
@@ -95,8 +99,8 @@ const benefices = [
         <img
           src="/images/femme-de-menage-domicile-paris.webp"
           alt="Intervenante Maison & Monde pour une première prestation de ménage à domicile"
-          width="1000"
-          height="700"
+          width="1600"
+          height="800"
           fetchpriority="high"
           srcset="/images/femme-de-menage-domicile-paris-480.webp 480w, /images/femme-de-menage-domicile-paris-960.webp 960w, /images/femme-de-menage-domicile-paris.webp 1600w"
           sizes="(max-width: 780px) 100vw, 50vw"
@@ -146,8 +150,8 @@ const benefices = [
           <img
             src="/images/menage-ponctuel.webp"
             alt="Intervenante effectuant un entretien ménager"
-            width="200"
-            height="200"
+            width="527"
+            height="526"
             loading="lazy"
             srcset="/images/menage-ponctuel-480.webp 480w, /images/menage-ponctuel.webp 527w"
             sizes="(max-width: 780px) 100vw, 50vw"
@@ -164,7 +168,7 @@ const benefices = [
               14,50 €<small> / heure</small>
             </strong>
           </div>
-          <a class="bouton-test" href="/devis-detaille/?service=test">
+          <a class="bouton-test mm-button" href="/devis-detaille/?service=test">
             Demander un devis <span aria-hidden="true">→</span>
           </a>
           <small>Devis gratuit • Sans engagement de renouvellement</small>
@@ -283,8 +287,8 @@ const benefices = [
           src="/images/grand-menage-salle-de-bain-paris.webp"
           alt="Salle de bain haut de gamme impeccablement nettoyée à Paris"
           loading="lazy"
-          width="1000"
-          height="650"
+          width="1600"
+          height="895"
           srcset="/images/grand-menage-salle-de-bain-paris-480.webp 480w, /images/grand-menage-salle-de-bain-paris-960.webp 960w, /images/grand-menage-salle-de-bain-paris.webp 1600w"
           sizes="(max-width: 780px) 100vw, 50vw"
         />
@@ -298,11 +302,12 @@ const benefices = [
         <p>
           Une première prestation personnalisée pour découvrir notre équipe, sans obligation de poursuivre.
         </p>
-        <a href="/devis-detaille/?service=test">
+        <a class="mm-button" href="/devis-detaille/?service=test">
           Demander un devis <span aria-hidden="true">→</span>
         </a>
       </div>
       <div class="ornement-devis" aria-hidden="true"></div>
     </section>
   </div>
+  <InterventionAreas />
 </Layout>

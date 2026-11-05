@@ -1,0 +1,288 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/info-page.css';
+import images from '../data/images.json';
+import InterventionAreas from './InterventionAreas.astro';
+import { secteurs } from '../data/secteurs';
+import { bureaux } from '../data/entreprise';
+import '../styles/secteurs.css';
+interface Props {
+  secteur: (typeof secteurs)[number];
+}
+const { secteur: s } = Astro.props;
+const photo = images[s.photo as keyof typeof images];
+const bureau = bureaux.find((b) => b.codePostal === s.postal);
+const origin = import.meta.env.PUBLIC_SITE_URL || 'https://maisonetmonde.fr';
+const url = new URL(s.path, origin).href;
+const quote = `/devis-detaille/?code_postal=${s.postal}`;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${url}#service`,
+  name: `Ménage à domicile à ${s.nom}`,
+  serviceType: 'Ménage à domicile',
+  url,
+  provider: { '@id': new URL('/#entreprise', origin).href },
+  areaServed: { '@type': 'Place', name: `${s.nom} (${s.postal})` },
+};
+const breadcrumbs = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: origin },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Zones d’intervention',
+      item: new URL('/zones-intervention/', origin).href,
+    },
+    { '@type': 'ListItem', position: 3, name: s.nom, item: url },
+  ],
+};
+---
+
+<Layout title={s.title} description={s.description}>
+  <article class="info-page local-page">
+    <section class="local-hero" aria-labelledby="local-title">
+      <img
+        class="local-hero-photo"
+        src={s.photo}
+        srcset={photo?.srcset}
+        sizes="100vw"
+        width={photo?.width}
+        height={photo?.height}
+        alt={s.photoAlt}
+        fetchpriority="high"
+        decoding="async"
+      />
+      <div class="local-hero-content">
+        <p class="local-hero-eyebrow">MAISON &amp; MONDE · {s.nom.toUpperCase()}</p>
+        <h1 id="local-title">
+          Ménage à domicile<br />
+          <em>à {s.nom}.</em>
+        </h1>
+        <p class="local-hero-intro">{s.intro}</p>
+        <div class="local-actions">
+          <a class="mm-button" href={quote}>
+            Mon devis ménage à {s.nom} →
+          </a>
+          <a class="mm-button mm-button--navy" href="/menage-regulier-a-domicile/">
+            Découvrir nos formules →
+          </a>
+        </div>
+      </div>
+      <svg class="local-hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+        <path
+          d="M0 30 C280 80 440 8 720 32 S1120 92 1440 28 L1440 80 L0 80 Z"
+          fill="#fff"
+          stroke="#e9a34c"
+          stroke-width="1.5"
+        />
+      </svg>
+    </section>
+    <div class="info-content">
+      <p class="local-illustration-note">Visuel d’illustration des prestations Maison &amp; Monde.</p>
+      <nav class="local-breadcrumb" aria-label="Fil d’Ariane">
+        <a href="/">Accueil</a> / <a href="/zones-intervention/">Zones d’intervention</a> /{' '}
+        <span aria-current="page">{s.nom}</span>
+      </nav>
+      <section>
+        <p class="local-eyebrow">VOTRE SECTEUR · {s.postal}</p>
+        <h2>{s.heading}</h2>
+        {s.paragraphs.map((p) => (
+          <p>{p}</p>
+        ))}
+        {s.secteurs.length > 0 && (
+          <p>
+            <strong>Secteurs de l’arrondissement :</strong> {s.secteurs.join(', ')}. La faisabilité du passage
+            est confirmée à votre adresse.
+          </p>
+        )}
+        {bureau && (
+          <address class="local-office">
+            <strong>{bureau.nom}</strong>
+            <br />
+            {bureau.adresse}, {bureau.codePostal} {bureau.ville}
+            <br />
+            <a href="/contactez-nous/">Contacter nos bureaux →</a>
+          </address>
+        )}
+      </section>
+      <section class="local-prestations">
+        <h2>Choisir votre prestation à {s.nom}</h2>
+        <div class="local-service-grid">
+          <div class="local-service-card">
+            <img
+              src={
+                s.photo === '/images/secteurs/menage-paris-2-v1.webp'
+                  ? '/images/secteurs/menage-antony-v1.webp'
+                  : '/images/secteurs/menage-paris-2-v1.webp'
+              }
+              srcset={
+                images[
+                  s.photo === '/images/secteurs/menage-paris-2-v1.webp'
+                    ? '/images/secteurs/menage-antony-v1.webp'
+                    : '/images/secteurs/menage-paris-2-v1.webp'
+                ].srcset
+              }
+              sizes="(max-width: 600px) 90vw, (max-width: 1050px) 45vw, 280px"
+              width="1536"
+              height="1024"
+              alt="Ménage régulier"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="local-card-copy">
+              <span class="local-card-label">01 / AU QUOTIDIEN</span>
+              <h3>Ménage régulier</h3>
+              <p>
+                Comparez les formules Classique, Confort et Expert et choisissez les tâches à confier à chaque
+                passage.
+              </p>
+              <a href="/menage-regulier-a-domicile/">Formules et tarifs de ménage régulier →</a>
+            </div>
+          </div>
+          <div class="local-service-card">
+            <img
+              src={
+                s.photo === '/images/secteurs/menage-paris-19-v1.webp'
+                  ? '/images/secteurs/menage-antony-v1.webp'
+                  : '/images/secteurs/menage-paris-19-v1.webp'
+              }
+              srcset={
+                images[
+                  s.photo === '/images/secteurs/menage-paris-19-v1.webp'
+                    ? '/images/secteurs/menage-antony-v1.webp'
+                    : '/images/secteurs/menage-paris-19-v1.webp'
+                ].srcset
+              }
+              sizes="(max-width: 600px) 90vw, (max-width: 1050px) 45vw, 280px"
+              width="1536"
+              height="1024"
+              alt="Ménage ponctuel et grand ménage"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="local-card-copy">
+              <span class="local-card-label">02 / EN PROFONDEUR</span>
+              <h3>Ménage ponctuel et grand ménage</h3>
+              <p>
+                Une remise en ordre ou un entretien approfondi, selon l’état du logement et les zones
+                accessibles.
+              </p>
+              <a href="/services-occasionnels/">Services occasionnels →</a>
+              <br />
+              <a href="/grand-menage-paris/">Préparer un grand ménage →</a>
+            </div>
+          </div>
+          <div class="local-service-card">
+            <img
+              src={
+                s.photo === '/images/secteurs/menage-paris-6-v1.webp'
+                  ? '/images/secteurs/menage-antony-v1.webp'
+                  : '/images/secteurs/menage-paris-6-v1.webp'
+              }
+              srcset={
+                images[
+                  s.photo === '/images/secteurs/menage-paris-6-v1.webp'
+                    ? '/images/secteurs/menage-antony-v1.webp'
+                    : '/images/secteurs/menage-paris-6-v1.webp'
+                ].srcset
+              }
+              sizes="(max-width: 600px) 90vw, (max-width: 1050px) 45vw, 280px"
+              width="1536"
+              height="1024"
+              alt="Repassage à domicile"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="local-card-copy">
+              <span class="local-card-label">03 / VOTRE LINGE</span>
+              <h3>Repassage à domicile</h3>
+              <p>Vêtements et linge de maison, avec le matériel convenu, seul ou en complément du ménage.</p>
+              <a href="/repassage-a-domicile-paris/">Organisation du repassage →</a>
+            </div>
+          </div>
+          <div class="local-service-card">
+            <img
+              src={
+                s.photo === '/images/secteurs/menage-paris-5-v1.webp'
+                  ? '/images/secteurs/menage-antony-v1.webp'
+                  : '/images/secteurs/menage-paris-5-v1.webp'
+              }
+              srcset={
+                images[
+                  s.photo === '/images/secteurs/menage-paris-5-v1.webp'
+                    ? '/images/secteurs/menage-antony-v1.webp'
+                    : '/images/secteurs/menage-paris-5-v1.webp'
+                ].srcset
+              }
+              sizes="(max-width: 600px) 90vw, (max-width: 1050px) 45vw, 280px"
+              width="1536"
+              height="1024"
+              alt="Première intervention"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="local-card-copy">
+              <span class="local-card-label">04 / PREMIER ESSAI</span>
+              <h3>Première intervention</h3>
+              <p>Découvrez la Formule Test : de 3 à 7 heures, sans engagement de renouvellement.</p>
+              <a href="/service-de-menage-test/">Découvrir la Formule Test →</a>
+            </div>
+          </div>
+        </div>
+        <p>
+          <strong>Vitres simples :</strong> leur nettoyage peut être prévu en complément du ménage, pour des
+          vitres accessibles et avec le matériel convenu. Nous ne proposons pas de prestation autonome de
+          vitrerie professionnelle, de travail en hauteur ou de nettoyage nécessitant du matériel spécialisé.
+        </p>
+      </section>
+      <section>
+        <h2>Un devis qui précise les tâches et les conditions</h2>
+        <p>
+          Les tarifs des formules sont présentés sur les pages de prestations. Le devis tient compte du
+          contenu de l’intervention et précise le temps prévu, les fournitures et les éventuels frais. L’envoi
+          d’une demande est gratuit, sans engagement et ne constitue pas une réservation confirmée.
+        </p>
+        <p>
+          Indiquez votre adresse, la surface, les pièces et vos disponibilités. Pour le ménage régulier,
+          précisez le rythme recherché ; pour un besoin ponctuel, décrivez l’état du logement et vos
+          priorités.
+        </p>
+        <p>
+          Les informations sur le crédit d’impôt et l’Avance immédiate sont soumises aux conditions
+          applicables à votre situation et à la prestation.{' '}
+          <a href="/credit-impot/">Consulter les informations sur l’avantage fiscal →</a>
+        </p>
+        <div class="local-actions">
+          <a class="mm-button" href={quote}>
+            Préparer ma demande →
+          </a>
+        </div>
+      </section>
+      <section>
+        <h2>Questions sur le ménage à {s.nom}</h2>
+        {s.questions.map(([q, a]) => (
+          <details class="local-faq">
+            <summary>{q}</summary>
+            <p>{a}</p>
+          </details>
+        ))}
+      </section>
+      <section>
+        <h2>Un besoin professionnel ou de conciergerie ?</h2>
+        <p>
+          Pour vos locaux professionnels, consultez notre{' '}
+          <a href="/nettoyage-bureaux-paris/">service de nettoyage de bureaux</a> et utilisez le{' '}
+          <a href="/devis-professionnel/">devis professionnel</a>. Pour un logement en location, découvrez les{' '}
+          <a href="/conciergerie/">prestations de conciergerie</a> ; le périmètre et l’organisation sont
+          étudiés séparément.
+        </p>
+      </section>
+      <InterventionAreas />
+      <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\u003c')} />
+      <script type="application/ld+json" set:html={JSON.stringify(breadcrumbs).replace(/</g, '\u003c')} />
+    </div>
+  </article>
+</Layout>

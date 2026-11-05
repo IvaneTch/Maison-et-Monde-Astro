@@ -234,6 +234,8 @@ export const POST: APIRoute = async ({ request }) => {
     ) {
       return fail('Sélectionnez une fréquence et une prestation.');
     }
+    if (prestations.includes('Nettoyage de vitres') && !prestations.includes('Menage a domicile'))
+      return fail('Les vitres simples sont proposées en complément du ménage à domicile.');
     const reference = `MM-${new Date().toISOString().slice(0, 10).replaceAll('-', '')}-${randomUUID().slice(0, 8).toUpperCase()}`;
     let connection: mysql.Connection | undefined;
     try {
@@ -321,6 +323,11 @@ export const POST: APIRoute = async ({ request }) => {
     'test',
   ];
 
+  if (
+    services.includes('Nettoyage de vitres') &&
+    !services.some((s) => ['Ménage à domicile', 'Grand nettoyage'].includes(s))
+  )
+    return fail('Les vitres simples sont proposées en complément du ménage à domicile.');
   const prestationSouhaitee = str(data, 'prestation_souhaitee', 100);
   // Durée obligatoire de 3 à 7 heures pour la Formule Test.
   if (
@@ -363,7 +370,7 @@ export const POST: APIRoute = async ({ request }) => {
     !['Régulière', 'Ponctuelle'].includes(typePrestation) ||
     (typePrestation === 'Régulière' && !frequence) ||
     !duree ||
-    data.get('confidentialite') === null
+    data.get('confidentialite') !== 'on'
   )
     return fail('Complétez les champs obligatoires et le consentement.');
   const notes = [

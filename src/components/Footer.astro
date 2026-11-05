@@ -1,6 +1,6 @@
 ---
 import '../styles/footer.css';
-import { entreprise as coordonnees } from '../data/entreprise';
+import { entreprise as coordonnees, bureaux } from '../data/entreprise';
 
 const entreprise = 'Maison & Monde';
 ---
@@ -123,7 +123,8 @@ const entreprise = 'Maison & Monde';
           Demander un devis
         </a>
         <a href="/devis-professionnel/">Devis professionnel</a>
-        <a href="/nos-services/">Zones d’intervention</a>
+        <a href="/conseils/">Conseils &amp; guides</a>
+        <a href="/zones-intervention/">Zones d’intervention</a>
         <a href="tel:+33745292585">Nous contacter</a>
       </div>
     </details>
@@ -193,7 +194,7 @@ const entreprise = 'Maison & Monde';
             <small>Interventions dans Paris et les communes voisines</small>
           </span>
         </p>
-        <a class="footer-cta" href="/devis-simple/" data-open-devis-simple>
+        <a class="footer-cta mm-button" href="/devis-simple/" data-open-devis-simple>
           Demander un devis <span aria-hidden="true">→</span>
         </a>
       </div>
@@ -355,7 +356,9 @@ const entreprise = 'Maison & Monde';
     </div>
   </div>
   <p class="footer-company-info">
-    {coordonnees.adresse}, {coordonnees.codePostal} {coordonnees.ville} · {coordonnees.horaires}
+    {bureaux.map((b) => `${b.nom} : ${b.adresse}, ${b.codePostal} ${b.ville}`).join(' · ')}
+    <br />
+    {coordonnees.horaires}
   </p>
   <div class="footer-bottom">
     <span>
@@ -366,7 +369,7 @@ const entreprise = 'Maison & Monde';
       <a href="/politique-de-confidentialite/">Politique de confidentialité</a>
       <a href="/cgv/">CGV</a>
       <a href="/plan-du-site/">Plan du site</a>
-      <button type="button" id="mm-cookie-manage" class="footer-cookie-link">
+      <button type="button" id="mm-cookie-manage" class="footer-cookie-link mm-button-text">
         Gérer les cookies
       </button>
     </div>

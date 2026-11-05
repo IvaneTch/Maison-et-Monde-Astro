@@ -1,0 +1,55 @@
+---
+import InfoPage from '../../components/InfoPage.astro';
+import InterventionAreas from '../../components/InterventionAreas.astro';
+import { bureaux } from '../../data/entreprise';
+---
+
+<InfoPage
+  title="Ménage dans les 20 arrondissements de Paris et à Antony | Maison & Monde"
+  description="Ménage à domicile dans les 20 arrondissements de Paris et à Antony. Deux bureaux à Paris 14 et Paris 12, prestations régulières et ponctuelles sur devis."
+  heading="Nos zones d’intervention"
+  intro="Nous intervenons dans les 20 arrondissements de Paris et à Antony. Paris 14, Paris 12 et Paris 13 restent nos secteurs prioritaires, avec deux bureaux parisiens pour préparer vos demandes."
+>
+  <InterventionAreas all />
+  <section>
+    <h2>Deux bureaux à Paris</h2>
+    {bureaux.map((b) => (
+      <div>
+        <h3>{b.nom}</h3>
+        <p>
+          {b.adresse}, {b.codePostal} {b.ville}
+        </p>
+      </div>
+    ))}
+    <p>
+      Contactez-nous pour préparer votre demande ou convenir d’un échange avant de vous déplacer. Les
+      interventions se déroulent à l’adresse de votre logement.
+    </p>
+    <a href="/contactez-nous/">Contacter Maison & Monde →</a>
+  </section>
+  <section>
+    <h2>Une intervention à confirmer à votre adresse</h2>
+    <p>
+      Précisez votre adresse complète, les tâches souhaitées et vos disponibilités. Nous confirmons la
+      faisabilité, le calendrier et les conditions dans une proposition personnalisée.
+    </p>
+    <p>
+      Nous accompagnons aussi des demandes à Paris et en Île-de-France selon leur localisation et notre
+      organisation. Pour une autre commune ou un autre arrondissement,{' '}
+      <a href="/contactez-nous/">contactez-nous</a> avant de prévoir une intervention.
+    </p>
+  </section>
+  <section>
+    <h2>Des prestations selon votre besoin</h2>
+    <p>
+      <a href="/menage-regulier-a-domicile/">Ménage régulier</a>,{' '}
+      <a href="/services-occasionnels/">ménage ponctuel</a>, <a href="/grand-menage-paris/">grand ménage</a>{' '}
+      et <a href="/repassage-a-domicile-paris/">repassage à domicile</a> : choisissez la prestation avant de
+      préciser votre secteur. Le nettoyage de vitres simples accessibles peut être prévu en complément du
+      ménage ; il n’est pas proposé comme prestation autonome de vitrerie professionnelle.
+    </p>
+    <a class="mm-button" href="/devis-detaille/">
+      Décrire mon logement →
+    </a>
+  </section>
+</InfoPage>
