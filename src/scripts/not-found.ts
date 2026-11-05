@@ -4,6 +4,7 @@ const stage = document.querySelector<HTMLElement>('.mm-not-found');
 if (stage) {
   const wordsCanvas = stage.querySelector<HTMLCanvasElement>('.mm-error-words')!;
   const particlesCanvas = stage.querySelector<HTMLCanvasElement>('.particles-js-canvas-el')!;
+  const logo = stage.querySelector<HTMLImageElement>('.mm-error-logo-source')!;
   const wordsCtx = wordsCanvas.getContext('2d');
   const particlesCtx = particlesCanvas.getContext('2d');
   const control = stage.querySelector<HTMLButtonElement>('.mm-error-motion')!;
@@ -16,7 +17,7 @@ if (stage) {
       height = 1;
     let pointer: { x: number; y: number } | null = null;
     const random = (min: number, max: number) => min + Math.random() * (max - min);
-    type Word = { x: number; y: number; size: number; text: string };
+    type Word = { x: number; y: number; size: number; text: string; logo: boolean };
     type Dot = { x: number; y: number; vx: number; vy: number; size: number };
     let words: Word[] = [],
       dots: Dot[] = [];
@@ -38,7 +39,8 @@ if (stage) {
       words = Array.from({ length: width < 600 ? 28 : 60 }, (_, i) => ({
         x: random(0, width),
         y: random(0, height),
-        size: random(9, 23),
+        size: i % 7 === 6 ? random(28, 42) : random(9, 23),
+        logo: i % 7 === 6,
         text: ['404', 'page', 'introuvable', '404'][i % 4],
       }));
       dots = Array.from({ length: width < 600 ? 30 : 65 }, () => ({
@@ -57,6 +59,21 @@ if (stage) {
         if (w.x > width + 20) {
           w.x = -160;
           w.y = random(12, height);
+        }
+        if (w.logo) {
+          if (logo.complete && logo.naturalWidth > 0) {
+            wordsCtx!.save();
+            wordsCtx!.globalAlpha = 0.38;
+            wordsCtx!.drawImage(
+              logo,
+              w.x,
+              w.y - w.size,
+              w.size,
+              (w.size * logo.naturalHeight) / logo.naturalWidth,
+            );
+            wordsCtx!.restore();
+          }
+          continue;
         }
         wordsCtx!.font = `${w.size}px Arial, sans-serif`;
         wordsCtx!.fillStyle = 'rgba(210,227,239,.24)';
@@ -137,6 +154,8 @@ if (stage) {
         });
       dots = dots.slice(-90);
     });
+    // L’image peut finir de charger après le dessin immobile initial.
+    logo.addEventListener('load', () => draw(0), { once: true });
     new ResizeObserver(resize).observe(stage);
     resize();
     sync();
