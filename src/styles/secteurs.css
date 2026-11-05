@@ -273,3 +273,69 @@
     object-position: 65% center;
   }
 }
+
+/* Bandeau de proximité compact ; l’annuaire complet conserve sa présentation. */
+.local-areas.local-areas--compact {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: 28px;
+  padding: 20px 28px;
+  border-radius: 16px;
+  background: linear-gradient(110deg, #f7fafb, #edf5f9);
+  box-shadow: 0 8px 24px -16px #102b4640;
+}
+.local-areas--compact .local-eyebrow {
+  margin: 0 0 6px;
+}
+.local-areas.local-areas--compact h2 {
+  font:
+    700 clamp(23px, 2vw, 28px)/1.15 Georgia,
+    serif;
+  margin: 0 0 9px;
+}
+.local-areas--compact .local-areas-copy > p:last-child {
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0;
+  color: #526b80;
+}
+.local-areas--compact nav {
+  gap: 8px;
+}
+.local-areas--compact nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  font-size: 13px;
+  line-height: 1.5;
+  text-decoration: none;
+  border: 1px solid #e1eaf0;
+}
+.local-areas--compact nav a:hover {
+  background: #fff6e2;
+  border-color: #dca13c;
+  text-decoration: none;
+}
+.local-areas--compact .local-all {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+@media (max-width: 700px) {
+  .local-areas.local-areas--compact {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+  .local-areas--compact nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .local-areas--compact nav a {
+    padding: 10px;
+    font-size: 12px;
+  }
+}

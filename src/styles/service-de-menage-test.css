@@ -1618,3 +1618,8 @@
       transform: none !important;
     }
   }
+
+/* Le contenu et son bouton restent devant les filets décoratifs (niveau 3). */
+.page-menage .bandeau-devis .bandeau-texte {
+  z-index: 4;
+}
