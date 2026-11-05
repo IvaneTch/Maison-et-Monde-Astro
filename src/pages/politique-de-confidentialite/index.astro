@@ -1,0 +1,69 @@
+---
+import InfoPage from '../../components/InfoPage.astro';
+import { entreprise as e } from '../../data/entreprise';
+---
+
+<InfoPage
+  title="Politique de confidentialité | Maison & Monde"
+  heading="Vos données, en toute transparence"
+  description="Utilisation des coordonnées et informations transmises à Maison & Monde pour une demande de devis, un message ou un rappel."
+>
+  <section>
+    <h2>Qui traite vos données ?</h2>
+    <p>
+      {e.raisonSociale}, {e.forme}, SIRET {e.siret}, {e.adresse}, {e.codePostal} {e.ville}, est responsable
+      des données recueillies sur ce site. Contact : <a href={`mailto:${e.email}`}>{e.email}</a>.
+    </p>
+  </section>
+  <section>
+    <h2>Les informations recueillies et leur utilisation</h2>
+    <p>
+      Lors d’une demande de devis, nous recueillons vos coordonnées, l’adresse d’intervention, les
+      caractéristiques du logement et les prestations souhaitées. Le formulaire Contact recueille vos
+      coordonnées et votre message ; la demande de rappel recueille votre prénom, votre téléphone et le
+      créneau souhaité.
+    </p>
+    <p>
+      Ces données nous permettent de répondre, d’étudier votre projet et d’organiser les échanges préalables à
+      une éventuelle prestation. Les champs obligatoires sont signalés par un astérisque. Les messages
+      facultatifs peuvent rester vides ; évitez d’y inscrire des données sensibles ou des informations sans
+      rapport avec la prestation.
+    </p>
+    <p>
+      Le traitement d’une demande de devis repose sur les démarches précontractuelles engagées à votre
+      demande. Les échanges de contact et de rappel servent à répondre à votre sollicitation. Aucune
+      inscription publicitaire ne résulte automatiquement de l’envoi d’un formulaire.
+    </p>
+  </section>
+  <section>
+    <h2>Accès et conservation</h2>
+    <p>
+      Les informations sont accessibles aux personnes habilitées de Maison & Monde et aux prestataires
+      techniques nécessaires à l’hébergement et au fonctionnement du site. Elles ne sont pas vendues.
+    </p>
+    <p>
+      Les demandes sont conservées pendant le traitement de votre projet et son suivi. Les dossiers clos font
+      l’objet d’un examen pour leur suppression ou leur archivage selon la finalité du traitement et les
+      obligations applicables. Vous pouvez nous demander la durée applicable à votre dossier à tout moment.
+    </p>
+  </section>
+  <section>
+    <h2 id="cookies">Cookies et services externes</h2>
+    <p>
+      Le site utilise des éléments techniques nécessaires à son fonctionnement : session de connexion de
+      l’administration et mémorisation locale du choix d’apparence de l’espace privé. Les formulaires ne
+      déclenchent aucune inscription publicitaire. Les liens vers Google, les réseaux sociaux ou les cartes
+      vous dirigent vers leurs sites ; leurs propres conditions s’appliquent après votre navigation.
+    </p>
+  </section>
+  <section>
+    <h2>Exercer vos droits</h2>
+    <p>
+      Vous pouvez demander l’accès, la rectification ou l’effacement de vos données et, selon les conditions
+      applicables, la limitation, l’opposition ou la portabilité. Écrivez à{' '}
+      <a href={`mailto:${e.email}`}>{e.email}</a> en précisant votre demande. Une vérification de votre
+      identité peut être nécessaire. Vous pouvez également adresser une réclamation à la{' '}
+      <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>.
+    </p>
+  </section>
+</InfoPage>

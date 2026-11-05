@@ -1,17 +1,55 @@
 ---
-const titre = "repassage-a-domicile-paris";
+import ServicePage from '../../components/ServicePage.astro';
+const contenu = {
+  title: 'Repassage à domicile à Paris | Maison & Monde',
+  description:
+    'Repassage à domicile à Paris et en Île-de-France : vêtements, chemises et linge de maison, avec une organisation adaptée à votre quotidien.',
+  heading: 'Repassage à domicile,',
+  accent: 'du temps pour vous.',
+  intro:
+    'Chemises, vêtements du quotidien et linge de maison : confiez-nous votre repassage directement à domicile, ponctuellement ou en complément de votre ménage.',
+  image: '/images/service-repassage-domicile-paris.webp',
+  imageAlt: 'Repassage soigné du linge à domicile',
+  price: '29,00 €',
+  quote: '/devis-detaille/?service=repassage',
+  services: [
+    {
+      title: 'Vêtements du quotidien',
+      text: 'Un repassage attentif aux étiquettes et à vos consignes pour les vêtements confiés.',
+      icon: 'linen',
+    },
+    {
+      title: 'Linge de maison',
+      text: 'Draps, taies et textiles compatibles avec le repassage, pliés selon vos habitudes.',
+      icon: 'house',
+    },
+    {
+      title: 'À votre rythme',
+      text: 'Une intervention ponctuelle ou régulière, seule ou associée au ménage de votre logement.',
+      icon: 'calendar',
+    },
+  ],
+  preparation: [
+    'Préparez du linge propre et sec.',
+    'Prévoyez une table et un appareil de repassage en bon état.',
+    'Indiquez les textiles délicats et vos consignes de pliage.',
+    'Le volume de linge et le matériel disponible permettent d’estimer la durée.',
+  ],
+  questions: [
+    {
+      q: 'Faut-il fournir le matériel ?',
+      a: 'Le repassage est réalisé à votre domicile avec le matériel convenu lors de la préparation de votre prestation. Précisez les équipements disponibles dans votre demande.',
+    },
+    {
+      q: 'Puis-je ajouter le repassage au ménage ?',
+      a: 'Oui. Sélectionnez les deux services dans votre demande de devis et indiquez vos priorités pour répartir le temps prévu.',
+    },
+    {
+      q: 'Tous les textiles peuvent-ils être repassés ?',
+      a: 'Les étiquettes et l’état du textile guident la prestation. Les textiles nécessitant un traitement spécialisé doivent être signalés avant intervention.',
+    },
+  ],
+};
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maison & Monde | repassage-a-domicile-paris</title>
-  </head>
-  <body>
-    <main>
-      <h1>{titre}</h1>
-      <p>Cette page est en cours de préparation.</p>
-    </main>
-  </body>
-</html>
+<ServicePage {...contenu} />

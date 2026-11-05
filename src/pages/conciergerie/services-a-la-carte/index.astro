@@ -1,245 +1,276 @@
 ---
-import Header from "../../../components/Header.astro";
-import Footer from "../../../components/Footer.astro";
+import SectionBand from '../../../components/SectionBand.astro';
+import '../../../styles/conciergerie-services-a-la-carte.css';
+import Layout from '../../../layouts/Layout.astro';
 const services = [
- {img:"reassort-courses.jpg",title:"Réassort de courses",desc:"Courses et produits de bienvenue selon votre liste : café, thé, boissons, produits d’hygiène et consommables essentiels."},
- {img:"lavage-repassage.jpg",title:"Lavage et repassage",desc:"Entretien du linge de maison, lavage et repassage selon les besoins du logement et les modalités convenues."},
- {img:"prestations-specifiques.jpg",title:"Prestations spécifiques",desc:"Nettoyage complémentaire, préparation particulière ou demande ponctuelle : une solution étudiée avec vous."},
+  {
+    img: 'reassort-courses.webp',
+    quoteService: 'Courses et réassort',
+    title: 'Réassort de courses',
+    desc: 'Courses et produits de bienvenue selon votre liste : café, thé, boissons, produits d’hygiène et consommables essentiels.',
+  },
+  {
+    img: 'lavage-repassage.webp',
+    quoteService: 'Blanchisserie et linge',
+    title: 'Lavage et repassage',
+    desc: 'Entretien du linge de maison, lavage et repassage selon les besoins du logement et les modalités convenues.',
+  },
+  {
+    img: 'prestations-specifiques.webp',
+    quoteService: 'Services complémentaires',
+    title: 'Prestations spécifiques',
+    desc: 'Nettoyage complémentaire, préparation particulière ou demande ponctuelle : une solution étudiée avec vous.',
+  },
 ];
-const faq=[
- {q:"Puis-je choisir une seule prestation ?",a:"Oui, les services sont proposés à la carte, sous réserve de disponibilité et selon les modalités définies ensemble."},
- {q:"Les achats sont-ils compris dans le tarif ?",a:"Les produits achetés et consommables ne sont pas inclus automatiquement dans le prix de l’intervention. Leur coût et les éventuels frais de courses sont précisés dans le devis."},
- {q:"Proposez-vous un service régulier ?",a:"Oui, nous pouvons prévoir des interventions ponctuelles ou récurrentes en fonction de votre calendrier de réservations."},
- {q:"Comment obtenir un devis ?",a:"Nous établissons un devis selon les services demandés, le logement et la fréquence. Consultez aussi notre page Tarifs et formules pour connaître nos prix de départ."},
+const faq = [
+  {
+    q: 'Puis-je choisir une seule prestation ?',
+    a: 'Oui, les services sont proposés à la carte, sous réserve de disponibilité et selon les modalités définies ensemble.',
+  },
+  {
+    q: 'Les achats sont-ils compris dans le tarif ?',
+    a: 'Les produits achetés et consommables ne sont pas inclus automatiquement dans le prix de l’intervention. Leur coût et les éventuels frais de courses sont précisés dans le devis.',
+  },
+  {
+    q: 'Proposez-vous un service régulier ?',
+    a: 'Oui, nous pouvons prévoir des interventions ponctuelles ou récurrentes en fonction de votre calendrier de réservations.',
+  },
+  {
+    q: 'Comment obtenir un devis ?',
+    a: 'Nous établissons un devis selon les services demandés, le logement et la fréquence. Consultez aussi notre page Tarifs et formules pour connaître nos prix de départ.',
+  },
 ];
 ---
-<!doctype html><html lang="fr"><head>
-<meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Services complémentaires de conciergerie à Paris : réassort de courses, lavage, repassage et prestations spécifiques pour locations courte durée. Maison & Monde." />
-<link rel="icon" type="image/png" href="/favicon.png" />
-<title>Services complémentaires de conciergerie à Paris | Maison & Monde</title>
-</head><body><Header />
-<main class="ala">
-<section class="hero"><div class="hero-photo" aria-hidden="true"></div><div class="wrap hero-inner">
-<p class="eyebrow">CONCIERGERIE À PARIS ET EN ÎLE-DE-FRANCE</p>
-<h1>Services<br /><span>complémentaires</span></h1>
-<p>Réassort, entretien du linge et attentions particulières : choisissez les prestations qui simplifient vos locations de courte durée.</p>
-<div class="actions"><a class="button gold" href="#contact-conciergerie">Demander un devis personnalisé <span>→</span></a><a class="button ghost" href="#prestations">Découvrir nos services</a></div>
-</div><svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 35 C290 115 610 5 880 42 S1250 90 1440 32 L1440 90 H0Z" fill="white"/><path d="M0 35 C290 115 610 5 880 42 S1250 90 1440 32" fill="none" stroke="#d7a35c" stroke-width="2"/></svg></section>
-<section class="section know-how decorated"><div class="circle left" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 320 C290 25 510 420 820 165 S1200 40 1500 270"/></svg>
-<div class="wrap split top-layer"><div><p class="eyebrow">UN SERVICE À VOTRE IMAGE</p><h2>Les petits détails font <em>la différence</em></h2><p>Un séjour réussi repose aussi sur les attentions qui attendent les voyageurs. Nous vous aidons à préparer votre logement selon vos consignes, sans vous imposer une formule unique.</p>
-<ul class="checks"><li>Prestations à la carte</li><li>Organisation adaptée à vos réservations</li><li>Consignes personnalisées</li><li>Prix de départ consultables dans nos tarifs et formules ; montant exact sur devis</li></ul></div>
-<div class="image-frame"><img src="/images/conciergerie/services-complementaires.jpg" alt="Linge et produits de bienvenue préparés pour un séjour" loading="lazy" /></div></div></section>
-<section class="section extras decorated" id="prestations"><div class="circle right" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 130 C280 380 470 20 800 220 S1230 330 1500 95"/></svg><div class="wrap top-layer"><p class="eyebrow">NOS SERVICES COMPLÉMENTAIRES</p><h2>Choisissez <em>ce dont vous avez besoin</em></h2><p class="subtext">Trois familles de services complémentaires, à réserver seules ou en complément de nos forfaits par séjour.</p>
-<div class="extras-grid">{services.map(s=><article><img src={`/images/conciergerie/${s.img}`} alt={s.title} loading="lazy" /><div><h3>{s.title}</h3><p>{s.desc}</p><a href="#contact-conciergerie">Demander un devis →</a></div></article>)}</div></div></section>
-<section class="section process decorated"><div class="circle left" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 300 C250 45 550 410 900 150 S1200 40 1500 245"/></svg><div class="wrap top-layer"><p class="eyebrow">SIMPLE ET PERSONNALISÉ</p><h2>Comment ça <em>fonctionne ?</em></h2><div class="steps">
-<article><div class="step-number">01</div><h3>Vous choisissez</h3><p>Indiquez les prestations qui vous intéressent.</p></article>
-<article><div class="step-number">02</div><h3>Nous échangeons</h3><p>Nous précisons les consignes, les besoins et les disponibilités.</p></article>
-<article><div class="step-number">03</div><h3>Nous préparons</h3><p>Nous organisons les services convenus pour votre logement.</p></article>
-<article><div class="step-number">04</div><h3>Vous restez informé</h3><p>Nous vous signalons les points utiles selon les modalités définies.</p></article>
-</div></div></section>
-<section class="section linen decorated"><div class="circle right" aria-hidden="true"></div><svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 85 C320 360 510 30 830 190 S1170 355 1500 120"/></svg><div class="wrap split top-layer"><div class="image-frame"><img src="/images/conciergerie/reassort-courses.jpg" alt="Panier de produits de bienvenue dans un appartement" loading="lazy" /></div><div><p class="eyebrow">DES ATTENTIONS POUR VOS VOYAGEURS</p><h2>Un accueil <em>soigné jusque dans les détails</em></h2><p>Du café à l'arrivée au linge fraîchement préparé, nous adaptons nos interventions à votre logement et aux attentes de vos voyageurs.</p><ul class="checks"><li>Liste de courses définie ensemble</li><li>Préparation des produits d’accueil</li><li>Gestion du linge selon vos besoins</li><li>Demandes particulières étudiées sur devis</li></ul></div></div></section>
-<section class="section faq decorated"><div class="wrap top-layer"><p class="eyebrow">QUESTIONS FRÉQUENTES</p><h2>Tout savoir sur <em>nos services à la carte</em></h2><div class="faq-list">{faq.map(item=><details><summary>{item.q}<span aria-hidden="true">+</span></summary><p>{item.a}</p></details>)}</div></div></section>
-<section class="closing" id="contact-conciergerie"><svg class="closing-wave" viewBox="0 0 1440 75" preserveAspectRatio="none" aria-hidden="true"><path d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5 L1440 0 H0Z" fill="white"/><path d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5" stroke="#d7a35c" fill="none" stroke-width="2"/></svg><div class="wrap closing-grid"><div><p class="eyebrow">UN ACCOMPAGNEMENT SUR MESURE</p><h2>Des services adaptés <em>à votre logement</em></h2><p>Choisissez des interventions ponctuelles ou régulières, seules ou en complément des formules Essentielle, Confort et Premium. Les prix de départ sont indiqués sur notre page Tarifs et formules ; votre devis confirme le montant exact.</p><a class="button gold" href="/conciergerie/tarifs-formules/">Voir nos tarifs et formules <span>→</span></a></div><div class="closing-photo"><img src="/images/conciergerie/salon-conciergerie.jpg" alt="Salon parisien prêt pour les voyageurs" loading="lazy" /></div></div></section>
-</main><Footer /></body></html>
-<style is:global>
-.ala{--navy:#092942;--gold:#d19b4e;--muted:#5d7182;color:var(--navy);font-family:Arial,Helvetica,sans-serif;overflow:hidden;background:#fff}.ala *{box-sizing:border-box}.ala .wrap{width:min(1180px,calc(100% - 52px));margin-inline:auto}.ala h1,.ala h2,.ala h3{font-family:Georgia,'Times New Roman',serif;font-weight:400}.ala h2{font-size:clamp(32px,3.8vw,49px);line-height:1.13;margin:0 0 22px}.ala h2 em,.ala h1 span{font-style:normal;color:var(--gold)}.ala p{line-height:1.65}.ala .eyebrow{font-size:11px;letter-spacing:2.2px;color:#bf873c;font-weight:800;margin:0 0 18px}.ala .section{position:relative;padding:94px 0}.ala .decorated{overflow:hidden;isolation:isolate}.ala .top-layer{position:relative;z-index:2}.ala .circle{position:absolute;z-index:0;border:1.4px solid #d3a15c;border-radius:50%;width:350px;height:350px;box-shadow:0 0 0 22px #e1f1fb91,0 0 0 42px #e9f6ff6b;pointer-events:none}.ala .circle.left{left:-320px;top:25%}.ala .circle.right{right:-320px;bottom:10%}.ala .ribbon{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}.ala .ribbon path{fill:none;stroke:#d4a15d;stroke-width:1.25;vector-effect:non-scaling-stroke;opacity:.5}.ala .hero{position:relative;min-height:620px;display:flex;align-items:center;background:#102e48;color:#fff}.ala .hero-photo{position:absolute;inset:0;background:url('/images/conciergerie/menage-preparation.jpg') center 52%/cover no-repeat}.ala .hero:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#061d32f2 0%,#08283ecb 43%,#09283e1f 83%);z-index:1}.ala .hero-inner{position:relative;z-index:2;padding:90px 0 115px}.ala .hero h1{font-size:clamp(49px,5.7vw,78px);line-height:1.06;margin:0 0 23px}.ala .hero-inner>p:not(.eyebrow){max-width:445px;font-size:16px}.ala .hero .eyebrow{color:#e5ae5c}.ala .actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:32px}.ala .button{display:inline-flex;align-items:center;justify-content:center;gap:17px;border-radius:50px;padding:15px 23px;font-size:13px;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}.ala .button:hover{transform:translateY(-3px);box-shadow:0 12px 24px #081c3450}.ala .button.gold{background:#f7bb53;color:#132c41;box-shadow:0 9px 22px #081c3436}.ala .button.ghost{color:#fff;border:1px solid #ffffffab}.ala .hero-wave{position:absolute;bottom:-1px;left:0;width:100%;height:82px;z-index:2}.ala .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.ala .split p:not(.eyebrow){color:var(--muted);max-width:540px}.ala .image-frame img{display:block;width:100%;height:355px;object-fit:cover;border-radius:22px;box-shadow:0 25px 43px #0b2b4a37}.ala .benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}.ala .benefits div{font-size:11px;text-align:center;font-weight:700;line-height:1.4}.ala .benefits span{display:grid;place-items:center;margin:0 auto 9px;width:48px;height:48px;border:1.4px solid var(--gold);border-radius:50%;color:#0c456b;font-size:27px;font-weight:400;background:#fff;box-shadow:0 5px 13px #0a2d4518}.ala .process{background:#f5f9fc}.ala .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:42px}.ala .steps article{position:relative}.ala .steps article:not(:last-child):after{content:'→';position:absolute;right:-23px;top:78px;font-size:25px;color:#bd904f}.ala .step-photo{position:relative}.ala .step-photo img{width:100%;height:170px;object-fit:cover;border-radius:15px;display:block;box-shadow:0 14px 28px #092f4b29}.ala .step-photo b{position:absolute;left:12px;bottom:-15px;background:#f3b84f;color:white;border:3px solid #fff;width:45px;height:45px;display:grid;place-items:center;border-radius:50%;font-size:12px}.ala .steps h3{font-size:23px;margin:30px 0 8px}.ala .steps p{font-size:13px;color:var(--muted);margin:0}.ala .results{background:#fff}.ala .subtext{color:var(--muted);margin:-7px 0 28px}.ala .comparison{display:grid;grid-template-columns:1fr 1fr;gap:22px;position:relative}.ala .comparison figure{position:relative;margin:0;min-width:0}.ala .comparison img{width:100%;height:290px;object-fit:cover;border-radius:18px;display:block;box-shadow:0 19px 34px #092d4c32}.ala .comparison figcaption{position:absolute;top:16px;left:16px;background:#fff;padding:10px 18px;border-radius:22px;font-size:13px;font-weight:700}.ala .comparison figure:last-child figcaption{background:#f5b84f}.ala .comparison-arrow{position:absolute;z-index:3;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border:3px solid #f1b95c;border-radius:50%;width:55px;height:55px;display:grid;place-items:center;font-size:26px;box-shadow:0 8px 20px #082b4733}.ala .note{font-size:11px;color:#72818e;margin-top:16px}.ala .linen{background:#fbfcfe}.ala .checks{padding:0;list-style:none;margin:22px 0 0}.ala .checks li{position:relative;padding:9px 0 9px 39px;font-size:14px}.ala .checks li:before{content:'✓';position:absolute;left:0;top:6px;background:#e9ac4d;color:#fff;border-radius:50%;width:26px;height:26px;display:grid;place-items:center;font-weight:800}.ala .extras{background:#f8fbfd}.ala .extras-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:37px}.ala .extras-grid article{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 19px 33px #0a2c4930;border:1px solid #e6ebef}.ala .extras-grid img{display:block;width:100%;height:170px;object-fit:cover}.ala .extras-grid article>div{padding:22px}.ala .extras-grid h3{font-size:23px;margin:0 0 10px}.ala .extras-grid p{font-size:13px;color:var(--muted);min-height:62px}.ala .extras-grid a{font-size:13px;color:#15587c;text-decoration:none;font-weight:700}.ala .closing{position:relative;background:linear-gradient(110deg,#06243b,#125071);color:white;overflow:hidden}.ala .closing-wave{position:absolute;top:-1px;left:0;width:100%;height:75px;z-index:2}.ala .closing-grid{display:grid;grid-template-columns:1fr 44%;align-items:center;gap:55px;min-height:425px}.ala .closing-grid>div{padding:110px 0 75px}.ala .closing h2{font-size:clamp(32px,3.7vw,48px)}.ala .closing p:not(.eyebrow){max-width:540px}.ala .closing .button{margin-top:20px}.ala .closing-photo{position:relative;align-self:stretch;min-height:425px;overflow:hidden;clip-path:ellipse(90% 78% at 88% 52%)}.ala .closing-photo:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border-left:2px solid #d5a65d}.ala .closing-photo img{height:100%;width:100%;object-fit:cover;display:block;filter:saturate(1.04)}
-@media(max-width:900px){.ala .split{gap:32px}.ala .steps{gap:16px}.ala .steps article:not(:last-child):after{right:-17px}.ala .step-photo img{height:130px}.ala .benefits{grid-template-columns:repeat(2,1fr)}.ala .extras-grid{gap:14px}}
-@media(max-width:650px){.ala .wrap{width:calc(100% - 36px)}.ala .section{padding:66px 0}.ala .hero{min-height:600px}.ala .hero-inner{padding:90px 0 115px}.ala .hero h1{font-size:46px}.ala .hero:before{background:linear-gradient(90deg,#061d32e8,#09283eb8)}.ala .hero-wave{height:47px}.ala .split,.ala .comparison,.ala .closing-grid{grid-template-columns:1fr}.ala .split{gap:30px}.ala .steps{grid-template-columns:repeat(2,1fr);gap:30px 17px}.ala .steps article:after{display:none}.ala .step-photo img{height:135px}.ala .steps h3{font-size:20px}.ala .comparison img{height:220px}.ala .comparison-arrow{top:50%;width:45px;height:45px}.ala .extras-grid{grid-template-columns:1fr}.ala .extras-grid img{height:200px}.ala .extras-grid p{min-height:0}.ala .image-frame img{height:265px}.ala .circle{width:240px;height:240px}.ala .circle.left{left:-225px}.ala .circle.right{right:-225px}.ala .ribbon{opacity:.4}.ala .closing-grid{gap:0}.ala .closing-grid>div{padding:100px 0 35px}.ala .closing-photo{min-height:230px;clip-path:ellipse(95% 90% at 52% 100%)}.ala .closing-photo img{height:230px}.ala .actions{flex-direction:column;align-items:flex-start}}
-@media(prefers-reduced-motion:reduce){.ala .button{transition:none}.ala .button:hover{transform:none}}
-</style>
 
-<style is:global>
-/* Hero pleine largeur : aucune bordure ni cadre autour de la photographie. */
-.ala .hero,.ala .hero-photo{border:0!important;border-radius:0!important;box-shadow:none!important;outline:0!important}
-/* Courbes dorées et volume discret, sans recouvrir les contenus. */
-.ala .know-how .image-frame img{border-radius:43% 57% 52% 48% / 50% 43% 57% 50%;box-shadow:22px 23px 0 #e7f3fb,0 30px 48px #092d4c29}
-.ala .closing-grid{width:min(1280px,calc(100% - 52px))}
-@media(max-width:650px){.ala .closing-grid{width:calc(100% - 36px)}.ala .know-how .image-frame img{box-shadow:12px 14px 0 #e7f3fb,0 19px 30px #092d4c24}}
-</style>
+<Layout
+  title="Services complémentaires de conciergerie à Paris | Maison & Monde"
+  description="Services complémentaires de conciergerie à Paris : réassort de courses, lavage, repassage et prestations spécifiques pour locations courte durée. Maison & Monde."
+>
+  <div class="ala">
+    <section class="hero">
+      <div class="hero-photo" aria-hidden="true"></div>
+      <div class="wrap hero-inner">
+        <p class="eyebrow">CONCIERGERIE À PARIS ET EN ÎLE-DE-FRANCE</p>
+        <h1>
+          Services
+          <br />
+          <span>complémentaires</span>
+        </h1>
+        <p>
+          Réassort, entretien du linge et attentions particulières : choisissez les prestations qui
+          simplifient vos locations de courte durée.
+        </p>
+        <div class="actions">
+          <a class="button gold" href="#contact-conciergerie">
+            Demander un devis personnalisé <span>→</span>
+          </a>
+          <a class="button ghost" href="#prestations">
+            Découvrir nos services
+          </a>
+        </div>
+      </div>
+      <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 35 C290 115 610 5 880 42 S1250 90 1440 32 L1440 90 H0Z" fill="white" />
+        <path
+          d="M0 35 C290 115 610 5 880 42 S1250 90 1440 32"
+          fill="none"
+          stroke="#d7a35c"
+          stroke-width="2"
+        />
+      </svg>
+    </section>
+    <section class="section know-how decorated">
+      <div class="circle left" aria-hidden="true"></div>
+      <svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-60 320 C290 25 510 420 820 165 S1200 40 1500 270" />
+      </svg>
+      <div class="wrap split top-layer">
+        <div>
+          <p class="eyebrow">UN SERVICE À VOTRE IMAGE</p>
+          <h2>
+            Les petits détails font <em>la différence</em>
+          </h2>
+          <p>
+            Un séjour réussi repose aussi sur les attentions qui attendent les voyageurs. Nous vous aidons à
+            préparer votre logement selon vos consignes, sans vous imposer une formule unique.
+          </p>
+          <ul class="checks">
+            <li>Prestations à la carte</li>
+            <li>Organisation adaptée à vos réservations</li>
+            <li>Consignes personnalisées</li>
+            <li>Prix de départ consultables dans nos tarifs et formules ; montant exact sur devis</li>
+          </ul>
+        </div>
+        <div class="image-frame">
+          <img
+            src="/images/conciergerie/services-complementaires.webp"
+            alt="Linge et produits de bienvenue préparés pour un séjour"
+            loading="lazy"
+            srcset="/images/conciergerie/services-complementaires-480.webp 480w, /images/conciergerie/services-complementaires-960.webp 960w, /images/conciergerie/services-complementaires.webp 1536w"
+            sizes="(max-width: 780px) 100vw, 50vw"
+            width="1536"
+            height="1024"
+          />
+        </div>
+      </div>
+    </section>
+    <SectionBand theme="carte" className="avantages-section" />
 
-<style is:global>
-/* Visuel validé : hero bord à bord, sans liseré blanc. */
-.ala .hero{width:100%;margin:0!important;border:none!important;overflow:hidden}
-.ala .hero-photo{inset:0!important;border:none!important;border-radius:0!important}
-.ala .hero-wave{bottom:-2px}
-/* Photographie savoir-faire : découpe organique asymétrique. */
-.ala .know-how .image-frame{position:relative;isolation:isolate}
-.ala .know-how .image-frame::after{content:"";position:absolute;inset:4% -4% -4% 4%;background:#eaf4fa;border-radius:42% 58% 55% 45% / 48% 39% 61% 52%;z-index:-1}
-.ala .know-how .image-frame img{border-radius:42% 58% 55% 45% / 48% 39% 61% 52%!important;box-shadow:0 20px 42px #092d4c22!important}
-/* Bande finale : image en forme de galet, entièrement visible et filet doré. */
-.ala .closing-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:55px}
-.ala .closing-photo{align-self:center;min-height:0;height:295px;overflow:visible;clip-path:none!important;border:1.5px solid #d5a65d;border-radius:46% 54% 58% 42% / 59% 42% 58% 41%;padding:5px;transform:rotate(-2deg);box-shadow:0 24px 42px #001a2b44}
-.ala .closing-photo:before{display:none!important}
-.ala .closing-photo img{width:100%;height:100%;object-fit:cover;border-radius:inherit;transform:rotate(2deg);clip-path:ellipse(74% 67% at 50% 50%)}
-@media(max-width:650px){.ala .closing-grid{grid-template-columns:1fr;gap:12px}.ala .closing-photo{height:235px;margin-bottom:45px;transform:none}.ala .closing-photo img{transform:none}.ala .know-how .image-frame::after{inset:3% -2% -3% 2%}}
-</style>
-
-<style is:global>
-/* Corrections ciblées : seulement les deux éléments indiqués. */
-/* Hero bord à bord même si un conteneur parent ajoute une marge. */
-.ala .hero{width:100vw!important;max-width:none!important;position:relative;left:50%;margin-left:-50vw!important;margin-right:0!important;border:0!important;outline:0!important;box-shadow:none!important}
-.ala .hero-photo{inset:0!important}
-/* Image de fin : remplissage intégral de la forme organique, sans fente horizontale. */
-.ala .closing-photo{position:relative!important;overflow:hidden!important;padding:0!important;transform:none!important;border:2px solid #d5a65d!important;border-radius:48% 52% 58% 42% / 58% 48% 52% 42%!important;clip-path:none!important;box-shadow:0 22px 42px #001a2b44!important}
-.ala .closing-photo img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;transform:none!important;clip-path:none!important;border-radius:inherit!important}
-@media(max-width:650px){.ala .closing-photo{height:235px!important}}
-</style>
-
-<style is:global>
-/* Suppression du cadre blanc provenant des marges globales du navigateur. */
-html, body { margin: 0 !important; padding: 0 !important; width: 100%; }
-body { overflow-x: clip; }
-body > main.ala, main.ala { margin: 0 !important; padding: 0 !important; width: 100% !important; max-width: none !important; }
-main.ala > section.hero { width: 100% !important; left: auto !important; margin: 0 !important; border: 0 !important; border-radius: 0 !important; }
-main.ala > section.hero .hero-photo { inset: 0 !important; }
-</style>
-
-<style is:global>
-/* Nouvelle forme organique panoramique et arabesques dorées — section finale uniquement. */
-.ala .closing-grid{position:relative;isolation:isolate}
-.ala .closing-grid::after{content:"";position:absolute;z-index:0;pointer-events:none;right:-9%;top:15%;width:61%;height:78%;border:1.5px solid rgba(227,174,92,.8);border-radius:54% 46% 58% 42% / 48% 58% 42% 52%;transform:rotate(-10deg)}
-.ala .closing-grid>div{position:relative;z-index:1}
-.ala .closing-photo{z-index:2!important;width:100%!important;height:325px!important;min-height:0!important;border:2px solid #e0ad62!important;border-radius:48% 52% 57% 43% / 63% 44% 56% 37%!important;transform:rotate(-5deg)!important;overflow:hidden!important;box-shadow:0 22px 40px #00182766!important}
-.ala .closing-photo img{border-radius:0!important;transform:rotate(5deg) scale(1.16)!important;object-fit:cover!important}
-.ala .closing::after{content:"";position:absolute;right:-15%;bottom:-55%;width:55%;height:90%;border:1px solid rgba(221,165,81,.45);border-radius:50%;transform:rotate(-18deg);pointer-events:none}
-@media(max-width:650px){.ala .closing-photo{height:235px!important;transform:rotate(-3deg)!important}.ala .closing-photo img{transform:rotate(3deg) scale(1.18)!important}.ala .closing-grid::after{width:105%;right:-10%;top:55%;height:38%}}
-</style>
-
-
-<style is:global>
-/* Maison & Monde — profondeur douce, cartes flottantes et apparitions desktop. */
-.ala { --mm-shadow: 0 15px 28px rgba(8,38,62,.12), 0 28px 58px rgba(8,38,62,.10); }
-.ala .extras-grid article,
-.ala .steps article,
-.ala .comparison figure,
-.ala .image-frame,
-.ala .benefits div { position:relative; }
-.ala .extras-grid article {
-  box-shadow:var(--mm-shadow), 0 2px 5px rgba(8,38,62,.06);
-  transition:transform .65s cubic-bezier(.22,1,.36,1), box-shadow .65s ease;
-}
-.ala .steps article {
-  background:rgba(255,255,255,.87);
-  border:1px solid rgba(221,231,239,.82);
-  border-radius:18px;
-  padding:0 0 22px;
-  box-shadow:0 12px 27px rgba(8,38,62,.10),0 22px 44px rgba(8,38,62,.06);
-  transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease;
-}
-.ala .steps article h3,.ala .steps article p{margin-left:16px;margin-right:16px}
-.ala .step-photo img{border-radius:17px 17px 10px 10px;box-shadow:0 12px 25px rgba(8,38,62,.13)}
-.ala .comparison figure {border-radius:18px;box-shadow:var(--mm-shadow);transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease}
-.ala .comparison figure img{box-shadow:none}
-.ala .image-frame{filter:drop-shadow(0 15px 22px rgba(8,38,62,.13));transition:transform .65s cubic-bezier(.22,1,.36,1),filter .65s ease}
-.ala .benefits div{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:15px 8px 13px;border-radius:17px;
-  background:#fff;border:1px solid rgba(225,234,241,.8);
-  box-shadow:0 8px 18px rgba(8,38,62,.09),0 16px 30px rgba(8,38,62,.07);
-  transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease;
-}
-/* Cercles et icônes harmonisés — Notre savoir-faire */
-.ala .benefits div span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 38px;
-  height: 38px;
-
-  margin: 0 auto 8px;
-  padding: 0;
-
-  border-radius: 50%;
-  background: #f4faff;
-  box-shadow: 0 5px 11px rgba(8,38,62,.10);
-
-  font-family: Arial, sans-serif;
-  font-size: 27px;
-  font-weight: 400;
-  line-height: 1;
-}
-
-
-
-.ala .closing-photo{box-shadow:0 22px 45px rgba(0,16,31,.48),0 35px 65px rgba(0,16,31,.25)!important;transition:box-shadow .38s ease,filter .38s ease}
-@media(min-width:901px) and (hover:hover){
- .ala .extras-grid article:hover,.ala .steps article:hover,.ala .comparison figure:hover{transform:translateY(-4px);box-shadow:0 23px 37px rgba(8,38,62,.16),0 36px 68px rgba(8,38,62,.12)}
- .ala .image-frame:hover{transform:translateY(-3px);filter:drop-shadow(0 22px 28px rgba(8,38,62,.18))}
- .ala .closing-photo:hover{filter:brightness(1.035);box-shadow:0 30px 58px rgba(0,16,31,.5),0 42px 80px rgba(0,16,31,.26)!important}
-}
-/* Les éléments ne sont masqués qu'après initialisation de l'observateur JS. */
-@media(min-width:901px) and (prefers-reduced-motion:no-preference){
- .ala.mm-reveal-ready .mm-reveal:not(.mm-visible){opacity:0;translate:0 28px}
- .ala.mm-reveal-ready .mm-reveal{transition:opacity .75s ease,translate .75s cubic-bezier(.2,.75,.25,1);transition-delay:var(--mm-delay,0ms)}
- .ala.mm-reveal-ready .mm-reveal.mm-visible{opacity:1;translate:0 0}
-}
-@media(max-width:900px),(prefers-reduced-motion:reduce){
- .ala .extras-grid article,.ala .steps article,.ala .comparison figure,.ala .image-frame,.ala .closing-photo,.ala .benefits div{transition:none!important;transform:none!important}
- .ala .mm-reveal{opacity:1!important;translate:none!important}
-}
-
-/* Flottement doux des quatre cartes du savoir-faire — ordinateur uniquement. */
-@media (min-width: 901px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .ala .know-how .benefits > div {
-    transition: transform .8s cubic-bezier(.22,1,.36,1), box-shadow .8s ease;
-    will-change: auto;
-  }
-  .ala .know-how .benefits > div:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 27px rgba(8,38,62,.14), 0 25px 43px rgba(8,38,62,.10);
-  }
-  .ala .know-how .benefits > div > span {
-    transition: box-shadow .8s ease;
-  }
-  .ala .know-how .benefits > div:hover > span {
-    box-shadow: 0 7px 16px rgba(8,38,62,.17);
-  }
-}
-
-/* Dimensions uniformes des quatre SVG */
-.ala .benefits > div > span svg {
-  display: block;
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  stroke: #164b73;
-}
-/* Hauteur identique à la page principale Conciergerie */
-@media (min-width: 901px) {
-  main.ala > section.hero {
-    box-sizing: border-box;
-    height: 720px !important;
-    min-height: 720px !important;
-    max-height: 720px !important;
-  }
-  main.ala > section.hero .hero-inner {
-    padding-top: 60px;
-    padding-bottom: 80px;
-  }
-}
-</style>
-
-<style is:global>
-/* Styles propres à la page services à la carte */
-.ala .hero-photo{background-image:url('/images/conciergerie/services-complementaires.jpg')}
-.ala .hero h1{font-size:clamp(48px,5.3vw,75px)}
-.ala .extras-grid article{transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease}
-.ala .steps article{background:#fff;padding:26px 20px;border:1px solid #e3ecf2;border-radius:17px;box-shadow:0 12px 25px #082b4720,0 22px 35px #082b4715;transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease}
-.ala .steps article:not(:last-child):after{top:85px}
-.ala .step-number{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#f5b84f;color:#0c2941;font-size:12px;font-weight:800;box-shadow:0 6px 12px #0a2c4920}
-.ala .steps h3{margin:20px 0 10px}
-.ala .image-frame img{border-radius:48% 52% 55% 45% / 45% 47% 53% 55%;box-shadow:14px 17px 0 #e5f2f8,0 30px 42px #092c4b32}
-.ala .faq{background:#f4f9fc}
-.ala .faq-list{max-width:840px;display:grid;gap:12px;margin-top:34px}
-.ala .faq details{background:#fff;border:1px solid #e1ebf1;border-radius:15px;padding:0 22px;box-shadow:0 12px 25px #092b4a1e,0 18px 30px #092b4a12}
-.ala .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:22px 0;font-size:14px;font-weight:700}
-.ala .faq summary::-webkit-details-marker{display:none}
-.ala .faq summary span{color:#cb8d37;font-size:23px}
-.ala .faq details[open] summary span{transform:rotate(45deg)}
-.ala .faq details p{font-size:14px;color:#5d7182;margin:0;padding:0 0 22px}
-@media(min-width:901px) and (hover:hover){.ala .extras-grid article:hover,.ala .steps article:hover{transform:translateY(-4px);box-shadow:0 20px 35px #082b4730,0 27px 44px #082b471a}}
-@media(max-width:650px){.ala .steps{grid-template-columns:1fr 1fr}.ala .steps article{padding:18px 14px}.ala .hero h1{font-size:clamp(39px,9vw,53px)}.ala .faq summary{font-size:13px}}
-@media(prefers-reduced-motion:reduce){.ala .extras-grid article,.ala .steps article{transition:none}}
-</style>
+    <section class="section extras decorated" id="prestations">
+      <div class="circle right" aria-hidden="true"></div>
+      <svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-60 130 C280 380 470 20 800 220 S1230 330 1500 95" />
+      </svg>
+      <div class="wrap top-layer">
+        <p class="eyebrow">NOS SERVICES COMPLÉMENTAIRES</p>
+        <h2>
+          Choisissez <em>ce dont vous avez besoin</em>
+        </h2>
+        <p class="subtext">
+          Trois familles de services complémentaires, à réserver seules ou en complément de nos forfaits par
+          séjour.
+        </p>
+        <div class="extras-grid">
+          {services.map((s) => (
+            <article>
+              <img src={`/images/conciergerie/${s.img}`} alt={s.title} loading="lazy" />
+              <div>
+                <h3>{s.title}</h3>
+                <p>{s.desc}</p>
+                <a href={`/conciergerie/demande-de-devis/?service=${encodeURIComponent(s.quoteService)}`}>
+                  Demander un devis →
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="section process decorated">
+      <div class="circle left" aria-hidden="true"></div>
+      <svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-60 300 C250 45 550 410 900 150 S1200 40 1500 245" />
+      </svg>
+      <div class="wrap top-layer">
+        <p class="eyebrow">SIMPLE ET PERSONNALISÉ</p>
+        <h2>
+          Comment ça <em>fonctionne ?</em>
+        </h2>
+        <div class="steps">
+          <article>
+            <div class="step-number">01</div>
+            <h3>Vous choisissez</h3>
+            <p>Indiquez les prestations qui vous intéressent.</p>
+          </article>
+          <article>
+            <div class="step-number">02</div>
+            <h3>Nous échangeons</h3>
+            <p>Nous précisons les consignes, les besoins et les disponibilités.</p>
+          </article>
+          <article>
+            <div class="step-number">03</div>
+            <h3>Nous préparons</h3>
+            <p>Nous organisons les services convenus pour votre logement.</p>
+          </article>
+          <article>
+            <div class="step-number">04</div>
+            <h3>Vous restez informé</h3>
+            <p>Nous vous signalons les points utiles selon les modalités définies.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section linen decorated">
+      <div class="circle right" aria-hidden="true"></div>
+      <svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-60 85 C320 360 510 30 830 190 S1170 355 1500 120" />
+      </svg>
+      <div class="wrap split top-layer">
+        <div class="image-frame">
+          <img
+            src="/images/conciergerie/reassort-courses.webp"
+            alt="Panier de produits de bienvenue dans un appartement"
+            loading="lazy"
+            srcset="/images/conciergerie/reassort-courses-480.webp 480w, /images/conciergerie/reassort-courses-960.webp 960w, /images/conciergerie/reassort-courses.webp 1536w"
+            sizes="(max-width: 780px) 100vw, 50vw"
+            width="1536"
+            height="1024"
+          />
+        </div>
+        <div>
+          <p class="eyebrow">DES ATTENTIONS POUR VOS VOYAGEURS</p>
+          <h2>
+            Un accueil <em>soigné jusque dans les détails</em>
+          </h2>
+          <p>
+            Du café à l'arrivée au linge fraîchement préparé, nous adaptons nos interventions à votre logement
+            et aux attentes de vos voyageurs.
+          </p>
+          <ul class="checks">
+            <li>Liste de courses définie ensemble</li>
+            <li>Préparation des produits d’accueil</li>
+            <li>Gestion du linge selon vos besoins</li>
+            <li>Demandes particulières étudiées sur devis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section faq decorated">
+      <div class="wrap top-layer">
+        <p class="eyebrow">QUESTIONS FRÉQUENTES</p>
+        <h2>
+          Tout savoir sur <em>nos services à la carte</em>
+        </h2>
+        <div class="faq-list">
+          {faq.map((item) => (
+            <details>
+              <summary>
+                {item.q}
+                <span aria-hidden="true">+</span>
+              </summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="closing" id="contact-conciergerie">
+      <svg class="closing-wave" viewBox="0 0 1440 75" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5 L1440 0 H0Z" fill="white" />
+        <path
+          d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5"
+          stroke="#d7a35c"
+          fill="none"
+          stroke-width="2"
+        />
+      </svg>
+      <div class="wrap closing-grid">
+        <div>
+          <p class="eyebrow">UN ACCOMPAGNEMENT SUR MESURE</p>
+          <h2>
+            Des services adaptés <em>à votre logement</em>
+          </h2>
+          <p>
+            Choisissez des interventions ponctuelles ou régulières, seules ou en complément des formules
+            Essentielle, Confort et Premium. Les prix de départ sont indiqués sur notre page Tarifs et
+            formules ; votre devis confirme le montant exact.
+          </p>
+          <a class="button gold" href="/conciergerie/tarifs-formules/">
+            Voir nos tarifs et formules <span>→</span>
+          </a>
+        </div>
+        <div class="closing-photo">
+          <img
+            src="/images/conciergerie/salon-conciergerie.webp"
+            alt="Salon parisien prêt pour les voyageurs"
+            loading="lazy"
+            srcset="/images/conciergerie/salon-conciergerie-480.webp 480w, /images/conciergerie/salon-conciergerie-960.webp 960w, /images/conciergerie/salon-conciergerie.webp 1600w"
+            sizes="(max-width: 780px) 100vw, 50vw"
+            width="1600"
+            height="595"
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

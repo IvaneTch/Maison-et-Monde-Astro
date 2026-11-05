@@ -4,6 +4,7 @@ import node from "@astrojs/node";
 
 // Configuration Astro — Maison & Monde
 export default defineConfig({
+  site: process.env.PUBLIC_SITE_URL || "https://maisonetmonde.fr",
   output: "server",
 
   adapter: node({

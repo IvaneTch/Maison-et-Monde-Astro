@@ -1,0 +1,23 @@
+---
+import InfoPage from '../../components/InfoPage.astro';
+import { pagesPubliques } from '../../data/pages';
+---
+
+<InfoPage
+  title="Plan du site | Maison & Monde"
+  heading="Toutes nos pages"
+  description="Retrouvez les services, devis, informations de contact et pages utiles de Maison & Monde."
+>
+  <section>
+    <h2>Services et informations</h2>
+    <ul>
+      {pagesPubliques
+        .filter(([url]) => url !== '/plan-du-site/')
+        .map(([href, label]) => (
+          <li>
+            <a href={href}>{label}</a>
+          </li>
+        ))}
+    </ul>
+  </section>
+</InfoPage>

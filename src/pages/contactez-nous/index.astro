@@ -1,17 +1,106 @@
 ---
-const titre = "contactez-nous";
+import '../../styles/contactez-nous.css';
+import SectionBand from '../../components/SectionBand.astro';
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import Icon from '../../components/ConciergerieIcon.astro';
+import { entreprise } from '../../data/entreprise';
+import '../../styles/services.css';
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maison & Monde | contactez-nous</title>
-  </head>
-  <body>
-    <main>
-      <h1>{titre}</h1>
-      <p>Cette page est en cours de préparation.</p>
-    </main>
-  </body>
-</html>
+<Layout
+  title="Contactez Maison & Monde | Paris et Île-de-France"
+  description="Contactez Maison & Monde pour votre ménage, repassage, nettoyage professionnel ou projet de conciergerie. Téléphone, e-mail et demande de rappel."
+>
+  <div class="sp contact-page">
+    <section class="sp-hero">
+      <div class="sp-copy">
+        <p class="sp-eyebrow">UN PREMIER ÉCHANGE, EN TOUTE SIMPLICITÉ</p>
+        <h1>
+          Parlons de
+          <br />
+          <em>votre projet.</em>
+        </h1>
+        <p>
+          Une question, un besoin ponctuel ou un accompagnement régulier ? Notre équipe est à votre écoute.
+        </p>
+        <div class="sp-trust">
+          <span>
+            <Icon name="phone" />
+            {entreprise.horaires}
+          </span>
+          <span>
+            <Icon name="pin" />
+            {entreprise.zone}
+          </span>
+        </div>
+      </div>
+      <div class="sp-visual">
+        <img
+          src="/images/hero-devis-detaille.webp"
+          alt="Préparation d’une demande de service dans un appartement parisien"
+          width="1200"
+          height="900"
+          fetchpriority="high"
+          srcset="/images/hero-devis-detaille-480.webp 480w, /images/hero-devis-detaille-960.webp 960w, /images/hero-devis-detaille.webp 1586w"
+          sizes="(max-width: 780px) 100vw, 50vw"
+        />
+        <span class="sp-orbit" aria-hidden="true"></span>
+      </div>
+    </section>
+    <SectionBand theme="contact" />
+
+    <section class="sp-section">
+      <div class="sp-wrap contact-layout">
+        <aside class="contact-details">
+          <p class="sp-eyebrow">MAISON & MONDE</p>
+          <h2>
+            À votre écoute,
+            <br />
+            <em>près de chez vous.</em>
+          </h2>
+          <div>
+            <Icon name="phone" />
+            <h3>Appelez-nous</h3>
+            <a href="tel:+33980386848">{entreprise.telephone}</a>
+            <a href="tel:+33745292585">{entreprise.mobile}</a>
+            <p>{entreprise.horaires}</p>
+          </div>
+          <div>
+            <Icon name="pin" />
+            <h3>Notre adresse</h3>
+            <p>
+              {entreprise.adresse}
+              <br />
+              {entreprise.codePostal} {entreprise.ville}
+            </p>
+            <a
+              href="https://www.google.com/maps/search/?api=1&amp;query=53+rue+Boulard+75014+Paris"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Voir l’itinéraire ↗
+            </a>
+          </div>
+          <div>
+            <h3>Écrivez-nous</h3>
+            <a href={`mailto:${entreprise.email}`}>{entreprise.email}</a>
+          </div>
+          <p>
+            Pour décrire votre logement, utilisez le <a href="/devis-detaille/">devis Ménage</a> ou le{' '}
+            <a href="/conciergerie/demande-de-devis/">devis Conciergerie</a>. Les entreprises peuvent{' '}
+            <a href="/devis-professionnel/">demander un devis professionnel dédié</a>.
+          </p>
+        </aside>
+        <div class="contact-panel">
+          <p class="sp-eyebrow">VOTRE MESSAGE</p>
+          <h2>
+            Comment pouvons-nous <em>vous aider ?</em>
+          </h2>
+          <p>Les champs marqués d’un * sont obligatoires.</p>
+          <ContactForm />
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,261 @@
+---
+import '../styles/section-band.css';
+import Icon from './ConciergerieIcon.astro';
+interface Props {
+  title?: string;
+  label?: string;
+  conciergerie?: boolean;
+  theme?: string;
+  className?: string;
+}
+const profils: Record<
+  string,
+  {
+    variant: string;
+    title: string;
+    label: string;
+    icon: string;
+    points: { icon: string; title: string; text: string }[];
+  }
+> = {
+  'grand-menage': {
+    variant: 'sweep',
+    title: 'Un nettoyage approfondi, préparé dans le détail.',
+    label: 'UN NOUVEAU DÉPART POUR VOTRE LOGEMENT',
+    icon: 'broom',
+    points: [
+      { icon: 'house', title: 'Les bonnes priorités', text: 'Des pièces et surfaces définies ensemble' },
+      { icon: 'clock', title: 'Le temps nécessaire', text: 'Une durée adaptée à l’état du logement' },
+      { icon: 'check', title: 'Un devis clair', text: 'Le périmètre et le tarif avant intervention' },
+    ],
+  },
+  linge: {
+    variant: 'ribbon',
+    title: 'Chaque pli compte. Votre temps aussi.',
+    label: 'LE SOIN DU LINGE À DOMICILE',
+    icon: 'linen',
+    points: [
+      { icon: 'linen', title: 'Vos textiles', text: 'Un repassage attentif à vos consignes' },
+      { icon: 'clock', title: 'Votre temps', text: 'Une tâche du quotidien déléguée' },
+      { icon: 'calendar', title: 'Votre rythme', text: 'Ponctuellement ou avec votre ménage' },
+    ],
+  },
+  bureaux: {
+    variant: 'diagonal',
+    title: 'Un cadre net. Une organisation claire.',
+    label: 'POUR VOS ÉQUIPES ET VOS VISITEURS',
+    icon: 'building',
+    points: [
+      { icon: 'building', title: 'Vos locaux', text: 'Un programme selon leur usage' },
+      { icon: 'key', title: 'Vos accès', text: 'Des passages organisés avec vous' },
+      { icon: 'calendar', title: 'Votre activité', text: 'Des horaires et une fréquence convenus' },
+    ],
+  },
+  contact: {
+    variant: 'panel',
+    title: 'Un projet commence par une conversation.',
+    label: 'À VOTRE ÉCOUTE DE 9 H À 20 H',
+    icon: 'phone',
+    points: [
+      { icon: 'phone', title: 'Par téléphone', text: 'Un échange direct avec notre équipe' },
+      { icon: 'user', title: 'Par message', text: 'Le temps de préciser votre demande' },
+      { icon: 'pin', title: 'Près de chez vous', text: 'Paris et Île-de-France' },
+    ],
+  },
+  regulier: {
+    variant: 'flow',
+    title: 'Un intérieur entretenu, un quotidien plus léger.',
+    label: 'UNE PRÉSENCE RÉGULIÈRE, DES HABITUDES RESPECTÉES',
+    icon: 'house',
+    points: [
+      { icon: 'calendar', title: 'La régularité', text: 'Des passages selon votre rythme' },
+      { icon: 'shield', title: 'La confiance', text: 'Des consignes connues et partagées' },
+      { icon: 'sparkle', title: 'Vos priorités', text: 'Une prestation adaptée à votre foyer' },
+    ],
+  },
+  occasionnel: {
+    variant: 'diagonal',
+    title: 'Ce qu’il vous faut, au bon moment.',
+    label: 'UNE INTERVENTION SELON VOTRE BESOIN',
+    icon: 'sparkle',
+    points: [
+      { icon: 'broom', title: 'Nettoyer', text: 'Un entretien ponctuel ou approfondi' },
+      { icon: 'linen', title: 'Prendre soin', text: 'Du linge et des espaces du quotidien' },
+      { icon: 'calendar', title: 'Organiser', text: 'Une date et un périmètre convenus' },
+    ],
+  },
+  test: {
+    variant: 'panel',
+    title: 'Faisons connaissance, chez vous.',
+    label: 'VOTRE PREMIÈRE INTERVENTION',
+    icon: 'house',
+    points: [
+      { icon: 'user', title: 'Un premier échange', text: 'Vous nous présentez vos attentes' },
+      { icon: 'broom', title: 'Une prestation définie', text: 'Les priorités sont précisées ensemble' },
+      { icon: 'check', title: 'Votre retour', text: 'Nous faisons le point avec vous' },
+    ],
+  },
+  gestion: {
+    variant: 'diagonal',
+    title: 'Votre location, une organisation sereine.',
+    label: 'COORDONNER LES SÉJOURS ET LES INTERVENTIONS',
+    icon: 'key',
+    points: [
+      { icon: 'calendar', title: 'Planifier', text: 'Les interventions liées aux séjours' },
+      { icon: 'key', title: 'Accueillir', text: 'Les arrivées selon votre organisation' },
+      { icon: 'shield', title: 'Suivre', text: 'Les besoins de votre logement' },
+    ],
+  },
+  preparation: {
+    variant: 'sweep',
+    title: 'Le plaisir d’arriver dans un logement prêt.',
+    label: 'ENTRE DEUX SÉJOURS, CHAQUE DÉTAIL COMPTE',
+    icon: 'broom',
+    points: [
+      { icon: 'broom', title: 'Un espace soigné', text: 'Une préparation selon les consignes' },
+      { icon: 'linen', title: 'Le linge prévu', text: 'Une mise en place organisée avec vous' },
+      { icon: 'check', title: 'Les derniers détails', text: 'Un regard avant la prochaine arrivée' },
+    ],
+  },
+  voyageurs: {
+    variant: 'ribbon',
+    title: 'Un accueil qui donne le ton du séjour.',
+    label: 'LA PREMIÈRE IMPRESSION COMPTE',
+    icon: 'key',
+    points: [
+      { icon: 'key', title: 'Les clés', text: 'Une remise organisée' },
+      { icon: 'user', title: 'Les voyageurs', text: 'Les informations utiles à leur arrivée' },
+      { icon: 'calendar', title: 'Les départs', text: 'Une coordination selon les séjours' },
+    ],
+  },
+  suivi: {
+    variant: 'panel',
+    title: 'Un regard attentif, même à distance.',
+    label: 'VOUS GARDEZ LA MAÎTRISE DE VOTRE LOGEMENT',
+    icon: 'tools',
+    points: [
+      { icon: 'house', title: 'Observer', text: 'Les points prévus lors du passage' },
+      { icon: 'phone', title: 'Vous informer', text: 'Les anomalies et besoins repérés' },
+      { icon: 'check', title: 'Agir avec accord', text: 'Les interventions définies ensemble' },
+    ],
+  },
+  carte: {
+    variant: 'diagonal',
+    title: 'Vos besoins dessinent votre conciergerie.',
+    label: 'L’ESSENTIEL, LES COMPLÉMENTS, VOTRE CHOIX',
+    icon: 'basket',
+    points: [
+      { icon: 'linen', title: 'Le linge', text: 'L’entretien et la préparation prévus' },
+      { icon: 'basket', title: 'Les essentiels', text: 'Les courses et le réassort convenus' },
+      { icon: 'sparkle', title: 'Les attentions', text: 'Des demandes étudiées au cas par cas' },
+    ],
+  },
+  tarifs: {
+    variant: 'panel',
+    title: 'Choisir sereinement, avec un devis précis.',
+    label: 'UNE PROPOSITION À LA MESURE DE VOTRE BIEN',
+    icon: 'check',
+    points: [
+      { icon: 'house', title: 'Le logement', text: 'Sa surface et sa configuration' },
+      { icon: 'calendar', title: 'Les séjours', text: 'Leur rythme et leur organisation' },
+      { icon: 'check', title: 'Les prestations', text: 'Les missions et frais explicités' },
+    ],
+  },
+  faq: {
+    variant: 'compact',
+    title: 'Une autre question sur votre projet ?',
+    label: 'NOTRE ÉQUIPE VOUS RÉPOND',
+    icon: 'phone',
+    points: [
+      { icon: 'phone', title: 'Un échange direct', text: '07 45 29 25 85' },
+      { icon: 'house', title: 'Votre logement', text: 'Une proposition personnalisée' },
+      { icon: 'shield', title: 'Sans engagement', text: 'Le temps de bien choisir' },
+    ],
+  },
+  'devis-menage': {
+    variant: 'compact',
+    title: 'Le soin commence par vos priorités.',
+    label: 'VOTRE DEMANDE DE DEVIS MÉNAGE',
+    icon: 'broom',
+    points: [
+      { icon: 'house', title: 'Votre logement', text: 'Ses caractéristiques' },
+      { icon: 'broom', title: 'Vos besoins', text: 'Les tâches souhaitées' },
+      { icon: 'calendar', title: 'Votre rythme', text: 'Les disponibilités utiles' },
+    ],
+  },
+  'devis-conciergerie': {
+    variant: 'compact',
+    title: 'Un projet locatif qui vous ressemble.',
+    label: 'CONSTRUISONS VOTRE ACCOMPAGNEMENT',
+    icon: 'key',
+    points: [
+      { icon: 'house', title: 'Votre bien', text: 'Son espace et ses voyageurs' },
+      { icon: 'key', title: 'Vos services', text: 'La formule qui vous convient' },
+      { icon: 'user', title: 'Notre échange', text: 'Une proposition personnalisée' },
+    ],
+  },
+};
+const { theme = 'regulier', title: customTitle, label: customLabel, className = '' } = Astro.props;
+const profil = profils[theme] || profils.regulier;
+const title = customTitle || profil.title;
+const label = customLabel || profil.label;
+const points = profil.points;
+const side = ['grand-menage', 'gestion', 'suivi', 'devis-conciergerie'].includes(theme) ? 'right' : 'left';
+---
+
+<section class:list={['mm-section-band', className]} data-theme={theme} data-variant={profil.variant} data-side={side} aria-label="Nos engagements">
+  <svg class="mm-band-lines" viewBox="0 0 1440 340" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="mm-home-band-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1440" y2="0">
+        <stop offset="0%" stop-color="var(--mm-band-blue-start)" />
+        <stop offset="28%" stop-color="var(--mm-band-blue-mid)" />
+        <stop offset="63%" stop-color="var(--mm-band-blue-deep)" />
+        <stop offset="100%" stop-color="var(--mm-band-blue-end)" />
+      </linearGradient>
+    </defs>
+    <path
+      class="mm-band-fill"
+      fill="url(#mm-home-band-gradient)"
+      d={
+        side === 'left'
+          ? 'M-20 58 C330 8 830 42 1460 20 L1460 315 C1060 355 480 295 -20 325 Z'
+          : 'M-20 20 C610 48 1110 3 1460 58 L1460 325 C960 295 380 355 -20 315 Z'
+      }
+    />
+    <path
+      d={
+        side === 'left'
+          ? 'M-30 54 C330 4 830 38 1470 16 M-30 321 C480 291 1060 351 1470 311'
+          : 'M-30 16 C610 44 1110 0 1470 54 M-30 311 C380 351 960 291 1470 321'
+      }
+    />
+    <path
+      d={
+        side === 'left'
+          ? 'M-30 64 C340 14 850 48 1470 26 M-30 331 C480 301 1070 361 1470 321'
+          : 'M-30 26 C620 54 1120 10 1470 64 M-30 321 C390 361 970 301 1470 331'
+      }
+    />
+  </svg>
+  <div class="mm-band-watermark" aria-hidden="true">
+    <Icon name={profil.icon} />
+  </div>
+  <div class="mm-band-inner">
+    <div class="mm-band-heading">
+      <p>{label}</p>
+      <h2>{title}</h2>
+    </div>
+    <div class="mm-band-points">
+      {points.map((point) => (
+        <div>
+          <span class="mm-band-icon">
+            <Icon name={point.icon} />
+          </span>
+          <h3>{point.title}</h3>
+          <p>{point.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+

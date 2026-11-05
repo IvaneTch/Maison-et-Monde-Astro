@@ -1,43 +1,44 @@
-# Astro Starter Kit: Minimal
+# Maison & Monde
+
+Site Astro avec serveur Node et base MySQL. Les prestations et le design sont propres à Maison & Monde ; aucune publication automatique n’est réalisée par ces scripts.
+
+## Démarrer en local
+
+Utiliser Node 24 (`nvm use`), puis :
 
 ```sh
-npm create astro@latest -- --template minimal
+npm ci
+npm run db:init
+npm run dev -- --background
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Le fichier `.env` local existant contient la connexion MySQL. Pour une nouvelle installation, copier `.env.example` vers `.env` et renseigner les valeurs sans les partager ni les versionner. MAMP utilise ici le port MySQL 8889 ; la valeur dépend de votre installation.
 
-## 🚀 Project Structure
+## Vérifier
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm test
+npm run format:check
+npm run build
+npm run audit
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+L’audit HTTP attend par défaut un site à `http://localhost:4321`. Pour une autre adresse : `python3 scripts/auditer-site.py http://localhost:4325`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Organisation
 
-Any static assets, like images, can be placed in the `public/` directory.
+- `src/pages` : routes publiques, administration et API.
+- `src/layouts` : cadre public commun et cadre des nouveaux écrans administrateur.
+- `src/components` : en-tête, pied de page, formulaires et blocs réutilisables.
+- `src/styles` : base minimale et styles séparés par page.
+- `src/data` : coordonnées, pages publiques et images optimisées.
+- `src/lib` : validations, rapprochement des clients, protection des accès.
+- `database/schema.sql` : structure MySQL sans données personnelles.
+- `scripts` : initialisation, diagnostic, traitement des notifications et audit.
+- `tests` : validation, transactions, rapprochement et protections.
 
-## 🧞 Commands
+Les fichiers `.local`, `.env`, les sauvegardes et les originaux des images ne doivent pas être publiés. Le dossier `.local` contient notamment une sauvegarde antérieure à la finalisation et les originaux des photos.
 
-All commands are run from the root of the project, from a terminal:
+## Production
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Lire [le guide de déploiement](docs/deploiement.md) avant de remplacer l’ancien site. L’indexation et les notifications SMTP sont désactivées tant que leur configuration n’est pas explicitement validée. Aucun compte administrateur n’est exporté avec le schéma.

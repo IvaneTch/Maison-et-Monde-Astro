@@ -1,0 +1,72 @@
+---
+import '../styles/contact-form.css';
+
+import { objetsContact } from '../lib/contact';
+const selection = Astro.url.searchParams.get('objet') || '';
+---
+
+<form
+  class="mm-contact-form"
+  data-contact-form
+  action="/api/contact"
+  method="post"
+  enctype="multipart/form-data"
+>
+  <input type="hidden" name="type_demande" value="contact" />
+  <div class="mm-honeypot" aria-hidden="true">
+    <label>
+      Site internet
+      <input name="website" tabindex="-1" autocomplete="off" />
+    </label>
+  </div>
+  <div class="mm-contact-grid">
+    <label>
+      Prénom *<input name="prenom" maxlength="100" autocomplete="given-name" required />
+    </label>
+    <label>
+      Nom *<input name="nom" maxlength="100" autocomplete="family-name" required />
+    </label>
+    <label>
+      E-mail *<input type="email" name="email" maxlength="255" autocomplete="email" required />
+    </label>
+    <label>
+      Téléphone *
+      <input
+        type="tel"
+        name="telephone"
+        pattern="[+0-9\s().\-]{10,30}"
+        maxlength="30"
+        autocomplete="tel"
+        required
+      />
+    </label>
+  </div>
+  <label>
+    Votre demande *
+    <select name="objet" required>
+      <option value="">Sélectionner un objet</option>
+      {objetsContact.map((o) => (
+        <option selected={selection === o}>{o}</option>
+      ))}
+    </select>
+  </label>
+  <label>
+    Votre message *<textarea name="message" rows="5" maxlength="3000" required></textarea>
+  </label>
+  <label class="mm-contact-consent">
+    <input type="checkbox" name="confidentialite" required />
+    J’accepte l’utilisation de mes coordonnées pour traiter ma demande. *
+  </label>
+  <p class="mm-contact-privacy">
+    Consultez notre <a href="/politique-de-confidentialite/">politique de confidentialité</a>.
+  </p>
+  <button class="sp-button" type="submit">
+    Envoyer mon message →
+  </button>
+  <p data-contact-status role="status" aria-live="polite"></p>
+  <noscript>
+    Pour nous contacter sans JavaScript, appelez le 07 45 29 25 85 ou écrivez à info@maisonetmonde.fr.
+  </noscript>
+</form>
+<script src="../scripts/contact.ts"></script>
+

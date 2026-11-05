@@ -79,7 +79,7 @@
   color: #fff;
 }
 .footer-column h2:after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -478,7 +478,7 @@
   isolation: isolate;
 }
 .site-footer::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
@@ -503,17 +503,17 @@
 
 /* Courbes dorées organiques, espacées et non répétitives. */
 .site-footer::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201440%20760%22%20preserveAspectRatio%3D%22none%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23e9b65d%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M-85%20135%20C90%2070%20135%20250%20305%20205%20C420%20175%20430%2085%20545%20115%22%20stroke-width%3D%221.5%22%20opacity%3D%22.62%22%2F%3E%3Cpath%20d%3D%22M990%20-65%20C1080%2065%201260%205%201380%20120%20C1455%20190%201400%20260%201530%20320%22%20stroke-width%3D%221%22%20opacity%3D%22.48%22%2F%3E%3Cpath%20d%3D%22M-125%20530%20C110%20430%20190%20650%20410%20570%20S655%20475%20745%20600%22%20stroke-width%3D%221.35%22%20opacity%3D%22.56%22%2F%3E%3Cpath%20d%3D%22M780%20770%20C885%20620%201025%20725%201110%20610%20C1225%20455%201370%20540%201500%20435%22%20stroke-width%3D%221.5%22%20opacity%3D%22.6%22%2F%3E%3Cpath%20d%3D%22M1175%20730%20C1260%20670%201310%20680%201475%20570%22%20stroke-width%3D%22.8%22%20opacity%3D%22.36%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E")
+  background: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201440%20760%22%20preserveAspectRatio%3D%22none%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23e9b65d%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M-85%20135%20C90%2070%20135%20250%20305%20205%20C420%20175%20430%2085%20545%20115%22%20stroke-width%3D%221.5%22%20opacity%3D%22.62%22%2F%3E%3Cpath%20d%3D%22M990%20-65%20C1080%2065%201260%205%201380%20120%20C1455%20190%201400%20260%201530%20320%22%20stroke-width%3D%221%22%20opacity%3D%22.48%22%2F%3E%3Cpath%20d%3D%22M-125%20530%20C110%20430%20190%20650%20410%20570%20S655%20475%20745%20600%22%20stroke-width%3D%221.35%22%20opacity%3D%22.56%22%2F%3E%3Cpath%20d%3D%22M780%20770%20C885%20620%201025%20725%201110%20610%20C1225%20455%201370%20540%201500%20435%22%20stroke-width%3D%221.5%22%20opacity%3D%22.6%22%2F%3E%3Cpath%20d%3D%22M1175%20730%20C1260%20670%201310%20680%201475%20570%22%20stroke-width%3D%22.8%22%20opacity%3D%22.36%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')
     center / 100% 100% no-repeat;
 }
 @media (max-width: 768px) {
   .site-footer::after {
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%201200%22%20preserveAspectRatio%3D%22none%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23e9b65d%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M-100%20170%20C50%2030%20105%20250%20260%20185%22%20stroke-width%3D%221.2%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M325%20320%20C185%20420%20430%20505%20295%20595%22%20stroke-width%3D%221%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22M-100%20815%20C75%20730%20110%20950%20275%20865%22%20stroke-width%3D%221.2%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M210%201220%20C255%201080%20365%201130%20450%201015%22%20stroke-width%3D%221%22%20opacity%3D%22.4%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20400%201200%22%20preserveAspectRatio%3D%22none%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23e9b65d%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M-100%20170%20C50%2030%20105%20250%20260%20185%22%20stroke-width%3D%221.2%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M325%20320%20C185%20420%20430%20505%20295%20595%22%20stroke-width%3D%221%22%20opacity%3D%22.4%22%2F%3E%3Cpath%20d%3D%22M-100%20815%20C75%20730%20110%20950%20275%20865%22%20stroke-width%3D%221.2%22%20opacity%3D%22.5%22%2F%3E%3Cpath%20d%3D%22M210%201220%20C255%201080%20365%201130%20450%201015%22%20stroke-width%3D%221%22%20opacity%3D%22.4%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
   }
 }
 
@@ -527,16 +527,8 @@
       rgba(22, 82, 125, 0.34) 44%,
       transparent 78%
     ),
-    radial-gradient(
-      ellipse 54% 70% at 96% 80%,
-      rgba(22, 82, 125, 0.5) 0%,
-      transparent 75%
-    ),
-    radial-gradient(
-      ellipse 45% 40% at 56% 105%,
-      rgba(5, 17, 33, 0.7),
-      transparent 85%
-    ),
+    radial-gradient(ellipse 54% 70% at 96% 80%, rgba(22, 82, 125, 0.5) 0%, transparent 75%),
+    radial-gradient(ellipse 45% 40% at 56% 105%, rgba(5, 17, 33, 0.7), transparent 85%),
     linear-gradient(113deg, #103c5e 0%, #0a2946 42%, #061b31 78%, #08243d 100%);
   box-shadow: inset 0 22px 45px -38px rgba(2, 12, 25, 0.85);
 }
@@ -552,16 +544,8 @@
 @media (max-width: 768px) {
   .site-footer {
     background-image:
-      radial-gradient(
-        ellipse 115% 38% at 0% 8%,
-        rgba(44, 113, 159, 0.48),
-        transparent 78%
-      ),
-      radial-gradient(
-        ellipse 100% 45% at 100% 86%,
-        rgba(21, 78, 118, 0.38),
-        transparent 80%
-      ),
+      radial-gradient(ellipse 115% 38% at 0% 8%, rgba(44, 113, 159, 0.48), transparent 78%),
+      radial-gradient(ellipse 100% 45% at 100% 86%, rgba(21, 78, 118, 0.38), transparent 80%),
       linear-gradient(150deg, #103c5e, #08233d 58%, #061b31);
   }
   .site-footer::after {
@@ -569,11 +553,14 @@
   }
 }
 
-
 /* Vague originale des avis, déplacée dans le composant Footer partagé.
    La forme reste identique sur toutes les pages, avec son trait doré. */
-.site-footer { z-index: 2; }
-.site-footer::before { display: none !important; }
+.site-footer {
+  z-index: 2;
+}
+.site-footer::before {
+  display: none !important;
+}
 .site-footer > .footer-top-wave {
   position: absolute;
   z-index: 2;
@@ -596,20 +583,25 @@
    au remplissage de la vague, puis se fond progressivement dans le relief bleu. */
 .site-footer {
   background-image:
-    linear-gradient(to bottom, #103c5e 0px, #103c5e 34px, rgba(16,60,94,0) 120px),
-    radial-gradient(ellipse 70% 65% at 4% 12%, rgba(48,126,171,.68) 0%, rgba(22,82,125,.34) 44%, transparent 78%),
-    radial-gradient(ellipse 54% 70% at 96% 80%, rgba(22,82,125,.5) 0%, transparent 75%),
-    radial-gradient(ellipse 45% 40% at 56% 105%, rgba(5,17,33,.7), transparent 85%),
-    linear-gradient(113deg,#103c5e 0%,#0a2946 42%,#061b31 78%,#08243d 100%);
+    linear-gradient(to bottom, #103c5e 0px, #103c5e 34px, rgba(16, 60, 94, 0) 120px),
+    radial-gradient(
+      ellipse 70% 65% at 4% 12%,
+      rgba(48, 126, 171, 0.68) 0%,
+      rgba(22, 82, 125, 0.34) 44%,
+      transparent 78%
+    ),
+    radial-gradient(ellipse 54% 70% at 96% 80%, rgba(22, 82, 125, 0.5) 0%, transparent 75%),
+    radial-gradient(ellipse 45% 40% at 56% 105%, rgba(5, 17, 33, 0.7), transparent 85%),
+    linear-gradient(113deg, #103c5e 0%, #0a2946 42%, #061b31 78%, #08243d 100%);
   box-shadow: none;
 }
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .site-footer {
     background-image:
-      linear-gradient(to bottom, #103c5e 0px, #103c5e 22px, rgba(16,60,94,0) 95px),
-      radial-gradient(ellipse 115% 38% at 0% 8%,rgba(44,113,159,.48),transparent 78%),
-      radial-gradient(ellipse 100% 45% at 100% 86%,rgba(21,78,118,.38),transparent 80%),
-      linear-gradient(150deg,#103c5e,#08233d 58%,#061b31);
+      linear-gradient(to bottom, #103c5e 0px, #103c5e 22px, rgba(16, 60, 94, 0) 95px),
+      radial-gradient(ellipse 115% 38% at 0% 8%, rgba(44, 113, 159, 0.48), transparent 78%),
+      radial-gradient(ellipse 100% 45% at 100% 86%, rgba(21, 78, 118, 0.38), transparent 80%),
+      linear-gradient(150deg, #103c5e, #08233d 58%, #061b31);
   }
 }
 
@@ -621,19 +613,49 @@
 }
 .site-footer {
   background-image:
-    linear-gradient(to bottom, #103c5e 0px, #103c5e 45px, rgba(16,60,94,0) 235px),
-    radial-gradient(ellipse 70% 65% at 4% 12%, rgba(48,126,171,.68) 0%, rgba(22,82,125,.34) 44%, transparent 78%),
-    radial-gradient(ellipse 54% 70% at 96% 80%, rgba(22,82,125,.5) 0%, transparent 75%),
-    radial-gradient(ellipse 45% 40% at 56% 105%, rgba(5,17,33,.7), transparent 85%),
-    linear-gradient(113deg,#103c5e 0%,#0a2946 42%,#061b31 78%,#08243d 100%);
+    linear-gradient(to bottom, #103c5e 0px, #103c5e 45px, rgba(16, 60, 94, 0) 235px),
+    radial-gradient(
+      ellipse 70% 65% at 4% 12%,
+      rgba(48, 126, 171, 0.68) 0%,
+      rgba(22, 82, 125, 0.34) 44%,
+      transparent 78%
+    ),
+    radial-gradient(ellipse 54% 70% at 96% 80%, rgba(22, 82, 125, 0.5) 0%, transparent 75%),
+    radial-gradient(ellipse 45% 40% at 56% 105%, rgba(5, 17, 33, 0.7), transparent 85%),
+    linear-gradient(113deg, #103c5e 0%, #0a2946 42%, #061b31 78%, #08243d 100%);
 }
-@media (max-width:768px) {
-  .site-footer > .footer-top-wave { top: -51px; height: 51px; }
+@media (max-width: 768px) {
+  .site-footer > .footer-top-wave {
+    top: -51px;
+    height: 51px;
+  }
   .site-footer {
     background-image:
-      linear-gradient(to bottom,#103c5e 0px,#103c5e 30px,rgba(16,60,94,0) 180px),
-      radial-gradient(ellipse 115% 38% at 0% 8%,rgba(44,113,159,.48),transparent 78%),
-      radial-gradient(ellipse 100% 45% at 100% 86%,rgba(21,78,118,.38),transparent 80%),
-      linear-gradient(150deg,#103c5e,#08233d 58%,#061b31);
+      linear-gradient(to bottom, #103c5e 0px, #103c5e 30px, rgba(16, 60, 94, 0) 180px),
+      radial-gradient(ellipse 115% 38% at 0% 8%, rgba(44, 113, 159, 0.48), transparent 78%),
+      radial-gradient(ellipse 100% 45% at 100% 86%, rgba(21, 78, 118, 0.38), transparent 80%),
+      linear-gradient(150deg, #103c5e, #08233d 58%, #061b31);
   }
 }
+.footer-company-info {
+  max-width: 1500px;
+  margin: 20px auto 0;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #cbddea;
+}
+
+/* Externalisé depuis src/components/Footer.astro (page/component). */
+.footer-cookie-link {
+    border: 0;
+    padding: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .footer-cookie-link:hover {
+    color: #f0aa40;
+  }

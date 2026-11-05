@@ -1,438 +1,338 @@
 ---
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
+import '../../styles/conciergerie.css';
+import Layout from '../../layouts/Layout.astro';
 
-const titre = "Conciergerie à Paris | Maison & Monde";
+const titre = 'Conciergerie à Paris | Maison & Monde';
 ---
 
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Maison & Monde vous accompagne dans la préparation de votre logement, l'accueil des voyageurs et les services de conciergerie à Paris et en Île-de-France."
-    />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <title>{titre}</title>
-  </head>
+<Layout
+  title={titre}
+  description="Maison & Monde vous accompagne dans la préparation de votre logement, l'accueil des voyageurs et les services de conciergerie à Paris et en Île-de-France."
+>
+  <div>
+    <section class="conciergerie-hero">
+      <div class="hero-image" aria-hidden="true"></div>
 
-  <body>
-    <Header />
+      <div class="hero-overlay"></div>
 
-    <main>
-      <section class="conciergerie-hero">
-        <div class="hero-image" aria-hidden="true"></div>
+      <div class="hero-content">
+        <span class="hero-label">MAISON & MONDE · CONCIERGERIE À PARIS</span>
 
-        <div class="hero-overlay"></div>
+        <h1>
+          Votre logement,
+          <br />
+          <span>notre attention.</span>
+        </h1>
 
-        <div class="hero-content">
-          <span class="hero-label">
-            MAISON & MONDE · CONCIERGERIE À PARIS
-          </span>
+        <p>
+          De la préparation de votre logement à l'accueil des voyageurs, Maison & Monde vous accompagne dans
+          vos locations de courte durée à Paris et en Île-de-France.
+        </p>
 
-          <h1>
-            Votre logement,<br />
-            <span>notre attention.</span>
-          </h1>
+        <p>Choisissez un accompagnement complet ou uniquement les prestations dont vous avez besoin.</p>
 
-          <p>
-            De la préparation de votre logement à l'accueil des voyageurs,
-            Maison & Monde vous accompagne dans vos locations de courte durée
-            à Paris et en Île-de-France.
-          </p>
+        <div class="hero-buttons">
+          <a href="/conciergerie/gestion-complete/" class="btn-primary">
+            Découvrir la gestion complète
+            <span aria-hidden="true">→</span>
+          </a>
 
-          <p>
-            Choisissez un accompagnement complet ou uniquement les prestations
-            dont vous avez besoin.
-          </p>
+          <a href="/conciergerie/services-a-la-carte/" class="btn-secondary">
+            Services à la carte
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
 
-          <div class="hero-buttons">
-            <a
-              href="/conciergerie/gestion-complete/"
-              class="btn-primary"
-            >
-              Découvrir la gestion complète
-              <span aria-hidden="true">→</span>
+      <svg class="hero-wave" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 45 C300 110 550 10 850 55 S1250 100 1440 40 L1440 100 L0 100 Z" fill="#ffffff" />
+        <path
+          d="M0 45 C300 110 550 10 850 55 S1250 100 1440 40"
+          fill="none"
+          stroke="#e9a34c"
+          stroke-width="2"
+        />
+      </svg>
+    </section>
+
+    <section class="cc-services" id="nos-services">
+      <svg
+        class="cc-gold-ribbon"
+        viewBox="0 0 1440 330"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M -80 130 C 220 -20, 330 290, 640 135 S 1040 15, 1530 185" />
+      </svg>
+      <div class="cc-wrap cc-services-content">
+        <p class="cc-eyebrow">UN ACCOMPAGNEMENT SUR MESURE</p>
+        <h2>
+          Nos services de <em>conciergerie</em>
+        </h2>
+        <p class="cc-intro">
+          Des prestations adaptées à votre logement et à votre façon de recevoir, à Paris et en Île-de-France.
+        </p>
+        <div class="cc-grid">
+          <article class="cc-card">
+            <div class="cc-card-art art-clean">
+              <img
+                src="/images/conciergerie/menage-preparation.webp"
+                alt=""
+                loading="lazy"
+                srcset="/images/conciergerie/menage-preparation-480.webp 480w, /images/conciergerie/menage-preparation-960.webp 960w, /images/conciergerie/menage-preparation.webp 1536w"
+                sizes="(max-width: 780px) 100vw, 50vw"
+                width="1536"
+                height="1024"
+              />
+            </div>
+            <div class="cc-card-body">
+              <span class="cc-number">01 / PRÉPARATION</span>
+              <h3>Ménage et préparation</h3>
+              <p>Nettoyage entre les séjours, mise en place du linge et attention portée aux détails.</p>
+              <a href="/conciergerie/menage-preparation-logement/">
+                Découvrir ce service <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <article class="cc-card">
+            <div class="cc-card-art art-guests">
+              <img
+                src="/images/conciergerie/accueil-voyageurs.webp"
+                alt=""
+                loading="lazy"
+                srcset="/images/conciergerie/accueil-voyageurs-480.webp 480w, /images/conciergerie/accueil-voyageurs-960.webp 960w, /images/conciergerie/accueil-voyageurs.webp 1536w"
+                sizes="(max-width: 780px) 100vw, 50vw"
+                width="1536"
+                height="1024"
+              />
+            </div>
+            <div class="cc-card-body">
+              <span class="cc-number">02 / VOYAGEURS</span>
+              <h3>Accueil et gestion des voyageurs</h3>
+              <p>Organisation des arrivées et départs, remise des clés et assistance selon vos besoins.</p>
+              <a href="/conciergerie/accueil-voyageurs/">
+                Découvrir ce service <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <article class="cc-card">
+            <div class="cc-card-art art-care">
+              <img
+                src="/images/conciergerie/suivi-maintenance.webp"
+                alt=""
+                loading="lazy"
+                srcset="/images/conciergerie/suivi-maintenance-480.webp 480w, /images/conciergerie/suivi-maintenance-960.webp 960w, /images/conciergerie/suivi-maintenance.webp 1536w"
+                sizes="(max-width: 780px) 100vw, 50vw"
+                width="1536"
+                height="1024"
+              />
+            </div>
+            <div class="cc-card-body">
+              <span class="cc-number">03 / SUIVI</span>
+              <h3>Suivi et maintenance</h3>
+              <p>Contrôle du logement, signalement des anomalies et coordination de petites interventions.</p>
+              <a href="/conciergerie/suivi-maintenance/">
+                Découvrir ce service <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+          <article class="cc-card">
+            <div class="cc-card-art art-more">
+              <img
+                src="/images/conciergerie/services-complementaires.webp"
+                alt=""
+                loading="lazy"
+                srcset="/images/conciergerie/services-complementaires-480.webp 480w, /images/conciergerie/services-complementaires-960.webp 960w, /images/conciergerie/services-complementaires.webp 1536w"
+                sizes="(max-width: 780px) 100vw, 50vw"
+                width="1536"
+                height="1024"
+              />
+            </div>
+            <div class="cc-card-body">
+              <span class="cc-number">04 / À LA CARTE</span>
+              <h3>Services complémentaires</h3>
+              <p>Blanchisserie, courses, réassort et demandes spécifiques pour chaque séjour.</p>
+              <a href="/conciergerie/services-a-la-carte/">
+                Découvrir ce service <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="cc-offers" id="nos-formules">
+      <svg
+        class="cc-gold-ribbon"
+        viewBox="0 0 1440 330"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M -80 190 C 250 35, 340 290, 720 155 S 1150 65, 1530 230" />
+      </svg>
+      <div
+        class="cc-panorama"
+        role="img"
+        aria-label="Appartement parisien lumineux préparé pour accueillir des voyageurs"
+      ></div>
+      <div class="cc-wrap">
+        <p class="cc-eyebrow">DEUX FAÇONS DE VOUS ACCOMPAGNER</p>
+        <h2>
+          Votre logement, <em>vos choix.</em>
+        </h2>
+        <div class="cc-offer-grid">
+          <article class="cc-offer cc-offer-dark">
+            <span class="cc-offer-tag">ACCOMPAGNEMENT GLOBAL</span>
+            <h3>Conciergerie complète</h3>
+            <p>
+              Une solution coordonnée pour la préparation de votre logement, le suivi des séjours et
+              l'accompagnement des voyageurs.
+            </p>
+            <ul>
+              <li>Préparation et ménage</li>
+              <li>Accueil et assistance</li>
+              <li>Suivi du logement</li>
+              <li>Services adaptés à votre activité</li>
+            </ul>
+            <a href="/conciergerie/gestion-complete/">
+              Découvrir les formules <span aria-hidden="true">→</span>
             </a>
-
-            <a
-              href="/conciergerie/services-a-la-carte/"
-              class="btn-secondary"
-            >
-              Services à la carte
-              <span aria-hidden="true">→</span>
+          </article>
+          <article class="cc-offer cc-offer-light">
+            <span class="cc-offer-tag">LIBERTÉ ET FLEXIBILITÉ</span>
+            <h3>Prestations à la carte</h3>
+            <p>
+              Vous gérez votre location ? Confiez-nous seulement les missions dont vous avez besoin,
+              ponctuellement ou régulièrement.
+            </p>
+            <ul>
+              <li>Ménage entre deux réservations</li>
+              <li>Gestion du linge</li>
+              <li>Remise de clés</li>
+              <li>Réassort et vérifications</li>
+            </ul>
+            <a href="/conciergerie/services-a-la-carte/">
+              Découvrir les formules <span aria-hidden="true">→</span>
             </a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="cc-trust">
+      <svg
+        class="cc-gold-ribbon"
+        viewBox="0 0 1440 330"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M -80 230 C 190 70, 430 365, 720 175 S 1130 55, 1530 215" />
+      </svg>
+      <div class="cc-wrap cc-trust-content">
+        <p class="cc-eyebrow">L'ESPRIT MAISON & MONDE</p>
+        <h2>
+          Une attention à <em>chaque détail.</em>
+        </h2>
+        <div class="cc-trust-layout">
+          <div
+            class="cc-trust-photo"
+            role="img"
+            aria-label="Préparation soignée d’une chambre pour les voyageurs"
+          ></div>
+          <div class="cc-trust-grid">
+            <div>
+              <strong>01</strong>
+              <h3>Un interlocuteur dédié</h3>
+              <p>Des échanges clairs et un suivi adapté à vos attentes.</p>
+            </div>
+            <div>
+              <strong>02</strong>
+              <h3>Des prestations soignées</h3>
+              <p>Une préparation attentive pour accueillir vos voyageurs.</p>
+            </div>
+            <div>
+              <strong>03</strong>
+              <h3>Une offre flexible</h3>
+              <p>Une intervention ponctuelle ou un accompagnement plus large.</p>
+            </div>
           </div>
         </div>
-
-        <svg
-          class="hero-wave"
-          viewBox="0 0 1440 100"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 45 C300 110 550 10 850 55 S1250 100 1440 40 L1440 100 L0 100 Z"
-            fill="#ffffff"
-          />
-          <path
-            d="M0 45 C300 110 550 10 850 55 S1250 100 1440 40"
-            fill="none"
-            stroke="#e9a34c"
-            stroke-width="2"
-          />
-        </svg>
-      </section>
-
-      <section class="cc-services" id="nos-services"><svg class="cc-gold-ribbon" viewBox="0 0 1440 330" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M -80 130 C 220 -20, 330 290, 640 135 S 1040 15, 1530 185" /></svg>
-        <div class="cc-wrap cc-services-content">
-        <p class="cc-eyebrow">UN ACCOMPAGNEMENT SUR MESURE</p>
-        <h2>Nos services de <em>conciergerie</em></h2>
-        <p class="cc-intro">Des prestations adaptées à votre logement et à votre façon de recevoir, à Paris et en Île-de-France.</p>
-        <div class="cc-grid">
-          <article class="cc-card"><div class="cc-card-art art-clean"><img src="/images/conciergerie/menage-preparation.jpg" alt="" loading="lazy" /></div><div class="cc-card-body"><span class="cc-number">01 / PRÉPARATION</span><h3>Ménage et préparation</h3><p>Nettoyage entre les séjours, mise en place du linge et attention portée aux détails.</p><a href="/conciergerie/menage-preparation-logement/">Découvrir ce service <span aria-hidden="true">→</span></a></div></article>
-          <article class="cc-card"><div class="cc-card-art art-guests"><img src="/images/conciergerie/accueil-voyageurs.jpg" alt="" loading="lazy" /></div><div class="cc-card-body"><span class="cc-number">02 / VOYAGEURS</span><h3>Accueil et gestion des voyageurs</h3><p>Organisation des arrivées et départs, remise des clés et assistance selon vos besoins.</p><a href="/conciergerie/accueil-voyageurs/">Découvrir ce service <span aria-hidden="true">→</span></a></div></article>
-          <article class="cc-card"><div class="cc-card-art art-care"><img src="/images/conciergerie/suivi-maintenance.jpg" alt="" loading="lazy" /></div><div class="cc-card-body"><span class="cc-number">03 / SUIVI</span><h3>Suivi et maintenance</h3><p>Contrôle du logement, signalement des anomalies et coordination de petites interventions.</p><a href="/conciergerie/suivi-maintenance/">Découvrir ce service <span aria-hidden="true">→</span></a></div></article>
-          <article class="cc-card"><div class="cc-card-art art-more"><img src="/images/conciergerie/services-complementaires.jpg" alt="" loading="lazy" /></div><div class="cc-card-body"><span class="cc-number">04 / À LA CARTE</span><h3>Services complémentaires</h3><p>Blanchisserie, courses, réassort et demandes spécifiques pour chaque séjour.</p><a href="/conciergerie/services-a-la-carte/">Découvrir ce service <span aria-hidden="true">→</span></a></div></article>
+      </div>
+    </section>
+    <section class="cc-faq">
+      <svg
+        class="cc-gold-ribbon"
+        viewBox="0 0 1440 330"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M -80 110 C 230 265, 440 10, 710 155 S 1140 290, 1530 100" />
+      </svg>
+      <div class="cc-wrap cc-faq-layout">
+        <div>
+          <p class="cc-eyebrow">QUESTIONS FRÉQUENTES</p>
+          <h2>
+            Vous avez des <em>questions ?</em>
+          </h2>
+          <p>Voici quelques réponses pour préparer votre projet de conciergerie.</p>
         </div>
+        <div class="cc-faq-items">
+          <details>
+            <summary>Proposez-vous une gestion complète et des prestations ponctuelles ?</summary>
+            <p>
+              Oui. Nous adaptons notre accompagnement à votre logement : gestion complète ou services choisis
+              à la carte.
+            </p>
+          </details>
+          <details>
+            <summary>Intervenez-vous dans toute l'Île-de-France ?</summary>
+            <p>
+              Nous intervenons à Paris et en Île-de-France, sous réserve de disponibilité selon la commune et
+              la prestation.
+            </p>
+          </details>
+          <details>
+            <summary>Comment sont calculés les tarifs ?</summary>
+            <p>
+              Nous établissons un devis selon le logement, la fréquence des interventions et les services
+              demandés.
+            </p>
+          </details>
+          <details>
+            <summary>Puis-je choisir uniquement le ménage et le linge ?</summary>
+            <p>Oui, vous pouvez sélectionner uniquement les prestations utiles à votre activité.</p>
+          </details>
         </div>
-      </section>
-      <section class="cc-offers" id="nos-formules"><svg class="cc-gold-ribbon" viewBox="0 0 1440 330" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M -80 190 C 250 35, 340 290, 720 155 S 1150 65, 1530 230" /></svg><div class="cc-panorama" role="img" aria-label="Appartement parisien lumineux préparé pour accueillir des voyageurs"></div><div class="cc-wrap">
-        <p class="cc-eyebrow">DEUX FAÇONS DE VOUS ACCOMPAGNER</p><h2>Votre logement, <em>vos choix.</em></h2>
-        <div class="cc-offer-grid">
-          <article class="cc-offer cc-offer-dark"><span class="cc-offer-tag">ACCOMPAGNEMENT GLOBAL</span><h3>Conciergerie complète</h3><p>Une solution coordonnée pour la préparation de votre logement, le suivi des séjours et l'accompagnement des voyageurs.</p><ul><li>Préparation et ménage</li><li>Accueil et assistance</li><li>Suivi du logement</li><li>Services adaptés à votre activité</li></ul><a href="/conciergerie/gestion-complete/">Découvrir les formules <span aria-hidden="true">→</span></a></article>
-          <article class="cc-offer cc-offer-light"><span class="cc-offer-tag">LIBERTÉ ET FLEXIBILITÉ</span><h3>Prestations à la carte</h3><p>Vous gérez votre location ? Confiez-nous seulement les missions dont vous avez besoin, ponctuellement ou régulièrement.</p><ul><li>Ménage entre deux réservations</li><li>Gestion du linge</li><li>Remise de clés</li><li>Réassort et vérifications</li></ul><a href="/conciergerie/services-a-la-carte/">Découvrir les formules <span aria-hidden="true">→</span></a></article>
+      </div>
+    </section>
+    <section class="cc-cta">
+      <svg
+        class="cc-gold-ribbon"
+        viewBox="0 0 1440 330"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M -80 170 C 280 -15, 510 300, 790 120 S 1180 5, 1530 170" />
+      </svg>
+      <div class="cc-cta-photo" aria-hidden="true"></div>
+      <div class="cc-wrap cc-cta-inner">
+        <div>
+          <p class="cc-eyebrow">PARLONS DE VOTRE LOGEMENT</p>
+          <h2>
+            Confiez-nous votre bien <em>en toute sérénité.</em>
+          </h2>
+          <p>Décrivez-nous vos besoins : nous construirons une proposition adaptée, sans tarif imposé.</p>
         </div>
-      </div></section>
-      <section class="cc-trust"><svg class="cc-gold-ribbon" viewBox="0 0 1440 330" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M -80 230 C 190 70, 430 365, 720 175 S 1130 55, 1530 215" /></svg><div class="cc-wrap cc-trust-content"><p class="cc-eyebrow">L'ESPRIT MAISON & MONDE</p><h2>Une attention à <em>chaque détail.</em></h2><div class="cc-trust-layout"><div class="cc-trust-photo" role="img" aria-label="Préparation soignée d’une chambre pour les voyageurs"></div><div class="cc-trust-grid"><div><strong>01</strong><h3>Un interlocuteur dédié</h3><p>Des échanges clairs et un suivi adapté à vos attentes.</p></div><div><strong>02</strong><h3>Des prestations soignées</h3><p>Une préparation attentive pour accueillir vos voyageurs.</p></div><div><strong>03</strong><h3>Une offre flexible</h3><p>Une intervention ponctuelle ou un accompagnement plus large.</p></div></div></div></div></section>
-      <section class="cc-faq"><svg class="cc-gold-ribbon" viewBox="0 0 1440 330" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M -80 110 C 230 265, 440 10, 710 155 S 1140 290, 1530 100" /></svg><div class="cc-wrap cc-faq-layout"><div><p class="cc-eyebrow">QUESTIONS FRÉQUENTES</p><h2>Vous avez des <em>questions ?</em></h2><p>Voici quelques réponses pour préparer votre projet de conciergerie.</p></div><div class="cc-faq-items"><details><summary>Proposez-vous une gestion complète et des prestations ponctuelles ?</summary><p>Oui. Nous adaptons notre accompagnement à votre logement : gestion complète ou services choisis à la carte.</p></details><details><summary>Intervenez-vous dans toute l'Île-de-France ?</summary><p>Nous intervenons à Paris et en Île-de-France, sous réserve de disponibilité selon la commune et la prestation.</p></details><details><summary>Comment sont calculés les tarifs ?</summary><p>Nous établissons un devis selon le logement, la fréquence des interventions et les services demandés.</p></details><details><summary>Puis-je choisir uniquement le ménage et le linge ?</summary><p>Oui, vous pouvez sélectionner uniquement les prestations utiles à votre activité.</p></details></div></div></section>
-      <section class="cc-cta"><svg class="cc-gold-ribbon" viewBox="0 0 1440 330" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M -80 170 C 280 -15, 510 300, 790 120 S 1180 5, 1530 170" /></svg><div class="cc-cta-photo" aria-hidden="true"></div><div class="cc-wrap cc-cta-inner"><div><p class="cc-eyebrow">PARLONS DE VOTRE LOGEMENT</p><h2>Confiez-nous votre bien <em>en toute sérénité.</em></h2><p>Décrivez-nous vos besoins : nous construirons une proposition adaptée, sans tarif imposé.</p></div><a href="/devis-detaille/" id="cc-quote-link">Demander un devis personnalisé <span aria-hidden="true">→</span></a></div></section>
-    </main>
-
-    <Footer />
-  </body>
-</html>
-
-<style is:global>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #102b46;
-    background: #ffffff;
-  }
-
-  .conciergerie-hero {
-    position: relative;
-    box-sizing: border-box;
-    height: 720px;
-    min-height: 720px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    background: #09233c;
-    color: #ffffff;
-  }
-
-  .conciergerie-hero .hero-image {
-    position: absolute;
-    inset: 0;
-    background-image: url("/images/conciergerie-location-saisonniere-paris-maison-et-monde.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-
-  .conciergerie-hero .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      90deg,
-      rgba(5, 25, 46, 0.94) 0%,
-      rgba(5, 25, 46, 0.78) 43%,
-      rgba(5, 25, 46, 0.08) 100%
-    );
-  }
-
-  .conciergerie-hero .hero-content {
-    position: relative;
-    z-index: 2;
-    width: min(650px, 90%);
-    margin-left: max(7%, calc((100vw - 1320px) / 2));
-    padding: 60px 0 80px;
-  }
-
-  .conciergerie-hero .hero-label {
-    display: block;
-    color: #f2b94e;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    margin-bottom: 25px;
-  }
-
-  .conciergerie-hero h1 {
-    font-family: Georgia, serif;
-    font-size: clamp(45px, 5.5vw, 78px);
-    line-height: 1.1;
-    font-weight: 500;
-    margin: 0 0 30px;
-  }
-
-  .conciergerie-hero h1 span {
-    color: #f2b94e;
-  }
-
-  .conciergerie-hero p {
-    font-size: 16px;
-    line-height: 1.9;
-    color: #e2eaf1;
-    max-width: 560px;
-    margin-bottom: 18px;
-  }
-
-  .conciergerie-hero .hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: 35px;
-  }
-
-  .conciergerie-hero .btn-primary,
-  .conciergerie-hero .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    padding: 16px 24px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: transform 0.25s ease, background 0.25s ease;
-  }
-
-  .conciergerie-hero .btn-primary {
-    background: #f2b94e;
-    color: #102b46;
-  }
-
-  .conciergerie-hero .btn-secondary {
-    background: transparent;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-  }
-
-  .conciergerie-hero .btn-primary:hover,
-  .conciergerie-hero .btn-secondary:hover {
-    transform: translateY(-3px);
-  }
-
-  .conciergerie-hero .hero-wave {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 95px;
-    z-index: 3;
-  }
-
-  @media (max-width: 768px) {
-    .conciergerie-hero {
-      min-height: 680px;
-    }
-
-    .conciergerie-hero .hero-image {
-      background-position: 65% center;
-    }
-
-    .conciergerie-hero .hero-overlay {
-      background: rgba(5, 25, 46, 0.76);
-    }
-
-    .conciergerie-hero .hero-content {
-      margin: 0 auto;
-      padding: 90px 0 130px;
-    }
-
-    .conciergerie-hero h1 {
-      font-size: clamp(39px, 9vw, 55px);
-    }
-
-    .conciergerie-hero p {
-      font-size: 14px;
-    }
-
-    .conciergerie-hero .hero-buttons {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .conciergerie-hero .hero-wave {
-      height: 55px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .conciergerie-hero .btn-primary,
-    .conciergerie-hero .btn-secondary {
-      transition: none;
-    }
-  }
-
-  /* Conciergerie : sections complémentaires */
-  .cc-wrap{width:min(1180px,calc(100% - 48px));margin-inline:auto}
-  .cc-services,.cc-trust{padding-block:90px 100px}
-  .cc-eyebrow{font:700 12px/1.5 Arial,sans-serif;letter-spacing:2.2px;color:#c38a38;margin:0 0 15px}
-  .cc-services h2,.cc-offers h2,.cc-trust h2,.cc-faq h2,.cc-cta h2{font:400 clamp(34px,4vw,55px)/1.12 Georgia,serif;margin:0 0 20px;color:#102b46}
-  .cc-services h2 em,.cc-offers h2 em,.cc-trust h2 em,.cc-faq h2 em,.cc-cta h2 em{font-style:normal;color:#d49a48}
-  .cc-intro{max-width:660px;color:#647487;line-height:1.75;margin-bottom:38px}
-  .cc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-  .cc-card{border:1px solid #e8e9e9;border-radius:18px;overflow:hidden;box-shadow:0 12px 34px rgba(10,38,61,.07);background:white}
-  .cc-card-art{height:142px;display:grid;place-items:center;background:linear-gradient(135deg,#dcecf4,#8db9cd);position:relative;overflow:hidden}
-  .cc-card-art::before{content:'';position:absolute;width:180px;height:180px;border:1px solid rgba(255,255,255,.6);border-radius:50%;right:-48px;top:-68px}
-  .cc-card-art span{font:normal 76px Georgia,serif;color:#fff;text-shadow:0 4px 18px rgba(0,0,0,.12)}
-  .art-guests{background:linear-gradient(135deg,#b5d4de,#537d9b)}.art-care{background:linear-gradient(135deg,#e9ddc5,#c39b67)}.art-more{background:linear-gradient(135deg,#d9e8e1,#81b1a6)}
-  .cc-card-body{padding:22px 20px 24px}.cc-number{font-size:10px;font-weight:700;letter-spacing:1.2px;color:#b98640}
-  .cc-card h3{font:400 24px/1.2 Georgia,serif;margin:10px 0}.cc-card p{font-size:13px;line-height:1.7;color:#617184;min-height:90px}
-  .cc-card a,.cc-offer a{font-size:12px;font-weight:700;color:#17608b;text-decoration:none}.cc-card a span,.cc-offer a span{margin-left:8px}
-  .cc-offers{background:#f1f7fa;padding:90px 0 100px}.cc-offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:38px}
-  .cc-offer{padding:40px;border-radius:22px}.cc-offer-dark{background:linear-gradient(145deg,#0a2b49,#174c70);color:white}.cc-offer-light{background:#fff;border:1px solid #dce6ec;color:#102b46}
-  .cc-offer-tag{font-size:11px;font-weight:700;letter-spacing:1.7px;color:#e6ab57}.cc-offer h3{font:400 33px Georgia,serif;margin:16px 0}.cc-offer p{line-height:1.8;font-size:14px;max-width:450px}.cc-offer ul{padding-left:20px;line-height:2.1;font-size:14px;margin:24px 0}.cc-offer-dark a{color:#ffca78}
-  .cc-trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}.cc-trust-grid>div{border-top:2px solid #e3ac62;padding-top:20px}.cc-trust strong{color:#c79452;font:30px Georgia,serif}.cc-trust h3{font:24px Georgia,serif;margin:14px 0}.cc-trust p{line-height:1.8;color:#657588;font-size:14px}
-  .cc-faq{padding:85px 0;background:#f6f8f9}.cc-faq-layout{display:grid;grid-template-columns:0.85fr 1.15fr;gap:75px}.cc-faq-layout>div>p:last-child{color:#657588;line-height:1.7}.cc-faq details{border-bottom:1px solid #d6dfe6;padding:18px 0}.cc-faq summary{cursor:pointer;font-weight:700;font-size:14px;line-height:1.5}.cc-faq details p{font-size:14px;line-height:1.75;color:#607184}
-  .cc-cta{background:linear-gradient(120deg,#0a2946,#145b82);padding:75px 0}.cc-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:40px}.cc-cta h2{color:white;max-width:680px}.cc-cta p:not(.cc-eyebrow){color:#d8e7f0;line-height:1.7}.cc-cta a{flex-shrink:0;background:#f2b94e;border-radius:30px;padding:17px 23px;color:#102b46;text-decoration:none;font-size:14px;font-weight:700}
-  @media(max-width:980px){.cc-grid{grid-template-columns:repeat(2,1fr)}.cc-card p{min-height:0}.cc-faq-layout{gap:30px}}
-  @media(max-width:650px){.cc-wrap{width:min(100% - 36px,1180px)}.cc-services,.cc-trust{padding-block:62px}.cc-grid,.cc-offer-grid,.cc-trust-grid,.cc-faq-layout{grid-template-columns:1fr}.cc-offers,.cc-faq{padding:65px 0}.cc-offer{padding:28px}.cc-cta-inner{display:block}.cc-cta a{display:inline-flex;margin-top:18px}.cc-trust-grid{gap:18px}.cc-card-art{height:115px}}
-
-  /* Nouvelle composition visuelle — maquette Conciergerie */
-  .cc-card-art{height:180px;background:#e9eef0}
-  .cc-card-art::before{display:none}
-  .cc-card-art img{width:100%;height:100%;object-fit:cover;display:block}
-  .cc-card{transition:transform .25s ease,box-shadow .25s ease}
-  .cc-card:hover{transform:translateY(-5px);box-shadow:0 18px 42px rgba(10,38,61,.13)}
-  .cc-services{padding-bottom:78px}
-  .cc-offers{padding:0 0 95px;background:#f2f8fb}
-  .cc-panorama{height:255px;background:url('/images/conciergerie/appartement-paris.jpg') center 52%/cover no-repeat;position:relative;margin-bottom:48px;clip-path:polygon(0 7%,25% 0,55% 9%,80% 1%,100% 6%,100% 94%,75% 100%,45% 92%,18% 100%,0 94%)}
-  .cc-offer{position:relative;min-height:335px;box-sizing:border-box}
-  .cc-offer ul{list-style:none;padding-left:0}
-  .cc-offer li::before{content:'✓';display:inline-grid;place-items:center;border:1px solid #d69d4e;color:#d69d4e;border-radius:50%;width:17px;height:17px;margin-right:12px;font-size:11px}
-  .cc-offer a{display:inline-flex;padding:13px 22px;border:1px solid #d59c4c;border-radius:30px;margin-top:8px;color:#102b46;background:#f2b94e}
-  .cc-offer-light a{background:#fff;color:#102b46}
-  .cc-trust{padding-top:85px;padding-bottom:85px}
-  .cc-trust-layout{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;margin-top:28px}
-  .cc-trust-photo{height:355px;border-radius:0 20px 20px 0;background:url('/images/conciergerie/attention-details.jpg') center/cover no-repeat}
-  .cc-trust-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:0}
-  .cc-trust-grid>div{display:grid;grid-template-columns:55px 1fr;column-gap:18px;border-top:1px solid #e3ac62;padding-top:16px}
-  .cc-trust-grid strong{grid-row:span 2;align-self:center;border:1px solid #d8a054;border-radius:50%;width:45px;height:45px;display:grid;place-items:center;font-size:22px}
-  .cc-trust-grid h3{margin:0 0 5px}.cc-trust-grid p{margin:0 0 10px}
-  .cc-cta{position:relative;min-height:305px;display:flex;align-items:center;overflow:hidden;padding:55px 0;background:linear-gradient(110deg,#0b2a49,#155b80)}
-  .cc-cta-photo{position:absolute;right:0;top:0;bottom:0;width:48%;background:url('/images/conciergerie/salon-conciergerie.jpg') center/cover no-repeat;clip-path:ellipse(90% 105% at 100% 50%)}
-  .cc-cta-inner{position:relative;z-index:1;display:block}
-  .cc-cta-inner>div{max-width:47%}
-  .cc-cta a{display:inline-flex;margin-top:14px}
-  @media(max-width:900px){.cc-trust-layout{gap:25px}.cc-cta-photo{width:45%}}
-  @media(max-width:650px){.cc-card-art{height:190px}.cc-panorama{height:165px;margin-bottom:35px}.cc-trust-layout{grid-template-columns:1fr}.cc-trust-photo{height:245px;border-radius:16px}.cc-cta{padding:50px 0 210px}.cc-cta-inner>div{max-width:100%}.cc-cta-photo{width:100%;height:200px;top:auto;clip-path:none}.cc-offer{min-height:0}}
-  @media(prefers-reduced-motion:reduce){.cc-card{transition:none}.cc-card:hover{transform:none}}
-
-  /* Décorations pleine largeur : indépendantes des conteneurs de texte. */
-  .cc-services,.cc-trust,.cc-offers,.cc-faq{position:relative;isolation:isolate;overflow:hidden}
-  .cc-services-content,.cc-trust-content,
-  .cc-offers>.cc-wrap,.cc-faq>.cc-wrap{position:relative;z-index:2}
-  .cc-services::before,.cc-services::after,
-  .cc-trust::before,.cc-trust::after,
-  .cc-offers::before,.cc-offers::after,
-  .cc-faq::before,.cc-faq::after{
-    content:"";position:absolute;z-index:0;pointer-events:none;
-    border-radius:50%;box-sizing:border-box;
-  }
-  /* Seul un arc de chaque cercle apparaît au bord extérieur de l'écran. */
-  .cc-services::before{width:350px;height:350px;left:-310px;top:18%;border:26px solid rgba(176,215,238,.37);box-shadow:0 0 0 2px rgba(207,153,70,.60)}
-  .cc-services::after{width:300px;height:300px;right:-265px;bottom:5%;border:2px solid rgba(207,153,70,.78)}
-  .cc-trust::before{width:310px;height:310px;left:-272px;top:22%;border:24px solid rgba(176,215,238,.3);box-shadow:0 0 0 2px rgba(207,153,70,.55)}
-  .cc-trust::after{width:260px;height:260px;right:-229px;bottom:8%;border:2px solid rgba(207,153,70,.72)}
-  .cc-offers::before{width:330px;height:330px;left:-290px;bottom:30px;border:26px solid rgba(176,215,238,.33);box-shadow:0 0 0 2px rgba(207,153,70,.65)}
-  .cc-offers::after{width:280px;height:280px;right:-248px;bottom:70px;border:2px solid rgba(207,153,70,.8)}
-  .cc-faq::before{width:330px;height:330px;left:-292px;bottom:15px;border:28px solid rgba(176,215,238,.32);box-shadow:0 0 0 2px rgba(207,153,70,.6)}
-  .cc-faq::after{width:280px;height:280px;right:-248px;top:20px;border:2px solid rgba(207,153,70,.75)}
-  /* Fins accents dorés et bleu ciel sur toute la composition. */
-  .cc-services{background-image:linear-gradient(90deg,transparent 0%,rgba(236,247,252,.35) 50%,transparent 100%)}
-  .cc-trust{background-image:linear-gradient(110deg,rgba(236,247,252,.35),transparent 55%)}
-  .cc-card{box-shadow:0 12px 22px rgba(7,34,58,.12),0 30px 65px rgba(7,34,58,.13)!important}
-  .cc-card:hover{box-shadow:0 22px 40px rgba(7,34,58,.19),0 42px 75px rgba(7,34,58,.15)!important}
-  .cc-offer{box-shadow:0 17px 30px rgba(7,34,58,.14),0 35px 65px rgba(7,34,58,.10)!important}
-  .cc-trust-photo{box-shadow:0 18px 35px rgba(7,34,58,.2),0 36px 65px rgba(7,34,58,.11)!important}
-  .cc-faq{background:linear-gradient(125deg,#f2f8fc 0%,#f8fafb 65%,#f3f8fb 100%)}
-  .cc-faq-items{display:grid;gap:12px}
-  .cc-faq details{padding:0;background:white;border:1px solid #e3eaf0;border-radius:14px;box-shadow:0 10px 22px rgba(7,34,58,.12),0 22px 40px rgba(7,34,58,.06)!important;overflow:hidden}
-  .cc-faq summary{list-style:none;padding:19px 54px 19px 22px;position:relative;color:#102b46}
-  .cc-faq summary::-webkit-details-marker{display:none}
-  .cc-faq summary::after{content:"+";position:absolute;right:19px;top:50%;transform:translateY(-50%);color:#c99141;font-size:24px;font-weight:400}
-  .cc-faq details[open] summary::after{content:"−"}
-  .cc-faq details[open]{border-color:#e5bd82}
-  .cc-faq details p{margin:0;padding:0 22px 20px}
-  .cc-faq summary:focus-visible{outline:3px solid #d8a054;outline-offset:-3px}
-  .cc-cta::before{content:"";position:absolute;left:-210px;top:-125px;width:310px;height:310px;border:2px solid rgba(239,184,93,.5);border-radius:50%;pointer-events:none}
-  .cc-cta::after{content:"";position:absolute;right:-210px;bottom:-170px;width:280px;height:280px;border:20px solid rgba(165,210,238,.08);border-radius:50%;pointer-events:none}
-  @media(max-width:650px){
-    .cc-services::before,.cc-trust::before,.cc-offers::before,.cc-faq::before{width:170px;height:170px;left:-153px;border-width:16px}
-    .cc-services::after,.cc-trust::after,.cc-offers::after,.cc-faq::after{display:none}
-    .cc-cta::before{left:-250px}
-    .cc-cta::after{display:none}
-    .cc-card:hover{transform:none}
-    .cc-faq summary{padding:17px 45px 17px 17px}
-  }
-
-  /* Lignes dorées fluides, pleine largeur, indépendantes du contenu central. */
-  .cc-services,.cc-offers,.cc-trust,.cc-faq,.cc-cta{position:relative;isolation:isolate;overflow:hidden}
-  .cc-gold-ribbon{position:absolute;left:0;top:8%;width:100%;height:65%;z-index:0;pointer-events:none;overflow:visible}
-  .cc-gold-ribbon path{fill:none;stroke:#c9974c;stroke-width:1.25;vector-effect:non-scaling-stroke;opacity:.60}
-  .cc-services .cc-gold-ribbon{top:10%;height:75%}
-  .cc-offers .cc-gold-ribbon{top:12%;height:70%}
-  .cc-trust .cc-gold-ribbon{top:10%;height:75%}
-  .cc-faq .cc-gold-ribbon{top:6%;height:85%}
-  .cc-cta .cc-gold-ribbon{top:0;height:100%}
-  .cc-cta .cc-gold-ribbon path{stroke:#f1bf72;opacity:.55}
-  .cc-services>.cc-wrap,.cc-offers>.cc-wrap,.cc-trust>.cc-wrap,.cc-faq>.cc-wrap,.cc-cta>.cc-wrap{position:relative;z-index:2}
-  @media(max-width:650px){.cc-gold-ribbon{opacity:.38;height:45%;top:10%}.cc-cta .cc-gold-ribbon{height:45%}}
-
-  /* Maison & Monde — profondeur douce et cartes flottantes (desktop). */
-  @media (min-width: 651px) {
-    .cc-card, .cc-offer, .cc-trust-photo, .cc-faq details {
-      position: relative;
-      box-shadow: 0 12px 24px rgba(9, 36, 59, .12),
-                  0 30px 58px rgba(9, 36, 59, .10),
-                  0 3px 7px rgba(9, 36, 59, .06) !important;
-      transition: transform .45s cubic-bezier(.2,.7,.2,1), box-shadow .45s ease;
-      will-change: auto;
-    }
-    .cc-card:hover, .cc-offer:hover, .cc-faq details:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 22px 36px rgba(9, 36, 59, .17),
-                  0 45px 75px rgba(9, 36, 59, .13) !important;
-    }
-    .cc-trust-photo:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 24px 42px rgba(9, 36, 59, .20),
-                  0 44px 76px rgba(9, 36, 59, .13) !important;
-    }
-    .cc-panorama { filter: drop-shadow(0 14px 15px rgba(9,36,59,.12)); }
-    /* Apparition uniquement après activation par JavaScript. */
-    .mm-reveal-pending {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .75s ease, transform .75s cubic-bezier(.18,.7,.2,1);
-    }
-    .mm-reveal-pending.mm-reveal-visible { opacity: 1; transform: translateY(0); }
-  }
-  @media (max-width: 650px), (prefers-reduced-motion: reduce) {
-    .mm-reveal-pending { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .cc-card, .cc-offer, .cc-trust-photo, .cc-faq details { will-change: auto; }
-  }
-
-
-
-</style>
+        <a href="/conciergerie/demande-de-devis/" id="cc-quote-link">
+          Demander un devis personnalisé <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
 
 <script>
   // Effet d'apparition discret, réservé aux ordinateurs ; aucun défilement animé sur mobile.
@@ -444,17 +344,20 @@ const titre = "Conciergerie à Paris | Maison & Monde";
     const items = [...document.querySelectorAll<HTMLElement>(selectors)];
     items.forEach((item) => item.classList.remove('mm-reveal-pending', 'mm-reveal-visible'));
     if (!motionQuery.matches || !('IntersectionObserver' in window)) return;
-    revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('mm-reveal-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+    revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('mm-reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -20px 0px' },
+    );
     items.forEach((item, index) => {
       // Les éléments déjà visibles restent visibles immédiatement : aucun flash au chargement.
-      const visibleNow = item.getBoundingClientRect().top < window.innerHeight * .95;
+      const visibleNow = item.getBoundingClientRect().top < window.innerHeight * 0.95;
       if (visibleNow) return;
       item.classList.add('mm-reveal-pending');
       item.style.transitionDelay = `${(index % 4) * 65}ms`;

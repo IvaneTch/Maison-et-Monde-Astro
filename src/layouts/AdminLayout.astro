@@ -1,0 +1,39 @@
+---
+import '../styles/admin-layout.css';
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>{title} | Maison & Monde</title>
+    <link rel="icon" href="/favicon.png" />
+  </head>
+  <body class="ma-admin">
+    <header>
+      <a href="/admin/">
+        MAISON <span>&</span> MONDE
+      </a>
+      <nav aria-label="Administration">
+        <a href="/admin/">Tableau de bord</a>
+        <a href="/admin/#devis-menage">Devis Ménage</a>
+        <a href="/admin/#devis-conciergerie">Devis Conciergerie</a>
+        <a href="/admin/messages/" aria-current="page">
+          Messages et rappels
+        </a>
+        <a href="/admin/#clients">Clients</a>
+      </nav>
+    </header>
+    <main>
+      <h1>{title}</h1>
+      <slot />
+    </main>
+  </body>
+</html>
+

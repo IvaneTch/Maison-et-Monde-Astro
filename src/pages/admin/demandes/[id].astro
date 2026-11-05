@@ -1,4 +1,5 @@
 ---
+import '../../../styles/admin-demande-details.css';
 import mysql from 'mysql2/promise';
 import { createHash } from 'node:crypto';
 export const prerender = false;
@@ -7,67 +8,118 @@ Astro.response.headers.set('Cache-Control', 'private, no-store');
 const token = Astro.cookies.get('mm_admin_session')?.value;
 if (!token) return Astro.redirect('/admin/connexion/');
 const id = Number(Astro.params.id);
-if (!Number.isSafeInteger(id) || id < 1) return new Response('Demande introuvable', {status: 404});
+if (!Number.isSafeInteger(id) || id < 1) return new Response('Demande introuvable', { status: 404 });
 
 let connection: mysql.Connection | undefined;
 let demande: Record<string, unknown> | null = null;
 try {
   connection = await mysql.createConnection({
-    host: import.meta.env.DB_HOST || '127.0.0.1',
-    port: Number(import.meta.env.DB_PORT || 8889),
-    user: import.meta.env.DB_USER,
-    password: import.meta.env.DB_PASSWORD,
-    database: import.meta.env.DB_NAME
+    host: process.env.DB_HOST || import.meta.env.DB_HOST || '127.0.0.1',
+    port: Number(process.env.DB_PORT || import.meta.env.DB_PORT || 8889),
+    user: process.env.DB_USER || import.meta.env.DB_USER,
+    password: process.env.DB_PASSWORD || import.meta.env.DB_PASSWORD,
+    database: process.env.DB_NAME || import.meta.env.DB_NAME,
   });
   const hash = createHash('sha256').update(token).digest('hex');
   const [sessions] = await connection.execute<mysql.RowDataPacket[]>(
     `SELECT s.id FROM sessions_admin s JOIN administrateurs a ON a.id=s.administrateur_id
-     WHERE s.token_hash=? AND s.date_expiration>NOW() AND a.actif=1 LIMIT 1`, [hash]);
+     WHERE s.token_hash=? AND s.date_expiration>NOW() AND a.actif=1 LIMIT 1`,
+    [hash],
+  );
   if (!sessions.length) {
-    Astro.cookies.delete('mm_admin_session', {path:'/'});
+    Astro.cookies.delete('mm_admin_session', { path: '/' });
     return Astro.redirect('/admin/connexion/');
   }
   const [rows] = await connection.execute<mysql.RowDataPacket[]>(
-    'SELECT * FROM demandes_devis WHERE id=? LIMIT 1', [id]);
-  if (!rows.length) return new Response('Demande introuvable', {status:404});
+    'SELECT * FROM demandes_devis WHERE id=? LIMIT 1',
+    [id],
+  );
+  if (!rows.length) return new Response('Demande introuvable', { status: 404 });
   demande = rows[0] as Record<string, unknown>;
 } finally {
   if (connection) await connection.end();
 }
 
 const d = demande!;
-const labels: Record<string,string> = {
-  reference_devis:'Référence', type_devis:'Type de devis', nom:'Nom', prenom:'Prénom',
-  email:'Adresse e-mail', telephone:'Téléphone', adresse:'Adresse de l’intervention', code_postal:'Code postal', ville:'Ville',
-  type_logement:'Type de logement', surface_m2:'Surface (m²)', nombre_pieces:'Nombre de pièces',
-  nombre_salles_bain:'Salles de bain', animaux_presents:'Animaux présents',
-  prestations:'Prestations souhaitées', frequence:'Fréquence souhaitée',
-  duree_souhaitee:'Durée souhaitée', disponibilites:'Disponibilités',
-  commentaires:'Commentaires et précisions', statut:'Statut',
-  date_creation:'Date de réception', date_modification:'Dernière modification'
+const estConciergerie = d.prestation_souhaitee === 'Conciergerie';
+const estProfessionnel = d.prestation_souhaitee === 'Professionnel';
+let reponsesConciergerie: Record<string, string> = {};
+if (estConciergerie) {
+  try {
+    reponsesConciergerie = JSON.parse(String(d.commentaires ?? '{}')).conciergerie ?? {};
+  } catch {}
+}
+let reponsesProfessionnel: Record<string, string> = {};
+if (estProfessionnel) {
+  try {
+    reponsesProfessionnel = JSON.parse(String(d.commentaires ?? '{}')).professionnel ?? {};
+  } catch {}
+}
+const labels: Record<string, string> = {
+  reference_devis: 'Référence',
+  type_devis: 'Type de devis',
+  nom: 'Nom',
+  prenom: 'Prénom',
+  email: 'Adresse e-mail',
+  telephone: 'Téléphone',
+  adresse: 'Adresse de l’intervention',
+  code_postal: 'Code postal',
+  ville: 'Ville',
+  type_logement: 'Type de logement',
+  surface_m2: 'Surface (m²)',
+  nombre_pieces: 'Nombre de pièces',
+  nombre_salles_bain: 'Salles de bain',
+  animaux_presents: 'Animaux présents',
+  prestations: 'Prestations souhaitées',
+  frequence: 'Fréquence souhaitée',
+  duree_souhaitee: 'Durée souhaitée',
+  disponibilites: 'Disponibilités',
+  commentaires: 'Commentaires et précisions',
+  statut: 'Statut',
+  date_creation: 'Date de réception',
+  date_modification: 'Dernière modification',
 };
 const ordre = [
-  'reference_devis','type_devis','date_creation','statut','prenom','nom','email','telephone',
-  'adresse','code_postal','ville','type_logement','surface_m2','nombre_pieces','nombre_salles_bain',
-  'animaux_presents','prestations','frequence','duree_souhaitee','disponibilites','commentaires','date_modification'
+  'reference_devis',
+  'type_devis',
+  'date_creation',
+  'statut',
+  'prenom',
+  'nom',
+  'email',
+  'telephone',
+  'adresse',
+  'code_postal',
+  'ville',
+  'type_logement',
+  'surface_m2',
+  'nombre_pieces',
+  'nombre_salles_bain',
+  'animaux_presents',
+  'prestations',
+  'frequence',
+  'duree_souhaitee',
+  'disponibilites',
+  'commentaires',
+  'date_modification',
 ];
 // Les renseignements complémentaires sont actuellement stockés dans commentaires.
 // Les anciennes demandes restent compatibles : toute ligne non reconnue reste visible.
 const notesConnues: Record<string, string> = {
   'Type de prestation': 'Type de prestation',
-  'Animaux': 'Types d’animaux',
+  Animaux: 'Types d’animaux',
   'Précisions services': 'Précisions sur les prestations',
   'Date de début': 'Date de début souhaitée',
   'Adresse de prestation': 'Adresse de prestation',
   'Complément adresse': 'Complément d’adresse',
-  'Message': 'Message du client',
+  Message: 'Message du client',
   'Avance immédiate': 'Informations sur l’avance immédiate',
-  'Flexibilité': 'Horaires flexibles',
-  'Horaires': 'Horaires précis',
+  Flexibilité: 'Horaires flexibles',
+  Horaires: 'Horaires précis',
 };
 const notes: Record<string, string> = {};
 const notesLibres: string[] = [];
-for (const ligne of String(d.commentaires ?? '').split(/\r?\n/)) {
+for (const ligne of String(estConciergerie ? '' : (d.commentaires ?? '')).split(/\r?\n/)) {
   const position = ligne.indexOf(' : ');
   const cle = position >= 0 ? ligne.slice(0, position).trim() : '';
   if (cle && cle in notesConnues) {
@@ -78,24 +130,53 @@ for (const ligne of String(d.commentaires ?? '').split(/\r?\n/)) {
   }
 }
 const groupes = [
-  {titre:'Demande', champs:['reference_devis','type_devis','date_creation','statut']},
-  {titre:'Coordonnées du client', champs:['prenom','nom','email','telephone','adresse','code_postal','ville'], notes:['Complément adresse']},
-  {titre:'Logement', champs:['type_logement','surface_m2','nombre_pieces','nombre_salles_bain','animaux_presents'], notes:['Animaux']},
-  {titre:'Prestations demandées', champs:['prestations','frequence','duree_souhaitee'], notes:['Type de prestation','Date de début','Précisions services']},
-  {titre:'Disponibilités', champs:['disponibilites'], notes:['Horaires','Flexibilité']},
-  {titre:'Informations complémentaires', champs:[], notes:['Message','Avance immédiate']},
+  { titre: 'Demande', champs: ['reference_devis', 'type_devis', 'date_creation', 'statut'] },
+  {
+    titre: 'Coordonnées du client',
+    champs: ['prenom', 'nom', 'email', 'telephone', 'adresse', 'code_postal', 'ville'],
+    notes: ['Complément adresse'],
+  },
+  {
+    titre: 'Logement',
+    champs: ['type_logement', 'surface_m2', 'nombre_pieces', 'nombre_salles_bain', 'animaux_presents'],
+    notes: ['Animaux'],
+  },
+  {
+    titre: 'Prestations demandées',
+    champs: ['prestations', 'frequence', 'duree_souhaitee'],
+    notes: ['Type de prestation', 'Date de début', 'Précisions services'],
+  },
+  { titre: 'Disponibilités', champs: ['disponibilites'], notes: ['Horaires', 'Flexibilité'] },
+  { titre: 'Informations complémentaires', champs: [], notes: ['Message', 'Avance immédiate'] },
 ];
 const format = (value: unknown): string => {
   if (value === null || value === undefined || value === '') return 'Non renseigné';
-  if (value instanceof Date) return new Intl.DateTimeFormat('fr-FR',{dateStyle:'long',timeStyle:'short'}).format(value);
+  if (value instanceof Date)
+    return new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeStyle: 'short' }).format(value);
   if (typeof value === 'boolean') return value ? 'Oui' : 'Non';
-  if (Array.isArray(value)) return value.map(x => typeof x === 'object' && x !== null ? JSON.stringify(x) : String(x)).join(' • ') || 'Non renseigné';
-  if (typeof value === 'object') return Object.entries(value).map(([k,v]) => `${k} : ${String(v)}`).join(' • ') || 'Non renseigné';
+  if (Array.isArray(value))
+    return (
+      value.map((x) => (typeof x === 'object' && x !== null ? JSON.stringify(x) : String(x))).join(' • ') ||
+      'Non renseigné'
+    );
+  if (typeof value === 'object')
+    return (
+      Object.entries(value)
+        .map(([k, v]) => `${k} : ${String(v)}`)
+        .join(' • ') || 'Non renseigné'
+    );
   if (typeof value === 'string' && (value.startsWith('[') || value.startsWith('{'))) {
     try {
       const parsed = JSON.parse(value);
-      if (Array.isArray(parsed)) return parsed.map(x=>typeof x==='object'?JSON.stringify(x):String(x)).join(' • ') || 'Non renseigné';
-      if (typeof parsed === 'object' && parsed) return Object.entries(parsed).map(([k,v])=>`${k} : ${String(v)}`).join(' • ');
+      if (Array.isArray(parsed))
+        return (
+          parsed.map((x) => (typeof x === 'object' ? JSON.stringify(x) : String(x))).join(' • ') ||
+          'Non renseigné'
+        );
+      if (typeof parsed === 'object' && parsed)
+        return Object.entries(parsed)
+          .map(([k, v]) => `${k} : ${String(v)}`)
+          .join(' • ');
     } catch {}
   }
   return String(value);
@@ -109,22 +190,28 @@ const afficherChamp = (cle: string, valeur: unknown): string => {
       ? `${new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(nombre)} m²`
       : format(valeur);
   }
+  if (cle === 'type_devis' && estConciergerie) return 'Conciergerie';
+  if (cle === 'type_devis' && estProfessionnel) return 'Professionnel';
   if (cle === 'type_devis') {
     const noms: Record<string, string> = { simple: 'Simple', detaille: 'Détaillé', détaillé: 'Détaillé' };
     return noms[String(valeur).toLowerCase()] ?? format(valeur);
   }
   if (cle === 'prestation_souhaitee') {
     const noms: Record<string, string> = {
-      'grand-menage': 'Grand ménage', 'menage-regulier': 'Ménage régulier',
-      'menage-ponctuel': 'Ménage ponctuel', vitres: 'Nettoyage de vitres',
-      repassage: 'Repassage'
+      'grand-menage': 'Grand ménage',
+      'menage-regulier': 'Ménage régulier',
+      'menage-ponctuel': 'Ménage ponctuel',
+      vitres: 'Nettoyage de vitres',
+      repassage: 'Repassage',
     };
     return noms[String(valeur).toLowerCase()] ?? format(valeur);
   }
   if (cle === 'frequence') {
     const noms: Record<string, string> = {
-      reguliere: 'Régulière', reguliere_hebdomadaire: 'Régulière',
-      ponctuelle: 'Ponctuelle', 'chaque-semaine': 'Chaque semaine'
+      reguliere: 'Régulière',
+      reguliere_hebdomadaire: 'Régulière',
+      ponctuelle: 'Ponctuelle',
+      'chaque-semaine': 'Chaque semaine',
     };
     return noms[String(valeur).toLowerCase()] ?? format(valeur);
   }
@@ -139,91 +226,232 @@ const afficherNote = (cle: string, valeur: string): string => {
   const mois = Number(match[2]);
   const jour = Number(match[3]);
   const date = new Date(Date.UTC(annee, mois - 1, jour));
-  if (date.getUTCFullYear() !== annee || date.getUTCMonth() !== mois - 1 || date.getUTCDate() !== jour) return valeur;
-  const texte = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(date);
+  if (date.getUTCFullYear() !== annee || date.getUTCMonth() !== mois - 1 || date.getUTCDate() !== jour)
+    return valeur;
+  const texte = new Intl.DateTimeFormat('fr-FR', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
   return jour === 1 ? texte.replace(/^1 /, '1er ') : texte;
 };
-const statusLabels: Record<string,string> = {nouvelle:'Nouvelle',en_cours:'En cours',devis_envoye:'Devis envoyé',acceptee:'Acceptée'};
+const statusLabels: Record<string, string> = {
+  nouvelle: 'Nouvelle',
+  en_cours: 'En cours',
+  devis_envoye: 'Devis envoyé',
+  acceptee: 'Acceptée',
+  refusee: 'Refusée',
+};
 const status = String(d.statut || 'nouvelle');
 const ref = String(d.reference_devis || `#${id}`);
-const autres = Object.keys(d).filter(k => !ordre.includes(k) && k !== 'id' && k !== 'prestation_souhaitee' && k !== 'date_suppression');
+const autres = Object.keys(d).filter(
+  (k) => !ordre.includes(k) && k !== 'id' && k !== 'prestation_souhaitee' && k !== 'date_suppression',
+);
 ---
-<html lang="fr" data-theme="auto">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex,nofollow" />
-  
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <title>{ref} | Maison & Monde</title>
-  <script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem('mm-admin-theme')||'auto'}catch{}</script>
-  <style>
-    :root{font-family:Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color-scheme:dark;--bg:#061120;--card:#0e223b;--card2:#132b47;--text:#edf4ff;--muted:#a5b6cc;--border:#294361;--gold:#e8b65a;--shadow:0 16px 36px #0005}
-    :root[data-theme="clair"]{color-scheme:light;--bg:#eff5fb;--card:#fff;--card2:#f1f6fb;--text:#173253;--muted:#586d83;--border:#d9e4ef;--gold:#ae7928;--shadow:0 14px 32px #17325312}
-    @media(prefers-color-scheme:light){:root[data-theme="auto"]{color-scheme:light;--bg:#eff5fb;--card:#fff;--card2:#f1f6fb;--text:#173253;--muted:#586d83;--border:#d9e4ef;--gold:#ae7928;--shadow:0 14px 32px #17325312}}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);min-height:100vh}a{color:inherit;text-decoration:none}.top{background:var(--card);border-bottom:1px solid var(--border);padding:20px max(20px,calc((100vw - 1160px)/2));display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-weight:850;letter-spacing:1.5px}.brand span{color:var(--gold)}.top a,.back{font-size:13px;color:var(--gold)}main{max-width:1160px;margin:0 auto;padding:35px 20px 70px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;color:var(--gold)}h1{font-size:clamp(25px,4vw,39px);margin:12px 0 8px;overflow-wrap:anywhere}p{color:var(--muted)}.intro{margin-bottom:30px}.badge{display:inline-block;padding:8px 14px;border-radius:99px;background:#d8eeff;color:#185586;font-size:12px;font-weight:750}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:linear-gradient(145deg,var(--card),var(--card2));border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:15px;padding:25px;box-shadow:var(--shadow);min-width:0}.card h2{font-size:17px;margin:0 0 22px;color:var(--gold)}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}.field{min-width:0}.field dt{color:var(--muted);font-size:12px;margin-bottom:7px}.field dd{margin:0;font-size:14px;line-height:1.6;overflow-wrap:anywhere;white-space:pre-wrap}.field a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}.full{grid-column:1/-1}.back{display:inline-flex;margin-bottom:20px;border:1px solid var(--border);padding:11px 16px;border-radius:9px;background:var(--card)}.extra{margin-top:18px}.footnote{font-size:12px;margin-top:25px}@media(max-width:760px){.cards{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.top{padding:17px 20px}.card{padding:20px}}
-    .gestion{margin-bottom:20px}.statut-form{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.statut-form label{font-size:13px;color:var(--muted)}.statut-form select{padding:11px 14px;background:var(--card2);color:var(--text);border:1px solid var(--border);border-radius:9px}.bouton-or,.bouton-danger{border-radius:9px;padding:11px 16px;font:inherit;font-weight:700;cursor:pointer}.bouton-or{background:var(--gold);color:#071426;border:0}.bouton-danger{background:transparent;color:#ff9c9c;border:1px solid #b64d57}.suppression-form{margin-top:18px}.gestion-note{font-size:12px;margin-bottom:0}
 
-    /* Confirmation personnalisée de mise à la corbeille */
-    .dialog-corbeille{border:1px solid var(--gold);border-radius:18px;padding:0;background:var(--card);color:var(--text);width:min(440px,calc(100% - 32px));max-height:calc(100% - 32px);box-shadow:0 25px 80px #0009,0 0 28px #e8b65a20}
-    .dialog-corbeille::backdrop{background:rgba(1,9,21,.78);backdrop-filter:blur(5px)}
-    .dialog-interieur{padding:28px;text-align:center}
-    .dialog-icone{font-size:32px;line-height:1;margin-bottom:12px}
-    .dialog-corbeille h2{font-size:21px;color:var(--gold);margin:0 0 12px}
-    .dialog-corbeille p{font-size:14px;line-height:1.65;margin:0 0 24px}
-    .dialog-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .dialog-actions button{min-height:44px;border-radius:9px;padding:11px 18px;font:inherit;font-weight:700;cursor:pointer}
-    .dialog-annuler{background:var(--card2);color:var(--text);border:1px solid var(--border)}
-    .dialog-confirmer{background:#a8323c;color:#fff;border:1px solid #c54d57}
-    .dialog-actions button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-    @media(prefers-reduced-motion:no-preference){.dialog-corbeille[open]{animation:dialog-apparition .2s ease-out}@keyframes dialog-apparition{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}}
-  </style>
-</head>
-<body>
-  <header class="top"><div class="brand">MAISON <span>&amp;</span> MONDE</div><a href="/admin/">← Tableau de bord</a></header>
-  <main>
-    <a class="back" href="/admin/#demandes">← Retour aux demandes de devis</a>
-    <div class="intro"><div class="eyebrow">GESTION DES CLIENTS · FICHE DÉTAILLÉE</div><h1>Demande {ref}</h1><span class="badge">{statusLabels[status] || status}</span><p>Informations transmises par le formulaire de devis Maison &amp; Monde.</p></div>
-    <section class="card gestion">
-      <h2>Gérer cette demande</h2>
-      <form method="POST" action="/api/admin/gerer-demande" class="statut-form">
-        <input type="hidden" name="id" value={id} />
-        <input type="hidden" name="action" value="statut" />
-        <label for="nouveau-statut">Statut de la demande</label>
-        <select id="nouveau-statut" name="statut">
-          {Object.entries(statusLabels).map(([valeur, nom]) => <option value={valeur} selected={status === valeur}>{nom}</option>)}
-        </select>
-        <button type="submit" class="bouton-or">Enregistrer le statut</button>
-      </form>
-      <form method="POST" action="/api/admin/gerer-demande" class="suppression-form" id="form-corbeille">
-        <input type="hidden" name="id" value={id} />
-        <input type="hidden" name="action" value="supprimer" />
-        <button type="submit" class="bouton-danger">🗑 Placer dans la corbeille</button>
-      </form>
-      <p class="gestion-note">La suppression est réversible depuis la corbeille du tableau de bord.</p>
-    </section>
-    <dialog id="confirmation-corbeille" class="dialog-corbeille" aria-labelledby="titre-confirmation-corbeille" aria-describedby="texte-confirmation-corbeille">
-      <div class="dialog-interieur">
-        <div class="dialog-icone" aria-hidden="true">🗑️</div>
-        <h2 id="titre-confirmation-corbeille">Placer dans la corbeille ?</h2>
-        <p id="texte-confirmation-corbeille">La demande <strong>{ref}</strong> sera retirée du tableau de bord. Vous pourrez la restaurer à tout moment depuis la corbeille.</p>
-        <div class="dialog-actions">
-          <button type="button" class="dialog-annuler" id="annuler-corbeille">Annuler</button>
-          <button type="button" class="dialog-confirmer" id="confirmer-corbeille">Placer dans la corbeille</button>
-        </div>
+<html lang="fr" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{ref} | Maison & Monde</title>
+    <script is:inline>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem('mm-admin-theme') || 'auto';
+      } catch {}
+    </script>
+
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        MAISON <span>&amp;</span> MONDE
       </div>
-    </dialog>
-    <div class="cards">
-      {groupes.map(g => <section class="card"><h2>{g.titre}</h2><dl class="fields">
-        {g.champs.filter(k=>k in d).map(k=><div class:list={['field', ['prestations','disponibilites'].includes(k)&&'full']}><dt>{labels[k]}</dt><dd>{k==='email' && d[k] ? <a href={`mailto:${String(d[k])}`}>{String(d[k])}</a> : k==='telephone' && d[k] ? <a href={`tel:${String(d[k]).replace(/[^+\d]/g,'')}`}>{String(d[k])}</a> : k==='statut' ? (statusLabels[status] || status) : k==='animaux_presents' ? (d[k] === null || d[k] === undefined ? 'Non renseigné' : d[k] ? 'Oui' : 'Non') : afficherChamp(k, d[k])}</dd></div>)}
-        {g.notes?.filter(k => k in notes).map(k => <div class:list={['field', ['Précisions services','Message'].includes(k) && 'full']}><dt>{notesConnues[k]}</dt><dd>{afficherNote(k, notes[k])}</dd></div>)}
-        {g.titre === 'Prestations demandées' && d.prestation_souhaitee && <div class="field"><dt>Catégorie sélectionnée</dt><dd>{afficherChamp('prestation_souhaitee', d.prestation_souhaitee)}</dd></div>}
-        {g.titre === 'Informations complémentaires' && notesLibres.length > 0 && <div class="field full"><dt>Autres précisions</dt><dd>{notesLibres.join('\n')}</dd></div>}
-      </dl></section>)}
-    </div>
-    {autres.length>0 && <section class="card extra"><h2>Données techniques complémentaires</h2><dl class="fields">{autres.map(k=><div class="field"><dt>{k.replace(/_/g,' ')}</dt><dd>{format(d[k])}</dd></div>)}</dl></section>}
-    <p class="footnote">Consultation privée : les informations de cette fiche ne sont accessibles qu'aux administrateurs connectés.</p>
-  </main>
+      <a href="/admin/">← Tableau de bord</a>
+    </header>
+    <main>
+      <a class="back" href="/admin/#demandes">
+        ← Retour aux demandes de devis
+      </a>
+      <div class="intro">
+        <div class="eyebrow">GESTION DES CLIENTS · FICHE DÉTAILLÉE</div>
+        <h1>Devis {estConciergerie ? 'Conciergerie' : 'Ménage'}</h1>
+        <p>
+          <strong>Référence : {ref}</strong>
+        </p>
+        <span class="badge">{statusLabels[status] || status}</span>
+        <p>Informations transmises par le formulaire de devis Maison &amp; Monde.</p>
+      </div>
+      <section class="card gestion">
+        <h2>Gérer cette demande</h2>
+        <form method="POST" action="/api/admin/gerer-demande" class="statut-form">
+          <input type="hidden" name="id" value={id} />
+          <input type="hidden" name="action" value="statut" />
+          <label for="nouveau-statut">Statut de la demande</label>
+          <select id="nouveau-statut" name="statut">
+            {Object.entries(statusLabels).map(([valeur, nom]) => (
+              <option value={valeur} selected={status === valeur}>
+                {nom}
+              </option>
+            ))}
+          </select>
+          <button type="submit" class="bouton-or">
+            Enregistrer le statut
+          </button>
+        </form>
+        <form method="POST" action="/api/admin/gerer-demande" class="suppression-form" id="form-corbeille">
+          <input type="hidden" name="id" value={id} />
+          <input type="hidden" name="action" value="supprimer" />
+          <button type="submit" class="bouton-danger">
+            🗑 Placer dans la corbeille
+          </button>
+        </form>
+        <p class="gestion-note">La suppression est réversible depuis la corbeille du tableau de bord.</p>
+      </section>
+      <dialog
+        id="confirmation-corbeille"
+        class="dialog-corbeille"
+        aria-labelledby="titre-confirmation-corbeille"
+        aria-describedby="texte-confirmation-corbeille"
+      >
+        <div class="dialog-interieur">
+          <div class="dialog-icone" aria-hidden="true">
+            🗑️
+          </div>
+          <h2 id="titre-confirmation-corbeille">Placer dans la corbeille ?</h2>
+          <p id="texte-confirmation-corbeille">
+            La demande <strong>{ref}</strong> sera retirée du tableau de bord. Vous pourrez la restaurer à
+            tout moment depuis la corbeille.
+          </p>
+          <div class="dialog-actions">
+            <button type="button" class="dialog-annuler" id="annuler-corbeille">
+              Annuler
+            </button>
+            <button type="button" class="dialog-confirmer" id="confirmer-corbeille">
+              Placer dans la corbeille
+            </button>
+          </div>
+        </div>
+      </dialog>
+      <div class="cards">
+        {estConciergerie && (
+          <section class="card">
+            <h2>Détails de la conciergerie</h2>
+            <dl class="fields">
+              {Object.entries(reponsesConciergerie)
+                .filter(([, v]) => v)
+                .map(([k, v]) => (
+                  <div class="field full">
+                    <dt>{k}</dt>
+                    <dd class="preserve-whitespace">{v}</dd>
+                  </div>
+                ))}
+            </dl>
+          </section>
+        )}
+        {estProfessionnel && (
+          <section class="card">
+            <h2>Informations professionnelles</h2>
+            <dl class="fields">
+              {[
+                ['Entreprise', reponsesProfessionnel.entreprise],
+                ['Type d’établissement', reponsesProfessionnel.type_site],
+                ['Service demandé', reponsesProfessionnel.service],
+                ['Fréquence', reponsesProfessionnel.frequence],
+                ['Message', reponsesProfessionnel.message],
+              ]
+                .filter(([, value]) => value)
+                .map(([label, value]) => (
+                  <div class="field full">
+                    <dt>{label}</dt>
+                  <dd class="preserve-whitespace">{value}</dd>
+                  </div>
+                ))}
+            </dl>
+          </section>
+        )}
+        {groupes.map((g) => (
+          <section class="card">
+            <h2>{g.titre}</h2>
+            <dl class="fields">
+              {g.champs
+                .filter(
+                  (k) =>
+                    k in d &&
+                    !(
+                      estConciergerie &&
+                      ['nombre_pieces', 'animaux_presents', 'duree_souhaitee', 'disponibilites'].includes(k)
+                    ),
+                )
+                .map((k) => (
+                  <div class:list={['field', ['prestations', 'disponibilites'].includes(k) && 'full']}>
+                    <dt>{labels[k]}</dt>
+                    <dd>
+                      {k === 'email' && d[k] ? (
+                        <a href={`mailto:${String(d[k])}`}>{String(d[k])}</a>
+                      ) : k === 'telephone' && d[k] ? (
+                        <a href={`tel:${String(d[k]).replace(/[^+\d]/g, '')}`}>{String(d[k])}</a>
+                      ) : k === 'statut' ? (
+                        statusLabels[status] || status
+                      ) : k === 'animaux_presents' ? (
+                        d[k] === null || d[k] === undefined ? (
+                          'Non renseigné'
+                        ) : d[k] ? (
+                          'Oui'
+                        ) : (
+                          'Non'
+                        )
+                      ) : (
+                        afficherChamp(k, d[k])
+                      )}
+                    </dd>
+                  </div>
+                ))}
+              {g.notes
+                ?.filter((k) => k in notes)
+                .map((k) => (
+                  <div class:list={['field', ['Précisions services', 'Message'].includes(k) && 'full']}>
+                    <dt>{notesConnues[k]}</dt>
+                    <dd>{afficherNote(k, notes[k])}</dd>
+                  </div>
+                ))}
+              {g.titre === 'Prestations demandées' && d.prestation_souhaitee && (
+                <div class="field">
+                  <dt>Catégorie sélectionnée</dt>
+                  <dd>{afficherChamp('prestation_souhaitee', d.prestation_souhaitee)}</dd>
+                </div>
+              )}
+              {g.titre === 'Informations complémentaires' && notesLibres.length > 0 && (
+                <div class="field full">
+                  <dt>Autres précisions</dt>
+                  <dd>{notesLibres.join('\n')}</dd>
+                </div>
+              )}
+            </dl>
+          </section>
+        ))}
+      </div>
+      {autres.length > 0 && (
+        <section class="card extra">
+          <h2>Données techniques complémentaires</h2>
+          <dl class="fields">
+            {autres.map((k) => (
+              <div class="field">
+                <dt>{k.replace(/_/g, ' ')}</dt>
+                <dd>{format(d[k])}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+      <p class="footnote">
+        Consultation privée : les informations de cette fiche ne sont accessibles qu'aux administrateurs
+        connectés.
+      </p>
+    </main>
     <script>
       const formulaire = document.querySelector<HTMLFormElement>('#form-corbeille');
       const dialogue = document.querySelector<HTMLDialogElement>('#confirmation-corbeille');
@@ -245,6 +473,5 @@ const autres = Object.keys(d).filter(k => !ordre.includes(k) && k !== 'id' && k 
         formulaire.requestSubmit();
       });
     </script>
-
-</body>
+  </body>
 </html>

@@ -1,0 +1,542 @@
+---
+import SectionBand from '../../../components/SectionBand.astro';
+import '../../../styles/conciergerie-demande-de-devis.css';
+import Icon from '../../../components/ConciergerieIcon.astro';
+import Layout from '../../../layouts/Layout.astro';
+import { servicesConciergerie, choixConciergerie as choix } from '../../../lib/conciergerie';
+const iconesServices = ['broom', 'linen', 'key', 'calendar', 'tools', 'basket', 'sparkle'];
+const descriptionsServices = [
+  'Un logement soigné, prêt pour chaque arrivée',
+  'L’entretien et la préparation de votre linge',
+  'Une arrivée sereine, un départ bien organisé',
+  'La coordination de vos séjours',
+  'Un regard attentif sur votre logement',
+  'Les essentiels pour accueillir vos voyageurs',
+  'Des attentions adaptées à vos besoins',
+];
+const etapes = ['Logement', 'Services', 'Activité locative', 'Coordonnées', 'Récapitulatif'];
+---
+
+<Layout
+  title="Devis Conciergerie | Maison & Monde"
+  description="Décrivez votre logement et vos besoins en cinq étapes pour recevoir une proposition de conciergerie personnalisée."
+>
+  <div class="cq">
+    <svg class="cq-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <defs>
+        <clipPath id="cq-photo-curve" clipPathUnits="objectBoundingBox">
+          <path d="M .17 0 C -.05 .2, .02 .54, .25 .78 C .44 .98, .63 1.04, .82 .94 C .91 .89, .97 .9, 1 .95 L 1 0 Z" />
+        </clipPath>
+        <clipPath id="cq-help-curve" clipPathUnits="objectBoundingBox">
+          <path d="M 0 0 H 1 V .7 C .82 .83, .7 1, .46 .94 C .23 .87, .14 .72, 0 .84 Z" />
+        </clipPath>
+      </defs>
+    </svg>
+    <section class="cq-hero">
+      <div class="cq-hero-copy">
+        <p class="cq-eyebrow">VOTRE DEVIS CONCIERGERIE</p>
+        <h1>
+          Votre bien en location,
+          <br />
+          <em>entre de bonnes mains.</em>
+        </h1>
+        <p>
+          Parlez-nous de votre logement et de votre projet.
+          <br />
+          Nous imaginons avec vous une conciergerie sur mesure.
+        </p>
+        <div class="cq-trust">
+          <span>
+            <Icon name="clock" />5 étapes simples
+          </span>
+          <span>
+            <Icon name="shield" />
+            Gratuit, sans engagement
+          </span>
+          <span>
+            <Icon name="key" />À votre mesure
+          </span>
+        </div>
+      </div>
+      <div class="cq-hero-art">
+        <div class="cq-hero-photo">
+          <img
+            src="/images/conciergerie/salon-conciergerie.webp"
+            alt="Salon parisien lumineux et soigneusement préparé pour accueillir les voyageurs"
+            fetchpriority="high"
+            srcset="/images/conciergerie/salon-conciergerie-480.webp 480w, /images/conciergerie/salon-conciergerie-960.webp 960w, /images/conciergerie/salon-conciergerie.webp 1600w"
+            sizes="(max-width: 780px) 100vw, 50vw"
+            width="1600"
+            height="595"
+          />
+        </div>
+        <svg class="cq-photo-lines" viewBox="0 0 700 460" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M 130 -30 C -28 90 15 236 170 360 S 426 460 550 428 S 661 424 730 457" />
+          <path d="M 98 -30 C -55 110 3 261 158 385 S 439 484 568 449 S 685 443 738 476" />
+        </svg>
+        <span class="cq-orbit cq-orbit-one" aria-hidden="true"></span>
+        <span class="cq-orbit cq-orbit-two" aria-hidden="true"></span>
+        <div class="cq-hero-badge">
+          <span>
+            <Icon name="key" />
+          </span>
+          <div>
+            Votre logement, notre attention<small>Paris & Île-de-France</small>
+          </div>
+        </div>
+      </div>
+    </section>
+    <SectionBand theme="devis-conciergerie" />
+
+    <div class="cq-wrap">
+      <div class="cq-progress">
+        <p id="cq-progress" role="status">
+          Étape 1 sur 5 — Votre logement
+        </p>
+        <span>Votre projet prend forme</span>
+        <div class="cq-progress-meter" aria-hidden="true"></div>
+      </div>
+      <ol class="cq-steps" aria-label="Étapes de la demande">
+        {etapes.map((nom, i) => (
+          <li aria-current={i === 0 ? 'step' : undefined}>
+            <span>{i + 1}</span>
+            <small>{nom}</small>
+          </li>
+        ))}
+      </ol>
+      <div class="cq-workspace" id="cq-workspace">
+        <noscript>
+          <p>
+            Activez JavaScript pour remplir ce formulaire. Vous pouvez aussi nous appeler au{' '}
+            <a href="tel:+33745292585">07 45 29 25 85</a>.
+          </p>
+        </noscript>
+        <form id="cq-form" novalidate>
+          <input type="hidden" name="type_devis" value="conciergerie" />
+          <input type="hidden" name="details_services" value="" />
+          <section data-step="1" class="cq-card">
+            <div class="cq-card-heading">
+              <span class="cq-step-symbol">
+                <Icon name="house" />
+              </span>
+              <div>
+                <p class="cq-eyebrow">01 / VOTRE LOGEMENT</p>
+                <h2 tabindex="-1">Votre bien en location</h2>
+              </div>
+            </div>
+            <p>Les champs marqués d’un * sont obligatoires.</p>
+            <fieldset>
+              <legend>Type de logement *</legend>
+              <div class="cq-options cq-housing">
+                {choix.logement.map((v, i) => (
+                  <label>
+                    <input type="radio" name="logement" value={v} required />
+                    <span class="cq-choice-face">
+                      <Icon name={['studio', 'building', 'house'][i]} />
+                      <strong>{v}</strong>
+                      <small>
+                        {
+                          ['Un espace bien pensé', 'Le confort au quotidien', 'De la place pour accueillir'][
+                            i
+                          ]
+                        }
+                      </small>
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <div class="cq-grid">
+              <label class="cq-wide">
+                Adresse du logement *
+                <input
+                  name="adresse"
+                  placeholder="Ex. : 3 rue Boulard"
+                  autocomplete="street-address"
+                  maxlength="255"
+                  required
+                />
+              </label>
+              <label>
+                Code postal *
+                <input
+                  name="code_postal"
+                  autocomplete="postal-code"
+                  inputmode="numeric"
+                  pattern="[0-9]{5}"
+                  maxlength="5"
+                  required
+                />
+              </label>
+              <label>
+                Ville *<input name="ville" autocomplete="address-level2" maxlength="100" required />
+              </label>
+              <label>
+                Superficie (m²) *
+                <input name="surface" placeholder="Ex. : 65" type="number" min="1" max="10000" required />
+              </label>
+              <label>
+                Nombre de chambres *
+                <input name="chambres" placeholder="Ex. : 2" type="number" min="0" max="100" required />
+              </label>
+              <label>
+                Salles de bain *
+                <input name="bains" placeholder="Ex. : 1" type="number" min="0" max="30" required />
+              </label>
+              <label>
+                Capacité d’accueil (voyageurs) *
+                <input name="capacite" placeholder="Ex. : 4" type="number" min="1" max="100" required />
+              </label>
+            </div>
+            <div class="cq-actions">
+              <span>Un devis adapté à votre logement</span>
+              <button type="button" data-next>
+                Continuer →
+              </button>
+            </div>
+          </section>
+          <section data-step="2" class="cq-card" hidden>
+            <div class="cq-card-heading">
+              <span class="cq-step-symbol">
+                <Icon name="broom" />
+              </span>
+              <div>
+                <p class="cq-eyebrow">02 / VOS SERVICES</p>
+                <h2 tabindex="-1">Les services souhaités</h2>
+              </div>
+            </div>
+            <fieldset>
+              <legend>Votre accompagnement *</legend>
+              <div class="cq-options cq-packages">
+                {choix.formule.map((v, i) => (
+                  <label>
+                    <input type="radio" name="formule" value={v} required />
+                    <span class="cq-choice-face">
+                      <Icon name={i === 0 ? 'key' : 'sparkle'} />
+                      <strong>{v}</strong>
+                      <small>
+                        {i === 0 ? 'Un accompagnement global' : 'Les prestations qui vous conviennent'}
+                      </small>
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>
+                Services souhaités * <small>Plusieurs choix possibles</small>
+              </legend>
+              <div class="cq-options cq-services">
+                {servicesConciergerie.map((v, i) => (
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="services"
+                      value={v}
+                      id={v === 'Services complémentaires' ? 'cq-extra' : undefined}
+                      aria-haspopup={v === 'Services complémentaires' ? 'dialog' : undefined}
+                      aria-controls={v === 'Services complémentaires' ? 'cq-dialog' : undefined}
+                    />
+                    <Icon name={iconesServices[i]} />
+                    <span>
+                      <strong>{v}</strong>
+                      <small>{descriptionsServices[i]}</small>
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <div id="cq-extra-summary" hidden>
+              <p id="cq-extra-text"></p>
+              <button
+                type="button"
+                id="cq-edit-extra"
+                class="cq-secondary"
+                aria-haspopup="dialog"
+                aria-controls="cq-dialog"
+              >
+                Modifier les précisions
+              </button>
+            </div>
+            <div class="cq-actions">
+              <button type="button" data-back class="cq-secondary">
+                ← Précédent
+              </button>
+              <button type="button" data-next>
+                Continuer →
+              </button>
+            </div>
+          </section>
+          <section data-step="3" class="cq-card" hidden>
+            <div class="cq-card-heading">
+              <span class="cq-step-symbol">
+                <Icon name="calendar" />
+              </span>
+              <div>
+                <p class="cq-eyebrow">03 / VOTRE ACTIVITÉ LOCATIVE</p>
+                <h2 tabindex="-1">Votre activité locative</h2>
+              </div>
+            </div>
+            <fieldset>
+              <legend>Votre situation *</legend>
+              <div class="cq-options">
+                {choix.activite.map((v) => (
+                  <label>
+                    <input type="radio" name="activite" value={v} required />
+                    {v}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <fieldset id="cq-platforms">
+              <legend>Plateformes utilisées ou envisagées *</legend>
+              <div class="cq-options">
+                {choix.plateformes.map((v) => (
+                  <label>
+                    <input type="checkbox" name="plateformes" value={v} />
+                    {v}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+            <div class="cq-grid">
+              {(
+                [
+                  ['frequence', 'Fréquence estimée des séjours'],
+                  ['periode', 'Période de location'],
+                  ['cles', 'Remise des clés'],
+                ] as const
+              ).map(([name, label]) => (
+                <label>
+                  {label} *
+                  <select name={name} required>
+                    <option value="">Sélectionner</option>
+                    {choix[name].map((v) => (
+                      <option>{v}</option>
+                    ))}
+                  </select>
+                </label>
+              ))}
+              <label>
+                Date de démarrage souhaitée *<input name="date_debut" type="date" required />
+              </label>
+            </div>
+            <div class="cq-actions">
+              <button type="button" data-back class="cq-secondary">
+                ← Précédent
+              </button>
+              <button type="button" data-next>
+                Continuer →
+              </button>
+            </div>
+          </section>
+          <section data-step="4" class="cq-card" hidden>
+            <div class="cq-card-heading">
+              <span class="cq-step-symbol">
+                <Icon name="user" />
+              </span>
+              <div>
+                <p class="cq-eyebrow">04 / VOS COORDONNÉES</p>
+                <h2 tabindex="-1">Vos coordonnées</h2>
+              </div>
+            </div>
+            <div class="cq-grid">
+              <label>
+                Prénom *<input name="prenom" autocomplete="given-name" maxlength="100" required />
+              </label>
+              <label>
+                Nom *<input name="nom" autocomplete="family-name" maxlength="100" required />
+              </label>
+              <label>
+                Téléphone *
+                <input
+                  name="telephone"
+                  type="tel"
+                  autocomplete="tel"
+                  pattern="[+0-9\s().\-]{10,30}"
+                  maxlength="30"
+                  required
+                />
+              </label>
+              <label>
+                Adresse e-mail *
+                <input name="email" type="email" autocomplete="email" maxlength="255" required />
+              </label>
+              <label class="cq-wide">
+                Préférence de contact *
+                <select name="contact" required>
+                  <option value="">Sélectionner</option>
+                  {choix.contact.map((v) => (
+                    <option>{v}</option>
+                  ))}
+                </select>
+              </label>
+              <label class="cq-wide">
+                Message complémentaire <small>Facultatif · 3 000 caractères maximum</small>
+                <textarea name="message" maxlength="3000" rows="4"></textarea>
+              </label>
+            </div>
+            <label class="cq-consent">
+              <input type="checkbox" name="confidentialite" required />
+              J’accepte que Maison & Monde utilise les informations saisies pour traiter ma demande et me
+              recontacter. *
+            </label>
+            <div class="cq-actions">
+              <button type="button" data-back class="cq-secondary">
+                ← Précédent
+              </button>
+              <button type="button" data-next>
+                Vérifier ma demande →
+              </button>
+            </div>
+          </section>
+          <section data-step="5" class="cq-card" hidden>
+            <div class="cq-card-heading">
+              <span class="cq-step-symbol">
+                <Icon name="check" />
+              </span>
+              <div>
+                <p class="cq-eyebrow">05 / RÉCAPITULATIF</p>
+                <h2 tabindex="-1">Récapitulatif de votre demande</h2>
+              </div>
+            </div>
+            <p>Vérifiez vos informations avant l’envoi. Vous pouvez modifier chaque étape.</p>
+            <div id="cq-summary"></div>
+            <p>Cette demande est gratuite et sans engagement.</p>
+            <div class="cq-actions">
+              <button type="button" data-back class="cq-secondary">
+                ← Précédent
+              </button>
+              <button type="submit">Envoyer ma demande de devis</button>
+            </div>
+          </section>
+          <p id="cq-error" role="alert" hidden></p>
+        </form>
+        <aside class="cq-help" aria-labelledby="cq-help-title">
+          <div class="cq-help-art">
+            <img
+              id="cq-help-image"
+              src="/images/conciergerie/appartement-paris.webp"
+              alt="Immeuble parisien et balcon fleuri"
+              loading="lazy"
+            />
+            <span class="cq-help-ring" aria-hidden="true"></span>
+          </div>
+          <div class="cq-help-copy">
+            <span class="cq-help-symbol">
+              <Icon name="house" />
+            </span>
+            <p class="cq-eyebrow">UN ACCOMPAGNEMENT SUR MESURE</p>
+            <h3 id="cq-help-title">
+              Chaque logement
+              <br />a son histoire.
+            </h3>
+            <p id="cq-help-description">
+              La surface, la configuration et la capacité d’accueil nous aident à préparer une proposition
+              adaptée à votre bien.
+            </p>
+            <ul id="cq-help-benefits">
+              <li>
+                <Icon name="check" />
+                <span>Une estimation personnalisée</span>
+              </li>
+              <li>
+                <Icon name="check" />
+                <span>Des services selon vos besoins</span>
+              </li>
+              <li>
+                <Icon name="check" />
+                <span>Un interlocuteur à votre écoute</span>
+              </li>
+            </ul>
+            <div class="cq-help-contact">
+              <span>Une question sur votre projet ?</span>
+              <a href="tel:+33745292585">
+                <Icon name="phone" />
+                07 45 29 25 85
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <section id="cq-success" class="cq-card" hidden tabindex="-1">
+        <p class="cq-eyebrow">DEMANDE ENREGISTRÉE</p>
+        <h2>Merci pour votre confiance.</h2>
+        <p>
+          Votre demande de devis Conciergerie a bien été enregistrée. Notre équipe vous recontactera pour
+          étudier vos besoins.
+        </p>
+        <p>
+          Votre référence : <strong id="cq-reference"></strong>
+        </p>
+        <a href="/conciergerie/">Retour à la conciergerie →</a>
+      </section>
+      <section class="cq-next" aria-labelledby="cq-next-title">
+        <div>
+          <p class="cq-eyebrow">ET ENSUITE ?</p>
+          <h2 id="cq-next-title">
+            Une demande, <em>le début d’un échange.</em>
+          </h2>
+        </div>
+        <ol>
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Nous étudions votre projet</h3>
+              <p>Votre logement, votre rythme et vos priorités.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Nous échangeons avec vous</h3>
+              <p>Pour préciser vos attentes et les services utiles.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Vous recevez votre proposition</h3>
+              <p>Un accompagnement personnalisé, sans engagement.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </div>
+  <dialog id="cq-dialog" aria-labelledby="cq-dialog-title" aria-describedby="cq-dialog-desc">
+    <form id="cq-dialog-form" novalidate>
+      <div class="cq-dialog-top">
+        <p class="cq-eyebrow">SERVICES COMPLÉMENTAIRES</p>
+        <button type="button" data-dismiss aria-label="Fermer la fenêtre">
+          ×
+        </button>
+      </div>
+      <h2 id="cq-dialog-title">Précisez vos besoins</h2>
+      <p id="cq-dialog-desc">
+        Indiquez les services complémentaires souhaités : courses, réassort de consommables ou toute autre
+        demande.
+      </p>
+      <label for="cq-details">
+        Vos précisions * <small>2 000 caractères maximum</small>
+      </label>
+      <textarea
+        id="cq-details"
+        rows="5"
+        maxlength="2000"
+        required
+        placeholder="Ex. : Prévoir les courses avant l’arrivée, réapprovisionner le café et les produits d’accueil…"
+      ></textarea>
+      <p id="cq-dialog-error" role="alert" hidden>
+        Veuillez préciser les services souhaités.
+      </p>
+      <div class="cq-actions">
+        <button type="button" data-dismiss class="cq-secondary">
+          Annuler
+        </button>
+        <button type="submit">Enregistrer</button>
+      </div>
+    </form>
+  </dialog>
+  <script src="../../../scripts/conciergerie.ts"></script>
+</Layout>

@@ -1,0 +1,34 @@
+---
+import '../../styles/nos-services.css';
+import InfoPage from '../../components/InfoPage.astro';
+const services = [
+  ['Ménage régulier', 'Un entretien suivi, adapté à votre quotidien.', '/menage-regulier-a-domicile/'],
+  ['Services occasionnels', 'Ménage ponctuel et interventions selon vos besoins.', '/services-occasionnels/'],
+  ['Grand ménage', 'Un nettoyage approfondi du logement.', '/grand-menage-paris/'],
+  ['Repassage à domicile', 'Du linge soigné et du temps retrouvé.', '/repassage-a-domicile-paris/'],
+  ['Formule Test', 'Découvrir notre service lors d’une première intervention.', '/service-de-menage-test/'],
+  [
+    'Bureaux et locaux professionnels',
+    'Des espaces de travail entretenus selon votre organisation.',
+    '/nettoyage-bureaux-paris/',
+  ],
+  ['Conciergerie', 'Préparation du logement, voyageurs et accompagnement locatif.', '/conciergerie/'],
+];
+---
+
+<InfoPage
+  title="Nos services à Paris et en Île-de-France | Maison & Monde"
+  heading="Des services pour votre quotidien"
+  description="Découvrez les prestations de ménage, repassage, nettoyage de bureaux et conciergerie de Maison & Monde."
+>
+  <div class="service-directory">
+    {services.map(([title, desc, href]) => (
+      <section>
+        <h2>{title}</h2>
+        <p>{desc}</p>
+        <a href={href}>Découvrir ce service →</a>
+      </section>
+    ))}
+  </div>
+</InfoPage>
+

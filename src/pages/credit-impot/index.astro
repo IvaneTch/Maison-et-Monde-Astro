@@ -1,0 +1,212 @@
+---
+import '../../styles/credit-impot.css';
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Crédit d’impôt et Avance immédiate | Maison & Monde"
+  description="Comprendre le crédit d’impôt de 50 % pour les services à la personne, les plafonds et l’Avance immédiate de l’Urssaf."
+>
+  <main class="credit-page">
+    <section class="credit-hero">
+      <div class="credit-hero-copy">
+        <p class="eyebrow">VOTRE AVANTAGE FISCAL</p>
+        <h1>
+          Le crédit d’impôt, <em>simplement expliqué</em>
+        </h1>
+        <p>
+          Pour certaines prestations de services à la personne, vous pouvez récupérer la moitié des dépenses
+          éligibles, sous réserve des conditions et plafonds en vigueur.
+        </p>
+        <a class="credit-button" href="/contactez-nous/">
+          Parlons de votre besoin <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <figure class="credit-hero-image">
+        <img
+          src="/images/hero-credit-impot.webp"
+          srcset="/images/hero-credit-impot-480.webp 480w, /images/hero-credit-impot-960.webp 960w, /images/hero-credit-impot.webp 1600w"
+          sizes="(max-width: 780px) 100vw, 48vw"
+          width="1600"
+          height="1067"
+          alt="Intérieur lumineux entretenu avec soin"
+          fetchpriority="high"
+        />
+        <figcaption>Maison & Monde · Services à domicile</figcaption>
+      </figure>
+      <svg class="credit-curve" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 24 C310 98 550 2 830 49 S1190 94 1440 28" />
+      </svg>
+    </section>
+
+    <section class="credit-section credit-explain">
+      <div class="credit-heading">
+        <p class="eyebrow">LE PRINCIPE</p>
+        <h2>
+          50 % des dépenses <em>éligibles</em>
+        </h2>
+        <p>
+          Le crédit d’impôt concerne les sommes réellement supportées pour des services à la personne
+          effectués au domicile, sous conditions.
+        </p>
+      </div>
+      <div class="credit-cards">
+        <article>
+          <span class="credit-number">01</span>
+          <h3>Des prestations concernées</h3>
+          <p>
+            Le ménage et l’entretien du domicile peuvent entrer dans le dispositif si l’organisme et la
+            prestation remplissent les règles SAP. Le repassage doit également être confirmé dans le cadre de
+            votre devis et attestation.
+          </p>
+        </article>
+        <article>
+          <span class="credit-number">02</span>
+          <h3>Des limites annuelles</h3>
+          <p>
+            La limite générale est de 12 000 € de dépenses par foyer fiscal et par an, avec des majorations ou
+            plafonds particuliers selon la situation. Les aides reçues sont déduites des dépenses retenues.
+          </p>
+        </article>
+        <article>
+          <span class="credit-number">03</span>
+          <h3>Une déclaration annuelle</h3>
+          <p>
+            Sans Avance immédiate, l’avantage est pris en compte par l’administration fiscale après votre
+            déclaration, selon votre situation et les justificatifs fournis.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="credit-advance">
+      <div class="credit-advance-mark">
+        <span>
+          50<small>%</small>
+        </span>
+        <b>
+          AVANCE
+          <br />
+          IMMÉDIATE
+        </b>
+      </div>
+      <div>
+        <p class="eyebrow">LE SERVICE OPTIONNEL DE L’URSSAF</p>
+        <h2>
+          Payez au fur et à mesure, <em>sans attendre l’année suivante</em>
+        </h2>
+        <p>
+          Lorsque le client, l’activité et le prestataire sont éligibles et inscrits au service, l’Urssaf
+          déduit immédiatement l’avance de crédit d’impôt de la facture. Vous réglez alors le reste à charge,
+          généralement la moitié du montant éligible, dans la limite de vos droits disponibles.
+        </p>
+        <p>
+          Exemple indicatif : pour 100 € de prestations éligibles, 50 € peuvent rester à votre charge après
+          validation de l’Urssaf. Ce calcul ne s’applique pas aux services non éligibles, aux aides déjà
+          déduites, ni au-delà des plafonds disponibles.
+        </p>
+      </div>
+    </section>
+
+    <section class="credit-section credit-steps">
+      <div class="credit-heading">
+        <p class="eyebrow">COMMENT ÇA SE PASSE ?</p>
+        <h2>
+          Trois étapes, <em>en toute clarté</em>
+        </h2>
+      </div>
+      <ol>
+        <li>
+          <b>1</b>
+          <div>
+            <h3>Vérifiez le service</h3>
+            <p>
+              Demandez-nous quelles tâches de votre prestation sont susceptibles d’être déclarées comme
+              services à la personne.
+            </p>
+          </div>
+        </li>
+        <li>
+          <b>2</b>
+          <div>
+            <h3>Activez votre espace</h3>
+            <p>
+              Si le dispositif est proposé et votre situation éligible, l’inscription se fait dans le parcours
+              Urssaf, avec votre accord.
+            </p>
+          </div>
+        </li>
+        <li>
+          <b>3</b>
+          <div>
+            <h3>Validez les demandes de paiement</h3>
+            <p>
+              Les opérations apparaissent dans votre espace. L’Urssaf verse la part correspondante au
+              prestataire et vous réglez le reste à charge.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="credit-caution">
+      <h2>À savoir avant de faire votre demande</h2>
+      <ul>
+        <li>
+          Le taux de 50 % ne signifie pas que chaque service Maison & Monde est automatiquement éligible.
+        </li>
+        <li>
+          La conciergerie de location saisonnière, l’accueil des voyageurs et les prestations professionnelles
+          ne sont pas assimilés automatiquement à des services SAP au domicile du client.
+        </li>
+        <li>
+          L’Avance immédiate est facultative et dépend de l’éligibilité, de l’inscription et des droits encore
+          disponibles.
+        </li>
+        <li>
+          Le montant définitif et les justificatifs relèvent des règles applicables et de l’administration
+          fiscale. Cette page donne une information générale, pas un conseil fiscal individuel.
+        </li>
+      </ul>
+    </section>
+
+    <section class="credit-sources">
+      <p class="eyebrow">SOURCES OFFICIELLES</p>
+      <h2>Pour vérifier votre situation</h2>
+      <div>
+        <a
+          href="https://www.impots.gouv.fr/particulier/emploi-domicile"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Impôts.gouv.fr · emploi à domicile ↗
+        </a>
+        <a
+          href="https://www.servicesalapersonne.gouv.fr/toutes-les-actualites/le-service-avance-immediate-de-lurssaf-pour-beneficier-du-credit-dimpot-en"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Services à la personne · Avance immédiate ↗
+        </a>
+        <a
+          href="https://www.servicesalapersonne.gouv.fr/je-suis-un-organisme-de-sap/les-avantages-fiscaux-et-sociaux-pour-les-organismes-de-services-la"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Règles applicables aux organismes SAP ↗
+        </a>
+        <a href="https://adherent.acces-sap.com/" target="_blank" rel="noopener noreferrer">
+          Accès SAP ↗
+        </a>
+      </div>
+      <p>
+        La disponibilité effective de l’Avance immédiate pour les prestations Maison & Monde doit être
+        confirmée avant d’en faire une promesse commerciale.
+      </p>
+      <a class="credit-button" href="/contactez-nous/">
+        Nous contacter <span aria-hidden="true">→</span>
+      </a>
+    </section>
+  </main>
+</Layout>
+

@@ -1,17 +1,58 @@
 ---
-const titre = "nettoyage-bureaux-paris";
+import ServicePage from '../../components/ServicePage.astro';
+const contenu = {
+  title: 'Nettoyage de bureaux à Paris | Maison & Monde',
+  description:
+    'Nettoyage de bureaux, commerces et locaux professionnels à Paris et en Île-de-France. Prestations régulières ou ponctuelles sur devis.',
+  heading: 'Nettoyage de bureaux,',
+  accent: 'un cadre agréable au quotidien.',
+  intro:
+    'Bureaux, commerces et cabinets : nous préparons un programme de nettoyage adapté à vos locaux, à leur fréquentation et à votre organisation.',
+  image: '/images/hero-nettoyage-bureaux.webp',
+  imageAlt: 'Espace professionnel propre et lumineux',
+  secondaryImage: '/images/conciergerie/entretien-bureaux-equipe.webp',
+  secondaryImageAlt: 'Professionnelle en tablier vert nettoyant une table de réunion dans un bureau parisien',
+  professional: true,
+  bandClass: 'avantages-section',
+  quote: '/devis-professionnel/',
+  services: [
+    {
+      title: 'Bureaux et espaces communs',
+      text: 'Dépoussiérage des surfaces accessibles, entretien des sols et remise en ordre selon le périmètre convenu.',
+      icon: 'building',
+    },
+    {
+      title: 'Sanitaires et espaces de pause',
+      text: 'Entretien des points de contact, sanitaires et espaces partagés selon vos besoins.',
+      icon: 'sparkle',
+    },
+    {
+      title: 'Une organisation adaptée',
+      text: 'Passages ponctuels ou réguliers et horaires à convenir pour respecter l’activité de vos équipes.',
+      icon: 'clock',
+    },
+  ],
+  preparation: [
+    'Décrivez la surface, les pièces et le nombre de postes.',
+    'Indiquez la fréquence et les horaires d’accès souhaités.',
+    'Précisez les fournitures, les consommables et leur prise en charge.',
+    'Les prestations techniques ou soumises à des protocoles particuliers sont étudiées séparément.',
+  ],
+  questions: [
+    {
+      q: 'Intervenez-vous en dehors des horaires de bureau ?',
+      a: 'Les horaires sont définis avec vous, selon les accès au site et les disponibilités de nos équipes.',
+    },
+    {
+      q: 'Proposez-vous un tarif au mètre carré ?',
+      a: 'Nous établissons un devis selon la surface, la fréquentation, les tâches et la fréquence. Les fournitures et consommables sont précisés dans la proposition.',
+    },
+    {
+      q: 'Le crédit d’impôt à domicile s’applique-t-il ?',
+      a: 'Les prestations de nettoyage de locaux professionnels ne sont pas présentées comme éligibles au crédit d’impôt des particuliers.',
+    },
+  ],
+};
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maison & Monde | nettoyage-bureaux-paris</title>
-  </head>
-  <body>
-    <main>
-      <h1>{titre}</h1>
-      <p>Cette page est en cours de préparation.</p>
-    </main>
-  </body>
-</html>
+<ServicePage {...contenu} />

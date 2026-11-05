@@ -1,0 +1,26 @@
+---
+import '../styles/info-page.css';
+import Layout from '../layouts/Layout.astro';
+import '../styles/services.css';
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  intro?: string;
+}
+const { title, description, heading, intro } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <article class="info-page">
+    <header>
+      <p>MAISON & MONDE · À VOTRE SERVICE</p>
+      <h1>{heading}</h1>
+      {intro && <div>{intro}</div>}
+    </header>
+    <div class="info-content">
+      <slot />
+    </div>
+  </article>
+</Layout>
+

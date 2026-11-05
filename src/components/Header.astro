@@ -1,84 +1,115 @@
 ---
-import "../styles/header.css";
+import '../styles/header.css';
+const conciergerie = Astro.url.pathname.startsWith('/conciergerie/');
 ---
 
 <header class="header">
-      <a href="/" class="logo" aria-label="Maison & Monde, accueil">
-        <img
-  src="/favicon.png"
-  alt=""
-  class="logo-icon"
-  width="50"
-  height="50"
-/>
-        <span>Maison <strong>& Monde</strong></span>
-      </a>
+  <a href="/" class="logo" aria-label="Maison & Monde, accueil">
+    <img src="/favicon.png" alt="" class="logo-icon" width="50" height="50" />
+    <span>
+      Maison <strong>& Monde</strong>
+    </span>
+  </a>
 
-      <nav aria-label="Navigation principale">
-        <details class="services-dropdown">
-          <summary>Nos services <span aria-hidden="true">▾</span></summary>
-          <div class="services-dropdown-links">
-            <a href="/menage-regulier-a-domicile/">Services réguliers</a>
-            <a href="/services-occasionnels/">Services occasionnels</a>
-            <a href="/service-de-menage-test/">Services test</a>
-            <a href="/repassage-a-domicile-paris/">Services de repassage</a>
+  <nav aria-label="Navigation principale">
+    <details class="services-dropdown">
+      <summary>
+        Nos services <span aria-hidden="true">▾</span>
+      </summary>
+      <div class="services-dropdown-links">
+        <a href="/menage-regulier-a-domicile/">Services réguliers</a>
+        <a href="/services-occasionnels/">Services occasionnels</a>
+        <a href="/service-de-menage-test/">Services test</a>
+        <a href="/repassage-a-domicile-paris/">Services de repassage</a>
+      </div>
+    </details>
+    <details class="services-dropdown">
+      <summary>
+        Services pour les pros <span aria-hidden="true">▾</span>
+      </summary>
+      <div class="services-dropdown-links">
+        <a href="/nettoyage-bureaux-paris/">Nettoyage des locaux professionnels</a>
+        <a href="/devis-professionnel/">Demander un devis professionnel</a>
+      </div>
+    </details>
+    <a href="/conciergerie/">Conciergerie</a>
+    <a href="/credit-impot/">Crédit d’impôt 50 %</a>
+    <a href="/contactez-nous/">Contact</a>
+  </nav>
 
-          </div>
-        </details>
-        <details class="services-dropdown">
-          <summary>Services pour les pros <span aria-hidden="true">▾</span></summary>
-          <div class="services-dropdown-links">
-            <a href="/#contact">Nettoyage de bureaux et locaux</a>
-            <a href="/#contact">Cabinets et commerces</a>
-            <a href="/#contact">Demander un devis professionnel</a>
-          </div>
-        </details>
-        <a href="/conciergerie/">Conciergerie</a>
-        <span class="header-pending-link" title="Page en préparation">Crédit d’impôt 50 %</span>
-        <a href="/#contact">Contact</a>
-      </nav>
-
-      <details class="mobile-menu">
-        <summary aria-label="Ouvrir le menu de navigation">
-          <span class="hamburger-lines" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span class="sr-only">Menu</span>
+  <details class="mobile-menu">
+    <summary aria-label="Ouvrir le menu de navigation">
+      <span class="hamburger-lines" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span class="sr-only">Menu</span>
+    </summary>
+    <div class="mobile-menu-links">
+      <a href="/">Accueil</a>
+      <details class="mobile-services-dropdown">
+        <summary>
+          Nos services <span aria-hidden="true">▾</span>
         </summary>
-        <div class="mobile-menu-links">
-          <a href="/">Accueil</a>
-          <details class="mobile-services-dropdown">
-            <summary>Nos services <span aria-hidden="true">▾</span></summary>
-            <div class="mobile-services-links">
-            <a href="/menage-regulier-a-domicile/">Services réguliers</a>
-            <a href="/services-occasionnels/">Services occasionnels</a>
-            <a href="/service-de-menage-test/">Services test</a>
-            <a href="/repassage-a-domicile-paris/">Services de repassage</a>
-
-            </div>
-          </details>
-          <details class="mobile-services-dropdown">
-            <summary>Services pour les pros <span aria-hidden="true">▾</span></summary>
-            <div class="mobile-services-links">
-              <a href="/#contact">Nettoyage de bureaux et locaux</a>
-              <a href="/#contact">Cabinets et commerces</a>
-              <a href="/#contact">Demander un devis professionnel</a>
-            </div>
-          </details>
-          <a href="/conciergerie/">Conciergerie</a>
-          <span class="header-pending-link mobile-pending-link" aria-label="Crédit d’impôt 50 %, page en préparation">Crédit d’impôt 50 % <small>(bientôt)</small></span>
-          <a href="/#contact">Contact</a>
+        <div class="mobile-services-links">
+          <a href="/menage-regulier-a-domicile/">Services réguliers</a>
+          <a href="/services-occasionnels/">Services occasionnels</a>
+          <a href="/service-de-menage-test/">Services test</a>
+          <a href="/repassage-a-domicile-paris/">Services de repassage</a>
         </div>
       </details>
+      <details class="mobile-services-dropdown">
+        <summary>
+          Services pour les pros <span aria-hidden="true">▾</span>
+        </summary>
+        <div class="mobile-services-links">
+          <a href="/nettoyage-bureaux-paris/">Nettoyage des locaux professionnels</a>
+          <a href="/devis-professionnel/">Demander un devis professionnel</a>
+        </div>
+      </details>
+      <a href="/conciergerie/">Conciergerie</a>
+      <a href="/credit-impot/">Crédit d’impôt 50 %</a>
+      <a href="/contactez-nous/">Contact</a>
+    </div>
+  </details>
 
-      <a href="/devis-simple/" data-open-devis-simple class="header-button">Demander un devis</a>
-    </header>
-
+  <a
+    href={conciergerie ? '/conciergerie/demande-de-devis/' : '/devis-simple/'}
+    data-open-devis-simple={conciergerie ? undefined : true}
+    class="header-button"
+  >
+    Demander un devis
+  </a>
+</header>
 
 <!-- Navigation mobile secondaire : visible uniquement lorsque le Header est masqué -->
 <nav class="mm-bottom-nav" aria-label="Navigation rapide mobile" inert>
-  <a href="/" class="mm-bottom-item" aria-label="Accueil"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10h-6v-6H9v6H3z"/></svg><span>Accueil</span></a>
-  <a href="tel:+33745292585" class="mm-bottom-item mm-bottom-call" aria-label="Appeler Maison et Monde"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg><span>Appeler</span></a>
-  <button type="button" class="mm-bottom-item" id="mm-bottom-callback"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2.3 6M4 4v7h7"/><path d="M12 7v5l3 2"/></svg><span>Rappel</span></button>
-  <button type="button" class="mm-bottom-item" id="mm-bottom-menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>Menu</span></button>
+  <a href="/" class="mm-bottom-item" aria-label="Accueil">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="m3 10 9-7 9 7v10h-6v-6H9v6H3z" />
+    </svg>
+    <span>Accueil</span>
+  </a>
+  <a href="tel:+33745292585" class="mm-bottom-item mm-bottom-call" aria-label="Appeler Maison et Monde">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" />
+    </svg>
+    <span>Appeler</span>
+  </a>
+  <button type="button" class="mm-bottom-item" id="mm-bottom-callback">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 11a8 8 0 1 1 2.3 6M4 4v7h7" />
+      <path d="M12 7v5l3 2" />
+    </svg>
+    <span>Rappel</span>
+  </button>
+  <button type="button" class="mm-bottom-item" id="mm-bottom-menu" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+    <span>Menu</span>
+  </button>
 </nav>
 
 <script>
@@ -89,7 +120,9 @@ import "../styles/header.css";
   menus.forEach((menu) => {
     menu.addEventListener('mouseenter', () => {
       if (desktop.matches) {
-        menus.forEach((other) => { if (other !== menu) other.open = false; });
+        menus.forEach((other) => {
+          if (other !== menu) other.open = false;
+        });
         menu.open = true;
       }
     });
@@ -100,7 +133,10 @@ import "../styles/header.css";
       if (desktop.matches && !menu.contains(event.relatedTarget as Node | null)) menu.open = false;
     });
     menu.addEventListener('toggle', () => {
-      if (menu.open) menus.forEach((other) => { if (other !== menu) other.open = false; });
+      if (menu.open)
+        menus.forEach((other) => {
+          if (other !== menu) other.open = false;
+        });
     });
   });
   document.addEventListener('keydown', (event) => {
@@ -174,16 +210,24 @@ import "../styles/header.css";
       }
     };
 
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(updateHeader);
-      }
-    }, { passive: true });
-    window.addEventListener('resize', () => {
-      syncHeight();
-      updateHeader();
-    }, { passive: true });
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateHeader);
+        }
+      },
+      { passive: true },
+    );
+    window.addEventListener(
+      'resize',
+      () => {
+        syncHeight();
+        updateHeader();
+      },
+      { passive: true },
+    );
     // Au chargement d'une page déjà défilée, masquer le menu.
     if (previousY > header.offsetHeight + 20) {
       header.classList.add('mm-smart-hidden');
@@ -201,16 +245,20 @@ import "../styles/header.css";
 
   function syncBottomNavigation() {
     if (!smartHeader || !bottomNav) return;
-    const show = window.matchMedia('(max-width: 700px)').matches && smartHeader.classList.contains('mm-smart-hidden');
+    const show =
+      window.matchMedia('(max-width: 700px)').matches && smartHeader.classList.contains('mm-smart-hidden');
     bottomNav.classList.toggle('mm-bottom-visible', show);
     bottomNav.inert = !show;
     bottomNav.setAttribute('aria-hidden', String(!show));
     bottomMenuButton?.setAttribute('aria-expanded', String(Boolean(headerMobileMenu?.open)));
   }
   if (smartHeader && bottomNav) {
-    new MutationObserver(syncBottomNavigation).observe(smartHeader, {attributes: true, attributeFilter: ['class']});
+    new MutationObserver(syncBottomNavigation).observe(smartHeader, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
     headerMobileMenu?.addEventListener('toggle', syncBottomNavigation);
-    window.addEventListener('resize', syncBottomNavigation, {passive: true});
+    window.addEventListener('resize', syncBottomNavigation, { passive: true });
     syncBottomNavigation();
   }
   bottomCallback?.addEventListener('click', () => {

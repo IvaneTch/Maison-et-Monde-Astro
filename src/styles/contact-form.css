@@ -1,0 +1,70 @@
+/* Externalisé depuis src/components/ContactForm.astro (global). */
+.mm-contact-form label {
+  margin-bottom: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
+  display: block;
+}
+.mm-contact-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: 0 18px;
+  display: grid;
+}
+.mm-contact-form input:not([type='checkbox']):not([type='hidden']),
+.mm-contact-form textarea,
+.mm-contact-form select {
+  color: #102b46;
+  background: #fff;
+  border: 1px solid #c8d6e5;
+  border-radius: 9px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 7px;
+  padding: 13px 14px;
+  font: 14px Arial;
+  display: block;
+}
+.mm-contact-form textarea {
+  resize: vertical;
+}
+.mm-contact-form .mm-contact-consent {
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  display: flex;
+}
+.mm-contact-consent input {
+  accent-color: #ad7428;
+  margin-top: 4px;
+}
+.mm-contact-privacy {
+  font-size: 12px !important;
+}
+.mm-contact-privacy a {
+  text-decoration: underline;
+}
+.mm-honeypot {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  left: -10000px;
+  overflow: hidden;
+}
+.mm-contact-form [data-contact-status] {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.mm-contact-form [data-contact-status][data-state='error'] {
+  color: #9f2929;
+}
+.mm-contact-form :focus-visible {
+  outline-offset: 3px;
+  outline: 3px solid #ba8134;
+}
+@media (max-width: 500px) {
+  .mm-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

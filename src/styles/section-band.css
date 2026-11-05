@@ -1,0 +1,313 @@
+/* Externalisé depuis src/components/SectionBand.astro (page/component). */
+.mm-section-band {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: transparent;
+    color: white;
+    padding: 72px 0 76px;
+    margin: 18px 0;
+    border-radius: 0;
+  }
+  .mm-band-inner {
+    position: relative;
+    z-index: 1;
+    width: min(1160px, calc(100% - 48px));
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1.55fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .mm-band-heading > p {
+    font:
+      800 10px/1.6 Arial,
+      sans-serif;
+    letter-spacing: 2px;
+    color: #f8d397;
+    margin: 0 0 16px;
+  }
+  .mm-band-heading h2 {
+    font:
+      700 clamp(28px, 3vw, 41px)/1.15 Georgia,
+      serif;
+    letter-spacing: -0.6px;
+    color: #fff;
+    margin: 0;
+    max-width: 420px;
+  }
+  .mm-band-points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    text-align: center;
+  }
+  .mm-band-icon {
+    display: grid;
+    place-items: center;
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    background: linear-gradient(135deg, #367ca4, #174369);
+    border: 1px solid #c8b68488;
+    box-shadow: 0 9px 22px #0002;
+  }
+  .mm-band-icon .cq-icon {
+    width: 29px;
+    height: 29px;
+    color: #fff;
+  }
+  .mm-band-points h3 {
+    font:
+      700 13px/1.4 Arial,
+      sans-serif;
+    color: #fff;
+    margin: 0 0 8px;
+  }
+  .mm-band-points p {
+    font:
+      12px/1.65 Arial,
+      sans-serif;
+    color: #deebf4;
+    margin: 0;
+  }
+  .mm-band-lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    fill: none;
+    stroke: #e8ac50;
+    stroke-width: 2;
+    vector-effect: non-scaling-stroke;
+  }
+  .mm-band-fill {
+    stroke: none;
+  }
+  .mm-band-lines path + path {
+    stroke: #efca8a;
+    stroke-width: 1;
+    opacity: 0.8;
+  }
+  .mm-band-watermark {
+    position: absolute;
+    left: -55px;
+    top: 45px;
+    z-index: -1;
+    color: #cceaff;
+    opacity: 0.07;
+  }
+  .mm-band-watermark .cq-icon {
+    width: 225px;
+    height: 225px;
+    stroke-width: 1;
+  }
+  @media (max-width: 780px) {
+    .mm-section-band {
+      padding: 57px 0 60px;
+      border-radius: 50% 50% 50% 50% / 4% 4% 5% 4%;
+    }
+    .mm-band-inner {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      width: calc(100% - 38px);
+    }
+    .mm-band-heading h2 {
+      max-width: 600px;
+      font-size: 30px;
+    }
+    .mm-band-points {
+      gap: 13px;
+    }
+    .mm-band-icon {
+      width: 54px;
+      height: 54px;
+      margin-bottom: 13px;
+    }
+    .mm-band-points h3 {
+      font-size: 12px;
+    }
+    .mm-band-points p {
+      font-size: 10px;
+    }
+    .mm-band-lines {
+      stroke-width: 2.5;
+    }
+  }
+  @media (max-width: 350px) {
+    .mm-band-points {
+      gap: 8px;
+    }
+    .mm-band-points p {
+      font-size: 9px;
+    }
+    .mm-band-heading h2 {
+      font-size: 27px;
+    }
+  }
+
+/* Externalisé depuis src/components/SectionBand.astro (page/component). */
+/* Des compositions différentes : seul le principe du contraste bleu et or est commun. */
+  .mm-section-band[data-variant='sweep'] {
+    background: transparent;
+  }
+  .mm-section-band[data-variant='sweep'] .mm-band-inner {
+    grid-template-columns: 1.1fr 1.5fr;
+  }
+  .mm-section-band[data-variant='sweep'] .mm-band-watermark {
+    left: auto;
+    right: -30px;
+    top: 45px;
+    transform: rotate(-13deg);
+  }
+  .mm-section-band[data-variant='ribbon'] {
+    padding: 82px 0 86px;
+    background: transparent;
+  }
+  .mm-section-band[data-variant='ribbon'] .mm-band-inner {
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+  }
+  .mm-section-band[data-variant='ribbon'] .mm-band-points {
+    gap: 20px;
+  }
+  .mm-section-band[data-variant='ribbon'] .mm-band-icon {
+    border-radius: 18px;
+    transform: rotate(-5deg);
+  }
+  .mm-section-band[data-variant='diagonal'] {
+    margin: 35px 0;
+    background: transparent;
+    padding: 60px 0;
+  }
+  .mm-section-band[data-variant='diagonal'] .mm-band-inner {
+    grid-template-columns: 1.2fr 1.4fr;
+  }
+  .mm-section-band[data-variant='diagonal'] .mm-band-points > div {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 6px 12px;
+  }
+  .mm-section-band[data-variant='diagonal'] .mm-band-icon {
+    width: 43px;
+    height: 43px;
+    grid-row: 1/3;
+    margin: 0;
+  }
+  .mm-section-band[data-variant='diagonal'] .mm-band-icon .cq-icon {
+    width: 23px;
+    height: 23px;
+  }
+  .mm-section-band[data-variant='diagonal'] .mm-band-points h3 {
+    align-self: end;
+    margin: 0;
+  }
+  .mm-section-band[data-variant='diagonal'] .mm-band-lines {
+    opacity: 0.8;
+  }
+  .mm-section-band[data-variant='panel'] {
+    max-width: none;
+    width: 100%;
+    margin: 30px 0;
+    border-radius: 0;
+    border: 0;
+    padding: 44px 22px;
+    background: transparent;
+    box-shadow: none;
+  }
+  .mm-section-band[data-variant='panel'] .mm-band-inner {
+    width: calc(100% - 28px);
+    grid-template-columns: 1fr 1.7fr;
+    gap: 35px;
+  }
+  .mm-section-band[data-variant='panel'] .mm-band-heading h2 {
+    font-size: 32px;
+  }
+  .mm-section-band[data-variant='panel'] .mm-band-lines {
+    opacity: 1;
+  }
+  .mm-section-band[data-variant='panel'] .mm-band-icon {
+    width: 55px;
+    height: 55px;
+  }
+  .mm-section-band[data-variant='compact'] {
+    padding: 30px 0 32px;
+    margin: 0;
+    background: transparent;
+  }
+  .mm-section-band[data-variant='compact'] .mm-band-inner {
+    grid-template-columns: 1.1fr 1.6fr;
+    gap: 40px;
+  }
+  .mm-section-band[data-variant='compact'] .mm-band-heading h2 {
+    font-size: 26px;
+  }
+  .mm-section-band[data-variant='compact'] .mm-band-heading > p {
+    font-size: 9px;
+    margin-bottom: 10px;
+  }
+  .mm-section-band[data-variant='compact'] .mm-band-icon {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 9px;
+  }
+  .mm-section-band[data-variant='compact'] .mm-band-icon .cq-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .mm-section-band[data-variant='compact'] .mm-band-points p {
+    font-size: 10px;
+  }
+  .mm-section-band[data-variant='compact'] .mm-band-lines {
+    display: none;
+  }
+  @media (max-width: 780px) {
+    .mm-section-band[data-variant] .mm-band-inner {
+      grid-template-columns: 1fr;
+      gap: 27px;
+    }
+    .mm-section-band[data-variant='panel'] {
+      width: 100%;
+      margin: 25px 0;
+      padding: 35px 18px;
+      border-radius: 19px 45px 19px 19px;
+    }
+    .mm-section-band[data-variant='panel'] .mm-band-inner {
+      width: 100%;
+    }
+    .mm-section-band[data-variant='panel'] .mm-band-heading h2 {
+      font-size: 29px;
+    }
+    .mm-section-band[data-variant='ribbon'] {
+      padding: 66px 0 70px;
+    }
+    .mm-section-band[data-variant='diagonal'] {
+      border-radius: 0 45px 0 45px;
+      padding: 45px 0;
+    }
+    .mm-section-band[data-variant='diagonal'] .mm-band-points > div {
+      display: block;
+      text-align: center;
+    }
+    .mm-section-band[data-variant='diagonal'] .mm-band-icon {
+      margin: 0 auto 13px;
+    }
+    .mm-section-band[data-variant='diagonal'] .mm-band-points h3 {
+      margin-bottom: 7px;
+    }
+    .mm-section-band[data-variant='compact'] {
+      padding: 25px 0;
+    }
+    .mm-section-band[data-variant='compact'] .mm-band-heading h2 {
+      font-size: 24px;
+    }
+    .mm-section-band[data-variant='compact'] .mm-band-inner {
+      gap: 22px;
+    }
+    .mm-section-band[data-variant='compact'] .mm-band-heading > p {
+      font-size: 8px;
+    }
+  }

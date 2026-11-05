@@ -1,17 +1,55 @@
 ---
-const titre = "grand-menage-paris";
+import ServicePage from '../../components/ServicePage.astro';
+const contenu = {
+  title: 'Grand ménage à Paris | Maison & Monde',
+  description:
+    'Grand ménage à Paris et en Île-de-France : nettoyage approfondi du logement, intervention ponctuelle et devis personnalisé.',
+  heading: 'Grand ménage à Paris,',
+  accent: 'pour votre intérieur.',
+  intro:
+    'Avant un emménagement, après un déménagement ou pour retrouver un logement soigné : nous organisons un nettoyage approfondi selon vos priorités.',
+  image: '/images/grand-menage.paris.webp',
+  imageAlt: 'Intérieur parisien propre après un grand ménage',
+  price: '34,50 €',
+  quote: '/devis-detaille/?service=grand-menage',
+  services: [
+    {
+      title: 'Un nettoyage approfondi',
+      text: 'Sols, surfaces, portes, plinthes et zones accessibles : nous précisons ensemble les pièces à traiter.',
+      icon: 'broom',
+    },
+    {
+      title: 'Cuisine et sanitaires',
+      text: 'Dégraissage des surfaces et détartrage adapté aux matériaux, pour retrouver des espaces agréables.',
+      icon: 'sparkle',
+    },
+    {
+      title: 'Les moments qui comptent',
+      text: 'État des lieux, retour dans un logement ou remise en ordre : une intervention définie selon la situation.',
+      icon: 'house',
+    },
+  ],
+  preparation: [
+    'Précisez la surface et l’état du logement.',
+    'Indiquez les pièces, les équipements et les priorités.',
+    'Signalez les travaux récents, les accès et les contraintes.',
+    'Les déchets de chantier et les interventions spécialisées font l’objet d’une étude préalable.',
+  ],
+  questions: [
+    {
+      q: 'Le nettoyage après travaux est-il possible ?',
+      a: 'Nous étudions la nature des travaux et l’état des surfaces avant de confirmer les prestations. L’évacuation de gravats et les travaux en hauteur ne sont pas inclus automatiquement.',
+    },
+    {
+      q: 'Dois-je être présent ?',
+      a: 'Nous convenons avec vous des modalités d’accès et de restitution des clés. Votre présence n’est pas nécessairement requise pendant toute l’intervention.',
+    },
+    {
+      q: 'Comment connaître la durée ?',
+      a: 'La durée dépend de la surface, de l’état du logement et des tâches retenues. Le devis précise l’organisation proposée.',
+    },
+  ],
+};
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maison & Monde | grand-menage-paris</title>
-  </head>
-  <body>
-    <main>
-      <h1>{titre}</h1>
-      <p>Cette page est en cours de préparation.</p>
-    </main>
-  </body>
-</html>
+<ServicePage {...contenu} />

@@ -1,460 +1,888 @@
 ---
-import "../styles/accueil.css";
-import Layout from "../layouts/Layout.astro";
-const entreprise = "Maison & Monde";
+import '../styles/accueil.css';
+import Layout from '../layouts/Layout.astro';
+const entreprise = 'Maison & Monde';
 ---
 
 <Layout
   title="Maison & Monde | Ménage à domicile à Paris"
   description="Maison & Monde vous accompagne pour le ménage à domicile, le repassage et le nettoyage à Paris. Demandez votre devis personnalisé."
 >
-      <section class="hero" aria-label="Présentation de nos services" aria-roledescription="carrousel">
-        <!-- Déposer les cinq photos indépendantes dans public/images/ avec les noms indiqués ci-dessous. -->
-        <div class="hero-slides" aria-hidden="true">
-          <div class="hero-slide is-active" style="background-image:url('/images/hero-tour-eiffel-paris.jpg')"></div>
-          <div class="hero-slide" style="background-image:url('/images/hero-menage-domicile.jpg')"></div>
-          <div class="hero-slide" style="background-image:url('/images/hero-repassage.jpg')"></div>
-          <div class="hero-slide" style="background-image:url('/images/hero-nettoyage-bureaux.jpg')"></div>
-          <div class="hero-slide" style="background-image:url('/images/hero-credit-impot.jpg')"></div>
+  <div class="home-page">
+    <section class="hero" aria-label="Présentation de nos services" aria-roledescription="carrousel">
+      <!-- Déposer les cinq photos indépendantes dans public/images/ avec les noms indiqués ci-dessous. -->
+      <div class="hero-slides" aria-hidden="true">
+        <div
+          class="hero-slide is-active"
+          data-image="paris"
+        ></div>
+        <div class="hero-slide" data-image="menage"></div>
+        <div class="hero-slide" data-image="repassage"></div>
+        <div class="hero-slide" data-image="bureaux"></div>
+        <div class="hero-slide" data-image="credit-impot"></div>
+      </div>
+      <div class="gold-curve-left" aria-hidden="true"></div>
+      <div class="hero-content">
+        <span class="eyebrow" id="hero-eyebrow">
+          MAISON & MONDE · PARIS
+        </span>
+
+        <h1 id="hero-title">
+          Le charme de Paris,
+          <br />
+          le confort d’un intérieur <span>impeccable.</span>
+        </h1>
+
+        <p id="hero-description">
+          Maison & Monde prend soin de votre intérieur à Paris et en Île-de-France, avec des prestations
+          adaptées à vos besoins.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="/devis-simple/" data-open-devis-simple class="button-primary">
+            Demander un devis
+            <span aria-hidden="true">→</span>
+          </a>
+
+          <a href="#services" class="button-secondary" id="hero-service-link">
+            Découvrir nos services →
+          </a>
         </div>
-        <div class="gold-curve-left" aria-hidden="true"></div>
-        <div class="hero-content">
-          <span class="eyebrow" id="hero-eyebrow">MAISON & MONDE · PARIS</span>
 
-         <h1 id="hero-title">Le charme de Paris,<br />le confort d’un intérieur <span>impeccable.</span></h1>
+        <div class="hero-benefits" id="hero-benefits">
+          <span>✓ Prestations personnalisées</span>
+          <span>✓ Intervenantes expérimentées</span>
+          <span>✓ Avantage fiscal selon éligibilité</span>
+        </div>
+      </div>
+      <button class="hero-arrow hero-arrow-prev" type="button" aria-label="Diapositive précédente">
+        ‹
+      </button>
+      <button class="hero-arrow hero-arrow-next" type="button" aria-label="Diapositive suivante">
+        ›
+      </button>
+      <div class="hero-dots" aria-label="Choisir une diapositive">
+        <button class="is-active" type="button" aria-label="Diapositive 1" aria-current="true"></button>
+        <button type="button" aria-label="Diapositive 2"></button>
+        <button type="button" aria-label="Diapositive 3"></button>
+        <button type="button" aria-label="Diapositive 4"></button>
+        <button type="button" aria-label="Diapositive 5"></button>
+      </div>
+    </section>
 
-          <p id="hero-description">Maison & Monde prend soin de votre intérieur à Paris et en Île-de-France, avec des prestations adaptées à vos besoins.</p>
+    <section id="services" class="services-section">
+      <svg class="services-blue-curve" viewBox="0 0 1440 235" preserveAspectRatio="none" aria-hidden="true">
+        <!-- Même dégradé CSS que la bande inférieure : aucun raccord de couleur -->
+        <defs>
+          <linearGradient id="services-curve-gradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#205e88" />
+            <stop offset="28%" stop-color="#103b5e" />
+            <stop offset="63%" stop-color="#071b30" />
+            <stop offset="100%" stop-color="#174d70" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0 0 C95 102 150 166 350 196 C650 240 1130 224 1440 198 L1440 235 L0 235 Z"
+          fill="url(#services-curve-gradient)"
+        />
+        <path
+          d="M0 0 C95 102 150 166 350 196 C650 240 1130 224 1440 198"
+          fill="none"
+          stroke="#f0b44f"
+          stroke-width="1.8"
+          vector-effect="non-scaling-stroke"
+        />
+        <path
+          d="M0 30 C116 151 181 187 375 212 C695 247 1135 233 1440 211"
+          fill="none"
+          stroke="#f8d68d"
+          stroke-opacity=".8"
+          stroke-width="1"
+          vector-effect="non-scaling-stroke"
+        />
+      </svg>
 
-          <div class="hero-buttons">
-            <a href="/devis-simple/" data-open-devis-simple class="button-primary">
-              Demander un devis
-              <span aria-hidden="true">→</span>
-            </a>
+      <div class="services-text">
+        <span class="section-label">NOS PRESTATIONS</span>
 
-            <a href="#services" class="button-secondary" id="hero-service-link">
-              Découvrir nos services →
-            </a>
+        <h2>Un intérieur impeccable pour chaque besoin</h2>
+
+        <p>
+          Maison & Monde vous propose des services de ménage à domicile à Paris et en Île-de-France, adaptés à
+          votre quotidien et à vos besoins. Que vous recherchiez une femme de ménage pour un entretien
+          régulier, un grand ménage ponctuel ou un service de repassage à domicile, nous vous accompagnons
+          avec des prestations personnalisées. Nous proposons également le nettoyage de vitres et le nettoyage
+          de bureaux pour les professionnels. Notre objectif : vous faire gagner du temps et vous offrir un
+          environnement propre, agréable et parfaitement entretenu.
+        </p>
+
+        <a href="#contact" class="services-link">
+          Découvrir toutes nos prestations →
+        </a>
+      </div>
+
+      <div class="services-image"></div>
+
+      <div class="services-list">
+        <a href="#contact" class="service-card">
+          <span class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="m3 10 9-7 9 7" />
+              <path d="M5 9v12h14V9" />
+              <path d="M9 21v-7h6v7" />
+            </svg>
+          </span>
+          <span class="service-info">
+            <strong>Ménage à domicile</strong>
+            <small>Suivi régulier ou ponctuel</small>
+          </span>
+          <span class="service-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="service-card">
+          <span class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M3 17h18l-2.2-6.2A6 6 0 0 0 13.2 7H9a6 6 0 0 0-6 6v4Z" />
+              <path d="M3 17v2h18v-2M11 7V5h5" />
+              <circle cx="16" cy="11" r="1" />
+            </svg>
+          </span>
+          <span class="service-info">
+            <strong>Repassage à domicile</strong>
+            <small>Votre linge toujours impeccable</small>
+          </span>
+          <span class="service-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="service-card">
+          <span class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="4" width="18" height="16" rx="1" />
+              <path d="M12 4v16M7 10l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" />
+            </svg>
+          </span>
+          <span class="service-info">
+            <strong>Nettoyage de vitres</strong>
+            <small>Des vitres éclatantes</small>
+          </span>
+          <span class="service-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="service-card">
+          <span class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 21V4h14v17M3 21h18" />
+              <rect x="8" y="7" width="2" height="2" />
+              <rect x="14" y="7" width="2" height="2" />
+              <rect x="8" y="12" width="2" height="2" />
+              <rect x="14" y="12" width="2" height="2" />
+              <path d="M10 21v-4h4v4" />
+            </svg>
+          </span>
+          <span class="service-info">
+            <strong>Nettoyage de bureaux</strong>
+            <small>Entretien des espaces professionnels</small>
+          </span>
+          <span class="service-arrow">→</span>
+        </a>
+
+        <a href="#contact" class="service-card">
+          <span class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="7" r="3" />
+              <path d="M5 21v-3a7 7 0 0 1 14 0v3M9 15l3 3 3-3" />
+            </svg>
+          </span>
+          <span class="service-info">
+            <strong>Conciergerie</strong>
+            <small>Accueil et assistance personnalisée</small>
+          </span>
+          <span class="service-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="avantages" class="avantages-section">
+      <svg class="avantages-gold-sweep" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
+        <path
+          d="M0 285 C170 279 235 319 500 319"
+          fill="none"
+          stroke="#e9a34c"
+          stroke-width="1.5"
+          vector-effect="non-scaling-stroke"
+        />
+        <path
+          d="M1100 318 C1270 284 1390 220 1440 126"
+          fill="none"
+          stroke="#e9a34c"
+          stroke-width="1.5"
+          vector-effect="non-scaling-stroke"
+        />
+        <path
+          d="M1160 318 C1310 285 1410 224 1440 174"
+          fill="none"
+          stroke="#f2c477"
+          stroke-opacity=".45"
+          stroke-width=".8"
+          vector-effect="non-scaling-stroke"
+        />
+      </svg>
+      <!-- Carte de France décorative, en filigrane, sans image externe -->
+      <img
+        src="/images/carte-france-maison-et-monde.png"
+        alt=""
+        class="france-watermark"
+        aria-hidden="true"
+        loading="lazy"
+      />
+      <div class="avantages-container">
+        <div class="avantages-intro">
+          <span class="avantages-label">VOS AVANTAGES</span>
+          <h2>
+            Un service simple,
+            <br />
+            avantageux et sécurisé
+          </h2>
+        </div>
+        <div class="avantages-grid">
+          <!-- Crédit d'impôt -->
+          <div class="avantage-item">
+            <div class="avantage-icon">50%</div>
+            <h3>Crédit d'impôt</h3>
+            <p>Avec l'avance immédiate</p>
           </div>
 
-          <div class="hero-benefits" id="hero-benefits">
-            <span>✓ Prestations personnalisées</span>
-            <span>✓ Intervenantes expérimentées</span>
-            <span>✓ Avantage fiscal selon éligibilité</span>
+          <!-- Personnel de confiance -->
+          <div class="avantage-item">
+            <div class="avantage-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 2 20 5v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3Z" />
+                <path d="m8 12 3 3 5-6" />
+              </svg>
+            </div>
+            <h3>Personnel</h3>
+            <p>De confiance</p>
+          </div>
+
+          <!-- Horaires flexibles -->
+          <div class="avantage-item">
+            <div class="avantage-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="5" width="18" height="16" rx="2" />
+                <path d="M7 2v6M17 2v6M3 10h18" />
+                <path d="M7 14h2M12 14h2M17 14h1M7 18h2M12 18h2" />
+              </svg>
+            </div>
+            <h3>Horaires flexibles</h3>
+            <p>Selon vos besoins</p>
+          </div>
+
+          <!-- Produits de qualité -->
+          <div class="avantage-item">
+            <div class="avantage-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M20 4C11 4 5 7 5 14a6 6 0 0 0 6 6c7 0 10-8 9-16Z" />
+                <path d="M4 21c3-6 7-9 13-12" />
+                <path d="M9 12c1 2 3 3 5 3" />
+              </svg>
+            </div>
+            <h3>Produits de qualité</h3>
+            <p>Et respectueux</p>
           </div>
         </div>
-        <button class="hero-arrow hero-arrow-prev" type="button" aria-label="Diapositive précédente">‹</button>
-        <button class="hero-arrow hero-arrow-next" type="button" aria-label="Diapositive suivante">›</button>
-        <div class="hero-dots" aria-label="Choisir une diapositive">
-          <button class="is-active" type="button" aria-label="Diapositive 1" aria-current="true"></button>
-          <button type="button" aria-label="Diapositive 2"></button>
-          <button type="button" aria-label="Diapositive 3"></button>
-          <button type="button" aria-label="Diapositive 4"></button>
-          <button type="button" aria-label="Diapositive 5"></button>
+      </div>
+      <svg class="avantages-wave" viewBox="0 0 1440 115" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 18 C310 105 780 116 1120 86 C1270 72 1370 44 1440 18 L1440 115 L0 115 Z" fill="#f9f7f2" />
+        <path
+          d="M0 18 C310 105 780 116 1120 86 C1270 72 1370 44 1440 18"
+          fill="none"
+          stroke="#dba64c"
+          stroke-width="1.5"
+        />
+      </svg>
+    </section>
+
+    <section id="a-propos" class="about-section">
+      <div class="about-content">
+        <span class="section-label">À PROPOS DE MAISON &amp; MONDE</span>
+        <h2>
+          Un service de proximité
+          <br />à Paris et en Île-de-France
+        </h2>
+        <p>
+          Maison & Monde est une entreprise de proximité spécialisée dans les services à domicile à Paris et
+          en Île-de-France. Nous accompagnons les particuliers et les professionnels dans l’entretien de leurs
+          espaces de vie et de travail, avec des prestations adaptées à leurs besoins. Ménage régulier ou
+          ponctuel, repassage, nettoyage de vitres ou entretien approfondi : notre priorité est de vous offrir
+          un service fiable, soigné et personnalisé. Notre engagement : votre tranquillité d’esprit et votre
+          satisfaction au quotidien.
+        </p>
+        <a href="#contact" class="about-link">
+          En savoir plus →
+        </a>
+      </div>
+      <div class="about-image" aria-hidden="true"></div>
+      <svg class="about-curve" viewBox="0 0 1440 460" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 0 H890 C740 10 700 155 580 280 C465 388 280 440 80 460 H0 Z" fill="#f9f7f2" />
+        <path
+          d="M890 0 C740 10 700 155 580 280 C465 388 280 440 80 460"
+          fill="none"
+          stroke="#e9a34c"
+          stroke-width="1.5"
+        />
+      </svg>
+    </section>
+
+    <!-- Conciergerie : présentation sur la page d’accueil -->
+    <section class="home-concierge" aria-labelledby="home-concierge-title">
+      <svg class="home-concierge-divider" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20 L1440 0 L0 0 Z" fill="#f9f7f2" />
+        <path
+          d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20"
+          fill="none"
+          stroke="#e9a34c"
+          stroke-width="2"
+        />
+      </svg>
+      <div class="home-concierge-visual" role="img" aria-label="Vue sur Paris depuis un appartement lumineux">
+        <div class="home-concierge-badge">
+          <a href="/conciergerie/gestion-complete/">Gestion complète</a>
+          <span aria-hidden="true">•</span>
+          <a href="/conciergerie/services-a-la-carte/">Services à la carte</a>
         </div>
-      </section>
-
-      <section id="services" class="services-section">
-
-<svg class="services-blue-curve" viewBox="0 0 1440 235" preserveAspectRatio="none" aria-hidden="true">
-  <!-- Même dégradé CSS que la bande inférieure : aucun raccord de couleur -->
-  <defs><linearGradient id="services-curve-gradient" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#205e88"/><stop offset="28%" stop-color="#103b5e"/><stop offset="63%" stop-color="#071b30"/><stop offset="100%" stop-color="#174d70"/></linearGradient></defs>
-  <path d="M0 0 C95 102 150 166 350 196 C650 240 1130 224 1440 198 L1440 235 L0 235 Z" fill="url(#services-curve-gradient)"/>
-  <path d="M0 0 C95 102 150 166 350 196 C650 240 1130 224 1440 198" fill="none" stroke="#f0b44f" stroke-width="1.8" vector-effect="non-scaling-stroke"/>
-  <path d="M0 30 C116 151 181 187 375 212 C695 247 1135 233 1440 211" fill="none" stroke="#f8d68d" stroke-opacity=".8" stroke-width="1" vector-effect="non-scaling-stroke"/>
-</svg>
-
-  <div class="services-text">
-    <span class="section-label">NOS PRESTATIONS</span>
-
-    <h2>Un intérieur impeccable pour chaque besoin</h2>
-
-    <p>
-      Maison & Monde vous propose des services de ménage à domicile à Paris et en Île-de-France, adaptés à votre quotidien et à vos besoins.
-
-Que vous recherchiez une femme de ménage pour un entretien régulier, un grand ménage ponctuel ou un service de repassage à domicile, nous vous accompagnons avec des prestations personnalisées.
-
-Nous proposons également le nettoyage de vitres et le nettoyage de bureaux pour les professionnels.
-
-Notre objectif : vous faire gagner du temps et vous offrir un environnement propre, agréable et parfaitement entretenu.
-    </p>
-
-    <a href="#contact" class="services-link">
-      Découvrir toutes nos prestations →
-    </a>
-  </div>
-
-  <div class="services-image"></div>
-
-  <div class="services-list">
-
-    <a href="#contact" class="service-card">
-      <span class="service-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 9v12h14V9"/><path d="M9 21v-7h6v7"/></svg></span>
-      <span class="service-info">
-        <strong>Ménage à domicile</strong>
-        <small>Suivi régulier ou ponctuel</small>
-      </span>
-      <span class="service-arrow">→</span>
-    </a>
-
-    <a href="#contact" class="service-card">
-      <span class="service-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h18l-2.2-6.2A6 6 0 0 0 13.2 7H9a6 6 0 0 0-6 6v4Z"/><path d="M3 17v2h18v-2M11 7V5h5"/><circle cx="16" cy="11" r="1"/></svg></span>
-      <span class="service-info">
-        <strong>Repassage à domicile</strong>
-        <small>Votre linge toujours impeccable</small>
-      </span>
-      <span class="service-arrow">→</span>
-    </a>
-
-    <a href="#contact" class="service-card">
-      <span class="service-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M12 4v16M7 10l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg></span>
-      <span class="service-info">
-        <strong>Nettoyage de vitres</strong>
-        <small>Des vitres éclatantes</small>
-      </span>
-      <span class="service-arrow">→</span>
-    </a>
-
-    <a href="#contact" class="service-card">
-      <span class="service-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4h14v17M3 21h18"/><rect x="8" y="7" width="2" height="2"/><rect x="14" y="7" width="2" height="2"/><rect x="8" y="12" width="2" height="2"/><rect x="14" y="12" width="2" height="2"/><path d="M10 21v-4h4v4"/></svg></span>
-      <span class="service-info">
-        <strong>Nettoyage de bureaux</strong>
-        <small>Entretien des espaces professionnels</small>
-      </span>
-      <span class="service-arrow">→</span>
-    </a>
-
-    <a href="#contact" class="service-card">
-      <span class="service-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3M9 15l3 3 3-3"/></svg></span>
-      <span class="service-info">
-        <strong>Conciergerie</strong>
-        <small>Accueil et assistance personnalisée</small>
-      </span>
-      <span class="service-arrow">→</span>
-    </a>
-
-  </div>
-
-</section>
-
-
-
-     <section id="avantages" class="avantages-section">
-  <svg class="avantages-gold-sweep" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 285 C170 279 235 319 500 319" fill="none" stroke="#e9a34c" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-    <path d="M1100 318 C1270 284 1390 220 1440 126" fill="none" stroke="#e9a34c" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
-    <path d="M1160 318 C1310 285 1410 224 1440 174" fill="none" stroke="#f2c477" stroke-opacity=".45" stroke-width=".8" vector-effect="non-scaling-stroke"/>
-  </svg>
-  <!-- Carte de France décorative, en filigrane, sans image externe -->
-  <img
-  src="/images/carte-france-maison-et-monde.png"
-  alt=""
-  class="france-watermark"
-  aria-hidden="true"
-  loading="lazy"
-/>
-  <div class="avantages-container">
-
-    <div class="avantages-intro">
-      <span class="avantages-label">VOS AVANTAGES</span>
-      <h2>Un service simple,<br />avantageux et sécurisé</h2>
-    </div>
-<div class="avantages-grid">
-    <!-- Crédit d'impôt -->
-<div class="avantage-item">
-  <div class="avantage-icon">50%</div>
-  <h3>Crédit d'impôt</h3>
-  <p>Avec l'avance immédiate</p>
-</div>
-
-<!-- Personnel de confiance -->
-<div class="avantage-item">
-  <div class="avantage-icon">
-    <svg viewBox="0 0 24 24" fill="none"
-         stroke="currentColor" stroke-width="1.8"
-         stroke-linecap="round" stroke-linejoin="round"
-         aria-hidden="true">
-      <path d="M12 2 20 5v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3Z"/>
-      <path d="m8 12 3 3 5-6"/>
-    </svg>
-  </div>
-  <h3>Personnel</h3>
-  <p>De confiance</p>
-</div>
-
-<!-- Horaires flexibles -->
-<div class="avantage-item">
-  <div class="avantage-icon">
-    <svg viewBox="0 0 24 24" fill="none"
-         stroke="currentColor" stroke-width="1.8"
-         stroke-linecap="round" stroke-linejoin="round"
-         aria-hidden="true">
-      <rect x="3" y="5" width="18" height="16" rx="2"/>
-      <path d="M7 2v6M17 2v6M3 10h18"/>
-      <path d="M7 14h2M12 14h2M17 14h1M7 18h2M12 18h2"/>
-    </svg>
-  </div>
-  <h3>Horaires flexibles</h3>
-  <p>Selon vos besoins</p>
-</div>
-
-<!-- Produits de qualité -->
-<div class="avantage-item">
-  <div class="avantage-icon">
-    <svg viewBox="0 0 24 24" fill="none"
-         stroke="currentColor" stroke-width="1.8"
-         stroke-linecap="round" stroke-linejoin="round"
-         aria-hidden="true">
-      <path d="M20 4C11 4 5 7 5 14a6 6 0 0 0 6 6c7 0 10-8 9-16Z"/>
-      <path d="M4 21c3-6 7-9 13-12"/>
-      <path d="M9 12c1 2 3 3 5 3"/>
-    </svg>
-  </div>
-  <h3>Produits de qualité</h3>
-  <p>Et respectueux</p>
-</div>
-</div>
-  </div>
-  <svg class="avantages-wave" viewBox="0 0 1440 115" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 18 C310 105 780 116 1120 86 C1270 72 1370 44 1440 18 L1440 115 L0 115 Z" fill="#f9f7f2"/>
-    <path d="M0 18 C310 105 780 116 1120 86 C1270 72 1370 44 1440 18" fill="none" stroke="#dba64c" stroke-width="1.5"/>
-  </svg>
-</section>
-
-      <section id="a-propos" class="about-section">
-        <div class="about-content">
-          <span class="section-label">À PROPOS DE MAISON &amp; MONDE</span>
-          <h2>Un service de proximité<br />à Paris et en Île-de-France</h2>
-          <p>Maison & Monde est une entreprise de proximité spécialisée dans les services à domicile à Paris et en Île-de-France.
-
-Nous accompagnons les particuliers et les professionnels dans l’entretien de leurs espaces de vie et de travail, avec des prestations adaptées à leurs besoins.
-
-Ménage régulier ou ponctuel, repassage, nettoyage de vitres ou entretien approfondi : notre priorité est de vous offrir un service fiable, soigné et personnalisé.
-
-Notre engagement : votre tranquillité d’esprit et votre satisfaction au quotidien.</p>
-          <a href="#contact" class="about-link">En savoir plus →</a>
+      </div>
+      <div class="home-concierge-copy">
+        <span class="home-concierge-label">CONCIERGERIE · PARIS & ÎLE-DE-FRANCE</span>
+        <h2 id="home-concierge-title">
+          Votre location,
+          <br />
+          <em>notre attention.</em>
+        </h2>
+        <p>
+          De la préparation du logement à l’accueil des voyageurs, Maison & Monde vous accompagne dans vos
+          locations de courte durée. Choisissez une conciergerie complète ou uniquement les prestations dont
+          vous avez besoin.
+        </p>
+        <div class="home-concierge-tags" aria-label="Nos services">
+          <span>✓ Ménage et linge</span>
+          <span>✓ Accueil des voyageurs</span>
+          <span>✓ Suivi du logement</span>
         </div>
-        <div class="about-image" aria-hidden="true"></div>
-        <svg class="about-curve" viewBox="0 0 1440 460" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 0 H890 C740 10 700 155 580 280 C465 388 280 440 80 460 H0 Z" fill="#f9f7f2"/>
-          <path d="M890 0 C740 10 700 155 580 280 C465 388 280 440 80 460" fill="none" stroke="#e9a34c" stroke-width="1.5"/>
+        <a class="home-concierge-cta" href="/conciergerie/">
+          Découvrir notre conciergerie <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <svg
+        class="home-concierge-divider home-concierge-divider-bottom"
+        viewBox="0 0 1440 90"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20 L1440 90 L0 90 Z" fill="#f9f7f2" />
+        <path
+          d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20"
+          fill="none"
+          stroke="#e9a34c"
+          stroke-width="2"
+        />
+      </svg>
+    </section>
+
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <div class="contact-visual">
+        <div class="contact-copy">
+          <span class="contact-kicker">PARLONS DE VOS BESOINS</span>
+          <h2 id="contact-title">
+            Un intérieur impeccable commence par un <em>devis personnalisé.</em>
+          </h2>
+          <p>
+            Chaque logement est différent. Que vous recherchiez un ménage régulier à Paris, un grand ménage
+            ponctuel, du repassage ou un nettoyage spécifique, Maison &amp; Monde vous propose des prestations
+            adaptées à votre quotidien.
+          </p>
+          <div class="contact-actions">
+            <a class="contact-cta" href="/devis-simple/" data-open-devis-simple>
+              Obtenir un devis rapide <span aria-hidden="true">→</span>
+            </a>
+            <a class="contact-outline" href="/devis-detaille/">
+              Créer mon devis personnalisé <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+        <div
+          class="contact-photo"
+          role="img"
+          aria-label="Intervenante Maison et Monde réalisant un ménage à domicile"
+        ></div>
+        <svg class="contact-swoosh" viewBox="0 0 1400 470" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 48 C280 -25 420 70 580 25 S1040 10 1400 0" />
+          <path d="M0 410 C300 480 470 350 690 405 S1110 460 1400 375" />
         </svg>
-      </section>
+      </div>
+      <div class="contact-assurances" aria-label="Nos engagements">
+        <div>
+          <span class="contact-badge" aria-hidden="true">
+            €
+          </span>
+          <span>
+            Devis gratuit
+            <br />
+            et sans engagement
+          </span>
+        </div>
+        <div>
+          <span class="contact-badge" aria-hidden="true">
+            ✓
+          </span>
+          <span>
+            Prestations
+            <br />
+            personnalisées
+          </span>
+        </div>
+        <div>
+          <span class="contact-badge" aria-hidden="true">
+            50%
+          </span>
+          <span>
+            Crédit d'impôt de 50 %<br />
+            selon éligibilité
+          </span>
+        </div>
+      </div>
+    </section>
 
-<!-- Conciergerie : présentation sur la page d’accueil -->
-<section class="home-concierge" aria-labelledby="home-concierge-title">
-  <svg class="home-concierge-divider" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20 L1440 0 L0 0 Z" fill="#f9f7f2"/><path d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20" fill="none" stroke="#e9a34c" stroke-width="2"/></svg>
-  <div class="home-concierge-visual" role="img" aria-label="Vue sur Paris depuis un appartement lumineux">
-    <div class="home-concierge-badge">
-  <a href="/conciergerie/gestion-complete/">Gestion complète</a>
-  <span aria-hidden="true">•</span>
-  <a href="/conciergerie/services-a-la-carte/">Services à la carte</a>
-</div>
+    <!-- Avis clients : carrousel d'extraits d'avis publics. -->
+    <section class="reviews-section" id="avis" aria-labelledby="reviews-title">
+      <div class="reviews-photo" aria-hidden="true"></div>
+      <svg class="reviews-gold-ribbon" viewBox="0 0 700 620" preserveAspectRatio="none" aria-hidden="true">
+        <path
+          d="M180 -20 C130 85 620 90 580 315 S245 525 -20 480"
+          fill="none"
+          stroke="#e6a044"
+          stroke-width="2"
+        />
+        <path
+          d="M210 -20 C150 100 650 100 605 322 S255 540 -20 505"
+          fill="none"
+          stroke="#fff9e9"
+          stroke-width="2"
+          opacity=".85"
+        />
+      </svg>
+      <div class="reviews-layout">
+        <div class="reviews-intro">
+          <span class="reviews-eyebrow">AVIS DE NOS CLIENTS</span>
+          <h2 id="reviews-title">Ils nous font confiance</h2>
+          <p>
+            Découvrez les témoignages de nos clients à Paris et en Île-de-France qui apprécient la qualité de
+            nos prestations et le sérieux de nos intervenantes.
+          </p>
+          <div class="reviews-google-row">
+            <div class="reviews-google-brand">
+              <span class="google-word">
+                <i>G</i>
+                <i>o</i>
+                <i>o</i>
+                <i>g</i>
+                <i>l</i>
+                <i>e</i>
+              </span>
+              <span class="reviews-google-sub">
+                Consultez les avis authentiques
+                <br />
+                sur notre fiche Google
+              </span>
+            </div>
+            <a
+              class="reviews-google-link"
+              href="https://www.google.com/search?q=Maison+%26+Monde+53+Rue+Boulard+Paris+avis"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Voir tous les avis sur Google <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+        <div class="reviews-slider-area">
+          <div class="reviews-carousel" aria-label="Avis de nos clients">
+            <button class="reviews-arrow" id="reviews-prev" type="button" aria-label="Avis précédents">‹</button>
+            <div class="reviews-track" id="reviews-track" tabindex="0">
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Un service de ménage irréprochable. Les détails sont respectés et la qualité est constante à chaque passage. Je recommande Maison & Monde à mon entourage. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">L</span>
+                  <span><strong>Leam Salami</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Entreprise sérieuse et efficace. Le personnel est aimable et le résultat toujours impeccable. C’est rassurant de savoir qu’on peut compter sur eux. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">A</span>
+                  <span><strong>Adel Ieda</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Excellente expérience du début à la fin. Communication claire, respect des horaires et travail très soigné. Je suis pleinement satisfaite du service. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">A</span>
+                  <span><strong>adel sifou</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Maison & Monde m’a été recommandé par un voisin et je suis très contente du résultat. L’intervention s’est déroulée parfaitement et tout a été fait avec beaucoup d’attention. Je recommande à mon tour. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">N</span>
+                  <span><strong>Nana Tuntia</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Intervention parfaite. L’équipe est professionnelle et à l’écoute des besoins. Tout est fait avec soin et précision. Une vraie tranquillité d’esprit. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">T</span>
+                  <span><strong>Tazo Chik</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Service rapide, minutieux et parfaitement exécuté. Mon appartement n’a jamais été aussi propre. Très bon rapport qualité/prix. Je suis ravie. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">A</span>
+                  <span><strong>Anna R</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Très belle découverte ! Une amie me les a recommandés et je comprends pourquoi. Travail sérieux, maison propre du sol au plafond et équipe respectueuse. Je referai appel à eux. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">A</span>
+                  <span><strong>ArturV</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Je suis cliente de Maison & Monde depuis peu et je suis vraiment satisfaite. L’équipe est ponctuelle, organisée et le résultat est toujours impeccable. On sent le professionnalisme. Je recommande sans hésiter. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">E</span>
+                  <span><strong>Ella Bayo</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Service sérieux et efficace. Maison & Monde est une entreprise sur laquelle on peut compter. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">E</span>
+                  <span><strong>Eka</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Super expérience avec Maison & Monde. Nettoyage très propre et bon rapport qualité/prix. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">B</span>
+                  <span><strong>Bardet Nikola</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Très bon ménage, travail soigné et rapide. Appartement nickel après leur passage. Merci ! »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">H</span>
+                  <span><strong>Havron</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                <p>« Service très professionnel et de grande qualité. L’équipe de Maison & Monde est sérieuse, ponctuelle et très agréable. Le travail est toujours soigné. Je recommande sans hésiter. »</p>
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">C</span>
+                  <span><strong>Cuisine Géorgienne</strong><small>Avis Google</small></span>
+                </div>
+              </article>
+            </div>
+            <button class="reviews-arrow" id="reviews-next" type="button" aria-label="Avis suivants">›</button>
+          </div>
+          <div class="reviews-dots" id="reviews-dots" aria-label="Choisir un avis"></div>
+          <p class="reviews-source-note">Avis recopiés depuis la capture de votre fiche Google · <a href="https://www.google.com/search?q=Maison+%26+Monde+53+Rue+Boulard+Paris+avis" target="_blank" rel="noopener noreferrer">Voir les avis Google</a></p>
+        </div>
+      </div>
+      <svg class="reviews-wave" viewBox="0 0 1440 125" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 10 C340 95 1070 95 1440 10 L1440 125 L0 125Z" fill="#062744" />
+        <path d="M0 12 C340 97 1070 97 1440 12" fill="none" stroke="#f0aa40" stroke-width="2" />
+      </svg>
+    </section>
+    <script is:inline>
+      (() => {
+        const track = document.querySelector('#reviews-track');
+        const dots = document.querySelector('#reviews-dots');
+        if (!track || !dots) return;
+        const cards = [...track.querySelectorAll('.review-card')];
+        const previous = document.querySelector('#reviews-prev');
+        const next = document.querySelector('#reviews-next');
+        let activeIndex = 0;
+        const goTo = (index) => {
+          activeIndex = (index + cards.length) % cards.length;
+          track.scrollTo({ left: cards[activeIndex].offsetLeft - cards[0].offsetLeft, behavior: 'smooth' });
+          [...dots.children].forEach((dot, i) => {
+            if (i === activeIndex) dot.setAttribute('aria-current', 'true');
+            else dot.removeAttribute('aria-current');
+          });
+        };
+        cards.forEach((_, index) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', `Afficher l’avis ${index + 1}`);
+          dot.addEventListener('click', () => goTo(index));
+          dots.append(dot);
+        });
+        previous?.addEventListener('click', () => goTo(activeIndex - 1));
+        next?.addEventListener('click', () => goTo(activeIndex + 1));
+        track.addEventListener('scroll', () => {
+          const closest = cards.reduce((best, card, index) =>
+            Math.abs(card.offsetLeft - cards[0].offsetLeft - track.scrollLeft) <
+            Math.abs(cards[best].offsetLeft - cards[0].offsetLeft - track.scrollLeft) ? index : best, 0);
+          if (closest !== activeIndex) {
+            activeIndex = closest;
+            [...dots.children].forEach((dot, i) => {
+              if (i === activeIndex) dot.setAttribute('aria-current', 'true');
+              else dot.removeAttribute('aria-current');
+            });
+          }
+        }, { passive: true });
+        goTo(0);
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+        const slides = [...hero.querySelectorAll('.hero-slide')],
+          dots = [...hero.querySelectorAll('.hero-dots button')];
+        const data = [
+          {
+            eyebrow: 'MAISON & MONDE · PARIS',
+            title: 'Le charme de Paris,<br>le confort d’un intérieur <span>impeccable.</span>',
+            description:
+              'Maison & Monde prend soin de votre intérieur à Paris et en Île-de-France, avec des prestations adaptées à vos besoins.',
+            benefits: [
+              'Prestations personnalisées',
+              'Intervenantes expérimentées',
+              'Avantage fiscal selon éligibilité',
+            ],
+          },
+          {
+            eyebrow: 'MÉNAGE À DOMICILE',
+            title: 'Un logement impeccable,<br><span>sans effort.</span>',
+            description:
+              'Nos intervenantes prennent soin de votre intérieur, pour un environnement propre et agréable.',
+            benefits: ['Entretien régulier ou ponctuel', 'Produits de qualité', 'Intervenantes de confiance'],
+          },
+          {
+            eyebrow: 'REPASSAGE À DOMICILE',
+            title: 'Un linge impeccable,<br><span>plus de temps pour vous.</span>',
+            description:
+              'Nous prenons en charge votre repassage avec soin et précision, directement à domicile.',
+            benefits: ['Repassage à domicile', 'Linge soigné et bien plié', 'Gain de temps au quotidien'],
+          },
+          {
+            eyebrow: 'NETTOYAGE DE BUREAUX',
+            title: 'Des espaces de travail<br><span>propres et accueillants.</span>',
+            description:
+              'Nous assurons l’entretien de vos bureaux et locaux professionnels pour un environnement de travail sain.',
+            benefits: [
+              'Entretien régulier',
+              'Horaires flexibles',
+              'Interventions à Paris et en Île-de-France',
+            ],
+          },
+          {
+            eyebrow: 'AVANTAGE FISCAL',
+            title: 'Profitez de <span>50 %</span><br>de crédit d’impôt.',
+            description:
+              'Certaines prestations de services à la personne peuvent ouvrir droit à un crédit d’impôt de 50 %, selon les conditions légales et votre éligibilité.',
+            benefits: [
+              'Sous conditions légales',
+              'Services à la personne',
+              'Avance immédiate selon éligibilité',
+            ],
+          },
+        ];
+        let index = 0,
+          timer;
+        function show(i) {
+          index = (i + slides.length) % slides.length;
+          slides.forEach((el, j) => el.classList.toggle('is-active', j === index));
+          dots.forEach((el, j) => {
+            el.classList.toggle('is-active', j === index);
+            if (j === index) el.setAttribute('aria-current', 'true');
+            else el.removeAttribute('aria-current');
+          });
+          const d = data[index];
+          hero.querySelector('#hero-eyebrow').textContent = d.eyebrow;
+          hero.querySelector('#hero-title').innerHTML = d.title;
+          hero.querySelector('#hero-description').textContent = d.description;
+          hero.querySelector('#hero-benefits').innerHTML = d.benefits
+            .map((t) => '<span>✓ ' + t + '</span>')
+            .join('');
+        }
+        function start() {
+          clearInterval(timer);
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+            timer = setInterval(() => show(index + 1), 6000);
+        }
+        hero.querySelector('.hero-arrow-prev').addEventListener('click', () => {
+          show(index - 1);
+          start();
+        });
+        hero.querySelector('.hero-arrow-next').addEventListener('click', () => {
+          show(index + 1);
+          start();
+        });
+        dots.forEach((el, i) =>
+          el.addEventListener('click', () => {
+            show(i);
+            start();
+          }),
+        );
+        hero.addEventListener('mouseenter', () => clearInterval(timer));
+        hero.addEventListener('mouseleave', start);
+        document.addEventListener('visibilitychange', () =>
+          document.hidden ? clearInterval(timer) : start(),
+        );
+        start();
+      })();
+    </script>
+
+    <!-- Maison & Monde : profondeur douce et apparition progressive (ordinateur uniquement) -->
+
+    <script is:inline>
+      (() => {
+        const desktop = window.matchMedia('(min-width: 769px) and (prefers-reduced-motion: no-preference)');
+        if (!desktop.matches || !('IntersectionObserver' in window)) return;
+        const targets = document.querySelectorAll(
+          [
+            '.services-text',
+            '.services-image',
+            '.services-list .service-card',
+            '.avantages-intro',
+            '.avantages-grid .avantage-item',
+            '.about-content',
+            '.about-image',
+            '.home-concierge-visual',
+            '.home-concierge-copy',
+            '.contact-copy',
+            '.contact-photo',
+            '.reviews-intro',
+            '.reviews-slider-area',
+          ].join(','),
+        );
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('mm-depth-visible');
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.08, rootMargin: '0px 0px 30px 0px' },
+        );
+        targets.forEach((element) => {
+          // Ne pas masquer les éléments déjà visibles au chargement.
+          if (element.getBoundingClientRect().top < window.innerHeight) return;
+          element.classList.add('mm-depth-reveal');
+          observer.observe(element);
+        });
+        desktop.addEventListener(
+          'change',
+          () => {
+            document.querySelectorAll('.mm-depth-reveal').forEach((el) => {
+              el.classList.remove('mm-depth-reveal');
+              el.classList.add('mm-depth-visible');
+            });
+            observer.disconnect();
+          },
+          { once: true },
+        );
+      })();
+    </script>
   </div>
-  <div class="home-concierge-copy">
-    <span class="home-concierge-label">CONCIERGERIE · PARIS & ÎLE-DE-FRANCE</span>
-    <h2 id="home-concierge-title">Votre location,<br /><em>notre attention.</em></h2>
-    <p>De la préparation du logement à l’accueil des voyageurs, Maison & Monde vous accompagne dans vos locations de courte durée. Choisissez une conciergerie complète ou uniquement les prestations dont vous avez besoin.</p>
-    <div class="home-concierge-tags" aria-label="Nos services">
-      <span>✓ Ménage et linge</span>
-      <span>✓ Accueil des voyageurs</span>
-      <span>✓ Suivi du logement</span>
-    </div>
-    <a class="home-concierge-cta" href="/conciergerie/">Découvrir notre conciergerie <span aria-hidden="true">→</span></a>
-  </div>
-  <svg class="home-concierge-divider home-concierge-divider-bottom" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20 L1440 90 L0 90 Z" fill="#f9f7f2"/><path d="M0 22 C310 98 720 -12 1050 35 S1320 65 1440 20" fill="none" stroke="#e9a34c" stroke-width="2"/></svg>
-</section>
-
-            <section id="contact" class="contact-section" aria-labelledby="contact-title">
-        <div class="contact-visual">
-          <div class="contact-copy">
-            <span class="contact-kicker">PARLONS DE VOS BESOINS</span>
-            <h2 id="contact-title">Un intérieur impeccable commence par un <em>devis personnalisé.</em></h2>
-            <p>Chaque logement est différent. Que vous recherchiez un ménage régulier à Paris, un grand ménage ponctuel, du repassage ou un nettoyage spécifique, Maison &amp; Monde vous propose des prestations adaptées à votre quotidien.</p>
-            <div class="contact-actions">
-              <a class="contact-cta" href="/devis-simple/" data-open-devis-simple>Obtenir un devis rapide <span aria-hidden="true">→</span></a>
-<a class="contact-outline" href="/devis-detaille/">Créer mon devis personnalisé <span aria-hidden="true">→</span></a>
-            </div>
-          </div>
-          <div class="contact-photo" role="img" aria-label="Intervenante Maison et Monde réalisant un ménage à domicile"></div>
-          <svg class="contact-swoosh" viewBox="0 0 1400 470" preserveAspectRatio="none" aria-hidden="true"><path d="M0 48 C280 -25 420 70 580 25 S1040 10 1400 0"/><path d="M0 410 C300 480 470 350 690 405 S1110 460 1400 375"/></svg>
-        </div>
-        <div class="contact-assurances" aria-label="Nos engagements">
-          <div><span class="contact-badge" aria-hidden="true">€</span><span>Devis gratuit<br />et sans engagement</span></div>
-          <div><span class="contact-badge" aria-hidden="true">✓</span><span>Prestations<br />personnalisées</span></div>
-          <div><span class="contact-badge" aria-hidden="true">50%</span><span>Crédit d'impôt de 50 %<br />selon éligibilité</span></div>
-        </div>
-      </section>
-
-      <!-- Avis clients : les cartes d'exemple seront remplacées par de vrais avis avant mise en ligne -->
-      <section class="reviews-section" id="avis" aria-labelledby="reviews-title">
-        <div class="reviews-photo" aria-hidden="true"></div>
-        <svg class="reviews-gold-ribbon" viewBox="0 0 700 620" preserveAspectRatio="none" aria-hidden="true"><path d="M180 -20 C130 85 620 90 580 315 S245 525 -20 480" fill="none" stroke="#e6a044" stroke-width="2"/><path d="M210 -20 C150 100 650 100 605 322 S255 540 -20 505" fill="none" stroke="#fff9e9" stroke-width="2" opacity=".85"/></svg>
-        <div class="reviews-layout">
-          <div class="reviews-intro">
-            <span class="reviews-eyebrow">AVIS DE NOS CLIENTS</span>
-            <h2 id="reviews-title">Ils nous font confiance</h2>
-            <p>Découvrez les témoignages de nos clients à Paris et en Île-de-France qui apprécient la qualité de nos prestations et le sérieux de nos intervenantes.</p>
-            <div class="reviews-google-row">
-              <div class="reviews-google-brand"><span class="google-word"><i>G</i><i>o</i><i>o</i><i>g</i><i>l</i><i>e</i></span><span class="reviews-google-sub">Consultez les avis authentiques<br />sur notre fiche Google</span></div>
-              <a class="reviews-google-link" href="https://www.google.fr/search?hl=fr&amp;gl=fr&amp;q=Maison+%26+Monde&amp;si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_-O_88yVxu5ugKR_HiwlwFf15txb4UbsMqlrn-ZJWHBUFmfGJnLaC6_BGL8M4cLhOljqQXI%3D" target="_blank" rel="noopener noreferrer">Voir tous les avis sur Google <span aria-hidden="true">↗</span></a>
-            </div>
-            <small class="reviews-demo-note">Avis d'exemple à remplacer avant publication.</small>
-          </div>
-          <div class="reviews-slider-area">
-            <div class="reviews-carousel" aria-roledescription="carrousel" aria-label="Témoignages clients">
-              <button type="button" class="reviews-arrow" id="reviews-prev" aria-label="Avis précédent">‹</button>
-              <div class="reviews-track" id="reviews-track" aria-live="off">
-            <a class="review-card" href="https://www.google.fr/search?hl=fr&gl=fr&q=Maison+%26+Monde&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_-O_88yVxu5ugKR_HiwlwFf15txb4UbsMqlrn-ZJWHBUFmfGJnLaC6_BGL8M4cLhOljqQXI%3D" target="_blank" rel="noopener noreferrer" aria-label="Consulter les avis de Maison &amp; Monde sur Google"><div class="review-stars" aria-label="Exemple de cinq étoiles">★★★★★</div><p>« Ici figurera le témoignage authentique d'un client sur la qualité de nos prestations de ménage. »</p><div class="review-person"><span class="review-avatar">A</span><span><strong>Exemple d’avis 1</strong><small>À remplacer avant publication</small></span></div></a>
-            <a class="review-card" href="https://www.google.fr/search?hl=fr&gl=fr&q=Maison+%26+Monde&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_-O_88yVxu5ugKR_HiwlwFf15txb4UbsMqlrn-ZJWHBUFmfGJnLaC6_BGL8M4cLhOljqQXI%3D" target="_blank" rel="noopener noreferrer" aria-label="Consulter les avis de Maison &amp; Monde sur Google"><div class="review-stars" aria-label="Exemple de cinq étoiles">★★★★★</div><p>« Ici figurera le témoignage authentique d'un client sur notre service de repassage à domicile. »</p><div class="review-person"><span class="review-avatar">B</span><span><strong>Exemple d’avis 2</strong><small>À remplacer avant publication</small></span></div></a>
-            <a class="review-card" href="https://www.google.fr/search?hl=fr&gl=fr&q=Maison+%26+Monde&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_-O_88yVxu5ugKR_HiwlwFf15txb4UbsMqlrn-ZJWHBUFmfGJnLaC6_BGL8M4cLhOljqQXI%3D" target="_blank" rel="noopener noreferrer" aria-label="Consulter les avis de Maison &amp; Monde sur Google"><div class="review-stars" aria-label="Exemple de cinq étoiles">★★★★★</div><p>« Ici figurera le témoignage authentique d'un client sur le nettoyage de vitres ou une prestation ponctuelle. »</p><div class="review-person"><span class="review-avatar">C</span><span><strong>Exemple d’avis 3</strong><small>À remplacer avant publication</small></span></div></a>
-            <a class="review-card" href="https://www.google.fr/search?hl=fr&gl=fr&q=Maison+%26+Monde&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_-O_88yVxu5ugKR_HiwlwFf15txb4UbsMqlrn-ZJWHBUFmfGJnLaC6_BGL8M4cLhOljqQXI%3D" target="_blank" rel="noopener noreferrer" aria-label="Consulter les avis de Maison &amp; Monde sur Google"><div class="review-stars" aria-label="Exemple de cinq étoiles">★★★★★</div><p>« Ici figurera un autre avis authentique, avec l'accord de son auteur pour sa publication sur notre site. »</p><div class="review-person"><span class="review-avatar">D</span><span><strong>Exemple d’avis 4</strong><small>À remplacer avant publication</small></span></div></a>
-          </div>
-              <button type="button" class="reviews-arrow" id="reviews-next" aria-label="Avis suivant">›</button>
-            </div>
-            <div class="reviews-dots" id="reviews-dots" aria-label="Navigation des avis"></div>
-          </div>
-        </div>
-        <svg class="reviews-wave" viewBox="0 0 1440 125" preserveAspectRatio="none" aria-hidden="true"><path d="M0 10 C340 95 1070 95 1440 10 L1440 125 L0 125Z" fill="#062744"/><path d="M0 12 C340 97 1070 97 1440 12" fill="none" stroke="#f0aa40" stroke-width="2"/></svg>
-      </section>
-<script is:inline>
-(() => {
- const hero=document.querySelector('.hero'); if(!hero)return;
- const slides=[...hero.querySelectorAll('.hero-slide')],dots=[...hero.querySelectorAll('.hero-dots button')];
- const data=[
-  {eyebrow:'MAISON & MONDE · PARIS',title:'Le charme de Paris,<br>le confort d’un intérieur <span>impeccable.</span>',description:'Maison & Monde prend soin de votre intérieur à Paris et en Île-de-France, avec des prestations adaptées à vos besoins.',benefits:['Prestations personnalisées','Intervenantes expérimentées','Avantage fiscal selon éligibilité']},
-  {eyebrow:'MÉNAGE À DOMICILE',title:'Un logement impeccable,<br><span>sans effort.</span>',description:'Nos intervenantes prennent soin de votre intérieur, pour un environnement propre et agréable.',benefits:['Entretien régulier ou ponctuel','Produits de qualité','Intervenantes de confiance']},
-  {eyebrow:'REPASSAGE À DOMICILE',title:'Un linge impeccable,<br><span>plus de temps pour vous.</span>',description:'Nous prenons en charge votre repassage avec soin et précision, directement à domicile.',benefits:['Repassage à domicile','Linge soigné et bien plié','Gain de temps au quotidien']},
-  {eyebrow:'NETTOYAGE DE BUREAUX',title:'Des espaces de travail<br><span>propres et accueillants.</span>',description:'Nous assurons l’entretien de vos bureaux et locaux professionnels pour un environnement de travail sain.',benefits:['Entretien régulier','Horaires flexibles','Interventions à Paris et en Île-de-France']},
-  {eyebrow:'AVANTAGE FISCAL',title:'Profitez de <span>50 %</span><br>de crédit d’impôt.',description:'Certaines prestations de services à la personne peuvent ouvrir droit à un crédit d’impôt de 50 %, selon les conditions légales et votre éligibilité.',benefits:['Sous conditions légales','Services à la personne','Avance immédiate selon éligibilité']}
- ];
- let index=0,timer;
- function show(i){index=(i+slides.length)%slides.length;slides.forEach((el,j)=>el.classList.toggle('is-active',j===index));dots.forEach((el,j)=>{el.classList.toggle('is-active',j===index);if(j===index)el.setAttribute('aria-current','true');else el.removeAttribute('aria-current')});const d=data[index];hero.querySelector('#hero-eyebrow').textContent=d.eyebrow;hero.querySelector('#hero-title').innerHTML=d.title;hero.querySelector('#hero-description').textContent=d.description;hero.querySelector('#hero-benefits').innerHTML=d.benefits.map(t=>'<span>✓ '+t+'</span>').join('');}
- function start(){clearInterval(timer);if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(()=>show(index+1),6000)}
- hero.querySelector('.hero-arrow-prev').addEventListener('click',()=>{show(index-1);start()});hero.querySelector('.hero-arrow-next').addEventListener('click',()=>{show(index+1);start()});dots.forEach((el,i)=>el.addEventListener('click',()=>{show(i);start()}));hero.addEventListener('mouseenter',()=>clearInterval(timer));hero.addEventListener('mouseleave',start);document.addEventListener('visibilitychange',()=>document.hidden?clearInterval(timer):start());start();
-})();
-</script>
-
-<!-- Maison & Monde : profondeur douce et apparition progressive (ordinateur uniquement) -->
-<style is:global>
-  /* Ombres permanentes, y compris sur mobile : aucune animation imposée. */
-  .services-section .service-card,
-  .avantages-section .avantage-item,
-  .reviews-section .review-card,
-  .reviews-section .reviews-intro,
-  .home-concierge .home-concierge-visual {
-    box-shadow: 0 12px 28px rgba(5, 33, 58, .11), 0 3px 9px rgba(5, 33, 58, .055);
-  }
-  .services-section .services-image,
-  .about-section .about-image,
-  .contact-section .contact-photo {
-    filter: drop-shadow(0 16px 18px rgba(5, 33, 58, .14));
-  }
-  .contact-section .contact-visual {
-    box-shadow: 0 18px 38px rgba(5, 33, 58, .12);
-  }
-  @media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
-    .services-section .service-card,
-    .avantages-section .avantage-item,
-    .reviews-section .review-card,
-    .home-concierge .home-concierge-visual {
-      transition: transform .42s cubic-bezier(.2,.7,.2,1), box-shadow .42s ease;
-      will-change: auto;
-    }
-    .services-section .service-card:hover,
-    .avantages-section .avantage-item:hover,
-    .reviews-section .review-card:hover,
-    .home-concierge .home-concierge-visual:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 22px 42px rgba(5, 33, 58, .17), 0 6px 15px rgba(5, 33, 58, .08);
-    }
-    /* La classe n'est ajoutée qu'aux éléments sous le viewport. */
-    .mm-depth-reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1);
-    }
-    .mm-depth-reveal.mm-depth-visible { opacity: 1; transform: translateY(0); }
-  }
-</style>
-<script is:inline>
-(() => {
-  const desktop = window.matchMedia('(min-width: 769px) and (prefers-reduced-motion: no-preference)');
-  if (!desktop.matches || !('IntersectionObserver' in window)) return;
-  const targets = document.querySelectorAll([
-    '.services-text', '.services-image', '.services-list .service-card',
-    '.avantages-intro', '.avantages-grid .avantage-item',
-    '.about-content', '.about-image',
-    '.home-concierge-visual', '.home-concierge-copy',
-    '.contact-copy', '.contact-photo',
-    '.reviews-intro', '.reviews-slider-area'
-  ].join(','));
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('mm-depth-visible');
-      observer.unobserve(entry.target);
-    });
-  }, { threshold: .08, rootMargin: '0px 0px 30px 0px' });
-  targets.forEach((element) => {
-    // Ne pas masquer les éléments déjà visibles au chargement.
-    if (element.getBoundingClientRect().top < window.innerHeight) return;
-    element.classList.add('mm-depth-reveal');
-    observer.observe(element);
-  });
-  desktop.addEventListener('change', () => {
-    document.querySelectorAll('.mm-depth-reveal').forEach((el) => {
-      el.classList.remove('mm-depth-reveal');
-      el.classList.add('mm-depth-visible');
-    });
-    observer.disconnect();
-  }, { once: true });
-})();
-</script>
-
-
-
-
-<script>
-const track = document.getElementById('reviews-track');
-const cards: HTMLElement[] = track
-  ? Array.from(track.querySelectorAll<HTMLElement>('.review-card'))
-  : [];
-const dots = document.getElementById('reviews-dots');
-
-let activeReview = 0;
-
-let reviewTimer: number | undefined;
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function showReview(index: number) {
-    if (!track || !cards.length) return;
-    activeReview = (index + cards.length) % cards.length;
-    const currentCard = cards[activeReview];
-    const firstCard = cards[0];
-    track.scrollTo({
-      left: currentCard.offsetLeft - firstCard.offsetLeft,
-      behavior: reduceMotion ? 'instant' : 'smooth'
-    });
-    dots?.querySelectorAll('button').forEach((dot, i) => dot.setAttribute('aria-current', String(i === activeReview)));
-  }
-  cards.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.type = 'button';
-    dot.setAttribute('aria-label', `Afficher l’avis ${i + 1}`);
-    dot.addEventListener('click', () => { showReview(i); restartReviews(); });
-    dots?.appendChild(dot);
-  });
-  document.getElementById('reviews-prev')?.addEventListener('click', () => { showReview(activeReview - 1); restartReviews(); });
-  document.getElementById('reviews-next')?.addEventListener('click', () => { showReview(activeReview + 1); restartReviews(); });
-  function stopReviews() { window.clearInterval(reviewTimer); }
-  function startReviews() { if (!reduceMotion && cards.length > 1 && !document.hidden) reviewTimer = window.setInterval(() => showReview(activeReview + 1), 5000); }
-  function restartReviews() { stopReviews(); startReviews(); }
-  track?.addEventListener('mouseenter', stopReviews);
-  track?.addEventListener('mouseleave', startReviews);
-  track?.addEventListener('focusin', stopReviews);
-  track?.addEventListener('focusout', startReviews);
-  document.addEventListener('visibilitychange', restartReviews);
-  if (cards.length) { showReview(0); startReviews(); }
-</script>
-
 </Layout>

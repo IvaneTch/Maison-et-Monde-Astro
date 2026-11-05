@@ -1,0 +1,216 @@
+/* Externalisé depuis src/components/FloatingContact.astro (page/component). */
+/* Deux pastilles discrètes qui s'ouvrent vers la gauche au survol. */
+  .mm-floating-contact {
+    position: fixed;
+    right: 24px;
+    bottom: 110px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 11px;
+  }
+
+  .mm-float-btn {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0;
+    min-width: 54px;
+    height: 54px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 190, 85, 0.65);
+    box-shadow: 0 8px 24px rgba(5, 30, 50, 0.22);
+    text-decoration: none;
+    font:
+      700 13px Arial,
+      sans-serif;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+      box-shadow 0.45s ease,
+      transform 0.45s ease,
+      padding 0.45s ease;
+  }
+
+  .mm-call {
+    background: #09283f;
+    color: #fff;
+  }
+  .mm-callback {
+    background: #f8b74d;
+    color: #09283f;
+  }
+
+  .mm-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+    font-size: 22px;
+    line-height: 1;
+    order: 2;
+  }
+
+  .mm-label {
+    display: inline-block;
+    order: 1;
+    max-width: 0;
+    opacity: 0;
+    margin-right: 0;
+    overflow: hidden;
+    transition:
+      max-width 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.3s ease,
+      margin-right 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (hover: hover) and (min-width: 701px) {
+    .mm-float-btn:hover,
+    .mm-float-btn:focus-visible {
+      transform: translateY(-4px) perspective(600px) rotateX(4deg) scale(1.04);
+      box-shadow:
+        0 7px 0 rgba(194, 132, 46, 0.72),
+        0 18px 32px rgba(5, 30, 50, 0.32);
+    }
+    .mm-float-btn:hover .mm-label,
+    .mm-float-btn:focus-visible .mm-label {
+      max-width: 125px;
+      opacity: 1;
+      margin-right: 10px;
+    }
+  }
+
+  /* Sans survol (téléphone/tablette), les intitulés restent lisibles. */
+  @media (hover: none), (max-width: 700px) {
+    .mm-floating-contact {
+      right: 12px;
+      bottom: 85px;
+      gap: 8px;
+    }
+
+    .mm-float-btn {
+      height: 46px;
+      min-width: 46px;
+      padding: 0 12px;
+      font-size: 12px;
+    }
+
+    .mm-icon {
+      font-size: 19px;
+    }
+
+    .mm-label {
+      max-width: 125px;
+      opacity: 1;
+      margin-right: 8px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mm-float-btn,
+    .mm-label {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .mm-floating-contact {
+      display: none !important;
+    }
+  }
+
+  .mm-callback-dialog {
+    width: min(420px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 28px;
+    border: 1px solid #dce6ee;
+    border-radius: 20px;
+    box-shadow: 0 24px 70px rgba(5, 30, 50, 0.3);
+    color: #09283f;
+  }
+  .mm-callback-dialog::backdrop {
+    background: rgba(5, 25, 42, 0.6);
+  }
+  .mm-dialog-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .mm-dialog-head h2 {
+    margin: 0;
+    font-size: 25px;
+  }
+  .mm-dialog-head button {
+    background: none;
+    border: 0;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .mm-callback-dialog p {
+    line-height: 1.6;
+  }
+  .mm-callback-dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .mm-callback-dialog label {
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .mm-callback-dialog input,
+  .mm-callback-dialog select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd9e4;
+    border-radius: 9px;
+    font-size: 14px;
+  }
+  .mm-submit {
+    margin-top: 10px;
+    padding: 14px;
+    border: 0;
+    border-radius: 30px;
+    background: #f8b74d;
+    color: #09283f;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+/* Externalisé depuis src/components/FloatingContact.astro (page/component). */
+.mm-callback-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 12px !important;
+    line-height: 1.6;
+  }
+  .mm-callback-consent input {
+    width: 17px !important;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .mm-callback-dialog {
+    max-height: 90dvh;
+    overflow: auto;
+  }
+  .mm-callback-dialog a {
+    font-size: 12px;
+    text-decoration: underline;
+  }
+  .mm-honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }

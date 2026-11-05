@@ -1,59 +1,35 @@
 ---
-import DevisSimpleModal from '../components/DevisSimpleModal.astro';
+import '../styles/devis-simple-page.css';
+import InfoPage from '../components/InfoPage.astro';
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Devis simple | Maison & Monde</title>
-  </head>
-
-  <body>
-    <main>
-      <h1>Maison & Monde</h1>
-      <p>Obtenez gratuitement votre devis personnalisé.</p>
-
-      <button type="button" data-open-devis-simple>
-        Demander mon devis gratuit
+<InfoPage
+  title="Demande de devis | Maison & Monde"
+  heading="Un devis adapté à votre projet"
+  description="Choisissez une demande rapide, un devis ménage détaillé ou un devis conciergerie personnalisé."
+  intro="Votre demande est gratuite et sans engagement. Choisissez le parcours qui correspond à vos besoins."
+>
+  <div class="devis-paths">
+    <section>
+      <h2>Un devis rapide</h2>
+      <p>Quelques coordonnées et vos prestations pour être recontacté.</p>
+      <button class="sp-button" type="button" data-open-devis-simple>
+        Faire une demande rapide →
       </button>
-    </main>
-
-    <DevisSimpleModal />
-  </body>
-</html>
-
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #eaf5ff, #ffffff);
-    color: #102d57;
-  }
-
-  main {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-
-  h1 {
-    font-family: Georgia, serif;
-    font-size: 42px;
-  }
-
-  button {
-    background: #07559c;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 18px 30px;
-    font-size: 17px;
-    cursor: pointer;
-  }
-</style>
+    </section>
+    <section>
+      <h2>Ménage et repassage</h2>
+      <p>Décrivez votre logement, vos priorités et vos disponibilités.</p>
+      <a class="sp-button" href="/devis-detaille/">
+        Mon devis Ménage →
+      </a>
+    </section>
+    <section>
+      <h2>Conciergerie</h2>
+      <p>Un parcours dédié à votre logement en location et à vos services.</p>
+      <a class="sp-button" href="/conciergerie/demande-de-devis/">
+        Mon devis Conciergerie →
+      </a>
+    </section>
+  </div>
+</InfoPage>

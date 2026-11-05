@@ -1,251 +1,341 @@
 ---
-import Header from "../../../components/Header.astro";
-import Footer from "../../../components/Footer.astro";
+import SectionBand from '../../../components/SectionBand.astro';
+import '../../../styles/conciergerie-suivi-maintenance.css';
+import Layout from '../../../layouts/Layout.astro';
 
 const controles = [
-  { icon: "check", title: "Contrôle du logement", text: "Observation de l’état général des pièces, du mobilier et des équipements lors de nos passages." },
-  { icon: "alert", title: "Signalement des anomalies", text: "Information du propriétaire lorsqu’un dysfonctionnement, une dégradation ou un besoin d’entretien est constaté." },
-  { icon: "tools", title: "Coordination des interventions", text: "Organisation, avec votre accord, de petites interventions ou de rendez-vous avec les prestataires concernés." },
-  { icon: "report", title: "Suivi personnalisé", text: "Retour sur les vérifications effectuées et les actions à prévoir, selon les modalités convenues ensemble." },
+  {
+    icon: 'check',
+    title: 'Contrôle du logement',
+    text: 'Observation de l’état général des pièces, du mobilier et des équipements lors de nos passages.',
+  },
+  {
+    icon: 'alert',
+    title: 'Signalement des anomalies',
+    text: 'Information du propriétaire lorsqu’un dysfonctionnement, une dégradation ou un besoin d’entretien est constaté.',
+  },
+  {
+    icon: 'tools',
+    title: 'Coordination des interventions',
+    text: 'Organisation, avec votre accord, de petites interventions ou de rendez-vous avec les prestataires concernés.',
+  },
+  {
+    icon: 'report',
+    title: 'Suivi personnalisé',
+    text: 'Retour sur les vérifications effectuées et les actions à prévoir, selon les modalités convenues ensemble.',
+  },
 ];
 const etapes = [
-  { n: "01", title: "Vous nous confiez vos consignes", text: "Nous définissons les points à surveiller et le niveau d’accompagnement souhaité." },
-  { n: "02", title: "Nous vérifions le logement", text: "Nos équipes observent les équipements et les espaces lors des passages prévus." },
-  { n: "03", title: "Nous vous informons", text: "Nous vous signalons les anomalies constatées et les actions éventuellement nécessaires." },
-  { n: "04", title: "Nous organisons la suite", text: "Si vous le souhaitez, nous coordonnons une intervention après votre validation." },
+  {
+    n: '01',
+    title: 'Vous nous confiez vos consignes',
+    text: 'Nous définissons les points à surveiller et le niveau d’accompagnement souhaité.',
+  },
+  {
+    n: '02',
+    title: 'Nous vérifions le logement',
+    text: 'Nos équipes observent les équipements et les espaces lors des passages prévus.',
+  },
+  {
+    n: '03',
+    title: 'Nous vous informons',
+    text: 'Nous vous signalons les anomalies constatées et les actions éventuellement nécessaires.',
+  },
+  {
+    n: '04',
+    title: 'Nous organisons la suite',
+    text: 'Si vous le souhaitez, nous coordonnons une intervention après votre validation.',
+  },
 ];
 const questions = [
-  { q: "Proposez-vous une surveillance permanente ?", a: "Non. Les contrôles sont réalisés lors des passages convenus. Nous définissons ensemble la fréquence et le périmètre du suivi." },
-  { q: "Effectuez-vous vous-mêmes toutes les réparations ?", a: "Nous pouvons prendre en charge certaines petites tâches selon leur nature. Les travaux techniques nécessitant un professionnel qualifié sont confiés à un prestataire adapté, après votre accord." },
-  { q: "Puis-je demander uniquement le suivi du logement ?", a: "Oui. Le suivi et la maintenance peuvent être étudiés comme une prestation à la carte, sans obligation de choisir une gestion complète." },
-  { q: "Comment est calculé le tarif ?", a: "Le devis dépend du logement, de la fréquence des passages, des vérifications demandées et des éventuelles interventions à coordonner." },
+  {
+    q: 'Proposez-vous une surveillance permanente ?',
+    a: 'Non. Les contrôles sont réalisés lors des passages convenus. Nous définissons ensemble la fréquence et le périmètre du suivi.',
+  },
+  {
+    q: 'Effectuez-vous vous-mêmes toutes les réparations ?',
+    a: 'Nous pouvons prendre en charge certaines petites tâches selon leur nature. Les travaux techniques nécessitant un professionnel qualifié sont confiés à un prestataire adapté, après votre accord.',
+  },
+  {
+    q: 'Puis-je demander uniquement le suivi du logement ?',
+    a: 'Oui. Le suivi et la maintenance peuvent être étudiés comme une prestation à la carte, sans obligation de choisir une gestion complète.',
+  },
+  {
+    q: 'Comment est calculé le tarif ?',
+    a: 'Le devis dépend du logement, de la fréquence des passages, des vérifications demandées et des éventuelles interventions à coordonner.',
+  },
 ];
 ---
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Suivi et maintenance de logements en location courte durée à Paris : contrôles, signalement des anomalies et coordination d'interventions avec Maison & Monde." />
-  <link rel="icon" type="image/png" href="/favicon.png" />
-  <title>Suivi et maintenance de logement à Paris | Maison & Monde</title>
-</head>
-<body>
-<Header />
-<main class="maintenance">
-  <section class="hero" aria-labelledby="maintenance-title">
-    <div class="hero-photo" aria-hidden="true"></div>
-    <div class="wrap hero-content">
-      <p class="eyebrow">CONCIERGERIE À PARIS ET EN ÎLE-DE-FRANCE</p>
-      <h1 id="maintenance-title">Suivi et<br /><span>maintenance</span><br />du logement</h1>
-      <p class="hero-lead">Un logement suivi avec attention, des anomalies signalées et des interventions coordonnées selon vos besoins.</p>
-      <div class="actions">
-        <a class="button gold" href="/conciergerie/demande-de-devis/">Demander un devis personnalisé <span aria-hidden="true">→</span></a>
-        <a class="button outline" href="#prestations">Découvrir nos prestations</a>
-      </div>
-    </div>
-    <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 35 C290 115 610 5 880 42 S1250 90 1440 32 L1440 90 H0Z" fill="white"/><path d="M0 35 C290 115 610 5 880 42 S1250 90 1440 32" fill="none" stroke="#d7a35c" stroke-width="2"/></svg>
-  </section>
 
-  <section class="section intro decorated" id="prestations">
-    <div class="circle left" aria-hidden="true"></div>
-    <svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 320 C290 25 510 420 820 165 S1200 40 1500 270" /></svg>
-    <div class="wrap intro-grid top-layer">
-      <div class="intro-copy">
-        <p class="eyebrow">UN LOGEMENT ENTRE DE BONNES MAINS</p>
-        <h2>Chaque détail compte pour <em>votre tranquillité</em></h2>
-        <p>Entre deux séjours, un équipement peut présenter un défaut ou un élément du logement nécessiter une attention particulière. Nous vous aidons à garder une vision claire de son état et à anticiper les petites difficultés.</p>
-        <p>Notre accompagnement est souple : nous adaptons les vérifications et le suivi aux caractéristiques de votre logement, à vos consignes et aux prestations retenues.</p>
-        <div class="intro-points">
-          <span>Contrôles convenus</span><span>Informations claires</span><span>Suivi sur mesure</span>
+<Layout
+  title="Suivi et maintenance de logement à Paris | Maison & Monde"
+  description="Suivi et maintenance de logements en location courte durée à Paris : contrôles, signalement des anomalies et coordination d'interventions avec Maison & Monde."
+>
+  <div class="maintenance">
+    <section class="hero" aria-labelledby="maintenance-title">
+      <div class="hero-photo" aria-hidden="true"></div>
+      <div class="wrap hero-content">
+        <p class="eyebrow">CONCIERGERIE À PARIS ET EN ÎLE-DE-FRANCE</p>
+        <h1 id="maintenance-title">
+          Suivi et
+          <br />
+          <span>maintenance</span>
+          <br />
+          du logement
+        </h1>
+        <p class="hero-lead">
+          Un logement suivi avec attention, des anomalies signalées et des interventions coordonnées selon vos
+          besoins.
+        </p>
+        <div class="actions">
+          <a class="button gold" href="/conciergerie/demande-de-devis/">
+            Demander un devis personnalisé <span aria-hidden="true">→</span>
+          </a>
+          <a class="button outline" href="#prestations">
+            Découvrir nos prestations
+          </a>
         </div>
       </div>
-      <div class="organic-photo"><img src="/images/conciergerie/suivi-maintenance.jpg" alt="Professionnel vérifiant les équipements d'un logement" loading="lazy" /></div>
-    </div>
-  </section>
+      <svg class="hero-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 35 C290 115 610 5 880 42 S1250 90 1440 32 L1440 90 H0Z" fill="white" />
+        <path
+          d="M0 35 C290 115 610 5 880 42 S1250 90 1440 32"
+          fill="none"
+          stroke="#d7a35c"
+          stroke-width="2"
+        />
+      </svg>
+    </section>
 
-  <section class="section services decorated" id="nos-services">
-    <div class="circle right" aria-hidden="true"></div>
-    <svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 130 C280 380 470 20 800 220 S1230 330 1500 95" /></svg>
-    <div class="wrap top-layer">
-      <p class="eyebrow">NOTRE ACCOMPAGNEMENT</p>
-      <h2>Un suivi <em>à la carte</em></h2>
-      <p class="section-lead">Des prestations concrètes pour vous aider à entretenir votre logement et à préparer sereinement les prochains séjours.</p>
-      <div class="service-grid">
-        {controles.map((item) => <article class="service-card">
-          <div class="icon-ring" aria-hidden="true">
-            {item.icon === "check" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>}
-            {item.icon === "alert" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 9v5M12 17h.01"/></svg>}
-            {item.icon === "tools" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a5 5 0 0 0-6.4 6.4L3 18a2.1 2.1 0 0 0 3 3l5.1-5.1a5 5 0 0 0 6.4-6.4l-3 3-3-3 3-3Z"/></svg>}
-            {item.icon === "report" && <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>}
+    <section class="section intro decorated" id="prestations">
+      <div class="circle left" aria-hidden="true"></div>
+      <svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-60 320 C290 25 510 420 820 165 S1200 40 1500 270" />
+      </svg>
+      <div class="wrap intro-grid top-layer">
+        <div class="intro-copy">
+          <p class="eyebrow">UN LOGEMENT ENTRE DE BONNES MAINS</p>
+          <h2>
+            Chaque détail compte pour <em>votre tranquillité</em>
+          </h2>
+          <p>
+            Entre deux séjours, un équipement peut présenter un défaut ou un élément du logement nécessiter
+            une attention particulière. Nous vous aidons à garder une vision claire de son état et à anticiper
+            les petites difficultés.
+          </p>
+          <p>
+            Notre accompagnement est souple : nous adaptons les vérifications et le suivi aux caractéristiques
+            de votre logement, à vos consignes et aux prestations retenues.
+          </p>
+          <div class="intro-points">
+            <span>Contrôles convenus</span>
+            <span>Informations claires</span>
+            <span>Suivi sur mesure</span>
           </div>
-          <h3>{item.title}</h3><p>{item.text}</p>
-        </article>)}
+        </div>
+        <div class="organic-photo">
+          <img
+            src="/images/conciergerie/controle-equipements-logement.webp"
+            alt="Professionnel vérifiant les équipements d'un logement"
+            loading="lazy"
+            sizes="(max-width: 780px) 100vw, 50vw"
+            width="1600"
+            height="1067"
+          />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <SectionBand theme="suivi" />
 
-  <section class="section process decorated" id="etapes">
-    <svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true"><path d="M-60 300 C250 45 550 410 900 150 S1200 40 1500 245" /></svg>
-    <div class="wrap top-layer">
-      <p class="eyebrow">SIMPLE ET TRANSPARENT</p>
-      <h2>Comment se déroule <em>le suivi ?</em></h2>
-      <div class="steps-grid">
-        {etapes.map((step) => <article class="step-card"><span class="step-number">{step.n}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}
+    <section class="section services decorated" id="nos-services">
+      <div class="circle right" aria-hidden="true"></div>
+      <svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-60 130 C280 380 470 20 800 220 S1230 330 1500 95" />
+      </svg>
+      <div class="wrap top-layer">
+        <p class="eyebrow">NOTRE ACCOMPAGNEMENT</p>
+        <h2>
+          Un suivi <em>à la carte</em>
+        </h2>
+        <p class="section-lead">
+          Des prestations concrètes pour vous aider à entretenir votre logement et à préparer sereinement les
+          prochains séjours.
+        </p>
+        <div class="service-grid">
+          {controles.map((item) => (
+            <article class="service-card">
+              <div class="icon-ring" aria-hidden="true">
+                {item.icon === 'check' && (
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z" />
+                    <path d="m8.5 12 2.5 2.5 4.5-5" />
+                  </svg>
+                )}
+                {item.icon === 'alert' && (
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 3 2 20h20L12 3Z" />
+                    <path d="M12 9v5M12 17h.01" />
+                  </svg>
+                )}
+                {item.icon === 'tools' && (
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M14.5 6.5a5 5 0 0 0-6.4 6.4L3 18a2.1 2.1 0 0 0 3 3l5.1-5.1a5 5 0 0 0 6.4-6.4l-3 3-3-3 3-3Z" />
+                  </svg>
+                )}
+                {item.icon === 'report' && (
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="5" y="3" width="14" height="18" rx="2" />
+                    <path d="M9 8h6M9 12h6M9 16h4" />
+                  </svg>
+                )}
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section reassurance decorated">
-    <div class="circle left" aria-hidden="true"></div>
-    <div class="wrap reassurance-grid top-layer">
-      <div class="organic-photo second"><img src="/images/conciergerie/salon-conciergerie.jpg" alt="Salon parisien soigneusement entretenu" loading="lazy" /></div>
-      <div><p class="eyebrow">VOTRE LOGEMENT, VOS PRIORITÉS</p><h2>Vous gardez <em>la maîtrise</em></h2><p>Nous vous informons des besoins repérés et sollicitons votre accord avant toute intervention supplémentaire ou dépense non prévue.</p><ul class="checks"><li>Prestations définies ensemble</li><li>Interventions complémentaires sur validation</li><li>Coordination adaptée à votre disponibilité</li><li>Possibilité d'associer ménage et préparation du logement</li></ul><a class="text-link" href="/conciergerie/menage-preparation-logement/">Découvrir le ménage et la préparation <span aria-hidden="true">→</span></a></div>
-    </div>
-  </section>
+    <section class="section process decorated" id="etapes">
+      <svg class="ribbon" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-60 300 C250 45 550 410 900 150 S1200 40 1500 245" />
+      </svg>
+      <div class="wrap top-layer">
+        <p class="eyebrow">SIMPLE ET TRANSPARENT</p>
+        <h2>
+          Comment se déroule <em>le suivi ?</em>
+        </h2>
+        <div class="steps-grid">
+          {etapes.map((step) => (
+            <article class="step-card">
+              <span class="step-number">{step.n}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
 
-  <section class="section faq decorated" id="questions">
-    <div class="wrap top-layer"><p class="eyebrow">QUESTIONS FRÉQUENTES</p><h2>Tout savoir sur <em>notre suivi</em></h2><div class="faq-list">{questions.map((item) => <details><summary>{item.q}<span aria-hidden="true">+</span></summary><p>{item.a}</p></details>)}</div></div>
-  </section>
+    <section class="section reassurance decorated">
+      <div class="circle left" aria-hidden="true"></div>
+      <div class="wrap reassurance-grid top-layer">
+        <div class="organic-photo second">
+          <img
+            src="/images/conciergerie/inspection-logement.webp"
+            alt="Salon parisien soigneusement entretenu"
+            loading="lazy"
+            sizes="(max-width: 780px) 100vw, 50vw"
+            width="1600"
+            height="1067"
+          />
+        </div>
+        <div>
+          <p class="eyebrow">VOTRE LOGEMENT, VOS PRIORITÉS</p>
+          <h2>
+            Vous gardez <em>la maîtrise</em>
+          </h2>
+          <p>
+            Nous vous informons des besoins repérés et sollicitons votre accord avant toute intervention
+            supplémentaire ou dépense non prévue.
+          </p>
+          <ul class="checks">
+            <li>Prestations définies ensemble</li>
+            <li>Interventions complémentaires sur validation</li>
+            <li>Coordination adaptée à votre disponibilité</li>
+            <li>Possibilité d'associer ménage et préparation du logement</li>
+          </ul>
+          <a class="text-link" href="/conciergerie/menage-preparation-logement/">
+            Découvrir le ménage et la préparation <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-  <section class="closing">
-    <svg class="closing-wave" viewBox="0 0 1440 75" preserveAspectRatio="none" aria-hidden="true"><path d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5 L1440 0 H0Z" fill="white"/><path d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5" stroke="#d7a35c" fill="none" stroke-width="2"/></svg>
-    <div class="wrap closing-grid"><div><p class="eyebrow">UN ACCOMPAGNEMENT SUR MESURE</p><h2>Prenez soin de <em>votre logement</em>, en toute sérénité</h2><p>Parlons de vos besoins et construisons ensemble une prestation adaptée à votre location courte durée.</p><a class="button gold" href="/conciergerie/demande-de-devis/">Demander un devis personnalisé <span aria-hidden="true">→</span></a></div><div class="closing-photo"><img src="/images/conciergerie/suivi-maintenance.jpg" alt="Suivi des équipements d'un appartement" loading="lazy" /></div></div>
-  </section>
-</main>
-<Footer />
-</body>
-</html>
+    <section class="section faq decorated" id="questions">
+      <div class="wrap top-layer">
+        <p class="eyebrow">QUESTIONS FRÉQUENTES</p>
+        <h2>
+          Tout savoir sur <em>notre suivi</em>
+        </h2>
+        <div class="faq-list">
+          {questions.map((item) => (
+            <details>
+              <summary>
+                {item.q}
+                <span aria-hidden="true">+</span>
+              </summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
 
-<style is:global>
-html,body{margin:0;padding:0;width:100%}body{overflow-x:clip}
-.maintenance{--navy:#092942;--gold:#d19b4e;--muted:#5d7182;color:var(--navy);font-family:Arial,Helvetica,sans-serif;background:#fff;overflow:hidden}
-.maintenance *{box-sizing:border-box}.maintenance .wrap{width:min(1180px,calc(100% - 52px));margin-inline:auto}.maintenance h1,.maintenance h2,.maintenance h3{font-family:Georgia,'Times New Roman',serif;font-weight:400}.maintenance h2{font-size:clamp(32px,3.8vw,49px);line-height:1.13;margin:0 0 22px}.maintenance h2 em,.maintenance h1 span,.maintenance .closing h2 em{font-style:normal;color:var(--gold)}.maintenance p{line-height:1.65}.maintenance .eyebrow{font-size:11px;letter-spacing:2.2px;color:#bf873c;font-weight:800;margin:0 0 18px}.maintenance .section{position:relative;padding:98px 0}.maintenance .decorated{overflow:hidden;isolation:isolate}.maintenance .top-layer{position:relative;z-index:2}.maintenance .circle{position:absolute;z-index:0;border:1.4px solid #d3a15c;border-radius:50%;width:350px;height:350px;box-shadow:0 0 0 22px #e1f1fb91,0 0 0 42px #e9f6ff6b;pointer-events:none}.maintenance .circle.left{left:-320px;top:25%}.maintenance .circle.right{right:-320px;bottom:10%}.maintenance .ribbon{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}.maintenance .ribbon path{fill:none;stroke:#d4a15d;stroke-width:1.25;vector-effect:non-scaling-stroke;opacity:.5}
-/* Hero identique en hauteur aux autres pages de conciergerie */
-.maintenance .hero{position:relative;height:720px;min-height:720px;display:flex;align-items:center;background:#102e48;color:#fff;overflow:hidden}.maintenance .hero-photo{position:absolute;inset:0;background:url('/images/conciergerie/suivi-maintenance.jpg') center 48%/cover no-repeat}.maintenance .hero:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#061d32f2 0%,#08283ed8 43%,#09283e20 83%);z-index:1}.maintenance .hero-content{position:relative;z-index:2;padding:85px 0 115px}.maintenance .hero h1{font-size:clamp(49px,5.7vw,78px);line-height:1.06;margin:0 0 23px}.maintenance .hero .eyebrow{color:#e5ae5c}.maintenance .hero-lead{max-width:470px;font-size:16px}.maintenance .actions{display:flex;gap:15px;flex-wrap:wrap;margin-top:32px}.maintenance .button{display:inline-flex;align-items:center;justify-content:center;gap:17px;border-radius:50px;padding:15px 23px;font-size:13px;font-weight:700;text-decoration:none;transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s ease}.maintenance .button:hover{transform:translateY(-3px);box-shadow:0 12px 24px #081c3450}.maintenance .button.gold{background:#f7bb53;color:#132c41;box-shadow:0 9px 22px #081c3436}.maintenance .button.outline{color:#fff;border:1px solid #ffffffab}.maintenance .hero-wave{position:absolute;bottom:-2px;left:0;width:100%;height:82px;z-index:2}
-.maintenance .intro-grid,.maintenance .reassurance-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.maintenance .intro-copy>p:not(.eyebrow),.maintenance .reassurance-grid>div>p:not(.eyebrow){color:var(--muted)}.maintenance .intro-points{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}.maintenance .intro-points span{font-size:12px;font-weight:700;border-radius:30px;padding:10px 14px;background:#f0f7fc;border:1px solid #dbeaf4}.maintenance .organic-photo{position:relative;filter:drop-shadow(0 17px 25px #092d4c30);transition:transform .7s cubic-bezier(.22,1,.36,1),filter .7s ease}.maintenance .organic-photo:after{content:"";position:absolute;inset:5% -4% -4% 4%;z-index:-1;background:#eaf4fa;border-radius:42% 58% 55% 45%/48% 39% 61% 52%}.maintenance .organic-photo img{display:block;width:100%;height:350px;object-fit:cover;border-radius:42% 58% 55% 45%/48% 39% 61% 52%;box-shadow:0 22px 40px #092d4c22}.maintenance .organic-photo.second img{border-radius:55% 45% 48% 52%/42% 54% 46% 58%}.maintenance .organic-photo.second:after{border-radius:55% 45% 48% 52%/42% 54% 46% 58%}
-.maintenance .services{background:#f6fafc}.maintenance .section-lead{max-width:650px;color:var(--muted);margin:-4px 0 0}.maintenance .service-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:42px}.maintenance .service-card,.maintenance .step-card{background:#fff;border:1px solid rgba(225,234,241,.9);border-radius:19px;padding:27px 22px 28px;box-shadow:0 14px 27px rgba(8,38,62,.10),0 24px 47px rgba(8,38,62,.06);transition:transform .75s cubic-bezier(.22,1,.36,1),box-shadow .75s ease}.maintenance .icon-ring{display:grid;place-items:center;width:55px;height:55px;border:1.5px solid #d7a35c;border-radius:50%;background:#f4faff;color:#164b73;box-shadow:0 8px 16px rgba(8,38,62,.10);margin-bottom:21px;transition:transform .75s cubic-bezier(.22,1,.36,1)}.maintenance .icon-ring svg{width:27px;height:27px}.maintenance .service-card h3,.maintenance .step-card h3{font-size:23px;line-height:1.2;margin:0 0 13px}.maintenance .service-card p,.maintenance .step-card p{font-size:13px;color:var(--muted);margin:0}
-.maintenance .process{background:#fff}.maintenance .steps-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:42px}.maintenance .step-card{position:relative;padding-top:34px}.maintenance .step-number{display:grid;place-items:center;background:#f4b856;color:#12314a;border-radius:50%;width:47px;height:47px;font-size:13px;font-weight:800;margin-bottom:20px;box-shadow:0 6px 14px #a8773240}
-.maintenance .reassurance{background:#fbfcfe}.maintenance .checks{list-style:none;padding:0;margin:24px 0}.maintenance .checks li{position:relative;padding:9px 0 9px 38px;font-size:14px}.maintenance .checks li:before{content:'✓';position:absolute;left:0;top:7px;background:#e9ac4d;color:white;width:25px;height:25px;border-radius:50%;display:grid;place-items:center;font-weight:800}.maintenance .text-link{display:inline-flex;gap:12px;color:#14587c;text-decoration:none;font-weight:700;font-size:13px;border-bottom:1px solid #c9a16b;padding-bottom:6px}
-.maintenance .faq{background:#f6fafc}.maintenance .faq-list{max-width:880px;margin-top:36px;display:grid;gap:12px}.maintenance .faq details{background:#fff;border:1px solid #e1eaf0;border-radius:15px;padding:0 23px;box-shadow:0 9px 22px #092d4c0b}.maintenance .faq summary{display:flex;justify-content:space-between;gap:18px;align-items:center;cursor:pointer;list-style:none;font-weight:700;font-size:15px;padding:22px 0}.maintenance .faq summary::-webkit-details-marker{display:none}.maintenance .faq summary span{font-size:24px;font-weight:400;color:#bf873c}.maintenance .faq details[open] summary span{transform:rotate(45deg)}.maintenance .faq details p{color:var(--muted);font-size:14px;margin:0 0 22px}
-.maintenance .closing{position:relative;background:linear-gradient(110deg,#06243b,#125071);color:#fff;overflow:hidden}.maintenance .closing-wave{position:absolute;top:-1px;left:0;width:100%;height:75px;z-index:2}.maintenance .closing-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:70px;min-height:440px}.maintenance .closing-grid>div:first-child{padding:110px 0 80px}.maintenance .closing h2{font-size:clamp(32px,3.7vw,48px)}.maintenance .closing p:not(.eyebrow){max-width:510px}.maintenance .closing .button{margin-top:20px}.maintenance .closing-photo{height:320px;position:relative;border:2px solid #e0ad62;border-radius:48% 52% 57% 43%/63% 44% 56% 37%;transform:rotate(-4deg);overflow:hidden;box-shadow:0 22px 45px #00182766}.maintenance .closing-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:rotate(4deg) scale(1.17)}
-@media(min-width:901px) and (hover:hover){.maintenance .service-card:hover,.maintenance .step-card:hover{transform:translateY(-5px);box-shadow:0 23px 37px rgba(8,38,62,.16),0 36px 68px rgba(8,38,62,.12)}.maintenance .service-card:hover .icon-ring{transform:translateY(-3px)}.maintenance .organic-photo:hover{transform:translateY(-4px);filter:drop-shadow(0 23px 30px #092d4c35)}}
-@media(max-width:900px){.maintenance .intro-grid,.maintenance .reassurance-grid{gap:35px}.maintenance .service-grid,.maintenance .steps-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.maintenance .hero{height:auto;min-height:600px}.maintenance .closing-grid{gap:30px}}
-@media(max-width:650px){.maintenance .wrap{width:calc(100% - 36px)}.maintenance .section{padding:68px 0}.maintenance .hero{height:auto;min-height:610px}.maintenance .hero-content{padding:90px 0 120px}.maintenance .hero h1{font-size:clamp(42px,11vw,52px)}.maintenance .hero:before{background:linear-gradient(90deg,#061d32ed,#09283eb0)}.maintenance .hero-wave{height:48px}.maintenance .actions{flex-direction:column;align-items:flex-start}.maintenance .intro-grid,.maintenance .reassurance-grid,.maintenance .closing-grid{grid-template-columns:1fr;gap:35px}.maintenance .organic-photo img{height:265px}.maintenance .service-grid,.maintenance .steps-grid{gap:15px}.maintenance .service-card,.maintenance .step-card{padding:22px 16px}.maintenance .service-card h3,.maintenance .step-card h3{font-size:20px}.maintenance .circle{width:240px;height:240px}.maintenance .circle.left{left:-225px}.maintenance .circle.right{right:-225px}.maintenance .closing-grid{gap:0}.maintenance .closing-grid>div:first-child{padding:100px 0 35px}.maintenance .closing-photo{height:240px;margin-bottom:48px}.maintenance .ribbon{opacity:.4}}
-@media(max-width:420px){.maintenance .service-grid,.maintenance .steps-grid{grid-template-columns:1fr}.maintenance .hero h1{font-size:43px}}
-@media(max-width:900px),(prefers-reduced-motion:reduce){.maintenance .service-card,.maintenance .step-card,.maintenance .organic-photo,.maintenance .icon-ring,.maintenance .button{transition:none!important;transform:none!important}}
-
-/* ==========================================
-   MAISON & MONDE — CARTES 3D HARMONISÉES
-   ========================================== */
-
-/* Ombres visibles même sans survol */
-.maintenance .service-card,
-.maintenance .step-card,
-.maintenance .faq details {
-  background: #ffffff;
-  box-shadow:
-    0 12px 25px rgba(8, 38, 62, 0.12),
-    0 25px 48px rgba(8, 38, 62, 0.10);
-
-  transition:
-    transform 0.75s cubic-bezier(.22, 1, .36, 1),
-    box-shadow 0.75s ease;
-}
-
-/* Flottement doux sur ordinateur */
-@media (min-width: 901px) and (hover: hover) {
-
-  .maintenance .service-card:hover,
-  .maintenance .step-card:hover,
-  .maintenance .faq details:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-      0 20px 35px rgba(8, 38, 62, 0.16),
-      0 35px 65px rgba(8, 38, 62, 0.13);
-  }
-}
-
-/* Mobile : ombres conservées, animations supprimées */
-@media (max-width: 900px) {
-  .maintenance .service-card,
-  .maintenance .step-card,
-  .maintenance .faq details {
-    transition: none !important;
-    transform: none !important;
-  }
-}
-
-/* Ombres 3D renforcées — photos des sections
-   « Un logement entre de bonnes mains » et « Votre logement, vos priorités » */
-.maintenance .intro .organic-photo,
-.maintenance .reassurance .organic-photo {
-  filter: drop-shadow(0 18px 22px rgba(8, 38, 62, .22))
-          drop-shadow(0 32px 36px rgba(8, 38, 62, .12));
-  transition: transform .75s cubic-bezier(.22, 1, .36, 1), filter .75s ease;
-}
-.maintenance .intro .organic-photo img,
-.maintenance .reassurance .organic-photo img {
-  box-shadow: 0 15px 32px rgba(8, 38, 62, .17);
-}
-@media (min-width: 901px) and (hover: hover) {
-  .maintenance .intro .organic-photo:hover,
-  .maintenance .reassurance .organic-photo:hover {
-    transform: translateY(-5px);
-    filter: drop-shadow(0 25px 28px rgba(8, 38, 62, .27))
-            drop-shadow(0 39px 43px rgba(8, 38, 62, .16));
-  }
-}
-@media (max-width: 900px), (prefers-reduced-motion: reduce) {
-  .maintenance .intro .organic-photo,
-  .maintenance .reassurance .organic-photo {
-    transition: none !important;
-    transform: none !important;
-  }
-}
-</style>
-
-<style is:global>
-
-/* Courbes dorées autour de la photo finale — reprises de la page Préparation du logement. */
-.maintenance .closing-grid {
-  position: relative;
-  isolation: isolate;
-}
-.maintenance .closing-grid::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  pointer-events: none;
-  right: -9%;
-  top: 15%;
-  width: 61%;
-  height: 78%;
-  border: 1.5px solid rgba(227,174,92,.8);
-  border-radius: 54% 46% 58% 42% / 48% 58% 42% 52%;
-  transform: rotate(-10deg);
-}
-.maintenance .closing-grid > div { position: relative; z-index: 1; }
-.maintenance .closing-photo { z-index: 2; }
-.maintenance .closing::after {
-  content: "";
-  position: absolute;
-  right: -15%;
-  bottom: -55%;
-  width: 55%;
-  height: 90%;
-  border: 1px solid rgba(221,165,81,.45);
-  border-radius: 50%;
-  transform: rotate(-18deg);
-  pointer-events: none;
-}
-@media (max-width: 650px) {
-  .maintenance .closing-grid::after {
-    width: 105%;
-    right: -10%;
-    top: 55%;
-    height: 38%;
-  }
-}
-</style>
+    <section class="closing">
+      <svg class="closing-wave" viewBox="0 0 1440 75" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5 L1440 0 H0Z" fill="white" />
+        <path
+          d="M0 25 C250 -30 500 75 750 30 S1190 20 1440 5"
+          stroke="#d7a35c"
+          fill="none"
+          stroke-width="2"
+        />
+      </svg>
+      <div class="wrap closing-grid">
+        <div>
+          <p class="eyebrow">UN ACCOMPAGNEMENT SUR MESURE</p>
+          <h2>
+            Prenez soin de <em>votre logement</em>, en toute sérénité
+          </h2>
+          <p>
+            Parlons de vos besoins et construisons ensemble une prestation adaptée à votre location courte
+            durée.
+          </p>
+          <a class="button gold" href="/conciergerie/demande-de-devis/">
+            Demander un devis personnalisé <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="closing-photo">
+          <img
+            src="/images/conciergerie/appartement-paris.webp"
+            alt="Suivi des équipements d'un appartement"
+            loading="lazy"
+            sizes="(max-width: 780px) 100vw, 50vw"
+            width="1600"
+            height="1067"
+          />
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

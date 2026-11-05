@@ -1,220 +1,87 @@
+---
+import '../styles/floating-contact.css';
+---
+
 <div class="mm-floating-contact">
-  <a
-    href="tel:+33745292585"
-    class="mm-float-btn mm-call"
-    aria-label="Nous appeler"
-  >
-    <span class="mm-icon" aria-hidden="true">☎</span>
+  <a href="tel:+33745292585" class="mm-float-btn mm-call" aria-label="Nous appeler">
+    <span class="mm-icon" aria-hidden="true">
+      ☎
+    </span>
     <span class="mm-label">Nous appeler</span>
   </a>
 
-  <button
-    type="button"
-    class="mm-float-btn mm-callback"
-    id="mm-open-callback"
-  >
-    <span class="mm-icon" aria-hidden="true">↩</span>
+  <button type="button" class="mm-float-btn mm-callback" id="mm-open-callback">
+    <span class="mm-icon" aria-hidden="true">
+      ↩
+    </span>
     <span class="mm-label">Être rappelé</span>
   </button>
 </div>
 
-<dialog id="mm-callback-dialog" class="mm-callback-dialog">
+<dialog aria-labelledby="mm-callback-title" id="mm-callback-dialog" class="mm-callback-dialog">
   <div class="mm-dialog-head">
-    <h2>Être rappelé</h2>
-    <button type="button" id="mm-close-callback" aria-label="Fermer">×</button>
+    <h2 id="mm-callback-title">Être rappelé</h2>
+    <button type="button" id="mm-close-callback" aria-label="Fermer">
+      ×
+    </button>
   </div>
 
   <p>Laissez-nous vos coordonnées. Nous vous recontacterons dès que possible.</p>
 
-  <form id="mm-callback-form">
+  <form id="mm-callback-form" data-contact-form>
+    <input type="hidden" name="type_demande" value="rappel" />
+    <div class="mm-honeypot" aria-hidden="true">
+      <label>
+        Site internet
+        <input name="website" tabindex="-1" autocomplete="off" />
+      </label>
+    </div>
     <label for="mm-callback-name">Votre prénom</label>
     <input id="mm-callback-name" name="prenom" required autocomplete="given-name" />
 
     <label for="mm-callback-phone">Votre téléphone</label>
-    <input
-      id="mm-callback-phone"
-      name="telephone"
-      type="tel"
-      required
-      autocomplete="tel"
-    />
+    <input id="mm-callback-phone" name="telephone" type="tel" required autocomplete="tel" />
 
     <label for="mm-callback-time">Quand souhaitez-vous être rappelé ?</label>
     <select id="mm-callback-time" name="disponibilite">
       <option value="Dès que possible">Dès que possible</option>
       <option value="Le matin">Le matin</option>
-      <option value="L'après-midi">L'après-midi</option>
+      <option value="L’après-midi">L’après-midi</option>
       <option value="En soirée">En soirée</option>
     </select>
 
-    <button type="submit" class="mm-submit">Demander un rappel</button>
-    <p id="mm-callback-status" role="status" aria-live="polite"></p>
+    <label class="mm-callback-consent">
+      <input type="checkbox" name="confidentialite" required /> J’accepte l’utilisation de mon téléphone pour
+      répondre à ma demande. *
+    </label>
+    <p>
+      <a href="/politique-de-confidentialite/">Politique de confidentialité</a>
+    </p>
+    <button type="submit" class="mm-submit">
+      Demander un rappel
+    </button>
+    <p data-contact-status id="mm-callback-status" role="status" aria-live="polite"></p>
   </form>
 </dialog>
 
-<style>
-  /* Deux pastilles discrètes qui s'ouvrent vers la gauche au survol. */
-  .mm-floating-contact {
-    position: fixed;
-    right: 24px;
-   bottom: 110px;
-    z-index: 10000;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 11px;
-  }
-
-  .mm-float-btn {
-    box-sizing: border-box;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0;
-    min-width: 54px;
-    height: 54px;
-    padding: 0 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 190, 85, .65);
-    box-shadow: 0 8px 24px rgba(5, 30, 50, .22);
-    text-decoration: none;
-    font: 700 13px Arial, sans-serif;
-    white-space: nowrap;
-    cursor: pointer;
-    overflow: hidden;
-    transition: box-shadow .45s ease, transform .45s ease, padding .45s ease;
-  }
-
-  .mm-call { background: #09283f; color: #fff; }
-  .mm-callback { background: #f8b74d; color: #09283f; }
-
-  .mm-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 24px;
-    width: 24px;
-    height: 24px;
-    font-size: 22px;
-    line-height: 1;
-    order: 2;
-  }
-
-  .mm-label {
-    display: inline-block;
-    order: 1;
-    max-width: 0;
-    opacity: 0;
-    margin-right: 0;
-    overflow: hidden;
-    transition: max-width .55s cubic-bezier(.22,1,.36,1),
-                opacity .3s ease, margin-right .55s cubic-bezier(.22,1,.36,1);
-  }
-
-  @media (hover: hover) and (min-width: 701px) {
-    .mm-float-btn:hover,
-    .mm-float-btn:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: 0 13px 30px rgba(5, 30, 50, .3);
-    }
-    .mm-float-btn:hover .mm-label,
-    .mm-float-btn:focus-visible .mm-label {
-      max-width: 125px;
-      opacity: 1;
-      margin-right: 10px;
-    }
-  }
-
-/* Sans survol (téléphone/tablette), les intitulés restent lisibles. */
-@media (hover: none), (max-width: 700px) {
-  .mm-floating-contact {
-    right: 12px;
-    bottom: 85px;
-    gap: 8px;
-  }
-
-  .mm-float-btn {
-    height: 46px;
-    min-width: 46px;
-    padding: 0 12px;
-    font-size: 12px;
-  }
-
-  .mm-icon {
-    font-size: 19px;
-  }
-
-  .mm-label {
-    max-width: 125px;
-    opacity: 1;
-    margin-right: 8px;
-  }
-}
-
-  @media (prefers-reduced-motion: reduce) {
-    .mm-float-btn, .mm-label { transition: none; }
-  }
-
-  @media (max-width: 700px) { .mm-floating-contact { display: none !important; } }
-
-  .mm-callback-dialog {
-    width: min(420px, calc(100% - 32px));
-    max-height: calc(100dvh - 32px);
-    overflow-y: auto;
-    box-sizing: border-box;
-    padding: 28px;
-    border: 1px solid #dce6ee;
-    border-radius: 20px;
-    box-shadow: 0 24px 70px rgba(5, 30, 50, .3);
-    color: #09283f;
-  }
-  .mm-callback-dialog::backdrop { background: rgba(5, 25, 42, .6); }
-  .mm-dialog-head { display: flex; justify-content: space-between; align-items: center; }
-  .mm-dialog-head h2 { margin: 0; font-size: 25px; }
-  .mm-dialog-head button { background: none; border: 0; font-size: 30px; cursor: pointer; }
-  .mm-callback-dialog p { line-height: 1.6; }
-  .mm-callback-dialog form { display: flex; flex-direction: column; gap: 10px; }
-  .mm-callback-dialog label { font-weight: 600; font-size: 13px; }
-  .mm-callback-dialog input, .mm-callback-dialog select {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #cbd9e4;
-    border-radius: 9px;
-    font-size: 14px;
-  }
-  .mm-submit {
-    margin-top: 10px;
-    padding: 14px;
-    border: 0;
-    border-radius: 30px;
-    background: #f8b74d;
-    color: #09283f;
-    font-weight: 700;
-    cursor: pointer;
-  }
-</style>
-
 <script>
-  const dialog = document.querySelector<HTMLDialogElement>("#mm-callback-dialog");
-  const openButton = document.querySelector<HTMLButtonElement>("#mm-open-callback");
-  const closeButton = document.querySelector<HTMLButtonElement>("#mm-close-callback");
-  const form = document.querySelector<HTMLFormElement>("#mm-callback-form");
-  const status = document.querySelector<HTMLElement>("#mm-callback-status");
+  const dialog = document.querySelector<HTMLDialogElement>('#mm-callback-dialog');
+  const openButton = document.querySelector<HTMLButtonElement>('#mm-open-callback');
+  const closeButton = document.querySelector<HTMLButtonElement>('#mm-close-callback');
+  const form = document.querySelector<HTMLFormElement>('#mm-callback-form');
+  const status = document.querySelector<HTMLElement>('#mm-callback-status');
 
-  openButton?.addEventListener("click", () => dialog?.showModal());
-  closeButton?.addEventListener("click", () => dialog?.close());
+  openButton?.addEventListener('click', () => dialog?.showModal());
+  closeButton?.addEventListener('click', () => dialog?.close());
+  dialog?.addEventListener('close', () => {
+    if (dialog.returnValue === 'submitted' && status) {
+      status.dataset.state = 'success';
+      status.textContent = 'Votre demande de rappel est enregistrée. Merci !';
+    }
+  });
 
-  dialog?.addEventListener("click", (event) => {
+  dialog?.addEventListener('click', (event) => {
     if (event.target === dialog) dialog.close();
   });
-
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (status) {
-      status.textContent =
-        "Le formulaire est prêt visuellement. L'envoi sera activé après connexion au serveur.";
-    }
-  });
 </script>
+<script src="../scripts/contact.ts"></script>

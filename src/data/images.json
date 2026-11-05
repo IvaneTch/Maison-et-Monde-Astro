@@ -1,0 +1,177 @@
+{
+  "/images/conciergerie/accueil-voyageurs.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/conciergerie/accueil-voyageurs-480.webp 480w, /images/conciergerie/accueil-voyageurs-960.webp 960w, /images/conciergerie/accueil-voyageurs.webp 1536w"
+  },
+  "/images/conciergerie/appartement-paris.webp": {
+    "width": 1600,
+    "height": 595,
+    "srcset": "/images/conciergerie/appartement-paris-480.webp 480w, /images/conciergerie/appartement-paris-960.webp 960w, /images/conciergerie/appartement-paris.webp 1600w"
+  },
+  "/images/conciergerie/attention-details.webp": {
+    "width": 1600,
+    "height": 900,
+    "srcset": "/images/conciergerie/attention-details-480.webp 480w, /images/conciergerie/attention-details-960.webp 960w, /images/conciergerie/attention-details.webp 1600w"
+  },
+  "/images/conciergerie/chambre-apres.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/conciergerie/chambre-apres-480.webp 480w, /images/conciergerie/chambre-apres-960.webp 960w, /images/conciergerie/chambre-apres.webp 1536w"
+  },
+  "/images/conciergerie/chambre-avant.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/conciergerie/chambre-avant-480.webp 480w, /images/conciergerie/chambre-avant-960.webp 960w, /images/conciergerie/chambre-avant.webp 1536w"
+  },
+  "/images/conciergerie/lavage-repassage.webp": {
+    "width": 1474,
+    "height": 1067,
+    "srcset": "/images/conciergerie/lavage-repassage-480.webp 480w, /images/conciergerie/lavage-repassage-960.webp 960w, /images/conciergerie/lavage-repassage.webp 1474w"
+  },
+  "/images/conciergerie/menage-preparation.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/conciergerie/menage-preparation-480.webp 480w, /images/conciergerie/menage-preparation-960.webp 960w, /images/conciergerie/menage-preparation.webp 1536w"
+  },
+  "/images/conciergerie/prestations-specifiques.webp": {
+    "width": 1475,
+    "height": 1067,
+    "srcset": "/images/conciergerie/prestations-specifiques-480.webp 480w, /images/conciergerie/prestations-specifiques-960.webp 960w, /images/conciergerie/prestations-specifiques.webp 1475w"
+  },
+  "/images/conciergerie/reassort-courses.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/conciergerie/reassort-courses-480.webp 480w, /images/conciergerie/reassort-courses-960.webp 960w, /images/conciergerie/reassort-courses.webp 1536w"
+  },
+  "/images/conciergerie/salon-conciergerie.webp": {
+    "width": 1600,
+    "height": 595,
+    "srcset": "/images/conciergerie/salon-conciergerie-480.webp 480w, /images/conciergerie/salon-conciergerie-960.webp 960w, /images/conciergerie/salon-conciergerie.webp 1600w"
+  },
+  "/images/conciergerie/services-complementaires.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/conciergerie/services-complementaires-480.webp 480w, /images/conciergerie/services-complementaires-960.webp 960w, /images/conciergerie/services-complementaires.webp 1536w"
+  },
+  "/images/conciergerie/suivi-maintenance.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/conciergerie/suivi-maintenance-480.webp 480w, /images/conciergerie/suivi-maintenance-960.webp 960w, /images/conciergerie/suivi-maintenance.webp 1536w"
+  },
+  "/images/conciergerie-location-saisonniere-paris-maison-et-monde.webp": {
+    "width": 1600,
+    "height": 901,
+    "srcset": "/images/conciergerie-location-saisonniere-paris-maison-et-monde-480.webp 480w, /images/conciergerie-location-saisonniere-paris-maison-et-monde-960.webp 960w, /images/conciergerie-location-saisonniere-paris-maison-et-monde.webp 1600w"
+  },
+  "/images/couple-avis-maison-monde.webp": {
+    "width": 605,
+    "height": 555,
+    "srcset": "/images/couple-avis-maison-monde-480.webp 480w, /images/couple-avis-maison-monde.webp 605w"
+  },
+  "/images/entreprise-nettoyage-appartement-paris.webp": {
+    "width": 1600,
+    "height": 897,
+    "srcset": "/images/entreprise-nettoyage-appartement-paris-480.webp 480w, /images/entreprise-nettoyage-appartement-paris-960.webp 960w, /images/entreprise-nettoyage-appartement-paris.webp 1600w"
+  },
+  "/images/femme-de-menage-domicile-paris.webp": {
+    "width": 1600,
+    "height": 800,
+    "srcset": "/images/femme-de-menage-domicile-paris-480.webp 480w, /images/femme-de-menage-domicile-paris-960.webp 960w, /images/femme-de-menage-domicile-paris.webp 1600w"
+  },
+  "/images/femme-de-menage-professionnelle-paris-ile-de-france-maison-et-monde.webp": {
+    "width": 1309,
+    "height": 1201,
+    "srcset": "/images/femme-de-menage-professionnelle-paris-ile-de-france-maison-et-monde-480.webp 480w, /images/femme-de-menage-professionnelle-paris-ile-de-france-maison-et-monde-960.webp 960w, /images/femme-de-menage-professionnelle-paris-ile-de-france-maison-et-monde.webp 1309w"
+  },
+  "/images/femme-de-menage-professionnelle-paris-maison-et-monde.webp": {
+    "width": 1536,
+    "height": 1024,
+    "srcset": "/images/femme-de-menage-professionnelle-paris-maison-et-monde-480.webp 480w, /images/femme-de-menage-professionnelle-paris-maison-et-monde-960.webp 960w, /images/femme-de-menage-professionnelle-paris-maison-et-monde.webp 1536w"
+  },
+  "/images/grand-menage-salle-de-bain-paris.webp": {
+    "width": 1600,
+    "height": 895,
+    "srcset": "/images/grand-menage-salle-de-bain-paris-480.webp 480w, /images/grand-menage-salle-de-bain-paris-960.webp 960w, /images/grand-menage-salle-de-bain-paris.webp 1600w"
+  },
+  "/images/grand-menage.paris.webp": {
+    "width": 1254,
+    "height": 1254,
+    "srcset": "/images/grand-menage.paris-480.webp 480w, /images/grand-menage.paris-960.webp 960w, /images/grand-menage.paris.webp 1254w"
+  },
+  "/images/hero-credit-impot.webp": {
+    "width": 1600,
+    "height": 900,
+    "srcset": "/images/hero-credit-impot-480.webp 480w, /images/hero-credit-impot-960.webp 960w, /images/hero-credit-impot.webp 1600w"
+  },
+  "/images/hero-devis-detaille.webp": {
+    "width": 1586,
+    "height": 992,
+    "srcset": "/images/hero-devis-detaille-480.webp 480w, /images/hero-devis-detaille-960.webp 960w, /images/hero-devis-detaille.webp 1586w"
+  },
+  "/images/hero-menage-domicile.webp": {
+    "width": 1600,
+    "height": 900,
+    "srcset": "/images/hero-menage-domicile-480.webp 480w, /images/hero-menage-domicile-960.webp 960w, /images/hero-menage-domicile.webp 1600w"
+  },
+  "/images/hero-nettoyage-bureaux.webp": {
+    "width": 1600,
+    "height": 900,
+    "srcset": "/images/hero-nettoyage-bureaux-480.webp 480w, /images/hero-nettoyage-bureaux-960.webp 960w, /images/hero-nettoyage-bureaux.webp 1600w"
+  },
+  "/images/hero-repassage.webp": {
+    "width": 1600,
+    "height": 900,
+    "srcset": "/images/hero-repassage-480.webp 480w, /images/hero-repassage-960.webp 960w, /images/hero-repassage.webp 1600w"
+  },
+  "/images/hero-tour-eiffel-paris.webp": {
+    "width": 1600,
+    "height": 900,
+    "srcset": "/images/hero-tour-eiffel-paris-480.webp 480w, /images/hero-tour-eiffel-paris-960.webp 960w, /images/hero-tour-eiffel-paris.webp 1600w"
+  },
+  "/images/immeuble-paris-maison-et-monde.webp": {
+    "width": 1600,
+    "height": 900,
+    "srcset": "/images/immeuble-paris-maison-et-monde-480.webp 480w, /images/immeuble-paris-maison-et-monde-960.webp 960w, /images/immeuble-paris-maison-et-monde.webp 1600w"
+  },
+  "/images/menage-a-domicile-paris-maison-et-monde.webp": {
+    "width": 1600,
+    "height": 900,
+    "srcset": "/images/menage-a-domicile-paris-maison-et-monde-480.webp 480w, /images/menage-a-domicile-paris-maison-et-monde-960.webp 960w, /images/menage-a-domicile-paris-maison-et-monde.webp 1600w"
+  },
+  "/images/menage-appartement-paris-salon.webp": {
+    "width": 1254,
+    "height": 1254,
+    "srcset": "/images/menage-appartement-paris-salon-480.webp 480w, /images/menage-appartement-paris-salon-960.webp 960w, /images/menage-appartement-paris-salon.webp 1254w"
+  },
+  "/images/menage-ponctuel-salon-paris.webp": {
+    "width": 996,
+    "height": 514,
+    "srcset": "/images/menage-ponctuel-salon-paris-480.webp 480w, /images/menage-ponctuel-salon-paris-960.webp 960w, /images/menage-ponctuel-salon-paris.webp 996w"
+  },
+  "/images/menage-ponctuel.webp": {
+    "width": 527,
+    "height": 526,
+    "srcset": "/images/menage-ponctuel-480.webp 480w, /images/menage-ponctuel.webp 527w"
+  },
+  "/images/nettoyage-chambre-domicile-paris.webp": {
+    "width": 1254,
+    "height": 1254,
+    "srcset": "/images/nettoyage-chambre-domicile-paris-480.webp 480w, /images/nettoyage-chambre-domicile-paris-960.webp 960w, /images/nettoyage-chambre-domicile-paris.webp 1254w"
+  },
+  "/images/nettoyage-salle-de-bain-paris.webp": {
+    "width": 1254,
+    "height": 1254,
+    "srcset": "/images/nettoyage-salle-de-bain-paris-480.webp 480w, /images/nettoyage-salle-de-bain-paris-960.webp 960w, /images/nettoyage-salle-de-bain-paris.webp 1254w"
+  },
+  "/images/nettoyage-vitres-paris.webp": {
+    "width": 1254,
+    "height": 1254,
+    "srcset": "/images/nettoyage-vitres-paris-480.webp 480w, /images/nettoyage-vitres-paris-960.webp 960w, /images/nettoyage-vitres-paris.webp 1254w"
+  },
+  "/images/service-repassage-domicile-paris.webp": {
+    "width": 1254,
+    "height": 1254,
+    "srcset": "/images/service-repassage-domicile-paris-480.webp 480w, /images/service-repassage-domicile-paris-960.webp 960w, /images/service-repassage-domicile-paris.webp 1254w"
+  }
+}

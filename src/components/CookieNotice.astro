@@ -1,0 +1,64 @@
+---
+import '../styles/cookie-notice.css';
+---
+
+<aside class="cookie-notice" id="mm-cookie-notice" aria-labelledby="mm-cookie-title" hidden>
+  <div class="cookie-brand">
+    <img src="/favicon.png" alt="" width="42" height="42" />
+    <span>
+      MAISON <b>&amp; MONDE</b>
+    </span>
+  </div>
+  <div class="cookie-copy">
+    <p class="cookie-eyebrow">VOTRE CONFIDENTIALITÉ</p>
+    <h2 id="mm-cookie-title">Vos choix, en toute clarté</h2>
+    <p>
+      Le site public utilise uniquement les éléments nécessaires à son fonctionnement. Aucun cookie
+      publicitaire ou de mesure d’audience n’est actuellement activé. Le cookie de connexion de
+      l’administration est réservé aux personnes autorisées.
+    </p>
+    <a href="/politique-de-confidentialite/#cookies">En savoir plus sur les cookies</a>
+  </div>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-primary" data-cookie-dismiss>
+      Continuer
+    </button>
+    <button
+      type="button"
+      class="cookie-secondary"
+      data-cookie-dismiss
+      aria-label="Fermer l’information cookies"
+    >
+      ×
+    </button>
+  </div>
+</aside>
+
+<script>
+  const notice = document.querySelector<HTMLElement>('#mm-cookie-notice');
+  const openPreferences = document.querySelector<HTMLButtonElement>('#mm-cookie-manage');
+  const storageKey = 'mm-cookie-notice-dismissed-v1';
+  const stored = () => {
+    try {
+      return localStorage.getItem(storageKey) === '1';
+    } catch {
+      return false;
+    }
+  };
+  const show = () => {
+    if (notice) notice.hidden = false;
+  };
+  const dismiss = () => {
+    if (notice) notice.hidden = true;
+    try {
+      localStorage.setItem(storageKey, '1');
+    } catch {
+      /* La notice peut être fermée même si le stockage est bloqué. */
+    }
+  };
+  if (!stored()) show();
+  openPreferences?.addEventListener('click', show);
+  notice
+    ?.querySelectorAll('[data-cookie-dismiss]')
+    .forEach((button) => button.addEventListener('click', dismiss));
+</script>

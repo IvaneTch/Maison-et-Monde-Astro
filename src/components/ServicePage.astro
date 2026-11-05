@@ -1,0 +1,218 @@
+---
+import SectionBand from './SectionBand.astro';
+import images from '../data/images.json';
+import Layout from '../layouts/Layout.astro';
+import Icon from './ConciergerieIcon.astro';
+import '../styles/services.css';
+interface Props {
+  title: string;
+  description: string;
+  eyebrow?: string;
+  heading: string;
+  accent: string;
+  intro: string;
+  image: string;
+  imageAlt: string;
+  secondaryImage?: string;
+  secondaryImageAlt?: string;
+  price?: string;
+  priceNote?: string;
+  quote?: string;
+  services: { title: string; text: string; icon?: string }[];
+  preparation: string[];
+  questions: { q: string; a: string }[];
+  professional?: boolean;
+  bandClass?: string;
+}
+const {
+  title,
+  description,
+  eyebrow = 'MAISON & MONDE · PARIS ET ÎLE-DE-FRANCE',
+  heading,
+  accent,
+  intro,
+  image,
+  imageAlt,
+  secondaryImage = image,
+  secondaryImageAlt = imageAlt,
+  price,
+  priceNote,
+  quote = '/devis-detaille/',
+  services,
+  preparation,
+  questions,
+  professional = false,
+  bandClass,
+} = Astro.props;
+const photo = images[image as keyof typeof images];
+---
+
+<Layout title={title} description={description}>
+  <div class="sp">
+    <section class="sp-hero">
+      <div class="sp-copy">
+        <p class="sp-eyebrow">{eyebrow}</p>
+        <h1>
+          {heading}
+          <br />
+          <em>{accent}</em>
+        </h1>
+        <p>{intro}</p>
+        <div class="sp-actions">
+          <a class="sp-button" href={quote}>
+            Demander mon devis <span aria-hidden="true">→</span>
+          </a>
+          <a class="sp-text-link" href="tel:+33745292585">
+            Parlons de votre projet
+          </a>
+        </div>
+        <div class="sp-trust">
+          <span>
+            <Icon name="shield" />
+            Devis gratuit
+          </span>
+          <span>
+            <Icon name="clock" />
+            Organisation flexible
+          </span>
+          <span>
+            <Icon name="check" />
+            Prestations sur mesure
+          </span>
+        </div>
+      </div>
+      <div class="sp-visual">
+        <img
+          src={image}
+          srcset={photo?.srcset}
+          sizes="(max-width: 780px) 100vw, 50vw"
+          alt={imageAlt}
+          width="1200"
+          height="900"
+          fetchpriority="high"
+        />
+        <span class="sp-orbit" aria-hidden="true"></span>
+      </div>
+    </section>
+    <section class="sp-section">
+      <div class="sp-wrap">
+        <p class="sp-eyebrow">UNE PRESTATION ADAPTÉE À VOS PRIORITÉS</p>
+        <h2>
+          Un service pensé <em>pour vous.</em>
+        </h2>
+        <div class="sp-cards">
+          {services.map((s) => (
+            <article>
+              <span class="sp-icon">
+                <Icon name={s.icon || 'sparkle'} />
+              </span>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+    <SectionBand
+      theme={professional ? 'bureaux' : quote.includes('repassage') ? 'linge' : 'grand-menage'}
+      className={bandClass}
+    />
+
+    <section class="sp-section sp-tinted">
+      <div class="sp-wrap sp-split">
+        <div class="sp-secondary-photo">
+          <img
+            src={secondaryImage}
+            srcset={secondaryImage === image ? photo?.srcset : undefined}
+            sizes="(max-width: 780px) 100vw, 50vw"
+            alt={secondaryImageAlt}
+            loading="lazy"
+            width="800"
+            height="650"
+          />
+        </div>
+        <div>
+          <p class="sp-eyebrow">PRÉPARONS VOTRE INTERVENTION</p>
+          <h2>
+            Quelques détails,
+            <br />
+            <em>une prestation bien organisée.</em>
+          </h2>
+          <ul class="sp-checks">
+            {preparation.map((t) => (
+              <li>
+                <Icon name="check" />
+                {t}
+              </li>
+            ))}
+          </ul>
+          {price && (
+            <div class="sp-price">
+              <span>À partir de</span>
+              <strong>{price} TTC / heure</strong>
+              <p>{priceNote || 'Le devis précise le temps prévu et le montant de votre prestation.'}</p>
+            </div>
+          )}
+          <a class="sp-button" href={quote}>
+            Décrire mes besoins →
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="sp-section">
+      <div class="sp-wrap">
+        <p class="sp-eyebrow">SIMPLE, DU PREMIER CONTACT À L’INTERVENTION</p>
+        <h2>
+          Comment <em>ça se passe ?</em>
+        </h2>
+        <ol class="sp-process">
+          <li>
+            <span>01</span>
+            <h3>Vous nous expliquez vos besoins</h3>
+            <p>Surface, attentes et disponibilités : nous prenons le temps de comprendre votre demande.</p>
+          </li>
+          <li>
+            <span>02</span>
+            <h3>Nous préparons votre proposition</h3>
+            <p>Vous disposez d’un devis précisant les prestations et leur organisation.</p>
+          </li>
+          <li>
+            <span>03</span>
+            <h3>Nous convenons de l’intervention</h3>
+            <p>Après votre accord, nous confirmons ensemble la date et les modalités d’accès.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+    <section class="sp-section sp-tinted">
+      <div class="sp-wrap sp-faq">
+        <div>
+          <p class="sp-eyebrow">VOS QUESTIONS</p>
+          <h2>
+            Tout savoir <em>avant de commencer.</em>
+          </h2>
+        </div>
+        <div>
+          {questions.map((q) => (
+            <details>
+              <summary>{q.q}</summary>
+              <p>{q.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+    <section class="sp-closing">
+      <div class="sp-wrap">
+        <p class="sp-eyebrow">UN PREMIER ÉCHANGE, SANS ENGAGEMENT</p>
+        <h2>
+          Confiez-nous <em>vos priorités.</em>
+        </h2>
+        <p>Un besoin ponctuel ou un projet régulier ? Décrivez-nous vos attentes.</p>
+        <a class="sp-button" href={quote}>
+          Recevoir ma proposition →
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>

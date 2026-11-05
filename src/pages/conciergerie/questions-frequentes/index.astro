@@ -1,126 +1,286 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
+import '../../../styles/conciergerie-questions-frequentes.css';
+import SectionBand from '../../../components/SectionBand.astro';
+import Layout from '../../../layouts/Layout.astro';
 
 const categories = [
   {
-    id: "fonctionnement", title: "Fonctionnement de la conciergerie", number: "01",
+    id: 'fonctionnement',
+    title: 'Fonctionnement de la conciergerie',
+    number: '01',
     questions: [
-      { q: "Quelle est la différence entre la gestion complète et les prestations à la carte ?", a: "La gestion complète propose un accompagnement régulier pour coordonner les séjours et suivre votre logement. Les prestations à la carte permettent de réserver uniquement les interventions dont vous avez besoin : ménage, préparation du logement, accueil, linge ou petites interventions." },
-      { q: "Puis-je choisir seulement certaines prestations ?", a: "Oui. Vous pouvez réserver une prestation ponctuelle, choisir un forfait par séjour ou demander une organisation personnalisée. Nous adaptons notre proposition aux besoins réels de votre logement." },
-      { q: "Intervenez-vous uniquement à Paris ?", a: "Maison & Monde intervient à Paris et en Île-de-France. La faisabilité et les éventuels frais de déplacement sont confirmés lors de l'établissement du devis." },
-      { q: "Dois-je vous confier la gestion de mes annonces ?", a: "Non. La gestion commerciale des annonces, des réservations et l'optimisation des prix ne sont pas incluses automatiquement. Leur éventuelle prise en charge doit être étudiée et précisée dans votre proposition personnalisée." },
+      {
+        q: 'Quelle est la différence entre la gestion complète et les prestations à la carte ?',
+        a: 'La gestion complète propose un accompagnement régulier pour coordonner les séjours et suivre votre logement. Les prestations à la carte permettent de réserver uniquement les interventions dont vous avez besoin : ménage, préparation du logement, accueil, linge ou petites interventions.',
+      },
+      {
+        q: 'Puis-je choisir seulement certaines prestations ?',
+        a: 'Oui. Vous pouvez réserver une prestation ponctuelle, choisir un forfait par séjour ou demander une organisation personnalisée. Nous adaptons notre proposition aux besoins réels de votre logement.',
+      },
+      {
+        q: 'Intervenez-vous uniquement à Paris ?',
+        a: "Maison & Monde intervient à Paris et en Île-de-France. La faisabilité et les éventuels frais de déplacement sont confirmés lors de l'établissement du devis.",
+      },
+      {
+        q: 'Dois-je vous confier la gestion de mes annonces ?',
+        a: "Non. La gestion commerciale des annonces, des réservations et l'optimisation des prix ne sont pas incluses automatiquement. Leur éventuelle prise en charge doit être étudiée et précisée dans votre proposition personnalisée.",
+      },
     ],
   },
   {
-    id: "tarifs", title: "Tarifs, formules et devis", number: "02",
+    id: 'tarifs',
+    title: 'Tarifs, formules et devis',
+    number: '02',
     questions: [
-      { q: "Quel est le tarif de la gestion complète ?", a: "Notre offre de lancement commence à 18 % TTC des revenus locatifs. La base exacte de calcul, les prestations couvertes et les exclusions sont précisées dans le devis et le contrat avant tout engagement." },
-      { q: "Quels sont les tarifs des forfaits par séjour ?", a: "Nos forfaits de prestations à la carte sont proposés à partir de 80 € TTC pour Essentielle, 95 € TTC pour Confort et 120 € TTC pour Premium, selon les caractéristiques du logement et les services demandés." },
-      { q: "Le ménage et le linge sont-ils inclus dans la commission de 18 % ?", a: "Non, le ménage, le linge, les consommables et les interventions ponctuelles font l'objet d'une tarification distincte, sauf disposition particulière expressément indiquée dans votre devis." },
-      { q: "Le prix affiché est-il le montant définitif ?", a: "Non. Les montants indiqués sont des prix de départ. Le devis définitif tient notamment compte de la superficie, de la localisation, de la fréquence des séjours, des horaires et des prestations choisies." },
-      { q: "Comment obtenir un devis personnalisé ?", a: "Vous pouvez nous contacter pour présenter votre logement et vos besoins. Nous vous proposerons ensuite un devis détaillant les prestations, leur fréquence, les tarifs et les conditions applicables." },
+      {
+        q: 'Quel est le tarif de la gestion complète ?',
+        a: 'Notre offre de lancement commence à 18 % TTC des revenus locatifs. La base exacte de calcul, les prestations couvertes et les exclusions sont précisées dans le devis et le contrat avant tout engagement.',
+      },
+      {
+        q: 'Quels sont les tarifs des forfaits par séjour ?',
+        a: 'Nos forfaits de prestations à la carte sont proposés à partir de 80 € TTC pour Essentielle, 95 € TTC pour Confort et 120 € TTC pour Premium, selon les caractéristiques du logement et les services demandés.',
+      },
+      {
+        q: 'Le ménage et le linge sont-ils inclus dans la commission de 18 % ?',
+        a: "Non, le ménage, le linge, les consommables et les interventions ponctuelles font l'objet d'une tarification distincte, sauf disposition particulière expressément indiquée dans votre devis.",
+      },
+      {
+        q: 'Le prix affiché est-il le montant définitif ?',
+        a: 'Non. Les montants indiqués sont des prix de départ. Le devis définitif tient notamment compte de la superficie, de la localisation, de la fréquence des séjours, des horaires et des prestations choisies.',
+      },
+      {
+        q: 'Comment obtenir un devis personnalisé ?',
+        a: 'Vous pouvez nous contacter pour présenter votre logement et vos besoins. Nous vous proposerons ensuite un devis détaillant les prestations, leur fréquence, les tarifs et les conditions applicables.',
+      },
     ],
   },
   {
-    id: "sejours", title: "Séjours, voyageurs et logement", number: "03",
+    id: 'sejours',
+    title: 'Séjours, voyageurs et logement',
+    number: '03',
     questions: [
-      { q: "Pouvez-vous préparer le logement entre deux réservations ?", a: "Oui. Nous pouvons organiser le ménage, la remise en ordre, la préparation des couchages et les vérifications nécessaires avant l'arrivée des voyageurs, selon la formule retenue." },
-      { q: "Proposez-vous l'accueil et la remise des clés ?", a: "Oui, l'accueil et la remise des clés peuvent être proposés selon les disponibilités, les horaires et l'organisation de votre logement. Les modalités sont définies en amont." },
-      { q: "Pouvez-vous gérer le linge et les consommables ?", a: "Oui. La gestion du linge, les achats et le réassort peuvent être organisés sur demande. Les frais de blanchisserie, les produits et les achats sont détaillés séparément lorsque cela s'applique." },
-      { q: "Que se passe-t-il si vous constatez un problème dans mon logement ?", a: "Nous vous signalons les anomalies constatées lors de nos interventions. Toute réparation, achat ou prestation supplémentaire nécessitant un coût additionnel est soumis à votre accord, sauf dispositions convenues au préalable." },
+      {
+        q: 'Pouvez-vous préparer le logement entre deux réservations ?',
+        a: "Oui. Nous pouvons organiser le ménage, la remise en ordre, la préparation des couchages et les vérifications nécessaires avant l'arrivée des voyageurs, selon la formule retenue.",
+      },
+      {
+        q: "Proposez-vous l'accueil et la remise des clés ?",
+        a: "Oui, l'accueil et la remise des clés peuvent être proposés selon les disponibilités, les horaires et l'organisation de votre logement. Les modalités sont définies en amont.",
+      },
+      {
+        q: 'Pouvez-vous gérer le linge et les consommables ?',
+        a: "Oui. La gestion du linge, les achats et le réassort peuvent être organisés sur demande. Les frais de blanchisserie, les produits et les achats sont détaillés séparément lorsque cela s'applique.",
+      },
+      {
+        q: 'Que se passe-t-il si vous constatez un problème dans mon logement ?',
+        a: 'Nous vous signalons les anomalies constatées lors de nos interventions. Toute réparation, achat ou prestation supplémentaire nécessitant un coût additionnel est soumis à votre accord, sauf dispositions convenues au préalable.',
+      },
     ],
   },
   {
-    id: "organisation", title: "Organisation et conditions", number: "04",
+    id: 'organisation',
+    title: 'Organisation et conditions',
+    number: '04',
     questions: [
-      { q: "Combien de temps à l'avance faut-il réserver une intervention ?", a: "Nous vous conseillons de nous contacter dès que vos dates sont connues. Les interventions sont confirmées selon la disponibilité de nos équipes et les contraintes d'accès au logement." },
-      { q: "Est-il possible de modifier ou d'annuler une prestation ?", a: "Oui, sous réserve des conditions d'annulation précisées dans votre devis ou votre contrat. Nous vous invitons à nous prévenir le plus tôt possible en cas de changement." },
-      { q: "Puis-je commencer avec une seule prestation avant de choisir une formule ?", a: "Bien sûr. Une première intervention ponctuelle peut vous permettre de découvrir notre fonctionnement avant d'envisager une collaboration régulière." },
-      { q: "Est-ce que Maison & Monde garantit mes revenus locatifs ?", a: "Non. Nos services concernent l'entretien, la préparation, l'accueil et la coordination selon la formule choisie. Nous ne garantissons ni le taux d'occupation ni les revenus locatifs." },
+      {
+        q: "Combien de temps à l'avance faut-il réserver une intervention ?",
+        a: "Nous vous conseillons de nous contacter dès que vos dates sont connues. Les interventions sont confirmées selon la disponibilité de nos équipes et les contraintes d'accès au logement.",
+      },
+      {
+        q: "Est-il possible de modifier ou d'annuler une prestation ?",
+        a: "Oui, sous réserve des conditions d'annulation précisées dans votre devis ou votre contrat. Nous vous invitons à nous prévenir le plus tôt possible en cas de changement.",
+      },
+      {
+        q: 'Puis-je commencer avec une seule prestation avant de choisir une formule ?',
+        a: "Bien sûr. Une première intervention ponctuelle peut vous permettre de découvrir notre fonctionnement avant d'envisager une collaboration régulière.",
+      },
+      {
+        q: 'Est-ce que Maison & Monde garantit mes revenus locatifs ?',
+        a: "Non. Nos services concernent l'entretien, la préparation, l'accueil et la coordination selon la formule choisie. Nous ne garantissons ni le taux d'occupation ni les revenus locatifs.",
+      },
     ],
   },
 ];
 ---
 
-<Layout title="Questions fréquentes | Conciergerie Maison & Monde" description="Réponses à vos questions sur la conciergerie Maison & Monde à Paris : gestion complète, prestations à la carte, tarifs, ménage et accueil des voyageurs.">
+<Layout
+  title="Questions fréquentes | Conciergerie Maison & Monde"
+  description="Réponses à vos questions sur la conciergerie Maison & Monde à Paris : gestion complète, prestations à la carte, tarifs, ménage et accueil des voyageurs."
+>
   <div class="faq-page">
     <section class="hero" aria-labelledby="faq-title">
       <div class="hero-glow"></div>
-      <svg class="gold-lines hero-lines" viewBox="0 0 1400 720" preserveAspectRatio="none" aria-hidden="true"><path d="M-100 540 C260 120 470 760 890 250 S1300 190 1510 -50"/><path d="M-80 590 C260 170 510 800 940 300 S1320 240 1500 10"/></svg>
+      <svg class="gold-lines hero-lines" viewBox="0 0 1400 720" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-100 540 C260 120 470 760 890 250 S1300 190 1510 -50" />
+        <path d="M-80 590 C260 170 510 800 940 300 S1320 240 1500 10" />
+      </svg>
       <div class="hero-inner">
         <div class="hero-copy">
-          <span class="eyebrow"><span class="eyebrow-line"></span> MAISON & MONDE · CONCIERGERIE</span>
-          <h1 id="faq-title">Vos questions,<br /><em>nos réponses.</em></h1>
-          <p>Gestion complète, interventions à la carte, tarifs et organisation : retrouvez les informations essentielles pour confier votre logement en toute sérénité.</p>
-          <a href="#questions" class="btn btn-gold">Explorer les questions <span aria-hidden="true">↗</span></a>
+          <span class="eyebrow">
+            <span class="eyebrow-line"></span> MAISON & MONDE · CONCIERGERIE
+          </span>
+          <h1 id="faq-title">
+            Vos questions,
+            <br />
+            <em>nos réponses.</em>
+          </h1>
+          <p>
+            Gestion complète, interventions à la carte, tarifs et organisation : retrouvez les informations
+            essentielles pour confier votre logement en toute sérénité.
+          </p>
+          <a href="#questions" class="btn btn-gold">
+            Explorer les questions <span aria-hidden="true">↗</span>
+          </a>
         </div>
         <div class="hero-art" aria-hidden="true">
           <div class="photo-outline"></div>
-          <div class="photo-wrap"><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85" alt="" loading="eager" /></div>
-          <div class="floating-tag"><span class="tag-star">✦</span><span>Des réponses<br /><strong>en toute clarté</strong></span></div>
+          <div class="photo-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85"
+              alt=""
+              loading="eager"
+            />
+          </div>
+          <div class="floating-tag">
+            <span class="tag-star">✦</span>
+            <span>
+              Des réponses
+              <br />
+              <strong>en toute clarté</strong>
+            </span>
+          </div>
         </div>
       </div>
-      <div class="hero-wave" aria-hidden="true"><svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0 40 C260 105 510 10 760 54 C1050 105 1240 10 1440 52 L1440 100 L0 100 Z" /></svg></div>
+      <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+          <path d="M0 40 C260 105 510 10 760 54 C1050 105 1240 10 1440 52 L1440 100 L0 100 Z" />
+        </svg>
+      </div>
     </section>
 
     <section class="intro" aria-label="Introduction">
       <div class="intro-inner">
         <span class="section-kicker">L'ESSENTIEL, EN UN CLIN D'ŒIL</span>
-        <h2>Une conciergerie <em>simple et transparente</em></h2>
-        <p>Chaque logement est différent. Nous vous expliquons clairement notre fonctionnement, les prestations proposées et la manière dont nous établissons nos devis.</p>
+        <h2>
+          Une conciergerie <em>simple et transparente</em>
+        </h2>
+        <p>
+          Chaque logement est différent. Nous vous expliquons clairement notre fonctionnement, les prestations
+          proposées et la manière dont nous établissons nos devis.
+        </p>
         <div class="quick-facts">
-          <div class="fact"><span class="fact-icon">✧</span><strong>18 % TTC</strong><span>Gestion complète · à partir de</span></div>
-          <div class="fact"><span class="fact-icon">⌂</span><strong>80 € TTC</strong><span>Forfait par séjour · à partir de</span></div>
-          <div class="fact"><span class="fact-icon">✦</span><strong>Sur mesure</strong><span>Tarif définitif sur devis</span></div>
+          <div class="fact">
+            <span class="fact-icon">✧</span>
+            <strong>18 % TTC</strong>
+            <span>Gestion complète · à partir de</span>
+          </div>
+          <div class="fact">
+            <span class="fact-icon">⌂</span>
+            <strong>80 € TTC</strong>
+            <span>Forfait par séjour · à partir de</span>
+          </div>
+          <div class="fact">
+            <span class="fact-icon">✦</span>
+            <strong>Sur mesure</strong>
+            <span>Tarif définitif sur devis</span>
+          </div>
         </div>
       </div>
     </section>
+    <SectionBand theme="faq" />
 
     <section class="questions" id="questions" aria-labelledby="questions-title">
-      <svg class="gold-lines questions-lines" viewBox="0 0 1400 1600" preserveAspectRatio="none" aria-hidden="true"><path d="M-250 120 C350 -100 450 620 1550 250"/><path d="M-250 160 C350 -60 450 660 1550 290"/><path d="M-200 1120 C380 780 840 1620 1540 1170"/></svg>
-      <div class="section-heading"><span class="section-kicker">TOUTES LES RÉPONSES</span><h2 id="questions-title">Comment pouvons-nous <em>vous aider ?</em></h2><p>Choisissez un thème et cliquez sur une question pour afficher sa réponse.</p></div>
+      <svg
+        class="gold-lines questions-lines"
+        viewBox="0 0 1400 1600"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <path d="M-250 120 C350 -100 450 620 1550 250" />
+        <path d="M-250 160 C350 -60 450 660 1550 290" />
+        <path d="M-200 1120 C380 780 840 1620 1540 1170" />
+      </svg>
+      <div class="section-heading">
+        <span class="section-kicker">TOUTES LES RÉPONSES</span>
+        <h2 id="questions-title">
+          Comment pouvons-nous <em>vous aider ?</em>
+        </h2>
+        <p>Choisissez un thème et cliquez sur une question pour afficher sa réponse.</p>
+      </div>
       <nav class="category-nav" aria-label="Catégories de questions">
-        {categories.map((category) => <a href={`#${category.id}`}>{category.title}<span aria-hidden="true">↗</span></a>)}
+        {categories.map((category) => (
+          <a href={`#${category.id}`}>
+            {category.title}
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
       </nav>
       <div class="category-list">
         {categories.map((category) => (
           <section class="category-card" id={category.id} aria-labelledby={`${category.id}-title`}>
-            <div class="category-heading"><span class="category-number">{category.number}</span><h3 id={`${category.id}-title`}>{category.title}</h3><span class="category-count">{category.questions.length} questions</span></div>
+            <div class="category-heading">
+              <span class="category-number">{category.number}</span>
+              <h3 id={`${category.id}-title`}>{category.title}</h3>
+              <span class="category-count">{category.questions.length} questions</span>
+            </div>
             <div class="accordion-list">
               {category.questions.map((item) => (
-                <details class="faq-item"><summary><span>{item.q}</span><span class="faq-plus" aria-hidden="true">+</span></summary><div class="faq-answer"><p>{item.a}</p></div></details>
+                <details class="faq-item">
+                  <summary>
+                    <span>{item.q}</span>
+                    <span class="faq-plus" aria-hidden="true">
+                      +
+                    </span>
+                  </summary>
+                  <div class="faq-answer">
+                    <p>{item.a}</p>
+                  </div>
+                </details>
               ))}
             </div>
           </section>
         ))}
       </div>
-      <p class="pricing-note">Les tarifs présentés sont indicatifs et correspondent à des prix de départ. Les prestations, la base de calcul des commissions et les conditions définitives sont précisées dans votre devis et, le cas échéant, dans votre contrat.</p>
+      <p class="pricing-note">
+        Les tarifs présentés sont indicatifs et correspondent à des prix de départ. Les prestations, la base
+        de calcul des commissions et les conditions définitives sont précisées dans votre devis et, le cas
+        échéant, dans votre contrat.
+      </p>
     </section>
 
     <section class="final-cta" aria-labelledby="final-title">
-      <svg class="gold-lines cta-lines" viewBox="0 0 1400 500" preserveAspectRatio="none" aria-hidden="true"><path d="M-100 390 C250 10 600 600 980 180 S1330 80 1510 30"/><path d="M-100 430 C250 50 600 640 980 220 S1330 120 1510 70"/></svg>
-      <div class="cta-inner"><div class="cta-copy"><span class="eyebrow">UN PROJET, UNE QUESTION ?</span><h2 id="final-title">Parlons de <em>votre logement.</em></h2><p>Vous n'avez pas trouvé votre réponse ? Décrivez-nous votre besoin : nous vous aiderons à choisir la solution adaptée.</p><div class="cta-buttons"><a href="/conciergerie/tarifs-formules/" class="btn btn-gold">Voir les tarifs et formules <span aria-hidden="true">↗</span></a><a href="tel:+33745292585" class="btn btn-outline">Nous appeler</a></div></div><div class="cta-visual" aria-hidden="true"><div class="cta-photo-outline"></div><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=950&q=85" alt="" loading="lazy" /></div></div>
+      <svg class="gold-lines cta-lines" viewBox="0 0 1400 500" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-100 390 C250 10 600 600 980 180 S1330 80 1510 30" />
+        <path d="M-100 430 C250 50 600 640 980 220 S1330 120 1510 70" />
+      </svg>
+      <div class="cta-inner">
+        <div class="cta-copy">
+          <span class="eyebrow">UN PROJET, UNE QUESTION ?</span>
+          <h2 id="final-title">
+            Parlons de <em>votre logement.</em>
+          </h2>
+          <p>
+            Vous n'avez pas trouvé votre réponse ? Décrivez-nous votre besoin : nous vous aiderons à choisir
+            la solution adaptée.
+          </p>
+          <div class="cta-buttons">
+            <a href="/conciergerie/tarifs-formules/" class="btn btn-gold">
+              Voir les tarifs et formules <span aria-hidden="true">↗</span>
+            </a>
+            <a href="tel:+33745292585" class="btn btn-outline">
+              Nous appeler
+            </a>
+          </div>
+        </div>
+        <div class="cta-visual" aria-hidden="true">
+          <div class="cta-photo-outline"></div>
+          <img
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=950&q=85"
+            alt=""
+            loading="lazy"
+          />
+        </div>
+      </div>
     </section>
   </div>
 </Layout>
-
-<style>
-  .faq-page{--navy:#071d34;--navy2:#102f4d;--gold:#e7ad61;--ink:#17334d;--muted:#5e7285;--cream:#f7f9fc;color:var(--ink);overflow:hidden;font-family:inherit}
-  .faq-page *{box-sizing:border-box}.faq-page a{text-decoration:none}.faq-page em{font-style:normal;color:var(--gold)}
-  .hero{position:relative;min-height:690px;background:radial-gradient(ellipse at 76% 35%,#244969 0%,transparent 46%),linear-gradient(125deg,#06192c,#102e4b 70%,#0b263e);color:white;isolation:isolate}
-  .hero-glow{position:absolute;inset:0;background:radial-gradient(circle at 35% 75%,#2e54713b,transparent 55%);pointer-events:none}
-  .gold-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.55}.gold-lines path{fill:none;stroke:#d9a45e;stroke-width:1.8}
-  .hero-inner{position:relative;z-index:1;max-width:1240px;min-height:650px;margin:auto;padding:105px 34px 110px;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:60px}
-  .eyebrow,.section-kicker{font-size:12px;letter-spacing:2.5px;font-weight:700}.eyebrow{color:#f4d3a5;display:flex;align-items:center;gap:12px}.eyebrow-line{height:1px;width:34px;background:var(--gold)}
-  h1,h2,h3,p{margin-top:0}.hero h1{font-size:clamp(49px,5.3vw,77px);line-height:1.07;letter-spacing:-2.2px;margin:23px 0 23px;font-weight:700}.hero-copy>p{font-size:17px;line-height:1.85;color:#d6e0e9;max-width:570px;margin-bottom:30px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:17px;padding:15px 23px;border-radius:9px;font-weight:700;font-size:14px;transition:transform .25s,box-shadow .25s}.btn-gold{background:linear-gradient(135deg,#f1c27e,#dda050);color:#112b43!important;box-shadow:0 12px 26px #0003}.btn:hover{transform:translateY(-3px)}.btn-gold:hover{box-shadow:0 16px 32px #0005}
-  .hero-art{position:relative;min-height:440px;filter:drop-shadow(0 24px 30px #0006)}.photo-wrap{position:absolute;inset:18px 10px 22px 15px;overflow:hidden;border-radius:44% 56% 49% 51% / 42% 42% 58% 58%;transform:rotate(-4deg)}.photo-wrap img{width:100%;height:100%;object-fit:cover;transform:scale(1.13) rotate(4deg)}.photo-outline{position:absolute;inset:1px -4px 2px 1px;border:2px solid var(--gold);border-radius:49% 51% 44% 56% / 47% 43% 57% 53%;transform:rotate(5deg)}.floating-tag{position:absolute;bottom:2px;left:-22px;display:flex;align-items:center;gap:13px;background:#fff;color:var(--ink);padding:15px 23px;border-radius:14px;box-shadow:0 15px 30px #0005;font-size:13px;line-height:1.5}.tag-star{font-size:31px;color:#d49b4d}.hero-wave{position:absolute;bottom:-1px;left:0;width:100%;height:70px}.hero-wave svg{width:100%;height:100%;fill:#fff}
-  .intro{background:white;padding:77px 24px 96px}.intro-inner{max-width:1140px;margin:auto;text-align:center}.section-kicker{color:#b7813d}.intro h2,.section-heading h2{font-size:clamp(32px,3.4vw,47px);letter-spacing:-1px;margin:15px 0}.intro h2 em,.section-heading h2 em{color:#bd873f}.intro-inner>p,.section-heading>p{max-width:710px;margin:0 auto;color:var(--muted);line-height:1.8;font-size:16px}.quick-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}.fact{display:flex;flex-direction:column;align-items:center;gap:8px;padding:28px 18px;background:linear-gradient(150deg,#fff,#f4f7fb);border:1px solid #e8edf3;border-radius:19px;box-shadow:9px 13px 25px #173b5819,-7px -7px 22px #fff}.fact-icon{color:#c28a45;font-size:28px}.fact strong{font-size:26px;color:#153a59}.fact>span:last-child{font-size:13px;color:var(--muted)}
-  .questions{position:relative;padding:94px 24px 105px;background:linear-gradient(160deg,#f4f7fb 0%,#edf3f9 55%,#f9fbfd 100%);isolation:isolate}.questions-lines{opacity:.27}.section-heading{position:relative;z-index:1;text-align:center;margin:0 auto 35px}.category-nav{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:1200px;margin:0 auto 46px}.category-nav a{display:inline-flex;align-items:center;gap:12px;padding:12px 17px;background:#fff;border:1px solid #dce5ee;border-radius:30px;color:#24435d;font-size:13px;font-weight:700;box-shadow:0 5px 13px #1439540e}.category-nav a:hover{border-color:#d1a36a;color:#9d6d2d}.category-nav a span{color:#c58b44}
-  .category-list{position:relative;z-index:1;max-width:1120px;margin:auto;display:grid;gap:27px}.category-card{scroll-margin-top:105px;background:#fff;border-radius:22px;padding:30px 35px 27px;border:1px solid #e5ebf1;box-shadow:12px 17px 34px #15334b1a,-6px -6px 25px #ffffffa8}.category-heading{display:flex;align-items:center;gap:18px;margin-bottom:17px;padding-bottom:21px;border-bottom:1px solid #e9eef3}.category-number{font-size:24px;font-weight:800;color:#c28b48}.category-heading h3{font-size:23px;letter-spacing:-.5px;margin:0;flex:1}.category-count{font-size:12px;color:#7b8c9c;white-space:nowrap}.faq-item{border-bottom:1px solid #e9eef3}.faq-item:last-child{border-bottom:0}.faq-item summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer;padding:19px 0;font-weight:650;font-size:15px;line-height:1.55;color:#203c56}.faq-item summary::-webkit-details-marker{display:none}.faq-plus{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#f3f6fa;color:#b57c35;font-size:23px;font-weight:400;transition:transform .2s,background .2s}.faq-item[open] .faq-plus{transform:rotate(45deg);background:#fff0db}.faq-answer{padding:0 44px 17px 0}.faq-answer p{margin:0;color:#607486;font-size:14px;line-height:1.85}.pricing-note{position:relative;z-index:1;max-width:1020px;margin:30px auto 0;color:#64788b;text-align:center;font-size:12px;line-height:1.8}
-  .final-cta{position:relative;background:radial-gradient(ellipse at 80% 40%,#244e70 0%,transparent 55%),linear-gradient(120deg,#071d34,#103451);color:white;isolation:isolate}.cta-inner{position:relative;z-index:1;max-width:1200px;margin:auto;padding:100px 30px;display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:85px}.cta-copy h2{font-size:clamp(37px,4vw,56px);line-height:1.12;letter-spacing:-1.4px;margin:20px 0}.cta-copy>p{color:#d3e0e9;font-size:16px;line-height:1.85;max-width:510px;margin-bottom:28px}.cta-buttons{display:flex;flex-wrap:wrap;gap:14px}.btn-outline{border:1px solid #ffffff85;color:#fff!important;background:#ffffff0d}.cta-visual{position:relative;height:330px;filter:drop-shadow(0 24px 27px #0007)}.cta-visual img{position:absolute;inset:14px 12px;width:calc(100% - 24px);height:calc(100% - 28px);object-fit:cover;border-radius:54% 46% 52% 48% / 43% 55% 45% 57%;transform:rotate(4deg)}.cta-photo-outline{position:absolute;inset:0;border:2px solid #e4aa60;border-radius:47% 53% 47% 53% / 51% 43% 57% 49%;transform:rotate(-4deg)}
-  @media(hover:hover) and (prefers-reduced-motion:no-preference){.fact,.category-card{transition:transform .3s,box-shadow .3s}.fact:hover,.category-card:hover{transform:translateY(-4px);box-shadow:14px 22px 38px #15334b22}.hero-art{animation:float 7s ease-in-out infinite}@keyframes float{50%{transform:translateY(-10px)}}}
-  @media(max-width:850px){.hero-inner{gap:20px;grid-template-columns:1fr 0.85fr;padding:95px 24px 100px}.hero-art{min-height:330px}.floating-tag{left:-10px}.cta-inner{gap:35px}}
-  @media(max-width:700px){.hero{min-height:0}.hero-inner{grid-template-columns:1fr;padding:76px 22px 95px;gap:30px}.hero h1{font-size:48px}.hero-copy>p{font-size:15px}.hero-art{min-height:310px;max-width:390px;width:90%;margin:0 auto}.floating-tag{bottom:-8px;left:-9px}.hero-wave{height:45px}.intro{padding:65px 18px}.quick-facts{grid-template-columns:1fr;gap:14px;margin-top:32px}.fact{padding:21px}.questions{padding:70px 15px}.category-nav{justify-content:flex-start;gap:8px;margin-bottom:30px}.category-nav a{font-size:12px;padding:10px 13px}.category-card{padding:23px 18px 18px;border-radius:17px}.category-heading{gap:11px;align-items:flex-start}.category-heading h3{font-size:19px}.category-number{font-size:20px}.category-count{display:none}.faq-item summary{font-size:14px;padding:17px 0}.faq-answer{padding-right:5px}.cta-inner{grid-template-columns:1fr;padding:70px 22px 82px;gap:36px}.cta-visual{height:280px;max-width:380px;width:90%;margin:auto}.cta-buttons{align-items:stretch}.cta-buttons .btn{width:100%}.gold-lines{opacity:.3}.hero-art{animation:none}}
-  @media(prefers-reduced-motion:reduce){.btn,.faq-plus{transition:none!important}.hero-art{animation:none!important}}
-</style>

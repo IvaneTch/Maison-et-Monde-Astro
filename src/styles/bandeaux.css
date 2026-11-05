@@ -1,0 +1,26 @@
+/* Source unique des couleurs des bandeaux bleu et or du site. */
+:root {
+  --mm-band-blue-start: #205e88;
+  --mm-band-blue-mid: #103b5e;
+  --mm-band-blue-deep: #071b30;
+  --mm-band-blue-end: #174d70;
+  --mm-band-background: linear-gradient(
+    90deg,
+    var(--mm-band-blue-start) 0%,
+    var(--mm-band-blue-mid) 28%,
+    var(--mm-band-blue-deep) 63%,
+    var(--mm-band-blue-end) 100%
+  );
+}
+
+.home-page .avantages-section {
+  background: var(--mm-band-background) !important;
+}
+
+.mm-section-band.avantages-section {
+  background: var(--mm-band-background) !important;
+}
+
+.mm-section-band .mm-band-fill {
+  fill: url(#mm-home-band-gradient) var(--mm-band-blue-start) !important;
+}

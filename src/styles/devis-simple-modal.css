@@ -1,0 +1,510 @@
+/* Externalisé depuis src/components/DevisSimpleModal.astro (page/component). */
+#devis-simple-modal {
+    width: min(1080px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    padding: 0;
+    border: 0;
+    border-radius: 28px;
+    background: white;
+    color: #102d57;
+    box-shadow:
+      0 32px 100px rgba(0, 20, 50, 0.36),
+      0 9px 24px rgba(0, 20, 50, 0.13);
+    overflow-y: auto;
+  }
+
+  #devis-simple-modal::backdrop {
+    background: rgba(4, 18, 39, 0.72);
+    backdrop-filter: blur(7px);
+  }
+
+  .modal-contenu {
+    position: relative;
+    padding: 40px 44px 28px;
+    font-family: Arial, sans-serif;
+  }
+
+  .fermer {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: #f0f5fb;
+    color: #102d57;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 35px;
+  }
+
+  .identite {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+  }
+
+  .identite > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .marque {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  .sous-titre {
+    color: #1670c4;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 5px;
+  }
+
+  .introduction {
+    text-align: center;
+    flex: 1;
+  }
+
+  .introduction h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(25px, 3vw, 36px);
+    margin: 0 0 10px;
+    color: #102d57;
+  }
+
+  .introduction p {
+    margin: 0;
+    font-size: 17px;
+    color: #536680;
+  }
+
+  .ligne-doree {
+    display: block;
+    width: 65px;
+    height: 3px;
+    background: #e8b84d;
+    margin: 17px auto 0;
+    border-radius: 3px;
+  }
+
+  .colonnes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 34px;
+  }
+
+  .colonne-gauche {
+    padding-right: 28px;
+    border-right: 1px solid #e9c66d;
+  }
+
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0 0 26px;
+    min-width: 0;
+  }
+
+  legend,
+  .colonne-droite h3 {
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 18px;
+    color: #102d57;
+  }
+
+  legend span,
+  .colonne-droite h3 span {
+    color: #e35c5c;
+  }
+
+  .choix-grille {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .aide-multichoix {
+    margin: -8px 0 13px;
+    color: #536680;
+    font-size: 12px;
+  }
+
+  .carte {
+    position: relative;
+    display: block;
+    cursor: pointer;
+  }
+
+  .carte input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  .carte-contenu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 130px;
+    padding: 17px;
+    border: 1px solid #dce4ee;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow:
+      0 8px 18px rgba(10, 40, 78, 0.09),
+      0 2px 5px rgba(10, 40, 78, 0.05);
+    transition:
+      transform 0.24s ease,
+      box-shadow 0.24s ease,
+      border-color 0.24s ease,
+      background 0.24s ease;
+  }
+
+  @media (hover: hover) and (min-width: 769px) {
+    .carte:hover .carte-contenu {
+      transform: translateY(-4px);
+      box-shadow:
+        0 17px 30px rgba(10, 40, 78, 0.17),
+        0 5px 10px rgba(10, 40, 78, 0.08);
+    }
+  }
+
+  .carte:hover .carte-contenu {
+    border-color: #1682dd;
+    background: #f5faff;
+  }
+
+  .carte input:checked + .carte-contenu {
+    border: 2px solid #1682dd;
+    background: linear-gradient(145deg, #e6f4ff, #fff);
+    box-shadow:
+      0 12px 25px rgba(0, 100, 200, 0.17),
+      0 3px 7px rgba(0, 50, 100, 0.08);
+  }
+
+  .carte input:focus-visible + .carte-contenu {
+    outline: 3px solid #e8b84d;
+    outline-offset: 3px;
+  }
+
+  .icone {
+    color: #1264ae;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .carte strong {
+    font-size: 15px;
+  }
+
+  .carte small {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #65758a;
+  }
+
+  .champs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .champs label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .champs input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 16px;
+    border: 1px solid #d3dfeb;
+    border-radius: 11px;
+    background: #fff;
+    color: #102d57;
+    font: inherit;
+    font-size: 15px;
+  }
+
+  .champs input:focus {
+    outline: none;
+    border-color: #1682dd;
+    box-shadow: 0 0 0 3px rgba(22, 130, 221, 0.1);
+  }
+
+  #devis-simple-modal .modal-footer {
+    text-align: center;
+    margin-top: 28px;
+    padding: 0;
+    background: #ffffff;
+    color: #102d57;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: auto;
+    width: 100%;
+  }
+
+  .envoyer {
+    border: 0;
+    border-radius: 40px;
+    padding: 18px 36px;
+    background: linear-gradient(110deg, #064887, #1594ed);
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #d9a840;
+  }
+
+  .envoyer:hover {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+  }
+
+  .separateur {
+    margin: 25px auto 15px;
+    max-width: 420px;
+    border-top: 1px solid #e3d6bd;
+    position: relative;
+  }
+
+  .separateur span {
+    position: relative;
+    top: -10px;
+    background: white;
+    padding: 0 15px;
+    color: #60718a;
+  }
+
+  .lien-detaille {
+    color: #0864ae;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .modal-footer > p {
+    margin: 8px 0;
+    color: #718096;
+    font-size: 13px;
+  }
+
+  .modal-footer .confidentialite {
+    margin-top: 25px;
+    font-size: 11px;
+  }
+
+  @media (max-width: 800px) {
+    .modal-contenu {
+      padding: 55px 20px 25px;
+    }
+
+    .modal-header {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .colonnes {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .colonne-gauche {
+      padding-right: 0;
+      border-right: 0;
+      border-bottom: 1px solid #e9c66d;
+      padding-bottom: 12px;
+    }
+
+    .marque {
+      font-size: 23px;
+    }
+
+    .carte-contenu {
+      min-height: 110px;
+      padding: 12px;
+    }
+
+    .envoyer {
+      width: 100%;
+      padding: 17px 12px;
+      font-size: 15px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    #devis-simple-modal {
+      width: calc(100% - 16px);
+      max-height: calc(100dvh - 16px);
+      border-radius: 18px;
+    }
+
+    .choix-grille {
+      gap: 8px;
+    }
+
+    .carte strong {
+      font-size: 13px;
+    }
+
+    .carte small {
+      font-size: 11px;
+    }
+  }
+
+  /* Icônes SVG : cohérentes avec la charte Maison & Monde */
+  .icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .svg-icone {
+    display: inline-block;
+    flex-shrink: 0;
+    vertical-align: -0.2em;
+    color: #1264ae;
+  }
+
+  .svg-card {
+    width: 29px;
+    height: 29px;
+  }
+
+  .svg-titre {
+    width: 21px;
+    height: 21px;
+  }
+  /* Confirmation : même relief et mêmes couleurs que le site. */
+  #devis-simple-modal .devis-confirmation[hidden],
+  #devis-simple-modal #formulaire-devis-simple[hidden],
+  #devis-simple-modal .modal-header[hidden] {
+    display: none !important;
+  }
+  #devis-simple-modal .devis-confirmation {
+    padding: clamp(30px, 5vw, 70px) 24px;
+    text-align: center;
+    max-width: 690px;
+    margin: 0 auto;
+    color: #102d57;
+  }
+  #devis-simple-modal .devis-confirmation-icone {
+    display: grid;
+    place-items: center;
+    width: 74px;
+    height: 74px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #e5f7ed;
+    color: #16865a;
+    border: 1px solid #a7e4c3;
+    font-size: 42px;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(13, 84, 60, 0.11);
+  }
+  #devis-simple-modal .devis-confirmation-surtitre {
+    display: block;
+    margin-bottom: 12px;
+    color: #c38b30;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.17em;
+  }
+  #devis-simple-modal .devis-confirmation h2 {
+    margin: 0 0 20px;
+    font-family: Georgia, serif;
+    font-size: clamp(26px, 3.4vw, 37px);
+    line-height: 1.2;
+  }
+  #devis-simple-modal .devis-confirmation p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 auto 13px;
+    max-width: 560px;
+  }
+  #devis-simple-modal .devis-confirmation-reference {
+    margin: 25px auto;
+    padding: 17px 20px;
+    max-width: 450px;
+    background: #fff9f0;
+    border: 1px solid #f0d3a1;
+    border-radius: 14px;
+    overflow-wrap: anywhere;
+  }
+  #devis-simple-modal .devis-confirmation-terminer {
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    padding: 15px 34px;
+    background: linear-gradient(110deg, #f5a83d, #ffd071);
+    color: #102d57;
+    font-weight: 800;
+    box-shadow: 0 9px 20px rgba(172, 113, 32, 0.2);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    #devis-simple-modal .devis-confirmation-terminer:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 25px rgba(172, 113, 32, 0.27);
+    }
+  }
+  @media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
+    #devis-simple-modal .devis-confirmation:not([hidden]) {
+      animation: devisConfirmationEntree 0.3s ease-out both;
+    }
+    @keyframes devisConfirmationEntree {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+/* Externalisé depuis src/components/DevisSimpleModal.astro (page/component). */
+.devis-simple-consent {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 15px 0;
+  }
+  .devis-simple-consent input {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  #devis-simple-erreur {
+    padding: 12px;
+    background: #fff1ee;
+    color: #982a25;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+  }

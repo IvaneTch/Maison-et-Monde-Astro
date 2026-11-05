@@ -1,0 +1,21 @@
+/* Externalisé depuis src/pages/devis-simple.astro (page/component). */
+.devis-paths {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .devis-paths section {
+    display: flex;
+    flex-direction: column;
+  }
+  .devis-paths p {
+    flex: 1;
+  }
+  .devis-paths .sp-button {
+    font-size: 12px;
+  }
+  @media (max-width: 800px) {
+    .devis-paths {
+      grid-template-columns: 1fr;
+    }
+  }

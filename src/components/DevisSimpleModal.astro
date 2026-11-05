@@ -1,4 +1,5 @@
 ---
+import '../styles/devis-simple-modal.css';
 /*
  * MAISON & MONDE
  * Composant : DevisSimpleModal
@@ -9,23 +10,13 @@
 
 <dialog id="devis-simple-modal" aria-labelledby="devis-simple-titre">
   <div class="modal-contenu">
-
-    <button
-      type="button"
-      class="fermer"
-      data-close-devis-simple
-      aria-label="Fermer le formulaire"
-    >
+    <button type="button" class="fermer" data-close-devis-simple aria-label="Fermer le formulaire">
       ✕
     </button>
 
     <header class="modal-header">
       <div class="identite">
-        <img
-          src="/images/logo-admin.png"
-          alt="Logo Maison & Monde"
-          class="logo"
-        />
+        <img src="/images/logo-admin.png" alt="Logo Maison & Monde" class="logo" />
         <div>
           <span class="marque">Maison & Monde</span>
           <span class="sous-titre">SERVICES À LA PERSONNE</span>
@@ -42,37 +33,70 @@
     <form id="formulaire-devis-simple">
       <input type="hidden" name="type_devis" value="simple" />
       <div class="colonnes">
-
         <!-- COLONNE GAUCHE -->
         <section class="colonne-gauche">
-
           <fieldset>
-            <legend><svg class="svg-icone svg-titre" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg> &nbsp; Fréquence souhaitée <span>*</span></legend>
+            <legend>
+              <svg
+                class="svg-icone svg-titre"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="5" width="18" height="16" rx="2" />
+                <path d="M7 3v4M17 3v4M3 10h18" />
+              </svg>{' '}
+              &nbsp; Fréquence souhaitée <span>*</span>
+            </legend>
 
             <div class="choix-grille">
               <label class="carte">
-                <input
-                  type="radio"
-                  name="frequence"
-                  value="Reguliere"
-                  required
-                />
+                <input type="radio" name="frequence" value="Reguliere" required />
                 <span class="carte-contenu">
-                  <span class="icone"><svg class="svg-icone svg-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/><path d="M8 14h3m-3 3h5"/></svg></span>
+                  <span class="icone">
+                    <svg
+                      class="svg-icone svg-card"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="3" y="5" width="18" height="16" rx="2" />
+                      <path d="M7 3v4M17 3v4M3 10h18" />
+                      <path d="M8 14h3m-3 3h5" />
+                    </svg>
+                  </span>
                   <strong>Régulière</strong>
                   <small>Toutes les semaines ou toutes les 2 semaines</small>
                 </span>
               </label>
 
               <label class="carte">
-                <input
-                  type="radio"
-                  name="frequence"
-                  value="Occasionnelle"
-                  required
-                />
+                <input type="radio" name="frequence" value="Occasionnelle" required />
                 <span class="carte-contenu">
-                  <span class="icone"><svg class="svg-icone svg-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg></span>
+                  <span class="icone">
+                    <svg
+                      class="svg-icone svg-card"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="3" y="5" width="18" height="16" rx="2" />
+                      <path d="M7 3v4M17 3v4M3 10h18" />
+                      <path d="m9 16 2 2 4-4" />
+                    </svg>
+                  </span>
                   <strong>Occasionnelle</strong>
                   <small>Une intervention ponctuelle</small>
                 </span>
@@ -81,71 +105,142 @@
           </fieldset>
 
           <fieldset>
-            <legend><svg class="svg-icone svg-titre" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 17l.7 2.3L22 20l-2.3.7L19 23l-.7-2.3L16 20l2.3-.7z"/></svg> &nbsp; Prestations souhaitées <span>*</span></legend>
+            <legend>
+              <svg
+                class="svg-icone svg-titre"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 17l.7 2.3L22 20l-2.3.7L19 23l-.7-2.3L16 20l2.3-.7z" />
+              </svg>{' '}
+              &nbsp; Prestations souhaitées <span>*</span>
+            </legend>
 
             <p class="aide-multichoix">Vous pouvez sélectionner plusieurs prestations.</p>
             <div class="choix-grille">
               <label class="carte">
-                <input
-                  type="checkbox"
-                  name="prestations_selectionnees"
-                  value="Menage a domicile"
-                />
+                <input type="checkbox" name="prestations_selectionnees" value="Menage a domicile" />
                 <span class="carte-contenu">
-                  <span class="icone"><svg class="svg-icone svg-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/><path d="m18 4 .5 1.5L20 6l-1.5.5L18 8l-.5-1.5L16 6l1.5-.5z"/></svg></span>
+                  <span class="icone">
+                    <svg
+                      class="svg-icone svg-card"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m3 11 9-8 9 8v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" />
+                      <path d="M9 21v-7h6v7" />
+                      <path d="m18 4 .5 1.5L20 6l-1.5.5L18 8l-.5-1.5L16 6l1.5-.5z" />
+                    </svg>
+                  </span>
                   <strong>Ménage à domicile</strong>
                   <small>Entretien de votre logement</small>
                 </span>
               </label>
 
               <label class="carte">
-                <input
-                  type="checkbox"
-                  name="prestations_selectionnees"
-                  value="Repassage"
-                />
+                <input type="checkbox" name="prestations_selectionnees" value="Repassage" />
                 <span class="carte-contenu">
-                  <span class="icone"><svg class="svg-icone svg-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17h16l-3-7c-.5-1.2-1.7-2-3-2H9c-1.4 0-2.7.9-3.2 2.2L4 17z"/><path d="M4 17v3h16v-3M11 8V5h6M9 12h5"/></svg></span>
+                  <span class="icone">
+                    <svg
+                      class="svg-icone svg-card"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M4 17h16l-3-7c-.5-1.2-1.7-2-3-2H9c-1.4 0-2.7.9-3.2 2.2L4 17z" />
+                      <path d="M4 17v3h16v-3M11 8V5h6M9 12h5" />
+                    </svg>
+                  </span>
                   <strong>Repassage</strong>
                   <small>À votre domicile</small>
                 </span>
               </label>
 
               <label class="carte">
-                <input
-                  type="checkbox"
-                  name="prestations_selectionnees"
-                  value="Nettoyage de vitres"
-                />
+                <input type="checkbox" name="prestations_selectionnees" value="Nettoyage de vitres" />
                 <span class="carte-contenu">
-                  <span class="icone"><svg class="svg-icone svg-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M12 3v18M3 12h18m-12-6-2 3m10 6-2 3"/></svg></span>
+                  <span class="icone">
+                    <svg
+                      class="svg-icone svg-card"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <rect x="3" y="3" width="18" height="18" rx="1.5" />
+                      <path d="M12 3v18M3 12h18m-12-6-2 3m10 6-2 3" />
+                    </svg>
+                  </span>
                   <strong>Nettoyage de vitres</strong>
                   <small>Intérieur et extérieur</small>
                 </span>
               </label>
 
               <label class="carte">
-                <input
-                  type="checkbox"
-                  name="prestations_selectionnees"
-                  value="Autre prestation"
-                />
+                <input type="checkbox" name="prestations_selectionnees" value="Autre prestation" />
                 <span class="carte-contenu">
-                  <span class="icone"><svg class="svg-icone svg-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span>
+                  <span class="icone">
+                    <svg
+                      class="svg-icone svg-card"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="9" />
+                      <circle cx="8" cy="12" r="1" fill="currentColor" stroke="none" />
+                      <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
+                      <circle cx="16" cy="12" r="1" fill="currentColor" stroke="none" />
+                    </svg>
+                  </span>
                   <strong>Autre prestation</strong>
                   <small>Autres besoins de nettoyage</small>
                 </span>
               </label>
             </div>
           </fieldset>
-
         </section>
 
         <!-- COLONNE DROITE -->
         <section class="colonne-droite">
-          <h3><svg class="svg-icone svg-titre" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-2 5.4-2 6 0M15 10h4M15 14h4"/></svg> &nbsp; Vos coordonnées <span>*</span></h3>
+          <h3>
+            <svg
+              class="svg-icone svg-titre"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <circle cx="9" cy="11" r="2" />
+              <path d="M6 16c.6-2 5.4-2 6 0M15 10h4M15 14h4" />
+            </svg>{' '}
+            &nbsp; Vos coordonnées <span>*</span>
+          </h3>
 
-          
           <div class="champs">
             <label>
               <span>Prénom *</span>
@@ -160,24 +255,18 @@
 
             <label>
               <span>Nom *</span>
+              <input type="text" name="nom" placeholder="Votre nom" autocomplete="family-name" required />
+            </label>
+            <label>
+              <span>Adresse de l'intervention *</span>
               <input
                 type="text"
-                name="nom"
-                placeholder="Votre nom"
-                autocomplete="family-name"
+                name="adresse"
+                placeholder="Numéro, rue et ville"
+                autocomplete="street-address"
                 required
               />
             </label>
-<label>
-  <span>Adresse de l'intervention *</span>
-  <input
-    type="text"
-    name="adresse"
-    placeholder="Numéro, rue et ville"
-    autocomplete="street-address"
-    required
-  />
-</label>
             <label>
               <span>Code postal *</span>
               <input
@@ -205,13 +294,7 @@
 
             <label>
               <span>Adresse e-mail *</span>
-              <input
-                type="email"
-                name="email"
-                placeholder="exemple@email.fr"
-                autocomplete="email"
-                required
-              />
+              <input type="email" name="email" placeholder="exemple@email.fr" autocomplete="email" required />
             </label>
           </div>
         </section>
@@ -222,7 +305,9 @@
           ➤ &nbsp; Demander mon devis gratuit &nbsp; →
         </button>
 
-        <div class="separateur"><span>ou</span></div>
+        <div class="separateur">
+          <span>ou</span>
+        </div>
 
         <a href="/devis-detaille/" class="lien-detaille">
           Faire une demande de devis détaillée →
@@ -230,468 +315,56 @@
 
         <p>Pour préciser davantage vos besoins</p>
 
+        <label class="devis-simple-consent">
+          <input type="checkbox" name="confidentialite" required /> J’accepte l’utilisation de mes coordonnées
+          pour traiter ma demande. *
+        </label>
+        <p id="devis-simple-erreur" role="alert" hidden></p>
         <p class="confidentialite">
-          Vos informations seront utilisées uniquement pour traiter
-          votre demande de devis.
+          Vos informations seront utilisées uniquement pour traiter votre demande de devis.{' '}
+          <a href="/politique-de-confidentialite/">Politique de confidentialité</a>.
         </p>
       </footer>
     </form>
 
     <!-- Confirmation intégrée : remplace l’alerte native du navigateur. -->
-    <section id="devis-simple-confirmation" class="devis-confirmation" role="status" aria-live="polite" aria-labelledby="devis-confirmation-titre" hidden>
-      <div class="devis-confirmation-icone" aria-hidden="true">✓</div>
+    <section
+      id="devis-simple-confirmation"
+      class="devis-confirmation"
+      role="status"
+      aria-live="polite"
+      aria-labelledby="devis-confirmation-titre"
+      hidden
+    >
+      <div class="devis-confirmation-icone" aria-hidden="true">
+        ✓
+      </div>
       <span class="devis-confirmation-surtitre">MAISON &amp; MONDE · CONFIRMATION</span>
       <h2 id="devis-confirmation-titre">Votre demande a bien été envoyée !</h2>
       <p>Merci pour votre confiance. Nous avons bien reçu votre demande de devis.</p>
-      <p>Notre équipe l’étudiera et vous contactera prochainement afin de vous proposer une prestation adaptée à vos besoins.</p>
-      <div class="devis-confirmation-reference">Votre référence : <strong id="devis-confirmation-reference"></strong></div>
-      <button type="button" class="devis-confirmation-terminer" data-close-devis-simple>Terminer →</button>
+      <p>
+        Notre équipe l’étudiera et vous contactera prochainement afin de vous proposer une prestation adaptée
+        à vos besoins.
+      </p>
+      <div class="devis-confirmation-reference">
+        Votre référence : <strong id="devis-confirmation-reference"></strong>
+      </div>
+      <button type="button" class="devis-confirmation-terminer" data-close-devis-simple>
+        Terminer →
+      </button>
     </section>
   </div>
 </dialog>
 
-<style>
-  #devis-simple-modal {
-    width: min(1080px, calc(100% - 32px));
-    max-height: calc(100dvh - 32px);
-    padding: 0;
-    border: 0;
-    border-radius: 28px;
-    background: white;
-    color: #102d57;
-    box-shadow: 0 32px 100px rgba(0, 20, 50, 0.36), 0 9px 24px rgba(0, 20, 50, 0.13);
-    overflow-y: auto;
-  }
-
-  #devis-simple-modal::backdrop {
-    background: rgba(4, 18, 39, 0.72);
-    backdrop-filter: blur(7px);
-  }
-
-  .modal-contenu {
-    position: relative;
-    padding: 40px 44px 28px;
-    font-family: Arial, sans-serif;
-  }
-
-  .fermer {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    width: 38px;
-    height: 38px;
-    border: 0;
-    border-radius: 50%;
-    background: #f0f5fb;
-    color: #102d57;
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 35px;
-  }
-
-  .identite {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .logo {
-    width: 76px;
-    height: 76px;
-    object-fit: contain;
-  }
-
-  .identite > div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .marque {
-    font-family: Georgia, serif;
-    font-size: 27px;
-    font-weight: bold;
-    white-space: nowrap;
-  }
-
-  .sous-titre {
-    color: #1670c4;
-    font-size: 10px;
-    letter-spacing: 2px;
-    margin-top: 5px;
-  }
-
-  .introduction {
-    text-align: center;
-    flex: 1;
-  }
-
-  .introduction h2 {
-    font-family: Georgia, serif;
-    font-size: clamp(25px, 3vw, 36px);
-    margin: 0 0 10px;
-    color: #102d57;
-  }
-
-  .introduction p {
-    margin: 0;
-    font-size: 17px;
-    color: #536680;
-  }
-
-  .ligne-doree {
-    display: block;
-    width: 65px;
-    height: 3px;
-    background: #e8b84d;
-    margin: 17px auto 0;
-    border-radius: 3px;
-  }
-
-  .colonnes {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 34px;
-  }
-
-  .colonne-gauche {
-    padding-right: 28px;
-    border-right: 1px solid #e9c66d;
-  }
-
-  fieldset {
-    border: 0;
-    padding: 0;
-    margin: 0 0 26px;
-    min-width: 0;
-  }
-
-  legend,
-  .colonne-droite h3 {
-    font-size: 19px;
-    font-weight: bold;
-    margin-bottom: 18px;
-    color: #102d57;
-  }
-
-  legend span,
-  .colonne-droite h3 span {
-    color: #e35c5c;
-  }
-
-  .choix-grille {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .aide-multichoix { margin: -8px 0 13px; color: #536680; font-size: 12px; }
-
-  .carte {
-    position: relative;
-    display: block;
-    cursor: pointer;
-  }
-
-  .carte input {
-    position: absolute;
-    opacity: 0;
-    width: 1px;
-    height: 1px;
-  }
-
-  .carte-contenu {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    min-height: 130px;
-    padding: 17px;
-    border: 1px solid #dce4ee;
-    border-radius: 14px;
-    background: #fff;
-    box-shadow: 0 8px 18px rgba(10, 40, 78, .09), 0 2px 5px rgba(10, 40, 78, .05);
-    transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease, background .24s ease;
-  }
-
-  @media (hover: hover) and (min-width: 769px) {
-    .carte:hover .carte-contenu {
-      transform: translateY(-4px);
-      box-shadow: 0 17px 30px rgba(10, 40, 78, .17), 0 5px 10px rgba(10, 40, 78, .08);
-    }
-  }
-
-  .carte:hover .carte-contenu {
-    border-color: #1682dd;
-    background: #f5faff;
-  }
-
-  .carte input:checked + .carte-contenu {
-    border: 2px solid #1682dd;
-    background: linear-gradient(145deg, #e6f4ff, #fff);
-    box-shadow: 0 12px 25px rgba(0, 100, 200, 0.17), 0 3px 7px rgba(0, 50, 100, .08);
-  }
-
-  .carte input:focus-visible + .carte-contenu {
-    outline: 3px solid #e8b84d;
-    outline-offset: 3px;
-  }
-
-  .icone {
-    color: #1264ae;
-    font-size: 28px;
-    line-height: 1;
-  }
-
-  .carte strong {
-    font-size: 15px;
-  }
-
-  .carte small {
-    font-size: 12px;
-    line-height: 1.5;
-    color: #65758a;
-  }
-
-  .champs {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .champs label {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    font-size: 13px;
-    font-weight: 600;
-  }
-
-  .champs input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 15px 16px;
-    border: 1px solid #d3dfeb;
-    border-radius: 11px;
-    background: #fff;
-    color: #102d57;
-    font: inherit;
-    font-size: 15px;
-  }
-
-  .champs input:focus {
-    outline: none;
-    border-color: #1682dd;
-    box-shadow: 0 0 0 3px rgba(22, 130, 221, 0.1);
-  }
-
-#devis-simple-modal .modal-footer {
-  text-align: center;
-  margin-top: 28px;
-  padding: 0;
-  background: #ffffff;
-  color: #102d57;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  min-height: auto;
-  width: 100%;
-}
-
-  .envoyer {
-    border: 0;
-    border-radius: 40px;
-    padding: 18px 36px;
-    background: linear-gradient(110deg, #064887, #1594ed);
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 5px 0 #d9a840;
-  }
-
-  .envoyer:hover {
-    filter: brightness(1.08);
-    transform: translateY(-2px);
-  }
-
-  .separateur {
-    margin: 25px auto 15px;
-    max-width: 420px;
-    border-top: 1px solid #e3d6bd;
-    position: relative;
-  }
-
-  .separateur span {
-    position: relative;
-    top: -10px;
-    background: white;
-    padding: 0 15px;
-    color: #60718a;
-  }
-
-  .lien-detaille {
-    color: #0864ae;
-    font-weight: bold;
-    font-size: 16px;
-  }
-
-  .modal-footer > p {
-    margin: 8px 0;
-    color: #718096;
-    font-size: 13px;
-  }
-
-  .modal-footer .confidentialite {
-    margin-top: 25px;
-    font-size: 11px;
-  }
-
-  @media (max-width: 800px) {
-    .modal-contenu {
-      padding: 55px 20px 25px;
-    }
-
-    .modal-header {
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .colonnes {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    .colonne-gauche {
-      padding-right: 0;
-      border-right: 0;
-      border-bottom: 1px solid #e9c66d;
-      padding-bottom: 12px;
-    }
-
-    .marque {
-      font-size: 23px;
-    }
-
-    .carte-contenu {
-      min-height: 110px;
-      padding: 12px;
-    }
-
-    .envoyer {
-      width: 100%;
-      padding: 17px 12px;
-      font-size: 15px;
-    }
-  }
-
-  @media (max-width: 420px) {
-    #devis-simple-modal {
-      width: calc(100% - 16px);
-      max-height: calc(100dvh - 16px);
-      border-radius: 18px;
-    }
-
-    .choix-grille {
-      gap: 8px;
-    }
-
-    .carte strong {
-      font-size: 13px;
-    }
-
-    .carte small {
-      font-size: 11px;
-    }
-  }
-
-  /* Icônes SVG : cohérentes avec la charte Maison & Monde */
-  .icone {
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .svg-icone {
-    display: inline-block;
-    flex-shrink: 0;
-    vertical-align: -0.2em;
-    color: #1264ae;
-  }
-
-  .svg-card {
-    width: 29px;
-    height: 29px;
-  }
-
-  .svg-titre {
-    width: 21px;
-    height: 21px;
-  }
-  /* Confirmation : même relief et mêmes couleurs que le site. */
-  #devis-simple-modal .devis-confirmation[hidden],
-  #devis-simple-modal #formulaire-devis-simple[hidden],
-  #devis-simple-modal .modal-header[hidden] { display: none !important; }
-  #devis-simple-modal .devis-confirmation {
-    padding: clamp(30px, 5vw, 70px) 24px;
-    text-align: center;
-    max-width: 690px;
-    margin: 0 auto;
-    color: #102d57;
-  }
-  #devis-simple-modal .devis-confirmation-icone {
-    display: grid; place-items: center;
-    width: 74px; height: 74px; margin: 0 auto 20px;
-    border-radius: 50%; background: #e5f7ed; color: #16865a;
-    border: 1px solid #a7e4c3; font-size: 42px; font-weight: 700;
-    box-shadow: 0 10px 25px rgba(13, 84, 60, .11);
-  }
-  #devis-simple-modal .devis-confirmation-surtitre {
-    display: block; margin-bottom: 12px; color: #c38b30;
-    font-size: 11px; font-weight: 800; letter-spacing: .17em;
-  }
-  #devis-simple-modal .devis-confirmation h2 {
-    margin: 0 0 20px; font-family: Georgia, serif;
-    font-size: clamp(26px, 3.4vw, 37px); line-height: 1.2;
-  }
-  #devis-simple-modal .devis-confirmation p {
-    font-size: 15px; line-height: 1.7; margin: 0 auto 13px;
-    max-width: 560px;
-  }
-  #devis-simple-modal .devis-confirmation-reference {
-    margin: 25px auto; padding: 17px 20px; max-width: 450px;
-    background: #fff9f0; border: 1px solid #f0d3a1;
-    border-radius: 14px; overflow-wrap: anywhere;
-  }
-  #devis-simple-modal .devis-confirmation-terminer {
-    border: 0; border-radius: 999px; cursor: pointer;
-    padding: 15px 34px; background: linear-gradient(110deg, #f5a83d, #ffd071);
-    color: #102d57; font-weight: 800;
-    box-shadow: 0 9px 20px rgba(172, 113, 32, .2);
-  }
-  @media (hover: hover) and (pointer: fine) {
-    #devis-simple-modal .devis-confirmation-terminer:hover {
-      transform: translateY(-2px); box-shadow: 0 14px 25px rgba(172, 113, 32, .27);
-    }
-  }
-  @media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
-    #devis-simple-modal .devis-confirmation:not([hidden]) { animation: devisConfirmationEntree .3s ease-out both; }
-    @keyframes devisConfirmationEntree {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  }
-</style>
-
 <script>
-  const modal = document.querySelector<HTMLDialogElement>(
-    '#devis-simple-modal'
-  );
+  const notice = document.querySelector<HTMLElement>('#devis-simple-erreur');
+  const afficherErreur = (message: string) => {
+    if (notice) {
+      notice.textContent = message;
+      notice.hidden = false;
+    }
+  };
+  const modal = document.querySelector<HTMLDialogElement>('#devis-simple-modal');
 
   const formulaire = document.querySelector<HTMLFormElement>('#formulaire-devis-simple');
   const confirmation = document.querySelector<HTMLElement>('#devis-simple-confirmation');
@@ -736,10 +409,13 @@
   // Envoi asynchrone vers l'API commune aux deux types de devis.
   formulaire?.addEventListener('submit', async (event) => {
     event.preventDefault();
+    if (notice) notice.hidden = true;
     if (!formulaire.reportValidity()) return;
-    const prestations = Array.from(formulaire.querySelectorAll<HTMLInputElement>('input[name="prestations_selectionnees"]:checked'));
+    const prestations = Array.from(
+      formulaire.querySelectorAll<HTMLInputElement>('input[name="prestations_selectionnees"]:checked'),
+    );
     if (prestations.length === 0) {
-      alert('Veuillez sélectionner au moins une prestation.');
+      afficherErreur('Veuillez sélectionner au moins une prestation.');
       formulaire.querySelector<HTMLInputElement>('input[name="prestations_selectionnees"]')?.focus();
       return;
     }
@@ -758,7 +434,7 @@
       donnees.set('prestation', prestations.map((input) => input.value).join(', '));
       const reponse = await fetch('/api/devis', {
         method: 'POST',
-        body: donnees
+        body: donnees,
       });
       const resultat: { ok?: boolean; reference?: string; error?: string } = await reponse.json();
       if (!reponse.ok || !resultat.ok) {
@@ -771,7 +447,7 @@
       if (confirmation) confirmation.hidden = false;
       modal?.scrollTo({ top: 0, behavior: 'instant' });
     } catch (erreur) {
-      alert(erreur instanceof Error ? erreur.message : 'Erreur de connexion. Veuillez réessayer.');
+      afficherErreur(erreur instanceof Error ? erreur.message : 'Erreur de connexion. Veuillez réessayer.');
     } finally {
       bouton.disabled = false;
       bouton.innerHTML = texteInitial;

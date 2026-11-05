@@ -1,0 +1,184 @@
+---
+import '../../styles/devis-professionnel.css';
+import Layout from '../../layouts/Layout.astro';
+import SectionBand from '../../components/SectionBand.astro';
+import Icon from '../../components/ConciergerieIcon.astro';
+---
+
+<Layout
+  title="Devis professionnel | Maison & Monde"
+  description="Décrivez vos locaux et vos besoins de nettoyage professionnel à Paris et en Île-de-France. Recevez une proposition adaptée, sans engagement."
+>
+  <div class="sp pro-quote-page">
+    <section class="pro-hero">
+      <div>
+        <p class="sp-eyebrow">MAISON & MONDE · SERVICES AUX PROFESSIONNELS</p>
+        <h1>
+          Un devis clair pour <em>vos locaux.</em>
+        </h1>
+        <p class="pro-intro">
+          Bureaux, commerces ou cabinets : indiquez l’essentiel et notre équipe vous recontactera pour
+          préciser votre besoin.
+        </p>
+        <div class="pro-promise">
+          <span>
+            <Icon name="check" /> Réponse personnalisée
+          </span>
+          <span>
+            <Icon name="clock" /> Sans engagement
+          </span>
+          <span>
+            <Icon name="pin" /> Paris et Île-de-France
+          </span>
+        </div>
+      </div>
+      <div class="pro-photo" role="img" aria-label="Entretien de locaux professionnels à Paris"></div>
+    </section>
+
+    <SectionBand
+      theme="bureaux"
+      title="Votre activité, notre organisation."
+      label="UNE PROPOSITION ADAPTÉE À VOS LOCAUX"
+    />
+
+    <section class="pro-form-section" aria-labelledby="pro-form-title">
+      <div class="pro-form-card">
+        <div class="pro-form-heading">
+          <span>01 · VOTRE DEMANDE</span>
+          <h2 id="pro-form-title">Parlons de votre établissement.</h2>
+          <p>Quelques informations suffisent pour commencer. Les champs marqués d’un * sont obligatoires.</p>
+        </div>
+        <form id="pro-quote-form" action="/api/devis" method="post" enctype="multipart/form-data">
+          <input type="hidden" name="type_devis" value="professionnel" />
+          <div class="pro-honeypot" aria-hidden="true">
+            <label>
+              Site internet <input name="website" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+          <div class="pro-form-grid">
+            <label class="wide">
+              Entreprise *<input name="entreprise" maxlength="200" autocomplete="organization" required />
+            </label>
+            <label>
+              Prénom *<input name="prenom" maxlength="100" autocomplete="given-name" required />
+            </label>
+            <label>
+              Nom *<input name="nom" maxlength="100" autocomplete="family-name" required />
+            </label>
+            <label>
+              E-mail *<input type="email" name="email" maxlength="255" autocomplete="email" required />
+            </label>
+            <label>
+              Téléphone *
+              <input
+                type="tel"
+                name="telephone"
+                maxlength="30"
+                pattern="[+0-9\s().\-]{10,30}"
+                autocomplete="tel"
+                required
+              />
+            </label>
+            <label>
+              Type de locaux *
+              <select name="type_site" required>
+                <option value="">Sélectionner</option>
+                <option value="Bureau">Bureaux</option>
+                <option value="Commerce">Commerce</option>
+                <option value="Cabinet">Cabinet</option>
+                <option value="Autre">Autre local professionnel</option>
+              </select>
+            </label>
+            <label>
+              Prestation souhaitée *
+              <select name="service" required>
+                <option value="">Sélectionner</option>
+                <option value="Entretien des bureaux">Entretien de bureaux</option>
+                <option value="Nettoyage de commerce">Nettoyage de commerce</option>
+                <option value="Nettoyage de cabinet">Nettoyage de cabinet</option>
+                <option value="Autre besoin">Autre besoin</option>
+              </select>
+            </label>
+            <label>
+              Code postal *
+              <input
+                name="code_postal"
+                inputmode="numeric"
+                pattern="[0-9]{5}"
+                maxlength="5"
+                autocomplete="postal-code"
+                required
+              />
+            </label>
+            <label>
+              Ville *<input name="ville" maxlength="100" autocomplete="address-level2" required />
+            </label>
+            <label>
+              Surface approximative (m²)
+              <input name="surface" type="number" min="1" max="100000" step="1" />
+            </label>
+            <label>
+              Fréquence *
+              <select name="frequence" required>
+                <option value="">Sélectionner</option>
+                <option value="Régulière">Régulière</option>
+                <option value="Ponctuelle">Ponctuelle</option>
+                <option value="À définir">À définir ensemble</option>
+              </select>
+            </label>
+            <label class="wide">
+              Quelques précisions
+              <textarea
+                name="message"
+                rows="4"
+                maxlength="3000"
+                placeholder="Horaires souhaités, nombre de postes, contraintes d’accès…"
+              ></textarea>
+            </label>
+          </div>
+          <label class="pro-consent">
+            <input type="checkbox" name="confidentialite" required />
+            J’accepte l’utilisation de mes coordonnées pour traiter cette demande. *
+          </label>
+          <p class="pro-privacy">
+            Consultez notre <a href="/politique-de-confidentialite/">politique de confidentialité</a>.
+          </p>
+          <button class="sp-button" type="submit">
+            Envoyer ma demande <span aria-hidden="true">→</span>
+          </button>
+          <p id="pro-form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#pro-quote-form');
+  const status = document.querySelector<HTMLElement>('#pro-form-status');
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const button = form.querySelector<HTMLButtonElement>('[type="submit"]');
+    if (!button || button.disabled || !status) return;
+    const original = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Enregistrement…';
+    status.textContent = '';
+    try {
+      const response = await fetch('/api/devis', { method: 'POST', body: new FormData(form) });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.error || 'Enregistrement impossible.');
+      status.dataset.state = 'success';
+      status.textContent = `Votre demande est enregistrée. Référence : ${result.reference}. Notre équipe vous recontactera prochainement.`;
+      form.reset();
+    } catch (error) {
+      status.dataset.state = 'error';
+      status.textContent =
+        error instanceof Error ? error.message : 'Connexion impossible. Veuillez réessayer.';
+    } finally {
+      button.disabled = false;
+      button.textContent = original;
+    }
+  });
+</script>

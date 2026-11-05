@@ -54,6 +54,30 @@
   font-weight: 700;
   font-size: 13px;
   text-decoration: none;
+  border: 1px solid #d9953a;
+  box-shadow:
+    0 5px 0 #bf812c,
+    0 9px 18px #020c1760;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
+  transform-origin: center bottom;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .header .header-button:hover {
+    transform: translateY(-3px) perspective(700px) rotateX(3deg);
+    box-shadow:
+      0 8px 0 #bf812c,
+      0 15px 24px #020c1760;
+    filter: saturate(1.08);
+  }
+  .header .header-button:active {
+    transform: translateY(1px);
+    box-shadow:
+      0 2px 0 #bf812c,
+      0 5px 11px #020c1740;
+  }
 }
 .header .mobile-menu {
   display: none;
@@ -369,7 +393,7 @@
     list-style: none;
   }
   .header .mobile-services-dropdown > summary::marker {
-    content: "";
+    content: '';
   }
   .header .mobile-services-dropdown > summary::-webkit-details-marker {
     display: none;
@@ -514,17 +538,43 @@
 
 /* Navigation réorganisée — crédit d'impôt en attente de sa page */
 .header .header-pending-link {
-  color: rgba(255,255,255,.78);
+  color: rgba(255, 255, 255, 0.78);
   cursor: default;
   white-space: nowrap;
 }
 .header .mobile-pending-link {
   display: block;
   padding: 14px 10px;
-  border-bottom: 1px solid rgba(255,255,255,.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   white-space: normal;
 }
-.header .mobile-pending-link small { color: var(--gold); font-size: 12px; }
+.header .mobile-pending-link small {
+  color: var(--gold);
+  font-size: 12px;
+}
 @media (min-width: 901px) {
-  .header nav { gap: clamp(10px, 1.35vw, 22px); font-size: clamp(11px, .92vw, 14px); }
+  .header nav {
+    gap: clamp(10px, 1.35vw, 22px);
+    font-size: clamp(11px, 0.92vw, 14px);
+  }
+}
+@media (min-width: 801px) and (max-width: 1150px) {
+  .header {
+    padding-inline: 3%;
+    gap: 12px;
+  }
+  .header nav {
+    gap: 14px;
+  }
+  .header nav > a,
+  .header nav summary {
+    font-size: 11px;
+  }
+  .header .logo {
+    font-size: 18px;
+  }
+  .header .header-button {
+    padding: 12px 16px;
+    font-size: 11px;
+  }
 }

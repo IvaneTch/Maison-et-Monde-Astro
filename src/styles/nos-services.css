@@ -1,0 +1,11 @@
+/* Externalisé depuis src/pages/nos-services/index.astro (page/component). */
+.service-directory {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 22px;
+  }
+  @media (max-width: 650px) {
+    .service-directory {
+      grid-template-columns: 1fr;
+    }
+  }

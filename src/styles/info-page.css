@@ -1,0 +1,109 @@
+/* Externalisé depuis src/components/InfoPage.astro (global). */
+.info-page {
+    color: #102b46;
+    background: linear-gradient(130deg, #fff, #f3f8fd);
+    padding: 0 0 60px;
+    overflow: hidden;
+  }
+  .info-page > header {
+    position: relative;
+    padding: 55px max(24px, calc((100vw - 1000px) / 2));
+    background: #102b46;
+    color: #fff;
+    isolation: isolate;
+  }
+  .info-page > header:after {
+    content: '';
+    position: absolute;
+    inset: -100px -30%;
+    border: 1px solid #e9a34c99;
+    border-radius: 50%;
+    transform: rotate(-7deg);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .info-page > header p {
+    font: 700 11px Arial;
+    letter-spacing: 2px;
+    color: #f2be72;
+  }
+  .info-page h1 {
+    font: 700 clamp(32px, 4vw, 48px)/1.15 Georgia;
+    color: #fff !important;
+    letter-spacing: -1px;
+    margin: 20px 0;
+    max-width: none;
+  }
+  .info-page > header > div {
+    font: 15px/1.8 Arial;
+    color: #e5edf5;
+    max-width: 780px;
+  }
+  .info-content {
+    width: min(1000px, calc(100% - 40px));
+    margin: 35px auto 0;
+  }
+  .info-content h2 {
+    font: 700 26px/1.25 Georgia;
+    margin: 30px 0 15px;
+  }
+  .info-content h3 {
+    font: 700 20px Georgia;
+  }
+  .info-content p,
+  .info-content li,
+  .info-content dd,
+  .info-content dt {
+    font: 14px/1.85 Arial;
+  }
+  .info-content a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: #235d8d;
+    overflow-wrap: anywhere;
+  }
+  .info-content section {
+    padding: 22px 28px;
+    margin: 20px 0;
+    border: 1px solid #dbe6f0;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 10px 30px #102b460d;
+  }
+  .info-content section h2:first-child {
+    margin-top: 0;
+  }
+  .info-content dl {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 12px 20px;
+  }
+  .info-content dd {
+    margin: 0;
+  }
+  .info-content dt {
+    font-weight: 700;
+  }
+  .info-content table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .info-content th,
+  .info-content td {
+    font: 13px/1.6 Arial;
+    text-align: left;
+    border: 1px solid #d3deea;
+    padding: 12px;
+  }
+  @media (max-width: 600px) {
+    .info-content section {
+      padding: 20px;
+    }
+    .info-content dl {
+      grid-template-columns: 1fr;
+      gap: 5px;
+    }
+    .info-content dd {
+      margin-bottom: 14px;
+    }
+  }

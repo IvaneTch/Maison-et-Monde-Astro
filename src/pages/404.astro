@@ -1,0 +1,18 @@
+---
+import InfoPage from '../components/InfoPage.astro';
+Astro.response.status = 404;
+---
+
+<InfoPage
+  title="Page introuvable | Maison & Monde"
+  heading="Retrouvons le bon chemin"
+  description="Cette page n’est plus disponible. Retrouvez les services et devis Maison & Monde."
+>
+  <section>
+    <h2>La page demandée n’a pas été trouvée.</h2>
+    <p>
+      <a href="/">Retour à l’accueil</a> · <a href="/nos-services/">Nos services</a> ·{' '}
+      <a href="/contactez-nous/">Nous contacter</a>
+    </p>
+  </section>
+</InfoPage>

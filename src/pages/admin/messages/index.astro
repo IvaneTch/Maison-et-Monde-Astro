@@ -1,0 +1,143 @@
+---
+import mysql from 'mysql2/promise';
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { sessionAdminValide } from '../../../lib/admin-session';
+export const prerender = false;
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+const token = Astro.cookies.get('mm_admin_session')?.value;
+if (!token) return Astro.redirect('/admin/connexion/');
+let connection: mysql.Connection | undefined;
+let messages: mysql.RowDataPacket[] = [];
+try {
+  connection = await mysql.createConnection({
+    host: process.env.DB_HOST || import.meta.env.DB_HOST || '127.0.0.1',
+    port: Number(process.env.DB_PORT || import.meta.env.DB_PORT || 8889),
+    user: process.env.DB_USER || import.meta.env.DB_USER,
+    password: process.env.DB_PASSWORD || import.meta.env.DB_PASSWORD,
+    database: process.env.DB_NAME || import.meta.env.DB_NAME,
+  });
+  if (!(await sessionAdminValide(connection, token))) return Astro.redirect('/admin/connexion/');
+  [messages] = await connection.execute<mysql.RowDataPacket[]>(
+    'SELECT * FROM demandes_contact ORDER BY date_creation DESC,id DESC LIMIT 500',
+  );
+} finally {
+  await connection?.end();
+}
+const statuts: Record<string, string> = { nouvelle: 'Nouvelle', traitee: 'Traitée', archivee: 'Archivée' };
+---
+
+<AdminLayout title="Messages et demandes de rappel">
+  <p>
+    {messages.filter((m) => m.statut === 'nouvelle').length} nouvelle(s) demande(s). Les devis restent dans
+    leurs listes dédiées.
+  </p>
+  <div class="ma-panel ma-filters">
+    <input
+      id="messages-search"
+      type="search"
+      placeholder="Nom, référence, téléphone…"
+      aria-label="Rechercher un message"
+    />
+    <select id="messages-status" aria-label="Filtrer les messages">
+      <option value="">Tous les statuts</option>
+      {Object.entries(statuts).map(([k, v]) => (
+        <option value={k}>{v}</option>
+      ))}
+    </select>
+    <a href="/contactez-nous/">Voir la page Contact →</a>
+  </div>
+  {messages.map((m) => (
+    <article
+      class="ma-panel ma-message"
+      data-statut={m.statut}
+      data-search={[m.reference, m.prenom, m.nom, m.telephone, m.email, m.objet, m.message]
+        .join(' ')
+        .toLowerCase()}
+    >
+      <header>
+        <div>
+          <h2>
+            {m.type_demande === 'rappel' ? 'Demande de rappel' : 'Message de contact'} · {m.reference}
+          </h2>
+          <p>
+            {new Intl.DateTimeFormat('fr-FR', {
+              dateStyle: 'medium',
+              timeStyle: 'short',
+              timeZone: 'Europe/Paris',
+            }).format(new Date(m.date_creation))}
+          </p>
+        </div>
+        <strong>{statuts[m.statut]}</strong>
+      </header>
+      <dl>
+        <dt>Contact</dt>
+        <dd>{[m.prenom, m.nom].filter(Boolean).join(' ')}</dd>
+        <dt>Téléphone</dt>
+        <dd>
+          <a href={`tel:${String(m.telephone).replace(/[^+\d]/g, '')}`}>{m.telephone}</a>
+        </dd>
+        {m.email && (
+          <>
+            <dt>E-mail</dt>
+            <dd>
+              <a href={`mailto:${m.email}`}>{m.email}</a>
+            </dd>
+          </>
+        )}
+        {m.disponibilite && (
+          <>
+            <dt>Créneau demandé</dt>
+            <dd>{m.disponibilite}</dd>
+          </>
+        )}
+        {m.objet && (
+          <>
+            <dt>Objet</dt>
+            <dd>{m.objet}</dd>
+          </>
+        )}
+        {m.message && (
+          <>
+            <dt>Message</dt>
+            <dd>{m.message}</dd>
+          </>
+        )}
+      </dl>
+      <form action="/api/admin/gerer-contact" method="POST">
+        <input name="id" type="hidden" value={m.id} />
+        <label>
+          Statut{' '}
+          <select name="statut" aria-label={`Statut du message ${m.reference}`}>
+            {Object.entries(statuts).map(([k, v]) => (
+              <option value={k} selected={m.statut === k}>
+                {v}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button type="submit">Enregistrer</button>
+      </form>
+    </article>
+  ))}
+  <p id="messages-empty" hidden>
+    Aucun message ne correspond aux filtres.
+  </p>
+  {messages.length === 0 && <div class="ma-panel">Aucune demande de contact enregistrée.</div>}
+</AdminLayout>
+<script>
+  const recherche = document.querySelector<HTMLInputElement>('#messages-search')!;
+  const statut = document.querySelector<HTMLSelectElement>('#messages-status')!;
+  function filtrer() {
+    let nombre = 0;
+    document.querySelectorAll<HTMLElement>('.ma-message').forEach((m) => {
+      m.hidden = !(
+        m.dataset.search!.includes(recherche.value.trim().toLowerCase()) &&
+        (!statut.value || m.dataset.statut === statut.value)
+      );
+      if (!m.hidden) nombre++;
+    });
+    document.querySelector<HTMLElement>('#messages-empty')!.hidden = nombre > 0;
+  }
+  recherche.addEventListener('input', filtrer);
+  statut.addEventListener('change', filtrer);
+</script>

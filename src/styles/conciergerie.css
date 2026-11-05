@@ -1,0 +1,1023 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #102b46;
+  background: #ffffff;
+}
+
+.conciergerie-hero {
+  position: relative;
+  box-sizing: border-box;
+  height: 720px;
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #09233c;
+  color: #ffffff;
+}
+
+.conciergerie-hero .hero-image {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/conciergerie-location-saisonniere-paris-maison-et-monde.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.conciergerie-hero .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 25, 46, 0.94) 0%,
+    rgba(5, 25, 46, 0.78) 43%,
+    rgba(5, 25, 46, 0.08) 100%
+  );
+}
+
+.conciergerie-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(650px, 90%);
+  margin-left: max(7%, calc((100vw - 1320px) / 2));
+  padding: 60px 0 80px;
+}
+
+.conciergerie-hero .hero-label {
+  display: block;
+  color: #f2b94e;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  margin-bottom: 25px;
+}
+
+.conciergerie-hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(45px, 5.5vw, 78px);
+  line-height: 1.1;
+  font-weight: 500;
+  margin: 0 0 30px;
+}
+
+.conciergerie-hero h1 span {
+  color: #f2b94e;
+}
+
+.conciergerie-hero p {
+  font-size: 16px;
+  line-height: 1.9;
+  color: #e2eaf1;
+  max-width: 560px;
+  margin-bottom: 18px;
+}
+
+.conciergerie-hero .hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+.conciergerie-hero .btn-primary,
+.conciergerie-hero .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 16px 24px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+  transform-origin: center bottom;
+}
+
+.conciergerie-hero .btn-primary {
+  background: #f2b94e;
+  color: #102b46;
+}
+
+.conciergerie-hero .btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.conciergerie-hero .btn-primary:hover,
+.conciergerie-hero .btn-secondary:hover {
+  transform: translateY(-3px) perspective(700px) rotateX(3deg);
+  box-shadow:
+    0 7px 0 #bd802e,
+    0 16px 25px #061a2c45;
+}
+.conciergerie-hero .btn-primary:active,
+.conciergerie-hero .btn-secondary:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 2px 0 #bd802e,
+    0 6px 12px #061a2c30;
+}
+
+.conciergerie-hero .hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 95px;
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .conciergerie-hero {
+    min-height: 680px;
+  }
+
+  .conciergerie-hero .hero-image {
+    background-position: 65% center;
+  }
+
+  .conciergerie-hero .hero-overlay {
+    background: rgba(5, 25, 46, 0.76);
+  }
+
+  .conciergerie-hero .hero-content {
+    margin: 0 auto;
+    padding: 90px 0 130px;
+  }
+
+  .conciergerie-hero h1 {
+    font-size: clamp(39px, 9vw, 55px);
+  }
+
+  .conciergerie-hero p {
+    font-size: 14px;
+  }
+
+  .conciergerie-hero .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .conciergerie-hero .hero-wave {
+    height: 55px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .conciergerie-hero .btn-primary,
+  .conciergerie-hero .btn-secondary {
+    transition: none;
+  }
+}
+
+/* Conciergerie : sections complémentaires */
+.cc-wrap {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+.cc-services,
+.cc-trust {
+  padding-block: 90px 100px;
+}
+.cc-eyebrow {
+  font:
+    700 12px/1.5 Arial,
+    sans-serif;
+  letter-spacing: 2.2px;
+  color: #c38a38;
+  margin: 0 0 15px;
+}
+.cc-services h2,
+.cc-offers h2,
+.cc-trust h2,
+.cc-faq h2,
+.cc-cta h2 {
+  font:
+    400 clamp(34px, 4vw, 55px)/1.12 Georgia,
+    serif;
+  margin: 0 0 20px;
+  color: #102b46;
+}
+.cc-services h2 em,
+.cc-offers h2 em,
+.cc-trust h2 em,
+.cc-faq h2 em,
+.cc-cta h2 em {
+  font-style: normal;
+  color: #d49a48;
+}
+.cc-intro {
+  max-width: 660px;
+  color: #647487;
+  line-height: 1.75;
+  margin-bottom: 38px;
+}
+.cc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.cc-card {
+  border: 1px solid #e8e9e9;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 34px rgba(10, 38, 61, 0.07);
+  background: white;
+}
+.cc-card-art {
+  height: 142px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #dcecf4, #8db9cd);
+  position: relative;
+  overflow: hidden;
+}
+.cc-card-art::before {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  right: -48px;
+  top: -68px;
+}
+.cc-card-art span {
+  font:
+    normal 76px Georgia,
+    serif;
+  color: #fff;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+.art-guests {
+  background: linear-gradient(135deg, #b5d4de, #537d9b);
+}
+.art-care {
+  background: linear-gradient(135deg, #e9ddc5, #c39b67);
+}
+.art-more {
+  background: linear-gradient(135deg, #d9e8e1, #81b1a6);
+}
+.cc-card-body {
+  padding: 22px 20px 24px;
+}
+.cc-number {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #b98640;
+}
+.cc-card h3 {
+  font:
+    400 24px/1.2 Georgia,
+    serif;
+  margin: 10px 0;
+}
+.cc-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #617184;
+  min-height: 90px;
+}
+.cc-card a,
+.cc-offer a {
+  font-size: 12px;
+  font-weight: 700;
+  color: #17608b;
+  text-decoration: none;
+}
+.cc-card a span,
+.cc-offer a span {
+  margin-left: 8px;
+}
+.cc-offers {
+  background: #f1f7fa;
+  padding: 90px 0 100px;
+}
+.cc-offer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 38px;
+}
+.cc-offer {
+  padding: 40px;
+  border-radius: 22px;
+}
+.cc-offer-dark {
+  background: linear-gradient(145deg, #0a2b49, #174c70);
+  color: white;
+}
+.cc-offer-light {
+  background: #fff;
+  border: 1px solid #dce6ec;
+  color: #102b46;
+}
+.cc-offer-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+  color: #e6ab57;
+}
+.cc-offer h3 {
+  font:
+    400 33px Georgia,
+    serif;
+  margin: 16px 0;
+}
+.cc-offer p {
+  line-height: 1.8;
+  font-size: 14px;
+  max-width: 450px;
+}
+.cc-offer ul {
+  padding-left: 20px;
+  line-height: 2.1;
+  font-size: 14px;
+  margin: 24px 0;
+}
+.cc-offer-dark a {
+  color: #ffca78;
+}
+.cc-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+.cc-trust-grid > div {
+  border-top: 2px solid #e3ac62;
+  padding-top: 20px;
+}
+.cc-trust strong {
+  color: #c79452;
+  font:
+    30px Georgia,
+    serif;
+}
+.cc-trust h3 {
+  font:
+    24px Georgia,
+    serif;
+  margin: 14px 0;
+}
+.cc-trust p {
+  line-height: 1.8;
+  color: #657588;
+  font-size: 14px;
+}
+.cc-faq {
+  padding: 85px 0;
+  background: #f6f8f9;
+}
+.cc-faq-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 75px;
+}
+.cc-faq-layout > div > p:last-child {
+  color: #657588;
+  line-height: 1.7;
+}
+.cc-faq details {
+  border-bottom: 1px solid #d6dfe6;
+  padding: 18px 0;
+}
+.cc-faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.cc-faq details p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #607184;
+}
+.cc-cta {
+  background: linear-gradient(120deg, #0a2946, #145b82);
+  padding: 75px 0;
+}
+.cc-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.cc-cta h2 {
+  color: white;
+  max-width: 680px;
+}
+.cc-cta p:not(.cc-eyebrow) {
+  color: #d8e7f0;
+  line-height: 1.7;
+}
+.cc-cta a {
+  flex-shrink: 0;
+  background: #f2b94e;
+  border-radius: 30px;
+  padding: 17px 23px;
+  color: #102b46;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+@media (max-width: 980px) {
+  .cc-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cc-card p {
+    min-height: 0;
+  }
+  .cc-faq-layout {
+    gap: 30px;
+  }
+}
+@media (max-width: 650px) {
+  .cc-wrap {
+    width: min(100% - 36px, 1180px);
+  }
+  .cc-services,
+  .cc-trust {
+    padding-block: 62px;
+  }
+  .cc-grid,
+  .cc-offer-grid,
+  .cc-trust-grid,
+  .cc-faq-layout {
+    grid-template-columns: 1fr;
+  }
+  .cc-offers,
+  .cc-faq {
+    padding: 65px 0;
+  }
+  .cc-offer {
+    padding: 28px;
+  }
+  .cc-cta-inner {
+    display: block;
+  }
+  .cc-cta a {
+    display: inline-flex;
+    margin-top: 18px;
+  }
+  .cc-trust-grid {
+    gap: 18px;
+  }
+  .cc-card-art {
+    height: 115px;
+  }
+}
+
+/* Nouvelle composition visuelle — maquette Conciergerie */
+.cc-card-art {
+  height: 180px;
+  background: #e9eef0;
+}
+.cc-card-art::before {
+  display: none;
+}
+.cc-card-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cc-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.cc-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 42px rgba(10, 38, 61, 0.13);
+}
+.cc-services {
+  padding-bottom: 78px;
+}
+.cc-offers {
+  padding: 0 0 95px;
+  background: #f2f8fb;
+}
+.cc-panorama {
+  height: 255px;
+  background: url('/images/conciergerie/appartement-paris.webp') center 52% / cover no-repeat;
+  position: relative;
+  margin-bottom: 48px;
+  clip-path: polygon(0 7%, 25% 0, 55% 9%, 80% 1%, 100% 6%, 100% 94%, 75% 100%, 45% 92%, 18% 100%, 0 94%);
+}
+.cc-offer {
+  position: relative;
+  min-height: 335px;
+  box-sizing: border-box;
+}
+.cc-offer ul {
+  list-style: none;
+  padding-left: 0;
+}
+.cc-offer li::before {
+  content: '✓';
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid #d69d4e;
+  color: #d69d4e;
+  border-radius: 50%;
+  width: 17px;
+  height: 17px;
+  margin-right: 12px;
+  font-size: 11px;
+}
+.cc-offer a {
+  display: inline-flex;
+  padding: 13px 22px;
+  border: 1px solid #d59c4c;
+  border-radius: 30px;
+  margin-top: 8px;
+  color: #102b46;
+  background: #f2b94e;
+}
+.cc-offer-light a {
+  background: #fff;
+  color: #102b46;
+}
+.cc-trust {
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+.cc-trust-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 28px;
+}
+.cc-trust-photo {
+  height: 355px;
+  border-radius: 0 20px 20px 0;
+  background: url('/images/conciergerie/attention-details.webp') center/cover no-repeat;
+}
+.cc-trust-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 0;
+}
+.cc-trust-grid > div {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  column-gap: 18px;
+  border-top: 1px solid #e3ac62;
+  padding-top: 16px;
+}
+.cc-trust-grid strong {
+  grid-row: span 2;
+  align-self: center;
+  border: 1px solid #d8a054;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+.cc-trust-grid h3 {
+  margin: 0 0 5px;
+}
+.cc-trust-grid p {
+  margin: 0 0 10px;
+}
+.cc-cta {
+  position: relative;
+  min-height: 305px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 55px 0;
+  background: linear-gradient(110deg, #0b2a49, #155b80);
+}
+.cc-cta-photo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 48%;
+  background: url('/images/conciergerie/salon-conciergerie.webp') center/cover no-repeat;
+  clip-path: ellipse(90% 105% at 100% 50%);
+}
+.cc-cta-inner {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+.cc-cta-inner > div {
+  max-width: 47%;
+}
+.cc-cta a {
+  display: inline-flex;
+  margin-top: 14px;
+}
+@media (max-width: 900px) {
+  .cc-trust-layout {
+    gap: 25px;
+  }
+  .cc-cta-photo {
+    width: 45%;
+  }
+}
+@media (max-width: 650px) {
+  .cc-card-art {
+    height: 190px;
+  }
+  .cc-panorama {
+    height: 165px;
+    margin-bottom: 35px;
+  }
+  .cc-trust-layout {
+    grid-template-columns: 1fr;
+  }
+  .cc-trust-photo {
+    height: 245px;
+    border-radius: 16px;
+  }
+  .cc-cta {
+    padding: 50px 0 210px;
+  }
+  .cc-cta-inner > div {
+    max-width: 100%;
+  }
+  .cc-cta-photo {
+    width: 100%;
+    height: 200px;
+    top: auto;
+    clip-path: none;
+  }
+  .cc-offer {
+    min-height: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cc-card {
+    transition: none;
+  }
+  .cc-card:hover {
+    transform: none;
+  }
+}
+
+/* Décorations pleine largeur : indépendantes des conteneurs de texte. */
+.cc-services,
+.cc-trust,
+.cc-offers,
+.cc-faq {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.cc-services-content,
+.cc-trust-content,
+.cc-offers > .cc-wrap,
+.cc-faq > .cc-wrap {
+  position: relative;
+  z-index: 2;
+}
+.cc-services::before,
+.cc-services::after,
+.cc-trust::before,
+.cc-trust::after,
+.cc-offers::before,
+.cc-offers::after,
+.cc-faq::before,
+.cc-faq::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+/* Seul un arc de chaque cercle apparaît au bord extérieur de l'écran. */
+.cc-services::before {
+  width: 350px;
+  height: 350px;
+  left: -310px;
+  top: 18%;
+  border: 26px solid rgba(176, 215, 238, 0.37);
+  box-shadow: 0 0 0 2px rgba(207, 153, 70, 0.6);
+}
+.cc-services::after {
+  width: 300px;
+  height: 300px;
+  right: -265px;
+  bottom: 5%;
+  border: 2px solid rgba(207, 153, 70, 0.78);
+}
+.cc-trust::before {
+  width: 310px;
+  height: 310px;
+  left: -272px;
+  top: 22%;
+  border: 24px solid rgba(176, 215, 238, 0.3);
+  box-shadow: 0 0 0 2px rgba(207, 153, 70, 0.55);
+}
+.cc-trust::after {
+  width: 260px;
+  height: 260px;
+  right: -229px;
+  bottom: 8%;
+  border: 2px solid rgba(207, 153, 70, 0.72);
+}
+.cc-offers::before {
+  width: 330px;
+  height: 330px;
+  left: -290px;
+  bottom: 30px;
+  border: 26px solid rgba(176, 215, 238, 0.33);
+  box-shadow: 0 0 0 2px rgba(207, 153, 70, 0.65);
+}
+.cc-offers::after {
+  width: 280px;
+  height: 280px;
+  right: -248px;
+  bottom: 70px;
+  border: 2px solid rgba(207, 153, 70, 0.8);
+}
+.cc-faq::before {
+  width: 330px;
+  height: 330px;
+  left: -292px;
+  bottom: 15px;
+  border: 28px solid rgba(176, 215, 238, 0.32);
+  box-shadow: 0 0 0 2px rgba(207, 153, 70, 0.6);
+}
+.cc-faq::after {
+  width: 280px;
+  height: 280px;
+  right: -248px;
+  top: 20px;
+  border: 2px solid rgba(207, 153, 70, 0.75);
+}
+/* Fins accents dorés et bleu ciel sur toute la composition. */
+.cc-services {
+  background-image: linear-gradient(90deg, transparent 0%, rgba(236, 247, 252, 0.35) 50%, transparent 100%);
+}
+.cc-trust {
+  background-image: linear-gradient(110deg, rgba(236, 247, 252, 0.35), transparent 55%);
+}
+.cc-card {
+  box-shadow:
+    0 12px 22px rgba(7, 34, 58, 0.12),
+    0 30px 65px rgba(7, 34, 58, 0.13) !important;
+}
+.cc-card:hover {
+  box-shadow:
+    0 22px 40px rgba(7, 34, 58, 0.19),
+    0 42px 75px rgba(7, 34, 58, 0.15) !important;
+}
+.cc-offer {
+  box-shadow:
+    0 17px 30px rgba(7, 34, 58, 0.14),
+    0 35px 65px rgba(7, 34, 58, 0.1) !important;
+}
+.cc-trust-photo {
+  box-shadow:
+    0 18px 35px rgba(7, 34, 58, 0.2),
+    0 36px 65px rgba(7, 34, 58, 0.11) !important;
+}
+.cc-faq {
+  background: linear-gradient(125deg, #f2f8fc 0%, #f8fafb 65%, #f3f8fb 100%);
+}
+.cc-faq-items {
+  display: grid;
+  gap: 12px;
+}
+.cc-faq details {
+  padding: 0;
+  background: white;
+  border: 1px solid #e3eaf0;
+  border-radius: 14px;
+  box-shadow:
+    0 10px 22px rgba(7, 34, 58, 0.12),
+    0 22px 40px rgba(7, 34, 58, 0.06) !important;
+  overflow: hidden;
+}
+.cc-faq summary {
+  list-style: none;
+  padding: 19px 54px 19px 22px;
+  position: relative;
+  color: #102b46;
+}
+.cc-faq summary::-webkit-details-marker {
+  display: none;
+}
+.cc-faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #c99141;
+  font-size: 24px;
+  font-weight: 400;
+}
+.cc-faq details[open] summary::after {
+  content: '−';
+}
+.cc-faq details[open] {
+  border-color: #e5bd82;
+}
+.cc-faq details p {
+  margin: 0;
+  padding: 0 22px 20px;
+}
+.cc-faq summary:focus-visible {
+  outline: 3px solid #d8a054;
+  outline-offset: -3px;
+}
+.cc-cta::before {
+  content: '';
+  position: absolute;
+  left: -210px;
+  top: -125px;
+  width: 310px;
+  height: 310px;
+  border: 2px solid rgba(239, 184, 93, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.cc-cta::after {
+  content: '';
+  position: absolute;
+  right: -210px;
+  bottom: -170px;
+  width: 280px;
+  height: 280px;
+  border: 20px solid rgba(165, 210, 238, 0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+@media (max-width: 650px) {
+  .cc-services::before,
+  .cc-trust::before,
+  .cc-offers::before,
+  .cc-faq::before {
+    width: 170px;
+    height: 170px;
+    left: -153px;
+    border-width: 16px;
+  }
+  .cc-services::after,
+  .cc-trust::after,
+  .cc-offers::after,
+  .cc-faq::after {
+    display: none;
+  }
+  .cc-cta::before {
+    left: -250px;
+  }
+  .cc-cta::after {
+    display: none;
+  }
+  .cc-card:hover {
+    transform: none;
+  }
+  .cc-faq summary {
+    padding: 17px 45px 17px 17px;
+  }
+}
+
+/* Lignes dorées fluides, pleine largeur, indépendantes du contenu central. */
+.cc-services,
+.cc-offers,
+.cc-trust,
+.cc-faq,
+.cc-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.cc-gold-ribbon {
+  position: absolute;
+  left: 0;
+  top: 8%;
+  width: 100%;
+  height: 65%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.cc-gold-ribbon path {
+  fill: none;
+  stroke: #c9974c;
+  stroke-width: 1.8;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.78;
+}
+.cc-services .cc-gold-ribbon {
+  top: 10%;
+  height: 75%;
+}
+.cc-offers .cc-gold-ribbon {
+  top: 12%;
+  height: 70%;
+}
+.cc-trust .cc-gold-ribbon {
+  top: 10%;
+  height: 75%;
+}
+.cc-faq .cc-gold-ribbon {
+  top: 6%;
+  height: 85%;
+}
+.cc-cta .cc-gold-ribbon {
+  top: 0;
+  height: 100%;
+}
+.cc-cta .cc-gold-ribbon path {
+  stroke: #f1bf72;
+  opacity: 0.78;
+}
+.cc-services > .cc-wrap,
+.cc-offers > .cc-wrap,
+.cc-trust > .cc-wrap,
+.cc-faq > .cc-wrap,
+.cc-cta > .cc-wrap {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 650px) {
+  .cc-gold-ribbon {
+    opacity: 0.78;
+    height: 45%;
+    top: 10%;
+  }
+  .cc-cta .cc-gold-ribbon {
+    height: 45%;
+  }
+}
+
+/* Maison & Monde — profondeur douce et cartes flottantes (desktop). */
+@media (min-width: 651px) {
+  .cc-card,
+  .cc-offer,
+  .cc-trust-photo,
+  .cc-faq details {
+    position: relative;
+    box-shadow:
+      0 12px 24px rgba(9, 36, 59, 0.12),
+      0 30px 58px rgba(9, 36, 59, 0.1),
+      0 3px 7px rgba(9, 36, 59, 0.06) !important;
+    transition:
+      transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.45s ease;
+    will-change: auto;
+  }
+  .cc-card:hover,
+  .cc-offer:hover,
+  .cc-faq details:hover {
+    transform: translateY(-7px);
+    box-shadow:
+      0 22px 36px rgba(9, 36, 59, 0.17),
+      0 45px 75px rgba(9, 36, 59, 0.13) !important;
+  }
+  .cc-trust-photo:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 24px 42px rgba(9, 36, 59, 0.2),
+      0 44px 76px rgba(9, 36, 59, 0.13) !important;
+  }
+  .cc-panorama {
+    filter: drop-shadow(0 14px 15px rgba(9, 36, 59, 0.12));
+  }
+  /* Apparition uniquement après activation par JavaScript. */
+  .mm-reveal-pending {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.75s ease,
+      transform 0.75s cubic-bezier(0.18, 0.7, 0.2, 1);
+  }
+  .mm-reveal-pending.mm-reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 650px), (prefers-reduced-motion: reduce) {
+  .mm-reveal-pending {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .cc-card,
+  .cc-offer,
+  .cc-trust-photo,
+  .cc-faq details {
+    will-change: auto;
+  }
+}

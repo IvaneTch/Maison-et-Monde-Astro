@@ -1,0 +1,1298 @@
+.gestion {
+  --navy: #092942;
+  --gold: #d19b4e;
+  --muted: #5d7182;
+  color: var(--navy);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  background: #fff;
+}
+.gestion * {
+  box-sizing: border-box;
+}
+.gestion .wrap {
+  width: min(1180px, calc(100% - 52px));
+  margin-inline: auto;
+}
+.gestion h1,
+.gestion h2,
+.gestion h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+}
+.gestion h2 {
+  font-size: clamp(32px, 3.8vw, 49px);
+  line-height: 1.13;
+  margin: 0 0 22px;
+}
+.gestion h2 em,
+.gestion h1 span {
+  font-style: normal;
+  color: var(--gold);
+}
+.gestion p {
+  line-height: 1.65;
+}
+.gestion .eyebrow {
+  font-size: 11px;
+  letter-spacing: 2.2px;
+  color: #bf873c;
+  font-weight: 800;
+  margin: 0 0 18px;
+}
+.gestion .section {
+  position: relative;
+  padding: 94px 0;
+}
+.gestion .decorated {
+  overflow: hidden;
+  isolation: isolate;
+}
+.gestion .top-layer {
+  position: relative;
+  z-index: 2;
+}
+.gestion .circle {
+  position: absolute;
+  z-index: 0;
+  border: 1.4px solid #d3a15c;
+  border-radius: 50%;
+  width: 350px;
+  height: 350px;
+  box-shadow:
+    0 0 0 22px #e1f1fb91,
+    0 0 0 42px #e9f6ff6b;
+  pointer-events: none;
+}
+.gestion .circle.left {
+  left: -320px;
+  top: 25%;
+}
+.gestion .circle.right {
+  right: -320px;
+  bottom: 10%;
+}
+.gestion .ribbon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.gestion .ribbon path {
+  fill: none;
+  stroke: #d4a15d;
+  stroke-width: 1.8;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.78;
+}
+.gestion .hero {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  background: #102e48;
+  color: #fff;
+}
+.gestion .hero-photo {
+  position: absolute;
+  inset: 0;
+  background: url('/images/conciergerie/menage-preparation.webp') center 52% / cover no-repeat;
+}
+.gestion .hero:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #061d32f2 0%, #08283ecb 43%, #09283e1f 83%);
+  z-index: 1;
+}
+.gestion .hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 90px 0 115px;
+}
+.gestion .hero h1 {
+  font-size: clamp(49px, 5.7vw, 78px);
+  line-height: 1.06;
+  margin: 0 0 23px;
+}
+.gestion .hero-inner > p:not(.eyebrow) {
+  max-width: 445px;
+  font-size: 16px;
+}
+.gestion .hero .eyebrow {
+  color: #e5ae5c;
+}
+.gestion .actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.gestion .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  border-radius: 50px;
+  padding: 15px 23px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+.gestion .button:hover {
+  transform: translateY(-3px) perspective(700px) rotateX(3deg);
+  box-shadow:
+    0 7px 0 #bd802e,
+    0 16px 25px #081c3450;
+}
+.gestion .button.gold {
+  background: #f7bb53;
+  color: #132c41;
+  box-shadow: 0 9px 22px #081c3436;
+}
+.gestion .button.ghost {
+  color: #fff;
+  border: 1px solid #ffffffab;
+}
+.gestion .hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 82px;
+  z-index: 2;
+}
+.gestion .split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+.gestion .split p:not(.eyebrow) {
+  color: var(--muted);
+  max-width: 540px;
+}
+.gestion .image-frame img {
+  display: block;
+  width: 100%;
+  height: 355px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 25px 43px #0b2b4a37;
+}
+.gestion .benefits {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 26px;
+}
+.gestion .benefits div {
+  font-size: 11px;
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.gestion .benefits span {
+  display: grid;
+  place-items: center;
+  margin: 0 auto 9px;
+  width: 48px;
+  height: 48px;
+  border: 1.4px solid var(--gold);
+  border-radius: 50%;
+  color: #0c456b;
+  font-size: 27px;
+  font-weight: 400;
+  background: #fff;
+  box-shadow: 0 5px 13px #0a2d4518;
+}
+.gestion .process {
+  background: #f5f9fc;
+}
+.gestion .steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  margin-top: 42px;
+}
+.gestion .steps article {
+  position: relative;
+}
+.gestion .steps article:not(:last-child):after {
+  content: '→';
+  position: absolute;
+  right: -23px;
+  top: 78px;
+  font-size: 25px;
+  color: #bd904f;
+}
+.gestion .step-photo {
+  position: relative;
+}
+.gestion .step-photo img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 15px;
+  display: block;
+  box-shadow: 0 14px 28px #092f4b29;
+}
+.gestion .step-photo b {
+  position: absolute;
+  left: 12px;
+  bottom: -15px;
+  background: #f3b84f;
+  color: white;
+  border: 3px solid #fff;
+  width: 45px;
+  height: 45px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 12px;
+}
+.gestion .steps h3 {
+  font-size: 23px;
+  margin: 30px 0 8px;
+}
+.gestion .steps p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+.gestion .results {
+  background: #fff;
+}
+.gestion .subtext {
+  color: var(--muted);
+  margin: -7px 0 28px;
+}
+.gestion .comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  position: relative;
+}
+.gestion .comparison figure {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+}
+.gestion .comparison img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 18px;
+  display: block;
+  box-shadow: 0 19px 34px #092d4c32;
+}
+.gestion .comparison figcaption {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 22px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.gestion .comparison figure:last-child figcaption {
+  background: #f5b84f;
+}
+.gestion .comparison-arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 3px solid #f1b95c;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  box-shadow: 0 8px 20px #082b4733;
+}
+.gestion .note {
+  font-size: 11px;
+  color: #72818e;
+  margin-top: 16px;
+}
+.gestion .linen {
+  background: #fbfcfe;
+}
+.gestion .checks {
+  padding: 0;
+  list-style: none;
+  margin: 22px 0 0;
+}
+.gestion .checks li {
+  position: relative;
+  padding: 9px 0 9px 39px;
+  font-size: 14px;
+}
+.gestion .checks li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  background: #e9ac4d;
+  color: #fff;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+.gestion .extras {
+  background: #f8fbfd;
+}
+.gestion .extras-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-top: 37px;
+}
+.gestion .extras-grid article {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 19px 33px #0a2c4930;
+  border: 1px solid #e6ebef;
+}
+.gestion .extras-grid img {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+.gestion .extras-grid article > div {
+  padding: 22px;
+}
+.gestion .extras-grid h3 {
+  font-size: 23px;
+  margin: 0 0 10px;
+}
+.gestion .extras-grid p {
+  font-size: 13px;
+  color: var(--muted);
+  min-height: 62px;
+}
+.gestion .extras-grid a {
+  font-size: 13px;
+  color: #15587c;
+  text-decoration: none;
+  font-weight: 700;
+}
+.gestion .closing {
+  position: relative;
+  background: linear-gradient(110deg, #06243b, #125071);
+  color: white;
+  overflow: hidden;
+}
+.gestion .closing-wave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  z-index: 2;
+}
+.gestion .closing-grid {
+  display: grid;
+  grid-template-columns: 1fr 44%;
+  align-items: center;
+  gap: 55px;
+  min-height: 425px;
+}
+.gestion .closing-grid > div {
+  padding: 110px 0 75px;
+}
+.gestion .closing h2 {
+  font-size: clamp(32px, 3.7vw, 48px);
+}
+.gestion .closing p:not(.eyebrow) {
+  max-width: 540px;
+}
+.gestion .closing .button {
+  margin-top: 20px;
+}
+.gestion .closing-photo {
+  position: relative;
+  align-self: stretch;
+  min-height: 425px;
+  overflow: hidden;
+  clip-path: ellipse(90% 78% at 88% 52%);
+}
+.gestion .closing-photo:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-left: 2px solid #d5a65d;
+}
+.gestion .closing-photo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.04);
+}
+@media (max-width: 900px) {
+  .gestion .split {
+    gap: 32px;
+  }
+  .gestion .steps {
+    gap: 16px;
+  }
+  .gestion .steps article:not(:last-child):after {
+    right: -17px;
+  }
+  .gestion .step-photo img {
+    height: 130px;
+  }
+  .gestion .benefits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gestion .extras-grid {
+    gap: 14px;
+  }
+}
+@media (max-width: 650px) {
+  .gestion .wrap {
+    width: calc(100% - 36px);
+  }
+  .gestion .section {
+    padding: 66px 0;
+  }
+  .gestion .hero {
+    min-height: 600px;
+  }
+  .gestion .hero-inner {
+    padding: 90px 0 115px;
+  }
+  .gestion .hero h1 {
+    font-size: 46px;
+  }
+  .gestion .hero:before {
+    background: linear-gradient(90deg, #061d32e8, #09283eb8);
+  }
+  .gestion .hero-wave {
+    height: 47px;
+  }
+  .gestion .split,
+  .gestion .comparison,
+  .gestion .closing-grid {
+    grid-template-columns: 1fr;
+  }
+  .gestion .split {
+    gap: 30px;
+  }
+  .gestion .steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 17px;
+  }
+  .gestion .steps article:after {
+    display: none;
+  }
+  .gestion .step-photo img {
+    height: 135px;
+  }
+  .gestion .steps h3 {
+    font-size: 20px;
+  }
+  .gestion .comparison img {
+    height: 220px;
+  }
+  .gestion .comparison-arrow {
+    top: 50%;
+    width: 45px;
+    height: 45px;
+  }
+  .gestion .extras-grid {
+    grid-template-columns: 1fr;
+  }
+  .gestion .extras-grid img {
+    height: 200px;
+  }
+  .gestion .extras-grid p {
+    min-height: 0;
+  }
+  .gestion .image-frame img {
+    height: 265px;
+  }
+  .gestion .circle {
+    width: 240px;
+    height: 240px;
+  }
+  .gestion .circle.left {
+    left: -225px;
+  }
+  .gestion .circle.right {
+    right: -225px;
+  }
+  .gestion .ribbon {
+    opacity: 0.78;
+  }
+  .gestion .closing-grid {
+    gap: 0;
+  }
+  .gestion .closing-grid > div {
+    padding: 100px 0 35px;
+  }
+  .gestion .closing-photo {
+    min-height: 230px;
+    clip-path: ellipse(95% 90% at 52% 100%);
+  }
+  .gestion .closing-photo img {
+    height: 230px;
+  }
+  .gestion .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gestion .button {
+    transition: none;
+  }
+  .gestion .button:hover {
+    transform: none;
+  }
+}
+
+/* Hero pleine largeur : aucune bordure ni cadre autour de la photographie. */
+.gestion .hero,
+.gestion .hero-photo {
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+/* Courbes dorées et volume discret, sans recouvrir les contenus. */
+.gestion .know-how .image-frame img {
+  border-radius: 43% 57% 52% 48% / 50% 43% 57% 50%;
+  box-shadow:
+    22px 23px 0 #e7f3fb,
+    0 30px 48px #092d4c29;
+}
+.gestion .closing-grid {
+  width: min(1280px, calc(100% - 52px));
+}
+@media (max-width: 650px) {
+  .gestion .closing-grid {
+    width: calc(100% - 36px);
+  }
+  .gestion .know-how .image-frame img {
+    box-shadow:
+      12px 14px 0 #e7f3fb,
+      0 19px 30px #092d4c24;
+  }
+}
+
+/* Visuel validé : hero bord à bord, sans liseré blanc. */
+.gestion .hero {
+  width: 100%;
+  margin: 0 !important;
+  border: none !important;
+  overflow: hidden;
+}
+.gestion .hero-photo {
+  inset: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+.gestion .hero-wave {
+  bottom: -2px;
+}
+/* Photographie savoir-faire : découpe organique asymétrique. */
+.gestion .know-how .image-frame {
+  position: relative;
+  isolation: isolate;
+}
+.gestion .know-how .image-frame::after {
+  content: '';
+  position: absolute;
+  inset: 4% -4% -4% 4%;
+  background: #eaf4fa;
+  border-radius: 42% 58% 55% 45% / 48% 39% 61% 52%;
+  z-index: -1;
+}
+.gestion .know-how .image-frame img {
+  border-radius: 42% 58% 55% 45% / 48% 39% 61% 52% !important;
+  box-shadow: 0 20px 42px #092d4c22 !important;
+}
+/* Bande finale : image en forme de galet, entièrement visible et filet doré. */
+.gestion .closing-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 55px;
+}
+.gestion .closing-photo {
+  align-self: center;
+  min-height: 0;
+  height: 295px;
+  overflow: visible;
+  clip-path: none !important;
+  border: 1.5px solid #d5a65d;
+  border-radius: 46% 54% 58% 42% / 59% 42% 58% 41%;
+  padding: 5px;
+  transform: rotate(-2deg);
+  box-shadow: 0 24px 42px #001a2b44;
+}
+.gestion .closing-photo:before {
+  display: none !important;
+}
+.gestion .closing-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  transform: rotate(2deg);
+  clip-path: ellipse(74% 67% at 50% 50%);
+}
+@media (max-width: 650px) {
+  .gestion .closing-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .gestion .closing-photo {
+    height: 235px;
+    margin-bottom: 45px;
+    transform: none;
+  }
+  .gestion .closing-photo img {
+    transform: none;
+  }
+  .gestion .know-how .image-frame::after {
+    inset: 3% -2% -3% 2%;
+  }
+}
+
+/* Corrections ciblées : seulement les deux éléments indiqués. */
+/* Hero bord à bord même si un conteneur parent ajoute une marge. */
+.gestion .hero {
+  width: 100vw !important;
+  max-width: none !important;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw !important;
+  margin-right: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.gestion .hero-photo {
+  inset: 0 !important;
+}
+/* Image de fin : remplissage intégral de la forme organique, sans fente horizontale. */
+.gestion .closing-photo {
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  transform: none !important;
+  border: 2px solid #d5a65d !important;
+  border-radius: 48% 52% 58% 42% / 58% 48% 52% 42% !important;
+  clip-path: none !important;
+  box-shadow: 0 22px 42px #001a2b44 !important;
+}
+.gestion .closing-photo img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transform: none !important;
+  clip-path: none !important;
+  border-radius: inherit !important;
+}
+@media (max-width: 650px) {
+  .gestion .closing-photo {
+    height: 235px !important;
+  }
+}
+
+/* Suppression du cadre blanc provenant des marges globales du navigateur. */
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+}
+body {
+  overflow-x: clip;
+}
+.gestion,
+.gestion {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+.gestion > section.hero {
+  width: 100% !important;
+  left: auto !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+.gestion > section.hero .hero-photo {
+  inset: 0 !important;
+}
+
+/* Nouvelle forme organique panoramique et arabesques dorées — section finale uniquement. */
+.gestion .closing-grid {
+  position: relative;
+  isolation: isolate;
+}
+.gestion .closing-grid::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  right: -9%;
+  top: 15%;
+  width: 61%;
+  height: 78%;
+  border: 1.5px solid rgba(227, 174, 92, 0.8);
+  border-radius: 54% 46% 58% 42% / 48% 58% 42% 52%;
+  transform: rotate(-10deg);
+}
+.gestion .closing-grid > div {
+  position: relative;
+  z-index: 1;
+}
+.gestion .closing-photo {
+  z-index: 2 !important;
+  width: 100% !important;
+  height: 325px !important;
+  min-height: 0 !important;
+  border: 2px solid #e0ad62 !important;
+  border-radius: 48% 52% 57% 43% / 63% 44% 56% 37% !important;
+  transform: rotate(-5deg) !important;
+  overflow: hidden !important;
+  box-shadow: 0 22px 40px #00182766 !important;
+}
+.gestion .closing-photo img {
+  border-radius: 0 !important;
+  transform: rotate(5deg) scale(1.16) !important;
+  object-fit: cover !important;
+}
+.gestion .closing::after {
+  content: '';
+  position: absolute;
+  right: -15%;
+  bottom: -55%;
+  width: 55%;
+  height: 90%;
+  border: 1px solid rgba(221, 165, 81, 0.45);
+  border-radius: 50%;
+  transform: rotate(-18deg);
+  pointer-events: none;
+}
+@media (max-width: 650px) {
+  .gestion .closing-photo {
+    height: 235px !important;
+    transform: rotate(-3deg) !important;
+  }
+  .gestion .closing-photo img {
+    transform: rotate(3deg) scale(1.18) !important;
+  }
+  .gestion .closing-grid::after {
+    width: 105%;
+    right: -10%;
+    top: 55%;
+    height: 38%;
+  }
+}
+
+/* Maison & Monde — profondeur douce, cartes flottantes et apparitions desktop. */
+.gestion {
+  --mm-shadow: 0 15px 28px rgba(8, 38, 62, 0.12), 0 28px 58px rgba(8, 38, 62, 0.1);
+}
+.gestion .extras-grid article,
+.gestion .steps article,
+.gestion .comparison figure,
+.gestion .image-frame,
+.gestion .benefits div {
+  position: relative;
+}
+.gestion .extras-grid article {
+  box-shadow:
+    var(--mm-shadow),
+    0 2px 5px rgba(8, 38, 62, 0.06);
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s ease;
+}
+.gestion .steps article {
+  background: rgba(255, 255, 255, 0.87);
+  border: 1px solid rgba(221, 231, 239, 0.82);
+  border-radius: 18px;
+  padding: 0 0 22px;
+  box-shadow:
+    0 12px 27px rgba(8, 38, 62, 0.1),
+    0 22px 44px rgba(8, 38, 62, 0.06);
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s ease;
+}
+.gestion .steps article h3,
+.gestion .steps article p {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.gestion .step-photo img {
+  border-radius: 17px 17px 10px 10px;
+  box-shadow: 0 12px 25px rgba(8, 38, 62, 0.13);
+}
+.gestion .comparison figure {
+  border-radius: 18px;
+  box-shadow: var(--mm-shadow);
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s ease;
+}
+.gestion .comparison figure img {
+  box-shadow: none;
+}
+.gestion .image-frame {
+  filter: drop-shadow(0 15px 22px rgba(8, 38, 62, 0.13));
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.65s ease;
+}
+.gestion .benefits div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 8px 13px;
+  border-radius: 17px;
+  background: #fff;
+  border: 1px solid rgba(225, 234, 241, 0.8);
+  box-shadow:
+    0 8px 18px rgba(8, 38, 62, 0.09),
+    0 16px 30px rgba(8, 38, 62, 0.07);
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s ease;
+}
+/* Cercles et icônes harmonisés — Notre savoir-faire */
+.gestion .benefits div span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  margin: 0 auto 8px;
+  padding: 0;
+
+  border-radius: 50%;
+  background: #f4faff;
+  box-shadow: 0 5px 11px rgba(8, 38, 62, 0.1);
+
+  font-family: Arial, sans-serif;
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.gestion .closing-photo {
+  box-shadow:
+    0 22px 45px rgba(0, 16, 31, 0.48),
+    0 35px 65px rgba(0, 16, 31, 0.25) !important;
+  transition:
+    box-shadow 0.38s ease,
+    filter 0.38s ease;
+}
+@media (min-width: 901px) and (hover: hover) {
+  .gestion .extras-grid article:hover,
+  .gestion .steps article:hover,
+  .gestion .comparison figure:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 23px 37px rgba(8, 38, 62, 0.16),
+      0 36px 68px rgba(8, 38, 62, 0.12);
+  }
+  .gestion .image-frame:hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 22px 28px rgba(8, 38, 62, 0.18));
+  }
+  .gestion .closing-photo:hover {
+    filter: brightness(1.035);
+    box-shadow:
+      0 30px 58px rgba(0, 16, 31, 0.5),
+      0 42px 80px rgba(0, 16, 31, 0.26) !important;
+  }
+}
+/* Les éléments ne sont masqués qu'après initialisation de l'observateur JS. */
+@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  .gestion.mm-reveal-ready .mm-reveal:not(.mm-visible) {
+    opacity: 0;
+    translate: 0 28px;
+  }
+  .gestion.mm-reveal-ready .mm-reveal {
+    transition:
+      opacity 0.75s ease,
+      translate 0.75s cubic-bezier(0.2, 0.75, 0.25, 1);
+    transition-delay: var(--mm-delay, 0ms);
+  }
+  .gestion.mm-reveal-ready .mm-reveal.mm-visible {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@media (max-width: 900px), (prefers-reduced-motion: reduce) {
+  .gestion .extras-grid article,
+  .gestion .steps article,
+  .gestion .comparison figure,
+  .gestion .image-frame,
+  .gestion .closing-photo,
+  .gestion .benefits div {
+    transition: none !important;
+    transform: none !important;
+  }
+  .gestion .mm-reveal {
+    opacity: 1 !important;
+    translate: none !important;
+  }
+}
+
+/* Flottement doux des quatre cartes du savoir-faire — ordinateur uniquement. */
+@media (min-width: 901px) and (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .gestion .know-how .benefits > div {
+    transition:
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.8s ease;
+    will-change: auto;
+  }
+  .gestion .know-how .benefits > div:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 15px 27px rgba(8, 38, 62, 0.14),
+      0 25px 43px rgba(8, 38, 62, 0.1);
+  }
+  .gestion .know-how .benefits > div > span {
+    transition: box-shadow 0.8s ease;
+  }
+  .gestion .know-how .benefits > div:hover > span {
+    box-shadow: 0 7px 16px rgba(8, 38, 62, 0.17);
+  }
+}
+
+/* Dimensions uniformes des quatre SVG */
+.gestion .benefits > div > span svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  stroke: #164b73;
+}
+/* Hauteur identique à la page principale Conciergerie */
+@media (min-width: 901px) {
+  .gestion > section.hero {
+    box-sizing: border-box;
+    height: 720px !important;
+    min-height: 720px !important;
+    max-height: 720px !important;
+  }
+  .gestion > section.hero .hero-inner {
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+}
+
+/* Styles propres à la page services à la carte */
+.gestion .hero-photo {
+  background-image: url('/images/conciergerie/services-complementaires.webp');
+}
+.gestion .hero h1 {
+  font-size: clamp(48px, 5.3vw, 75px);
+}
+.gestion .extras-grid article {
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s ease;
+}
+.gestion .steps article {
+  background: #fff;
+  padding: 26px 20px;
+  border: 1px solid #e3ecf2;
+  border-radius: 17px;
+  box-shadow:
+    0 12px 25px #082b4720,
+    0 22px 35px #082b4715;
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s ease;
+}
+.gestion .steps article:not(:last-child):after {
+  top: 85px;
+}
+.gestion .step-number {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #f5b84f;
+  color: #0c2941;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 6px 12px #0a2c4920;
+}
+.gestion .steps h3 {
+  margin: 20px 0 10px;
+}
+.gestion .image-frame img {
+  border-radius: 48% 52% 55% 45% / 45% 47% 53% 55%;
+  box-shadow:
+    14px 17px 0 #e5f2f8,
+    0 30px 42px #092c4b32;
+}
+.gestion .faq {
+  background: #f4f9fc;
+}
+.gestion .faq-list {
+  max-width: 840px;
+  display: grid;
+  gap: 12px;
+  margin-top: 34px;
+}
+.gestion .faq details {
+  background: #fff;
+  border: 1px solid #e1ebf1;
+  border-radius: 15px;
+  padding: 0 22px;
+  box-shadow:
+    0 12px 25px #092b4a1e,
+    0 18px 30px #092b4a12;
+}
+.gestion .faq summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+.gestion .faq summary::-webkit-details-marker {
+  display: none;
+}
+.gestion .faq summary span {
+  color: #cb8d37;
+  font-size: 23px;
+}
+.gestion .faq details[open] summary span {
+  transform: rotate(45deg);
+}
+.gestion .faq details p {
+  font-size: 14px;
+  color: #5d7182;
+  margin: 0;
+  padding: 0 0 22px;
+}
+@media (min-width: 901px) and (hover: hover) {
+  .gestion .extras-grid article:hover,
+  .gestion .steps article:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 35px #082b4730,
+      0 27px 44px #082b471a;
+  }
+}
+@media (max-width: 650px) {
+  .gestion .steps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gestion .steps article {
+    padding: 18px 14px;
+  }
+  .gestion .hero h1 {
+    font-size: clamp(39px, 9vw, 53px);
+  }
+  .gestion .faq summary {
+    font-size: 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gestion .extras-grid article,
+  .gestion .steps article {
+    transition: none;
+  }
+}
+
+.gestion .hero-photo {
+  background-image: url('/images/conciergerie/salon-conciergerie.webp') !important;
+}
+.gestion .gestion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 35px;
+}
+.gestion .gestion-card {
+  background: white;
+  border: 1px solid #e5edf3;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow:
+    0 12px 23px #092b4830,
+    0 22px 38px #092b481b;
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s ease;
+}
+.gestion .gestion-card img {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+.gestion .card-body {
+  padding: 19px 17px 23px;
+}
+.gestion .card-num {
+  font-size: 10px;
+  letter-spacing: 1.3px;
+  color: #b27e39;
+  font-weight: 800;
+}
+.gestion .gestion-card h3 {
+  font-size: 22px;
+  line-height: 1.18;
+  margin: 12px 0;
+}
+.gestion .gestion-card p {
+  font-size: 12px;
+  color: #587084;
+  min-height: 112px;
+}
+.gestion .gestion-card a {
+  color: #17577b;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.gestion .steps article {
+  background: #fff;
+  border: 1px solid #e5edf3;
+  border-radius: 17px;
+  padding: 24px 18px;
+  box-shadow:
+    0 12px 24px #092b4826,
+    0 22px 36px #092b4814;
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s ease;
+}
+.gestion .step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #f6b94e;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 12px;
+  box-shadow: 0 5px 12px #092b4825;
+}
+.gestion .steps h3 {
+  margin-top: 18px;
+}
+.gestion .faq {
+  background: #f5f9fc;
+}
+.gestion .faq-list {
+  max-width: 720px;
+  margin-top: 34px;
+  display: grid;
+  gap: 12px;
+}
+.gestion .faq details {
+  background: #fff;
+  border: 1px solid #e5edf3;
+  border-radius: 14px;
+  box-shadow: 0 12px 25px #092b4824;
+  padding: 0 20px;
+}
+.gestion .faq summary {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  padding: 21px 0;
+  font-size: 14px;
+  font-weight: 700;
+  list-style: none;
+}
+.gestion .faq summary::-webkit-details-marker {
+  display: none;
+}
+.gestion .faq summary span {
+  color: #c28a40;
+  font-size: 22px;
+}
+.gestion .faq details[open] summary span {
+  transform: rotate(45deg);
+}
+.gestion .faq details p {
+  font-size: 13px;
+  color: #5d7182;
+  margin: 0;
+  padding: 0 0 20px;
+}
+.gestion .image-frame img {
+  border-radius: 49% 51% 48% 52% / 55% 43% 57% 45%;
+  box-shadow:
+    14px 17px 0 #dfeef6,
+    0 27px 40px #092b4835;
+}
+.gestion .closing-photo {
+  clip-path: ellipse(49% 42% at 50% 50%);
+  filter: drop-shadow(0 18px 20px #041c2e55);
+}
+@media (min-width: 901px) and (hover: hover) {
+  .gestion .gestion-card:hover,
+  .gestion .steps article:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 18px 29px #092b4833,
+      0 30px 44px #092b4825;
+  }
+}
+@media (max-width: 900px) {
+  .gestion .gestion-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .gestion .gestion-card p {
+    min-height: 0;
+  }
+}
+@media (max-width: 650px) {
+  .gestion .gestion-grid {
+    grid-template-columns: 1fr;
+  }
+  .gestion .steps {
+    grid-template-columns: 1fr;
+  }
+  .gestion .closing-photo {
+    clip-path: ellipse(49% 43% at 50% 50%);
+  }
+}

@@ -1,0 +1,129 @@
+/* Externalisé depuis src/layouts/AdminLayout.astro (global). */
+.ma-admin {
+    margin: 0;
+    background: #091b2d;
+    color: #edf5ff;
+    font:
+      14px Arial,
+      sans-serif;
+  }
+  .ma-admin * {
+    box-sizing: border-box;
+  }
+  .ma-admin > header {
+    padding: 24px 5%;
+    border-bottom: 1px solid #36516c;
+    background: #071525;
+  }
+  .ma-admin > header > a {
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+  .ma-admin > header > a span {
+    color: #efb35a;
+  }
+  .ma-admin a {
+    color: #efbc71;
+    text-decoration: none;
+  }
+  .ma-admin nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    font-size: 13px;
+  }
+  .ma-admin nav [aria-current] {
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+  .ma-admin main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 30px 22px;
+  }
+  .ma-admin h1 {
+    font-size: 32px;
+    letter-spacing: -0.5px;
+  }
+  .ma-admin .ma-panel {
+    border: 1px solid #38526d;
+    border-radius: 16px;
+    background: #102840;
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: 0 15px 35px #0002;
+  }
+  .ma-admin .ma-filters {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .ma-admin input,
+  .ma-admin select,
+  .ma-admin button {
+    padding: 11px 14px;
+    border: 1px solid #526c86;
+    background: #173650;
+    color: white;
+    border-radius: 9px;
+    font: inherit;
+  }
+  .ma-admin button {
+    cursor: pointer;
+    border-color: #d49b47;
+    color: #ffc775;
+  }
+  .ma-admin .ma-message header {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .ma-admin h2 {
+    font-size: 19px;
+    margin: 0 0 12px;
+  }
+  .ma-admin .ma-message p {
+    line-height: 1.8;
+  }
+  .ma-admin .ma-message dl {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .ma-admin dt {
+    color: #b4c7da;
+  }
+  .ma-admin dd {
+    margin: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .ma-admin .ma-message form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+  }
+  .ma-admin [hidden] {
+    display: none !important;
+  }
+  .ma-admin :focus-visible {
+    outline: 3px solid #efbc71;
+    outline-offset: 3px;
+  }
+  @media (max-width: 600px) {
+    .ma-admin .ma-message dl {
+      grid-template-columns: 1fr;
+      gap: 5px;
+    }
+    .ma-admin dd {
+      margin-bottom: 12px;
+    }
+    .ma-admin .ma-panel {
+      padding: 20px;
+    }
+  }

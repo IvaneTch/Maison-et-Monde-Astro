@@ -1,0 +1,1016 @@
+.tf {
+  --tf-navy: #0a2a43;
+  --tf-blue: #174c70;
+  --tf-gold: #e8ad5c;
+  color: var(--tf-navy);
+  font-family: inherit;
+  overflow: hidden;
+}
+.tf * {
+  box-sizing: border-box;
+}
+.tf-container {
+  width: min(1140px, 88%);
+  margin: auto;
+}
+.tf-relative {
+  position: relative;
+  z-index: 1;
+}
+.tf h1,
+.tf h2,
+.tf h3 {
+  margin: 0;
+  line-height: 1.14;
+}
+.tf h1,
+.tf h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+}
+.tf h1 {
+  font-size: clamp(42px, 5vw, 72px);
+  color: white;
+}
+.tf h2 {
+  font-size: clamp(35px, 4vw, 53px);
+}
+.tf h1 em,
+.tf h2 em {
+  font-style: normal;
+  color: #d9a052;
+}
+.tf p {
+  line-height: 1.75;
+}
+.tf-eyebrow {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  font-weight: 800;
+  color: #bd8a47;
+  margin: 0 0 18px !important;
+}
+.tf-hero {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  background: #0a2439;
+}
+.tf-hero-image {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5, 29, 49, 0.94) 0%, rgba(5, 29, 49, 0.8) 43%, rgba(5, 29, 49, 0.2) 100%),
+    url('/images/conciergerie/salon-conciergerie.webp') center/cover;
+}
+.tf-hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 95px 0 120px;
+}
+.tf-hero-content > p:not(.tf-eyebrow) {
+  max-width: 570px;
+  color: #edf3f6;
+  font-size: 16px;
+  margin: 22px 0 28px;
+}
+.tf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.tf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  min-height: 46px;
+  border-radius: 28px;
+  padding: 12px 22px;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s ease;
+}
+.tf-btn:hover {
+  transform: translateY(-3px);
+}
+.tf-btn-gold {
+  background: #efb15e;
+  color: #102b43;
+  box-shadow: 0 8px 22px rgba(5, 27, 45, 0.17);
+}
+.tf-btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  color: #fff;
+}
+.tf-btn-white {
+  background: #fff;
+  color: #123b57;
+  border: 1px solid #e5edf2;
+}
+.tf-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 85px;
+}
+.tf-section {
+  position: relative;
+  padding: 96px 0;
+}
+.tf-formules {
+  background: #f8fbfd;
+  text-align: center;
+}
+.tf-intro {
+  max-width: 670px;
+  margin: 18px auto 42px;
+  color: #52677a;
+}
+.tf-offres {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  text-align: left;
+}
+.tf-offre {
+  padding: 38px;
+  border: 1px solid #e6edf2;
+  background: white;
+  border-radius: 22px;
+  box-shadow:
+    0 15px 35px rgba(8, 39, 64, 0.1),
+    0 28px 48px rgba(8, 39, 64, 0.05);
+  transition:
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.65s ease;
+}
+.tf-offre-featured {
+  background: linear-gradient(140deg, #0b2b45, #195575);
+  color: white;
+  border-color: #1b5473;
+}
+.tf-offre-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  font-weight: 800;
+  color: #c79555;
+}
+.tf-offre-number {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  opacity: 0.6;
+}
+.tf-offre h3 {
+  font-family: Georgia, serif;
+  font-size: 33px;
+  font-weight: 500;
+  margin: 18px 0;
+}
+.tf-offre > p {
+  min-height: 90px;
+  font-size: 14px;
+  color: #516a7b;
+}
+.tf-offre-featured > p {
+  color: #dceaf1;
+}
+.tf-offre ul {
+  list-style: none;
+  margin: 26px 0;
+  padding: 0;
+  display: grid;
+  gap: 15px;
+}
+.tf-offre li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+}
+.tf-offre li span {
+  color: #d9a052;
+  font-weight: 800;
+}
+.tf-price {
+  padding: 18px 0 22px;
+  margin-top: 12px;
+  border-top: 1px solid #e6edf2;
+  font-size: 22px;
+  font-family: Georgia, serif;
+}
+.tf-offre-featured .tf-price {
+  border-color: #39637d;
+}
+.tf-price small {
+  display: block;
+  margin-top: 6px;
+  font:
+    12px/1.5 Arial,
+    sans-serif;
+  opacity: 0.75;
+}
+.tf-offre .tf-btn {
+  margin-top: 4px;
+}
+.tf-how {
+  background: #fff;
+}
+.tf-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+.tf-split p:not(.tf-eyebrow) {
+  color: #52677a;
+}
+.tf-photo {
+  position: relative;
+  aspect-ratio: 1.13;
+  border-radius: 42% 14% 35% 12%;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(10, 42, 67, 0.18);
+}
+.tf-photo img,
+.tf-cta-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tf-text-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #1a587d;
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 1px solid #d7a35c;
+  padding-bottom: 7px;
+}
+.tf-factors {
+  background: linear-gradient(145deg, #f0f7fb, #fbfdff);
+  text-align: center;
+}
+.tf-factor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 44px;
+  text-align: left;
+}
+.tf-factor {
+  background: white;
+  padding: 28px 24px;
+  border-radius: 18px;
+  box-shadow: 0 12px 26px rgba(10, 42, 67, 0.09);
+  border: 1px solid #e8eff4;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tf-factor-number {
+  font:
+    27px Georgia,
+    serif;
+  color: #d2a063;
+}
+.tf-factor h3 {
+  font-size: 19px;
+  margin: 17px 0 12px;
+}
+.tf-factor p {
+  font-size: 13px;
+  color: #52677a;
+  margin: 0;
+}
+.tf-faq {
+  background: #fff;
+}
+.tf-faq-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 70px;
+}
+.tf-faq-grid > div:first-child > p:last-child {
+  color: #617487;
+}
+.tf-faq-list {
+  display: grid;
+  gap: 12px;
+}
+.tf-faq-list details {
+  background: #fff;
+  border: 1px solid #e5edf2;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(10, 42, 67, 0.07);
+  overflow: hidden;
+}
+.tf-faq-list summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+.tf-faq-list summary::-webkit-details-marker {
+  display: none;
+}
+.tf-faq-list summary span {
+  color: #c99552;
+  font-size: 22px;
+}
+.tf-faq-list details[open] summary span {
+  transform: rotate(45deg);
+}
+.tf-faq-list details p {
+  padding: 0 20px 20px;
+  margin: 0;
+  color: #52677a;
+  font-size: 14px;
+}
+.tf-cta {
+  background: linear-gradient(125deg, #0a2a43, #195676);
+  color: #fff;
+  overflow: hidden;
+}
+.tf-cta-inner {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+  min-height: 440px;
+}
+.tf-cta h2 {
+  color: white;
+}
+.tf-cta p:not(.tf-eyebrow) {
+  color: #dce9f1;
+  max-width: 540px;
+}
+.tf-cta-photo {
+  height: 440px;
+  overflow: hidden;
+  clip-path: ellipse(92% 90% at 95% 50%);
+}
+.tf-orb {
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  border: 28px solid rgba(180, 222, 248, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.tf-orb-left {
+  left: -230px;
+  top: 90px;
+}
+@media (min-width: 901px) and (hover: hover) {
+  .tf-offre:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 22px 48px rgba(8, 39, 64, 0.14);
+  }
+  .tf-factor:hover {
+    transform: translateY(-4px);
+  }
+}
+@media (max-width: 900px) {
+  .tf-section {
+    padding: 70px 0;
+  }
+  .tf-offres,
+  .tf-split,
+  .tf-faq-grid,
+  .tf-cta-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .tf-factor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tf-offre > p {
+    min-height: 0;
+  }
+  .tf-cta-inner {
+    padding-top: 65px;
+  }
+  .tf-cta-photo {
+    height: 260px;
+    clip-path: none;
+    border-radius: 30px 30px 0 0;
+  }
+  .tf-hero {
+    min-height: 560px;
+  }
+  .tf-hero-image {
+    background:
+      linear-gradient(90deg, rgba(5, 29, 49, 0.93), rgba(5, 29, 49, 0.45)),
+      url('/images/conciergerie/salon-conciergerie.webp') center/cover;
+  }
+}
+@media (max-width: 600px) {
+  .tf-container {
+    width: 90%;
+  }
+  .tf-hero-content {
+    padding: 75px 0 110px;
+  }
+  .tf-hero {
+    min-height: 520px;
+  }
+  .tf h1 {
+    font-size: clamp(37px, 10vw, 50px);
+  }
+  .tf-section {
+    padding: 60px 0;
+  }
+  .tf-offre {
+    padding: 28px 23px;
+  }
+  .tf-factor-grid {
+    grid-template-columns: 1fr;
+  }
+  .tf-actions {
+    align-items: flex-start;
+  }
+  .tf-btn {
+    font-size: 12px;
+  }
+  .tf-faq-grid {
+    gap: 22px;
+  }
+  .tf-cta-inner {
+    gap: 25px;
+  }
+  .tf-cta-photo {
+    height: 220px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tf .tf-btn,
+  .tf .tf-offre,
+  .tf .tf-factor {
+    transition: none !important;
+  }
+}
+
+/* Maison & Monde — harmonisation avec les autres pages Conciergerie */
+@media (min-width: 901px) {
+  .tf .tf-hero {
+    height: 720px;
+    min-height: 720px;
+    max-height: 720px;
+  }
+}
+.tf .tf-decorated {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.tf .tf-decorated > .tf-container {
+  position: relative;
+  z-index: 2;
+}
+.tf .tf-gold-ribbon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.78;
+}
+.tf .tf-gold-ribbon path {
+  fill: none;
+  stroke: #d5a15c;
+  stroke-width: 1.8;
+  vector-effect: non-scaling-stroke;
+}
+.tf .tf-photo {
+  isolation: isolate;
+  overflow: visible;
+  border-radius: 0;
+  box-shadow: none;
+}
+.tf .tf-photo::before {
+  content: '';
+  position: absolute;
+  inset: -5% -5% 3% 5%;
+  border: 2px solid #d8a25a;
+  border-radius: 45% 55% 52% 48% / 55% 42% 58% 45%;
+  transform: rotate(-8deg);
+  z-index: -1;
+  pointer-events: none;
+}
+.tf .tf-photo::after {
+  content: '';
+  position: absolute;
+  inset: 4% -4% -5% 5%;
+  border: 1.4px solid rgba(216, 162, 90, 0.7);
+  border-radius: 55% 45% 43% 57% / 42% 58% 42% 58%;
+  transform: rotate(7deg);
+  z-index: -1;
+  pointer-events: none;
+}
+.tf .tf-photo img {
+  display: block;
+  border-radius: 43% 57% 52% 48% / 52% 43% 57% 48%;
+  box-shadow:
+    0 22px 42px rgba(8, 38, 62, 0.22),
+    0 38px 62px rgba(8, 38, 62, 0.11);
+}
+.tf .tf-cta-photo {
+  position: relative;
+  overflow: visible;
+  clip-path: none;
+  isolation: isolate;
+}
+.tf .tf-cta-photo::before {
+  content: '';
+  position: absolute;
+  inset: 3% -4% 3% 2%;
+  border: 2px solid #d8a25a;
+  border-radius: 50% 50% 56% 44% / 58% 42% 58% 42%;
+  transform: rotate(-7deg);
+  z-index: -1;
+  pointer-events: none;
+}
+.tf .tf-cta-photo img {
+  display: block;
+  border-radius: 48% 52% 55% 45% / 57% 44% 56% 43%;
+  box-shadow:
+    0 22px 42px rgba(0, 16, 31, 0.42),
+    0 38px 65px rgba(0, 16, 31, 0.2);
+}
+.tf .tf-offre {
+  box-shadow:
+    0 14px 28px rgba(8, 38, 62, 0.14),
+    0 28px 55px rgba(8, 38, 62, 0.1);
+}
+.tf .tf-factor {
+  box-shadow:
+    0 12px 25px rgba(8, 38, 62, 0.13),
+    0 24px 46px rgba(8, 38, 62, 0.09);
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.7s ease;
+}
+.tf .tf-faq-list details {
+  box-shadow:
+    0 10px 23px rgba(8, 38, 62, 0.12),
+    0 20px 42px rgba(8, 38, 62, 0.08);
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.7s ease;
+}
+.tf .tf-photo,
+.tf .tf-cta-photo {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (min-width: 901px) and (hover: hover) {
+  .tf .tf-offre:hover,
+  .tf .tf-factor:hover,
+  .tf .tf-faq-list details:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 23px 39px rgba(8, 38, 62, 0.18),
+      0 36px 68px rgba(8, 38, 62, 0.13);
+  }
+  .tf .tf-photo:hover,
+  .tf .tf-cta-photo:hover {
+    transform: translateY(-3px);
+  }
+}
+@media (max-width: 900px) {
+  .tf .tf-gold-ribbon {
+    opacity: 0.78;
+  }
+  .tf .tf-photo,
+  .tf .tf-cta-photo {
+    transform: none !important;
+    transition: none !important;
+  }
+  .tf .tf-offre,
+  .tf .tf-factor,
+  .tf .tf-faq-list details {
+    transform: none !important;
+    transition: none !important;
+  }
+  .tf .tf-cta-photo {
+    height: 260px;
+    clip-path: none;
+    border-radius: 0;
+  }
+  .tf .tf-cta-photo img {
+    height: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .tf .tf-cta-photo {
+    height: 220px;
+    margin-bottom: 32px;
+  }
+  .tf .tf-photo::before,
+  .tf .tf-photo::after {
+    inset: 0 -2% 0 2%;
+  }
+}
+
+/* Bandeau final : même langage graphique que les autres pages conciergerie */
+.tf .tf-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(110deg, #092b45 0%, #123f60 57%, #155879 100%);
+}
+.tf .tf-cta-top-wave {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 82px;
+  z-index: 3;
+  pointer-events: none;
+}
+.tf .tf-cta-gold-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+.tf .tf-cta-gold-lines path {
+  fill: none;
+  stroke: #d9a45d;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.85;
+}
+.tf .tf-cta-inner {
+  position: relative;
+  z-index: 2;
+  min-height: 505px;
+  grid-template-columns: 1fr 1fr;
+  gap: 65px;
+  padding-top: 95px;
+  padding-bottom: 75px;
+}
+.tf .tf-cta-photo {
+  height: 300px;
+  min-height: 0;
+  width: 100%;
+  overflow: visible;
+  clip-path: none;
+  border-radius: 0;
+  align-self: center;
+}
+.tf .tf-cta-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 51% 49% 55% 45% / 54% 43% 57% 46%;
+  box-shadow: 0 24px 40px rgba(0, 12, 29, 0.32);
+}
+.tf .tf-cta-photo::before {
+  inset: -8% -8% 7% -4%;
+  border: 1.5px solid #d9a45d;
+  border-radius: 49% 51% 47% 53% / 48% 56% 44% 52%;
+  transform: rotate(-8deg);
+}
+.tf .tf-cta h2 {
+  font-size: clamp(34px, 3.6vw, 51px);
+}
+@media (max-width: 900px) {
+  .tf .tf-cta-inner {
+    grid-template-columns: 1fr;
+    gap: 45px;
+    padding-top: 115px;
+    padding-bottom: 60px;
+  }
+  .tf .tf-cta-photo {
+    height: 270px;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  .tf .tf-cta-top-wave {
+    height: 65px;
+  }
+}
+@media (max-width: 600px) {
+  .tf .tf-cta-inner {
+    padding-top: 95px;
+    padding-bottom: 55px;
+  }
+  .tf .tf-cta-photo {
+    height: 220px;
+    margin: 0 auto 15px;
+  }
+  .tf .tf-cta-top-wave {
+    height: 50px;
+  }
+  .tf .tf-cta-gold-lines {
+    opacity: 0.55;
+  }
+}
+
+.tf .tf-price-prefix {
+  display: block;
+  font:
+    700 12px/1.6 Arial,
+    sans-serif;
+  letter-spacing: 0.04em;
+  color: #d9a052;
+  margin-bottom: 2px;
+}
+.tf .tf-price strong {
+  display: block;
+  font:
+    500 37px/1.15 Georgia,
+    serif;
+}
+.tf .tf-price small {
+  font-size: 12px;
+}
+.tf .tf-services-prix {
+  background: #f4f8fb;
+  text-align: center;
+}
+.tf .tf-service-price-list {
+  max-width: 900px;
+  margin: 35px auto 0;
+  background: #fff;
+  border: 1px solid #e2ebf0;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(8, 38, 62, 0.12);
+  padding: 12px 30px;
+  text-align: left;
+}
+.tf .tf-service-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 21px 6px;
+  border-bottom: 1px solid #e6edf2;
+}
+.tf .tf-service-price-row:last-child {
+  border-bottom: 0;
+}
+.tf .tf-service-price-row strong {
+  font-size: 15px;
+}
+.tf .tf-service-price-row small {
+  display: block;
+  color: #697c8a;
+  margin-top: 5px;
+  font-size: 12px;
+}
+.tf .tf-service-price-row > span {
+  white-space: nowrap;
+  font-size: 12px;
+  color: #536b7d;
+}
+.tf .tf-service-price-row b {
+  font:
+    500 26px Georgia,
+    serif;
+  color: #b57c36;
+  margin-left: 5px;
+}
+.tf .tf-price-note {
+  max-width: 900px;
+  margin: 18px auto 0;
+  text-align: left;
+  font-size: 12px;
+  color: #647789;
+}
+@media (max-width: 600px) {
+  .tf .tf-service-price-list {
+    padding: 8px 17px;
+  }
+  .tf .tf-service-price-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 17px 2px;
+  }
+  .tf .tf-service-price-row > span {
+    white-space: normal;
+  }
+  .tf .tf-price strong {
+    font-size: 33px;
+  }
+}
+
+/* Hiérarchie claire : gestion complète puis forfaits à la carte */
+.tf .tf-management-banner {
+  margin: 35px 0 0;
+  text-align: left;
+}
+.tf .tf-management-banner .tf-eyebrow {
+  color: #efb15e;
+}
+.tf .tf-management-rate {
+  font-size: 15px !important;
+  margin: 10px 0 !important;
+  color: #fff !important;
+}
+.tf .tf-management-rate strong {
+  font:
+    500 clamp(28px, 3vw, 39px) Georgia,
+    serif;
+  color: #efb15e;
+  white-space: nowrap;
+}
+.tf .tf-management-detail {
+  margin-top: 10px !important;
+  font-size: 12px !important;
+  opacity: 0.85;
+}
+.tf .tf-package-heading {
+  margin: 75px auto 38px;
+  max-width: 700px;
+  text-align: center;
+}
+.tf .tf-package-heading h3 {
+  font:
+    500 clamp(32px, 3.8vw, 47px) Georgia,
+    serif;
+}
+.tf .tf-package-heading h3 em {
+  font-style: normal;
+  color: #d9a052;
+}
+.tf .tf-package-heading > p:last-child {
+  color: #52677a;
+  font-size: 14px;
+}
+@media (max-width: 600px) {
+  .tf .tf-package-heading {
+    margin-top: 55px;
+  }
+  .tf .tf-management-banner {
+    margin-top: 25px;
+  }
+  .tf .tf-management-rate strong {
+    display: block;
+  }
+}
+
+/* Externalisé depuis src/pages/conciergerie/tarifs-formules/index.astro (page/component). */
+/* Formules par séjour — trois cartes alignées, avec ombres et touches dorées */
+  .tf .tf-formules-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+  }
+  .tf .tf-package {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 36px 26px 30px;
+    text-align: center;
+    background: #fff;
+    color: #0a2a43;
+    border: 1px solid #e1eaf0;
+    box-shadow:
+      0 15px 35px rgba(8, 39, 64, 0.1),
+      0 30px 55px rgba(8, 39, 64, 0.05);
+  }
+  .tf .tf-package-featured {
+    border: 2px solid #e6ac59;
+    box-shadow:
+      0 16px 38px rgba(8, 39, 64, 0.15),
+      0 0 0 3px rgba(230, 172, 89, 0.1);
+  }
+  .tf .tf-package-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 7px 14px;
+    border-radius: 30px;
+    background: #e8ad5c;
+    color: #102b43;
+    font:
+      800 10px Arial,
+      sans-serif;
+    letter-spacing: 1.1px;
+    white-space: nowrap;
+  }
+  .tf .tf-package h3 {
+    font-size: 27px;
+    margin: 7px 0 8px;
+  }
+  .tf .tf-package .tf-package-subtitle {
+    min-height: 0;
+    margin: 0 0 18px;
+    color: #52677a;
+    font-size: 13px;
+  }
+  .tf .tf-package-price {
+    border-top: 1px solid #e7edf2;
+    border-bottom: 1px solid #e7edf2;
+    padding: 18px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .tf .tf-package-price span {
+    font-size: 12px;
+    color: #647789;
+  }
+  .tf .tf-package-price strong {
+    font:
+      500 40px Georgia,
+      serif;
+  }
+  .tf .tf-package-price small {
+    font-size: 12px;
+    color: #647789;
+  }
+  .tf .tf-package ul {
+    flex: 1;
+    text-align: left;
+    margin: 24px 0 28px;
+    gap: 14px;
+  }
+  .tf .tf-package li {
+    font-size: 13px;
+  }
+  .tf .tf-package .tf-btn {
+    width: 100%;
+    margin-top: auto;
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+  .tf .tf-management-banner {
+    margin-top: 38px;
+    border-radius: 20px;
+    background: linear-gradient(120deg, #0a2a43, #195575);
+    padding: 30px 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    text-align: left;
+    color: #fff;
+    box-shadow: 0 20px 42px rgba(8, 39, 64, 0.15);
+  }
+  .tf .tf-management-banner h3 {
+    font:
+      500 25px Georgia,
+      serif;
+    margin: 8px 0;
+  }
+  .tf .tf-management-banner p {
+    max-width: 690px;
+    font-size: 13px;
+    color: #e4edf3;
+    margin: 0;
+  }
+  .tf .tf-management-banner .tf-btn {
+    flex-shrink: 0;
+  }
+  .tf .tf-package-disclaimer {
+    font-size: 12px;
+    color: #617487;
+    max-width: 920px;
+    margin: 25px auto 0;
+    text-align: center;
+  }
+  @media (max-width: 900px) {
+    .tf .tf-formules-grid {
+      grid-template-columns: 1fr;
+      max-width: 550px;
+      margin: auto;
+      gap: 25px;
+    }
+    .tf .tf-management-banner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .tf .tf-package .tf-package-subtitle {
+      min-height: 0;
+    }
+  }
+  @media (max-width: 600px) {
+    .tf .tf-management-banner {
+      padding: 25px 22px;
+    }
+    .tf .tf-management-banner .tf-btn {
+      width: 100%;
+    }
+  }

@@ -9,11 +9,24 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "start": "node dist/server/entry.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "format": "prettier --write \"src/**/*.{astro,ts,css}\" \"scripts/*.mjs\" \"tests/*.mjs\"",
+    "format:check": "prettier --check \"src/**/*.{astro,ts,css}\" \"scripts/*.mjs\" \"tests/*.mjs\"",
+    "db:init": "node --env-file=.env scripts/initialiser-base.mjs",
+    "notifications": "node --env-file=.env scripts/envoyer-notifications.mjs",
+    "audit": "python3 scripts/auditer-site.py"
   },
   "dependencies": {
     "@astrojs/node": "^11.1.9",
     "astro": "^7.4.2",
-    "mysql2": "^3.24.6"
+    "mysql2": "^3.24.6",
+    "nodemailer": "^10.3.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.10",
+    "prettier-plugin-astro": "^1.1.2",
+    "sharp": "^0.35.5"
   }
 }

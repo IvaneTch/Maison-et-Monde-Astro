@@ -1,17 +1,66 @@
 ---
-const titre = "mentions-legales";
+import InfoPage from '../../components/InfoPage.astro';
+import { entreprise as e } from '../../data/entreprise';
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maison & Monde | mentions-legales</title>
-  </head>
-  <body>
-    <main>
-      <h1>{titre}</h1>
-      <p>Cette page est en cours de préparation.</p>
-    </main>
-  </body>
-</html>
+<InfoPage
+  title="Mentions légales | Maison & Monde"
+  heading="Mentions légales"
+  description="Informations sur l’éditeur du site Maison & Monde, ses coordonnées et le responsable de publication."
+>
+  <section>
+    <h2>Éditeur du site</h2>
+    <dl>
+      <dt>Raison sociale</dt>
+      <dd>
+        {e.raisonSociale} · {e.forme}
+      </dd>
+      <dt>SIRET</dt>
+      <dd>{e.siret}</dd>
+      <dt>Immatriculation</dt>
+      <dd>RCS {e.rcs}</dd>
+      <dt>Siège social</dt>
+      <dd>
+        {e.adresse}, {e.codePostal} {e.ville}
+      </dd>
+      <dt>Contact</dt>
+      <dd>
+        <a href={`mailto:${e.email}`}>{e.email}</a> · <a href="tel:+33980386848">{e.telephone}</a>
+      </dd>
+      <dt>Publication</dt>
+      <dd>{e.responsable}</dd>
+    </dl>
+  </section>
+  <section>
+    <h2>Hébergement</h2>
+    <p>
+      Le site actuellement accessible à l’adresse maisonetmonde.fr est hébergé par IONOS SARL, 7 place de la
+      Gare, 57200 Sarreguemines.{' '}
+      <a href="https://www.ionos.fr/terms-gtc/terms-imprint/">Coordonnées de l’hébergeur</a>.
+    </p>
+  </section>
+  <section>
+    <h2>Propriété intellectuelle</h2>
+    <p>
+      Les textes, visuels et signes distinctifs présents sur ce site appartiennent à Maison & Monde ou sont
+      utilisés avec l’autorisation de leurs titulaires. Toute réutilisation dépassant les usages autorisés
+      nécessite leur accord.
+    </p>
+  </section>
+  <section>
+    <h2>Données personnelles</h2>
+    <p>
+      Les informations fournies dans les formulaires servent à traiter vos demandes. Consultez notre{' '}
+      <a href="/politique-de-confidentialite/">politique de confidentialité</a> pour connaître les données
+      concernées et exercer vos droits.
+    </p>
+  </section>
+  <section>
+    <h2>Réclamation et médiation</h2>
+    <p>
+      Pour toute réclamation, contactez d’abord Maison & Monde à <a href={`mailto:${e.email}`}>{e.email}</a>.
+      En cas de différend non résolu, les modalités de recours au médiateur de la consommation sont présentées
+      dans nos <a href="/cgv/">conditions de service</a>.
+    </p>
+  </section>
+</InfoPage>
