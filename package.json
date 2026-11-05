@@ -16,7 +16,9 @@
     "format:check": "prettier --check \"src/**/*.{astro,ts,css}\" \"scripts/*.mjs\" \"tests/*.mjs\"",
     "db:init": "node --env-file=.env scripts/initialiser-base.mjs",
     "notifications": "node --env-file=.env scripts/envoyer-notifications.mjs",
-    "audit": "python3 scripts/auditer-site.py"
+    "audit": "python3 scripts/auditer-site.py",
+    "build:demo": "node scripts/build-demo.mjs",
+    "check:demo": "node scripts/check-demo.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^11.1.9",

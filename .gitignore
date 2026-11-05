@@ -26,3 +26,7 @@ pnpm-debug.log*
 
 # Journaux locaux de réparation des liens clients
 .local/
+
+# Génération isolée GitHub Pages
+.demo/
+dist-demo/

@@ -42,3 +42,7 @@ Les fichiers `.local`, `.env`, les sauvegardes et les originaux des images ne do
 ## Production
 
 Lire [le guide de déploiement](docs/deploiement.md) avant de remplacer l’ancien site. L’indexation et les notifications SMTP sont désactivées tant que leur configuration n’est pas explicitement validée. Aucun compte administrateur n’est exporté avec le schéma.
+
+## Démonstration statique
+
+La branche `demo` dispose d’une génération et d’un déploiement GitHub Pages isolés. Voir [le guide de démonstration](docs/DEMO-GITHUB-PAGES.md).
